@@ -299,6 +299,37 @@ gtag('js', new Date());
 gtag('config', 'G-T27E9FT0X7');
 </script>
 
+{% comment %} ======================Custom Events======================== {% endcomment %}
+
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+//      gtag('config', 'G-T27E9FT0X7');
+      gtag('config', 'G-T27E9FT0X7', { send_page_view: false });
+
+  
+      detectIncognito().then((result) => {
+        let incognito_windowValue = 0
+        if(result.isPrivate) incognito_windowValue = 1;  
+        if(incognito_windowValue){      
+        gtag('event', 'page_view_incognito', {
+          incognito_window: incognito_windowValue
+          //incognito_window: result.isPrivate+','+result.browserName
+        });
+      }
+        console.log(result.browserName, result.isPrivate);
+      });   
+  </script>
+
+
+
+
+
+
+
+
 
 
   </head>
