@@ -407,14 +407,24 @@ gtag('config', 'G-T27E9FT0X7');
               if (!item) return;
 
               const removedItem = {
-                item_id: item.product_id.toString(),
-                item_name: item.title,
-                item_brand: item.vendor || "",
-                item_category: item.product_type || "",
-                item_variant: item.variant_title || "",
-                price: item.price / 100,
-                quantity: item.quantity,
-                affiliation: "Online Store"
+                 item_id: lastItem.product_id.toString(),
+                item_name: lastItem.title,
+                item_brand: lastItem.vendor || "",
+                item_category: lastItem.product_type || "",
+                item_category2: lastItem.collections?.[0]?.title || '',
+                item_category3: lastItem.collections?.[1]?.title || '',
+                item_category4: lastItem.collections?.[2]?.title || '',
+                item_category5: lastItem.collections?.[3]?.title || '',
+                item_list_id: 'cart',
+                item_list_name: 'Cart',
+                item_variant: lastItem.variant_title || "",
+                price: lastItem.price / 100,
+                quantity: lastItem.quantity,
+                location_id: 'online_store',
+                affiliation: "Online Store",
+                discount: parseFloat(
+                            cartLine.cost?.totalDiscountAmount?.amount || 0
+                          )  
               };
 
               // Detect Incognito Mode
