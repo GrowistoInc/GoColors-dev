@@ -323,7 +323,53 @@ gtag('config', 'G-T27E9FT0X7');
       });   
   </script>
 
+  {% comment %} Add to cart event {% endcomment %}
+    <script>
+      document.addEventListener('click', function(e) {
+        const btn = e.target.closest('.add-to-cart-button');
+        if (!btn) return;
 
+        // Wait for Shopify to add item to cart
+        setTimeout(function() {
+          fetch('/cart.js')
+            .then(res => res.json())
+            .then(cart => {
+              const lastItem = cart.items[cart.items.length - 1];
+              if (!lastItem) return;
+
+              const ga4Item = {
+                item_id: lastItem.product_id.toString(),
+                item_name: lastItem.title,
+                item_brand: lastItem.vendor || "",
+                item_category: lastItem.product_type || "",
+                item_variant: lastItem.variant_title || "",
+                price: lastItem.price / 100,
+                quantity: lastItem.quantity,
+                affiliation: "Online Store"
+              };
+
+              // Detect Incognito Mode
+              detectIncognito().then((result) => {
+                let incognito_windowValue = result.isPrivate ? 1 : 0;
+
+                // GA4 event
+                gtag('event', 'add_to_cart', {
+                  incognito_window: incognito_windowValue,
+                  currency: Shopify.currency.active,
+                  value: (lastItem.price * lastItem.quantity) / 100,
+                  items: [ga4Item]
+                });
+
+                console.log("GA4 add_to_cart event fired:", {
+                  incognito_window: incognito_windowValue,
+                  item: ga4Item
+                });
+              });
+
+            });
+        }, 300);
+      });
+    </script>
 
 
 
