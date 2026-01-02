@@ -1,0 +1,523 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "page_redirect_content_6dcpHH": {
+      "type": "page-redirect-content",
+      "blocks": {
+        "text_96Jw8t": {
+          "type": "text",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "text_96Jw8t"
+      ],
+      "disabled": true,
+      "settings": {
+        "menu": "page-redirect",
+        "padding_top": 40,
+        "padding_bottom": 52,
+        "padding-top-mob": 40,
+        "padding-bottom-mob": 40
+      }
+    },
+    "investor_left_block_heb48K": {
+      "type": "Investor-left-block",
+      "blocks": {
+        "image_block_kJyfqf": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g3660.svg",
+            "title": "Our Business",
+            "url": "https://gocolors.com/pages/our-business"
+          }
+        },
+        "image_block_hyExV7": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Vector_011e1c53-c3cc-4177-8696-dad1f349b037.svg",
+            "title": "Board of Directors",
+            "url": "https://gocolors.com/pages/board-of-directors"
+          }
+        },
+        "image_block_bbXD9i": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Component_1.svg",
+            "title": "Corporate Governance",
+            "url": "https://gocolors.com/pages/corporate-governance"
+          }
+        },
+        "image_block_jbBdJW": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g3725.svg",
+            "title": "Annual reports",
+            "url": "https://gocolors.com/pages/annual-reports"
+          }
+        },
+        "image_block_YYeJmM": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_1.svg",
+            "title": "Earning Call  Transcripts",
+            "url": "https://gocolors.com/pages/earning-call-transcripts"
+          }
+        },
+        "image_block_NgRePA": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Vector_1_e879eb32-0411-4431-bf21-69107ea6f385.svg",
+            "title": "Quarterly  Financial Results",
+            "url": "https://gocolors.com/pages/quarterly-financial-results"
+          }
+        },
+        "image_block_TFrYtP": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_17.svg",
+            "title": "Investor Presentation",
+            "url": ""
+          }
+        },
+        "image_block_CByqQD": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_18.svg",
+            "title": "Press Releases",
+            "url": "https://gocolors.com/pages/press-releases"
+          }
+        },
+        "image_block_XcHfPY": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Vector_2.svg",
+            "title": "Credit Rating",
+            "url": "https://gocolors.com/pages/credit-rating"
+          }
+        },
+        "image_block_Q7WpYW": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_19.svg",
+            "title": "Corporate Announcements",
+            "url": "https://gocolors.com/pages/corporate-announcements"
+          }
+        },
+        "image_block_QXh77g": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_13.svg",
+            "title": "Shareholding Pattern",
+            "url": "https://gocolors.com/pages/shareholding-pattern"
+          }
+        },
+        "image_block_hDtYJg": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g788.svg",
+            "title": "Shareholder Grievances",
+            "url": "https://gocolors.com/pages/shareholder-grievances-1"
+          }
+        },
+        "image_block_mebz9M": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/x31_650_x2C__Employee_x2C__group_x2C__management_x2C__organization_x2C__team.svg",
+            "title": "KMP Details",
+            "url": "https://gocolors.com/pages/kmp"
+          }
+        },
+        "image_block_ajfy4M": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_14.svg",
+            "title": "MOA AOA/  Directors Profile",
+            "url": "https://gocolors.com/pages/moa-aoa"
+          }
+        },
+        "image_block_yHngkC": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Component_1_1.svg",
+            "title": "Policies",
+            "url": "https://gocolors.com/pages/investor-policies"
+          }
+        },
+        "image_block_EBzWGR": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g2733.svg",
+            "title": "Archivals",
+            "url": "https://gocolors.com/pages/archivals"
+          }
+        }
+      },
+      "block_order": [
+        "image_block_kJyfqf",
+        "image_block_hyExV7",
+        "image_block_bbXD9i",
+        "image_block_jbBdJW",
+        "image_block_YYeJmM",
+        "image_block_NgRePA",
+        "image_block_TFrYtP",
+        "image_block_CByqQD",
+        "image_block_XcHfPY",
+        "image_block_Q7WpYW",
+        "image_block_QXh77g",
+        "image_block_hDtYJg",
+        "image_block_mebz9M",
+        "image_block_ajfy4M",
+        "image_block_yHngkC",
+        "image_block_EBzWGR"
+      ],
+      "name": "Investor Left Blocks",
+      "settings": {}
+    },
+    "investor_left_block_NXR3zH": {
+      "type": "Investor-left-block",
+      "blocks": {
+        "image_block_mX8eth": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g3660.svg",
+            "title": "Our Business",
+            "url": "https://gocolors.com/pages/our-business"
+          }
+        },
+        "image_block_xPiTX9": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Vector_011e1c53-c3cc-4177-8696-dad1f349b037.svg",
+            "title": "Board of Directors",
+            "url": "https://gocolors.com/pages/board-of-directors"
+          }
+        },
+        "image_block_pYX7Cx": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Component_1.png",
+            "title": "Corporate Governance",
+            "url": "https://gocolors.com/pages/corporate-governance"
+          }
+        },
+        "image_block_9KqN9X": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g3723.png",
+            "title": "Annual reports",
+            "url": "https://gocolors.com/pages/annual-reports"
+          }
+        },
+        "image_block_7WYN4A": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group.png",
+            "title": "Earning Call  Transcripts",
+            "url": "https://gocolors.com/pages/earning-call-transcripts"
+          }
+        },
+        "image_block_PVBLiB": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Vector.png",
+            "title": "Quarterly  Financial Results",
+            "url": "https://gocolors.com/pages/quarterly-financial-results"
+          }
+        },
+        "image_block_dEz9qa": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_17.png",
+            "title": "Investor Presentation",
+            "url": "https://gocolors.com/pages/investor-presentation"
+          }
+        },
+        "image_block_RAFHpX": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_18.png",
+            "title": "Press Releases",
+            "url": ""
+          }
+        },
+        "image_block_dYYfh8": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Vector_1.png",
+            "title": "Credit Rating",
+            "url": "https://gocolors.com/pages/credit-rating"
+          }
+        },
+        "image_block_Hc7j3d": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_19.png",
+            "title": "Corporate Announcements",
+            "url": "https://gocolors.com/pages/corporate-announcements"
+          }
+        },
+        "image_block_R74rYd": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_13.png",
+            "title": "Shareholding Pattern",
+            "url": "https://gocolors.com/pages/shareholding-pattern"
+          }
+        },
+        "image_block_wqXTtY": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g786.png",
+            "title": "Shareholder Grievances",
+            "url": "https://gocolors.com/pages/shareholder-grievances-1"
+          }
+        },
+        "image_block_mkM6bw": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/x31_650_x2C__Employee_x2C__group_x2C__management_x2C__organization_x2C__team.png",
+            "title": "KMP Details",
+            "url": "https://gocolors.com/pages/kmp"
+          }
+        },
+        "image_block_x4bxFa": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_14.png",
+            "title": "MOA AOA/  Directors Profile",
+            "url": "https://gocolors.com/pages/moa-aoa"
+          }
+        },
+        "image_block_PhW8N6": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g299.png",
+            "title": "Policies",
+            "url": "https://gocolors.com/pages/investor-policies"
+          }
+        },
+        "image_block_QMBEXb": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g2737.png",
+            "title": "Archivals",
+            "url": "https://gocolors.com/pages/archivals"
+          }
+        }
+      },
+      "block_order": [
+        "image_block_mX8eth",
+        "image_block_xPiTX9",
+        "image_block_pYX7Cx",
+        "image_block_9KqN9X",
+        "image_block_7WYN4A",
+        "image_block_PVBLiB",
+        "image_block_dEz9qa",
+        "image_block_RAFHpX",
+        "image_block_dYYfh8",
+        "image_block_Hc7j3d",
+        "image_block_R74rYd",
+        "image_block_wqXTtY",
+        "image_block_mkM6bw",
+        "image_block_x4bxFa",
+        "image_block_PhW8N6",
+        "image_block_QMBEXb"
+      ],
+      "disabled": true,
+      "name": "Investor Left Blocks",
+      "settings": {}
+    },
+    "corporate_governance_right_x96d6C": {
+      "type": "corporate-governance-right",
+      "blocks": {
+        "document_P4mJ3C": {
+          "type": "document",
+          "name": "Q1 ",
+          "settings": {
+            "title": "PRESS RELEASE Q1 FY26",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/PRESS_RELEASE_Q1_FY26.pdf?v=1754040681"
+          }
+        },
+        "document_DFtqhD": {
+          "type": "document",
+          "settings": {
+            "title": "PRESS RELEASE-Go Colors opens First International Store in Dubai’s Silicon Central Mall",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/PRESS_RELEASE-Go_Colors_opens_First_International_Store_in_Dubai_s_Silicon_Central_Mall.pdf?v=1749187385"
+          }
+        },
+        "document_WcnhRm": {
+          "type": "document",
+          "name": "Q4",
+          "settings": {
+            "title": "PRESS RELEASE Q4 FY 24-25",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/PRESS_RELEASE_Q4_FY_24-25.pdf?v=1746002185"
+          }
+        },
+        "document_wTbT4q": {
+          "type": "document",
+          "name": "Q3 ",
+          "settings": {
+            "title": "PRESS RELEASE Q3 FY 24-25",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/PRESS_RELEASE_Q3_FY_24-25.pdf?v=1737796796"
+          }
+        },
+        "document_mcxapC": {
+          "type": "document",
+          "name": "Q2 ",
+          "settings": {
+            "title": "PRESS RELEASE Q2 FY 24-25",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/PRESS_RELEASE_Q2_FY_24-25.pdf?v=1729846521"
+          }
+        },
+        "document_yE3irV": {
+          "type": "document",
+          "name": "Q1 ",
+          "settings": {
+            "title": "PRESS RELEASE Q1 FY 24-25",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/PRESS_RELEASE_Q1_FY_24-25.pdf?v=1721805493"
+          }
+        },
+        "document_DdGxHh": {
+          "type": "document",
+          "settings": {
+            "title": "PRESS RELEASE-FRANCHISE AGREEMENT WITH APPAREL GROUP",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/PRESS_RELEASE-FRANCHISE_AGREEMENT_WITH_APPAREL_GROUP.pdf?v=1715943841"
+          }
+        },
+        "document_H9iYUe": {
+          "type": "document",
+          "name": "Q4 ",
+          "settings": {
+            "title": "PRESS RELEASE Q4 FY24",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/PRESS_RELEASE_Q4_FY23-24.pdf?v=1714727179"
+          }
+        },
+        "document_mjgpkk": {
+          "type": "document",
+          "name": "Q3 ",
+          "settings": {
+            "title": "PRESS RELEASE Q3 FY24",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/PRESS_RELEASE_Q3_FY23-24.pdf?v=1707209519"
+          }
+        },
+        "document_yQAnxP": {
+          "type": "document",
+          "name": "Q2 ",
+          "settings": {
+            "title": "PRESS RELEASE Q2 FY24",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/PRESS_RELEASE_Q2_FY23-24.pdf?v=1698740175"
+          }
+        },
+        "document_UhagR6": {
+          "type": "document",
+          "name": "Q1 ",
+          "settings": {
+            "title": "PRESS RELEASE Q1 FY24",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/PRESS_RELEASE_Q1_FY23-24.pdf?v=1690795144"
+          }
+        },
+        "document_dArap6": {
+          "type": "document",
+          "name": "Q4 ",
+          "settings": {
+            "title": "PRESS RELEASE Q4 FY23",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/PRESS_RELEASE_Q4_FY22-23.pdf?v=1683285686"
+          }
+        },
+        "document_wc6am6": {
+          "type": "document",
+          "name": "Q3 ",
+          "settings": {
+            "title": "PRESS RELEASE Q3 FY23",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Press_Release_Q3_FY22-23_552c9517-4d7f-4026-9b1b-8773c49f95a9.pdf?v=1674649653"
+          }
+        },
+        "document_Raydba": {
+          "type": "document",
+          "name": "Q2",
+          "settings": {
+            "title": "PRESS RELEASE Q2 FY23",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Press_Release_Q2_FY22-23.pdf?v=1667555864"
+          }
+        },
+        "document_4UwcG8": {
+          "type": "document",
+          "name": "Q1 ",
+          "settings": {
+            "title": "PRESS RELEASE Q1 FY23",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/GFL_-_Press_Release_-_Q1_-_FY_23.pdf?v=1660133136"
+          }
+        },
+        "document_MRqfYP": {
+          "type": "document",
+          "name": "Q4 ",
+          "settings": {
+            "title": "PRESS RELEASE Q4 FY22",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Press_Release_Q4_FY22.pdf?v=1651916793"
+          }
+        },
+        "document_RW3Hdk": {
+          "type": "document",
+          "settings": {
+            "title": "Press Release Go Colors launches its 500th Store",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0293/6448/6192/files/Press_Release_Go_Colors_launches_its_500th_Store_c6e47a9d-eda2-4db7-b700-913429ca1a61.pdf?v=1649145127"
+          }
+        },
+        "document_wtyYNF": {
+          "type": "document",
+          "name": "Q3",
+          "settings": {
+            "title": "PRESS RELEASE Q3 FY22",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Press_Release_Q3FY22.pdf?v=1645782809"
+          }
+        }
+      },
+      "block_order": [
+        "document_P4mJ3C",
+        "document_DFtqhD",
+        "document_WcnhRm",
+        "document_wTbT4q",
+        "document_mcxapC",
+        "document_yE3irV",
+        "document_DdGxHh",
+        "document_H9iYUe",
+        "document_mjgpkk",
+        "document_yQAnxP",
+        "document_UhagR6",
+        "document_dArap6",
+        "document_wc6am6",
+        "document_Raydba",
+        "document_4UwcG8",
+        "document_MRqfYP",
+        "document_RW3Hdk",
+        "document_wtyYNF"
+      ],
+      "name": "corporate governance ",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "page_redirect_content_6dcpHH",
+    "investor_left_block_heb48K",
+    "investor_left_block_NXR3zH",
+    "corporate_governance_right_x96d6C"
+  ]
+}

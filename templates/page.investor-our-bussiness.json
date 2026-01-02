@@ -1,0 +1,186 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "investor_left_block_qNUhLE": {
+      "type": "Investor-left-block",
+      "blocks": {
+        "image_block_Y7kcFQ": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g3660.svg",
+            "title": "Our Business",
+            "url": "https://gocolors.com/pages/our-business"
+          }
+        },
+        "image_block_bYtjbw": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Vector_011e1c53-c3cc-4177-8696-dad1f349b037.svg",
+            "title": "Board of Directors",
+            "url": "https://gocolors.com/pages/board-of-directors"
+          }
+        },
+        "image_block_yrYzGQ": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Component_1.svg",
+            "title": "Corporate Governance",
+            "url": "https://gocolors.com/pages/corporate-governance"
+          }
+        },
+        "image_block_nr4PzH": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g3725.svg",
+            "title": "Annual reports",
+            "url": "https://gocolors.com/pages/annual-reports"
+          }
+        },
+        "image_block_4t3YhJ": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_1.svg",
+            "title": "Earning Call  Transcripts",
+            "url": "https://gocolors.com/pages/earning-call-transcripts"
+          }
+        },
+        "image_block_PRKN8f": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Vector_1_e879eb32-0411-4431-bf21-69107ea6f385.svg",
+            "title": "Quarterly  Financial Results",
+            "url": "https://gocolors.com/pages/quarterly-financial-results"
+          }
+        },
+        "image_block_hBdgpY": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_17.svg",
+            "title": "Investor Presentation",
+            "url": "https://gocolors.com/pages/investor-presentation"
+          }
+        },
+        "image_block_aGXPmL": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_18.svg",
+            "title": "Press Releases",
+            "url": "https://gocolors.com/pages/press-releases"
+          }
+        },
+        "image_block_EfQTN7": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Vector_2.svg",
+            "title": "Credit Rating",
+            "url": "https://gocolors.com/pages/credit-rating"
+          }
+        },
+        "image_block_XAHLHp": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_19.svg",
+            "title": "Corporate Announcements",
+            "url": "https://gocolors.com/pages/corporate-announcements"
+          }
+        },
+        "image_block_MdAxyp": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_13.svg",
+            "title": "Shareholding Pattern",
+            "url": "https://gocolors.com/pages/shareholding-pattern"
+          }
+        },
+        "image_block_VgRTAx": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g788.svg",
+            "title": "Shareholder Grievances",
+            "url": "https://gocolors.com/pages/shareholder-grievances-1"
+          }
+        },
+        "image_block_R6KGTN": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/x31_650_x2C__Employee_x2C__group_x2C__management_x2C__organization_x2C__team.svg",
+            "title": "KMP Details",
+            "url": "https://gocolors.com/pages/kmp"
+          }
+        },
+        "image_block_bJyhbP": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_14.svg",
+            "title": "MOA AOA/  Directors Profile",
+            "url": "https://gocolors.com/pages/moa-aoa"
+          }
+        },
+        "image_block_twPiDD": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Component_1_1.svg",
+            "title": "Policies",
+            "url": "https://gocolors.com/pages/investor-policies"
+          }
+        },
+        "image_block_MRr7Xi": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g2733.svg",
+            "title": "Archivals",
+            "url": "https://gocolors.com/pages/archivals"
+          }
+        }
+      },
+      "block_order": [
+        "image_block_Y7kcFQ",
+        "image_block_bYtjbw",
+        "image_block_yrYzGQ",
+        "image_block_nr4PzH",
+        "image_block_4t3YhJ",
+        "image_block_PRKN8f",
+        "image_block_hBdgpY",
+        "image_block_aGXPmL",
+        "image_block_EfQTN7",
+        "image_block_XAHLHp",
+        "image_block_MdAxyp",
+        "image_block_VgRTAx",
+        "image_block_R6KGTN",
+        "image_block_bJyhbP",
+        "image_block_twPiDD",
+        "image_block_MRr7Xi"
+      ],
+      "name": "Investor Left Blocks",
+      "settings": {}
+    },
+    "investor_text_field_QiV7jr": {
+      "type": "Investor-text-field",
+      "name": "Investor page text Field",
+      "settings": {
+        "richtext": "<p>Go Colors is a dedicated women's bottom wear brand, started over a decade ago.<br/><br/>Today, it oﬀers a vast variety of 50 styles of bottom wear in over a range of 120+ colors.<br/>Go Colors has become a core essential, must-have for a lady in her day to day life.<br/>Our oﬀering straddles the whole journey of a women’s life. From her teens to working lady or home maker to a grandmother we are there for her across the journey of life. <br/><br/>Go Colors has democratized the bottom wear space to cut across socio-economic strata and made it an essential component of the ladies wardrobe. It has given the opportunity to have the perfect bottom wear for every occasion. <br/><br/>Daily wear to oﬃce, to festive or denims and loungewear. Go Colors with over 500 plus stores across 120 plus cities, in leading malls, high street and large formats has today become the one stop destination for bottom wear.</p>"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "investor_left_block_qNUhLE",
+    "investor_text_field_QiV7jr"
+  ]
+}

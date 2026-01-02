@@ -1,0 +1,953 @@
+{{ 'customer.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+  
+#go-rewards-thankyou-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+#go-rewards-thankyou-popup .popup-inner {
+  background: white;
+  padding: 20px 30px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+  animation: fadeIn 0.3s ease-in-out;
+}
+#go-rewards-thankyou-popup .popup-inner p{
+  margin:0;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+{%- endstyle -%}
+
+<div class="customer account section-{{ section.id }}-padding">
+  <div>
+    <h1 class="customer__title">{{ 'customer.account.title' | t }}</h1>
+  </div>
+  <div class="acc-info">
+        <div class="acc-deatils">
+          <img src="https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Vector_5.png?v=1743578257" width="100%" height="100%" alt="profile-logo" class="profile-logo">
+          <div class="profile-info">
+          <h5 class="cust-icon">
+            <span>{{ customer.name }}</span>
+          </h5>
+          <p class="cust-email">
+            <span>{{ customer.email }}</span>
+          </p>
+          {% if customer.default_address.phone  %}
+          <p class="cust-mobile">
+            <span>{{ customer.default_address.phone }}</span>
+          </p>
+          {% endif %}
+            <a href="account/addresses" class="goreward-btn" style="display: none;">
+              <img src="https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Group_6.svg?v=1743768758" alt="go-reward-icon" width="100%" height="100%" />
+              Go Rewards member</a>
+            <!-- <a href="account/login#recover" class="change_psw_btn_profile">CHANGE PASSWORD</a> -->
+          </div>
+          
+          <a href="{{ routes.account_logout_url }}" class="logout-button">
+            <span class="svg-wrapper">
+              {{- 'icon-account.svg' | inline_asset_content -}}
+            </span>
+            {{ 'customer.log_out' | t }}
+          </a>
+        </div>
+        <ul class="account-bar">
+          <li class="account-bar-item">
+            <a href="#orders-block">
+            <img src="https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Vector_1.svg?v=1743594043" width="100%" height="100%" alt="Orders" />
+            Orders
+            </a>
+          </li>
+          <li class="account-bar-item go-rewards-item">
+            <a href="#go-rewards-block">
+            <img src="https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Group_4.svg?v=1743594042" width="100%" height="100%" alt="Go Rewards" />
+              Go Rewards
+            </a>
+            </li>
+          <li class="account-bar-item">
+            <a href="#coupons-block">
+            <img src="https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Vector_5.svg?v=1743594041" width="100%" height="100%" alt="Coupons" />
+              Coupons
+            </a>
+            </li>
+          <li class="account-bar-item">
+            <a href="#manage-account-block">
+            <img src="https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Group_7_dfbe0070-e51f-4d59-a3f5-339439a48f8a.svg?v=1743594041" width="100%" height="100%" alt="Manage account" />
+              Manage account
+            </a>
+            </li>
+          <li class="account-bar-item">
+            <a href="/pages/contact">
+            <img src="https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Vector_6.svg?v=1743594041" width="100%" height="100%" alt="Contact" />
+              Support
+            </a>
+            </li>
+        </ul>
+        <div class="order-details-section" id="#orders-block">
+          <h2>Orders</h2>
+           <ul class="order-tab">
+              <li class="order-tab-item">
+               <a href="#online-order">Online Orders</a>
+              </li>
+              <li class="order-tab-item">
+                 <a href="#offline-order">Offline Orders</a>
+              </li>
+           </ul>
+          <div class="tab-content">
+            <div id="online-order" class="order-details-block">
+            {% if customer.orders_count > 0 %}
+             <ul class="order-list">
+               {% for order in customer.orders %}
+               {% for line_item in order.line_items %}
+               <li class="order-pro-item">
+                 <a href="{{ order.customer_url }}" class="order-pro-link">
+                  <div class="pro-img">
+                    {% if line_item.product.featured_image %}
+                      {{ line_item.product.featured_image | product_img_url: '112X150' | img_tag }}
+                    {% else %}
+                      No Image Available
+                    {% endif %}
+                  </div>
+                  <div class="pro-details" data-line-item-id="{{ line_item.id }}">
+                    <div class="pro-id-status">
+                      <p><span>Order no:</span>{{ order.name }}</p>
+                      <div class="pro-status-details" data-label="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
+                        <circle cx="6.36729" cy="6.60972" r="5.7689" fill="#ffffff"/></circle>
+                        </svg>
+                         <p class="pro-status"></p>
+                      </div>
+                    </div>
+                    <div class="pro-title"> <span>{{ line_item.product.title }}</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="10" height="17" viewBox="0 0 10 17" fill="none">
+                      <path d="M1.52979 15.6025L8.91402 8.21831L1.52978 0.834075" stroke="black" stroke-width="1.47684" stroke-linecap="round"/>
+                      </path>
+                      </svg>
+                    </div>
+                    <div class="pro-date-qty-size">
+                      {% for option in line_item.variant.options %}
+                        <span class="product-size">Size: {{ option }}</span>
+                      {% endfor %}
+                      <div class="pro-qty">
+                        <span class="product-info ">Qty : {{ line_item.quantity }}</span>
+                      </div>  
+                      <span class="pro-ord-date">{{ order.created_at | time_tag: format: 'date' }}</span>
+                    </div>
+                  </div>
+                  </a>
+               </li>
+               {%- endfor -%}
+               {%- endfor -%}
+             </ul>
+             <a href="javascript:void(0);" class="pro-view-all" id="toggle-view-btn" data-target="#online-order" style="display: none;">View all</a>
+            {% else %}
+            <p class="no-orders-msg">No online orders found.</p>
+            {% endif %}
+            </div>
+            <div id="offline-order" class="order-details-block offline-order-details">
+              <p class="no-offline-order" style="display: none;">No offline orders found.</p>
+              <ul id="offline-orders" class="order-list">
+                
+              </ul>
+              <a href="javascript:void(0);" class="pro-view-all" id="tog-off-view-btn" data-target="#offline-order" style="display: none;">View all</a>
+            </div>
+          </div>
+      </div>
+        <div class="order-go-rewards" id="go-rewards-block">
+          <h2>Go Rewards</h2>
+          <a href="">
+            <img src="https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Frame_78.jpg?v=1743509812" width="100%" height="100%" />
+          </a>
+        </div>
+        <div class="coupons-section" id="coupons-block">
+          <h2>Coupons</h2>
+          <div class="coupons-details-block" 
+               data-images='[
+                 {% for block in section.blocks %}
+                   {% assign image_url = block.settings.coupon_image | image_url: width: 800 %}
+                   "{{ image_url }}"{% unless forloop.last %},{% endunless %}
+                 {% endfor %}
+               ]'
+               data-default-image="{{ section.settings.default_coupon_image | image_url: width: 800 }}">
+          </div>
+        </div>
+        <div class="manage-account-section" id="manage-account-block">
+          <h2>Manage Account</h2>
+          <div class="acc-deatils">
+            <img src="https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Vector_5.png?v=1743578257" width="100%" height="100%" alt="profile-logo" class="profile-logo" />
+            <div class="profile-info">
+              <h5 class="cust-icon">
+                <span>{{ customer.name }}</span>
+              </h5>
+            </div>
+          </div>
+          <div class="customer-details-block">
+            <div class="cus-det-item">
+              <h6>Address:</h6>
+              <div class="address-details">
+                <p>{{ customer.default_address | format_address }}</p>
+                <div class="address-btn">
+                  <a class="view-all-add-btn" href="{{ routes.account_addresses_url }}">
+                    View all 
+                  </a>
+                  <a class="new-address-btn" href="{{ routes.account_addresses_url }}">
+      				+ {{ 'customer.addresses.add_new' | t }}
+  				</a>
+                </div>
+              </div>
+            </div>
+            <div class="cus-det-item">
+              <h6>Email:</h6> 
+              <p>{{ customer.email }}</p>
+            </div>
+          </div>                   
+        </div>
+    <div>
+  </div>
+</div>
+<div id="go-rewards-thankyou-popup" style="display: none;">
+  <div class="popup-inner">
+    <p>Your form has already been submitted! This program is exclusive to invited members. We’ll verify your details and get in touch soon.</p>
+  </div>
+</div>
+<!-- coupon code js  -->
+{% if customer %}
+<script defer>
+const customerMobile = "{{ customer.default_address.phone }}";
+
+fetch('https://capillary.binaryic.in/api/GetCustomerCoupons', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    mobile: customerMobile,
+    store_name: "go-colors-india.myshopify.com"
+  })
+})
+.then(response => response.json())
+.then(data => {
+  const coupons = data || [];
+
+  const couponContainer = document.querySelector('.coupons-details-block');
+  const couponSection = document.getElementById('coupons-block');
+
+  if (!couponContainer || !couponSection) return;
+
+  if (coupons.length === 0) {
+    couponContainer.innerHTML = `<div class="no-coupon-msg">No Coupon Available</div>`;
+    return;
+  }
+
+  const imageList = JSON.parse(couponContainer.getAttribute('data-images') || '[]');
+  const defaultImage = couponContainer.getAttribute('data-default-image') || "{{ 'coupon-default.jpg' | asset_url }}";
+
+  // Sort coupons by validTill date (soonest to latest)
+  coupons.sort((a, b) => {
+  const now = new Date();
+
+  const isAExpired = new Date(a.valid_till).setHours(0, 0, 0, 0) < new Date().setHours(0, 0, 0, 0);
+  const isBExpired = new Date(b.valid_till).setHours(0, 0, 0, 0) < new Date().setHours(0, 0, 0, 0);
+
+  const isAUsed = a.coupon_code_use === 1;
+  const isBUsed = b.coupon_code_use === 1;
+
+  // Determine category: 0 = available, 1 = used, 2 = expired
+  const getCategory = (coupon, isExpired, isUsed) => {
+    if (!isUsed && !isExpired) return 0; // available
+    if (isUsed) return 1;                // used
+    return 2;                            // expired
+  };
+
+  const aCategory = getCategory(a, isAExpired, isAUsed);
+  const bCategory = getCategory(b, isBExpired, isBUsed);
+
+  if (aCategory !== bCategory) {
+    return aCategory - bCategory; // Sort by category
+  }
+
+  // Within available group, sort by earliest valid_till date
+  if (aCategory === 0) {
+    return new Date(a.valid_till) - new Date(b.valid_till);
+  }
+
+  return 0; // Keep relative order for used/expired
+});
+
+  couponContainer.innerHTML = '';
+
+  coupons.forEach((coupon, index) => {
+  const offer = coupon.offer || 'Coupon Offer';
+  const conditions = coupon.metadata || 'No Conditions';
+  const code = coupon.code || 'No Code';
+  const validTillRaw = coupon.validTill || '';
+  const validTillDate = new Date(validTillRaw);
+  const today = new Date();
+  const validTillFormatted = validTillRaw.split('T')[0].split('-').reverse().join('/');
+  
+  // Determine if expired
+  const isExpired = validTillDate.setHours(0, 0, 0, 0) < today.setHours(0, 0, 0, 0);
+  const couponExpirClass = coupon.coupon_code_use === 1 ? 'redeemed' : (isExpired ? 'expired' : '');
+  // Use corresponding image or fallback to default
+  const image = imageList[index] || defaultImage;
+
+  const couponHTML = `
+    <div class="coupons-details">
+      <div class="coupon-image">
+        <img src="${image}" width="100%" height="100%" loading="lazy"/>
+      </div>
+      <div class="coupon-data">
+        
+        <span class="coupon-condition">${conditions}</span>
+        <span class="coupon-code">${code}
+          ${(coupon.coupon_code_use !== 1 && !isExpired) ? `
+            <button class="copy-btn" data-code="${code}" aria-label="Copy code">
+              <svg class="copy-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <path d="M7.7063 12.5777C7.7063 11.4485 8.15484 10.3657 8.95325 9.56726C9.75166 8.76885 10.8345 8.32031 11.9637 8.32031H25.7973C26.3563 8.32031 26.91 8.43043 27.4265 8.64438C27.943 8.85834 28.4123 9.17193 28.8077 9.56726C29.203 9.96259 29.5166 10.4319 29.7305 10.9484C29.9445 11.465 30.0546 12.0186 30.0546 12.5777V26.4113C30.0546 26.9704 29.9445 27.524 29.7305 28.0405C29.5166 28.557 29.203 29.0263 28.8077 29.4217C28.4123 29.817 27.943 30.1306 27.4265 30.3446C26.91 30.5585 26.3563 30.6686 25.7973 30.6686H11.9637C11.4046 30.6686 10.851 30.5585 10.3344 30.3446C9.81791 30.1306 9.34858 29.817 8.95325 29.4217C8.55792 29.0263 8.24432 28.557 8.03037 28.0405C7.81642 27.524 7.7063 26.9704 7.7063 26.4113V12.5777Z" stroke="#FC007E" stroke-width="2.39446" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2.93919 23.8631C2.44913 23.5846 2.04151 23.1814 1.75777 22.6944C1.47402 22.2074 1.32427 21.6539 1.32373 21.0903V5.12719C1.32373 3.37125 2.76041 1.93457 4.51635 1.93457H20.4794C21.6767 1.93457 22.328 2.54915 22.8739 3.53088" stroke="#FC007E" stroke-width="2.39446" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>` : ''}
+        </span>
+        <span class="coupon-expir  ${couponExpirClass}">
+          ${coupon.coupon_code_use === 1
+            ? 'Coupon already redeemed'
+            : (isExpired ? 'Expired on' : 'Expiring on') + ' ' + validTillFormatted}
+        </span>
+      </div>
+    </div>
+  `;
+
+  couponContainer.insertAdjacentHTML('beforeend', couponHTML);
+});
+
+})
+.catch(error => {
+  console.error('Error fetching coupons:', error);
+});
+
+// Copy button handler
+document.addEventListener('click', function (e) {
+  const btn = e.target.closest('.copy-btn');
+  if (!btn) return;
+
+  const code = btn.closest('.coupon-code').childNodes[0].textContent.trim();
+  navigator.clipboard.writeText(code).then(() => {
+    const svg = btn.querySelector('.copy-icon');
+    svg.style.display = 'none';
+    btn.textContent = 'Copied!';
+    setTimeout(() => {
+      btn.textContent = '';
+      svg.style.display = '';
+      btn.appendChild(svg);
+    }, 1000);
+  });
+});
+</script>
+<!-- <script>
+document.addEventListener('DOMContentLoaded', function () {
+  const customerMobile = "{{ customer.default_address.phone }}";
+  const couponContainer = document.querySelector('.coupons-details-block');
+  const couponSection = document.getElementById('coupons-block');
+
+  if (!couponContainer || !couponSection || !customerMobile) return;
+
+  // Show loading message
+  couponContainer.innerHTML = `<div class="loading-coupons">Loading coupons...</div>`;
+
+  const imageList = JSON.parse(couponContainer.getAttribute('data-images') || '[]');
+  const defaultImage = couponContainer.getAttribute('data-default-image') || "{{ 'coupon-default.jpg' | asset_url }}";
+
+  // Timeout wrapper
+  function fetchWithTimeout(resource, options = {}) {
+    const { timeout = 8000 } = options;
+    const controller = new AbortController();
+    const id = setTimeout(() => controller.abort(), timeout);
+    return fetch(resource, {
+      ...options,
+      signal: controller.signal
+    }).finally(() => clearTimeout(id));
+  }
+
+  fetchWithTimeout('https://capillary.binaryic.in/api/GetCustomerCoupons', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      mobile: customerMobile,
+      store_name: "go-colors-india.myshopify.com"
+    }),
+    timeout: 1000
+  })
+  .then(response => response.json())
+  .then(data => {
+    const coupons = data || [];
+    if (coupons.length === 0) {
+      couponContainer.innerHTML = `<div class="no-coupon-msg">No Coupon Available</div>`;
+      return;
+    }
+
+    // Sort logic
+    const now = new Date();
+    coupons.sort((a, b) => {
+      const isAExpired = new Date(a.valid_till) < now;
+      const isBExpired = new Date(b.valid_till) < now;
+      const isAUsed = a.coupon_code_use === 1;
+      const isBUsed = b.coupon_code_use === 1;
+      const getCategory = (coupon, isExpired, isUsed) => {
+        if (!isUsed && !isExpired) return 0;
+        if (isUsed) return 1;
+        return 2;
+      };
+      const aCategory = getCategory(a, isAExpired, isAUsed);
+      const bCategory = getCategory(b, isBExpired, isBUsed);
+      if (aCategory !== bCategory) return aCategory - bCategory;
+      if (aCategory === 0) return new Date(a.valid_till) - new Date(b.valid_till);
+      return 0;
+    });
+
+    // Efficient DOM update
+    const fragment = document.createDocumentFragment();
+
+    coupons.forEach((coupon, index) => {
+      const offer = coupon.offer || 'Coupon Offer';
+      const conditions = coupon.metadata || 'No Conditions';
+      const code = coupon.code || 'No Code';
+      const validTillRaw = coupon.validTill || '';
+      const validTillDate = new Date(validTillRaw);
+      const validTillFormatted = validTillRaw.split('T')[0].split('-').reverse().join('/');
+      const isExpired = validTillDate < now;
+      const image = imageList[index] || defaultImage;
+      const couponExpirClass = coupon.coupon_code_use === 1 ? 'redeemed' : (isExpired ? 'expired' : '');
+      const wrapper = document.createElement('div');
+      wrapper.className = 'coupons-details';
+      wrapper.innerHTML = `
+        <div class="coupon-image">
+          <img src="${image}" width="100%" height="100%" />
+        </div>
+        <div class="coupon-data">
+          <span class="coupon-condition">${conditions}</span>
+          <span class="coupon-code">${code}
+            ${(coupon.coupon_code_use !== 1 && !isExpired) ? `
+              <button class="copy-btn" data-code="${code}" aria-label="Copy code">
+                <svg class="copy-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                  <path d="M7.7063 12.5777C7.7063 11.4485 8.15484 10.3657 8.95325 9.56726C9.75166 8.76885 10.8345 8.32031 11.9637 8.32031H25.7973C26.3563 8.32031 26.91 8.43043 27.4265 8.64438C27.943 8.85834 28.4123 9.17193 28.8077 9.56726C29.203 9.96259 29.5166 10.4319 29.7305 10.9484C29.9445 11.465 30.0546 12.0186 30.0546 12.5777V26.4113C30.0546 26.9704 29.9445 27.524 29.7305 28.0405C29.5166 28.557 29.203 29.0263 28.8077 29.4217C28.4123 29.817 27.943 30.1306 27.4265 30.3446C26.91 30.5585 26.3563 30.6686 25.7973 30.6686H11.9637C11.4046 30.6686 10.851 30.5585 10.3344 30.3446C9.81791 30.1306 9.34858 29.817 8.95325 29.4217C8.55792 29.0263 8.24432 28.557 8.03037 28.0405C7.81642 27.524 7.7063 26.9704 7.7063 26.4113V12.5777Z" stroke="#FC007E" stroke-width="2.39446" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M2.93919 23.8631C2.44913 23.5846 2.04151 23.1814 1.75777 22.6944C1.47402 22.2074 1.32427 21.6539 1.32373 21.0903V5.12719C1.32373 3.37125 2.76041 1.93457 4.51635 1.93457H20.4794C21.6767 1.93457 22.328 2.54915 22.8739 3.53088" stroke="#FC007E" stroke-width="2.39446" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>` : ''}
+          </span>
+          <span class="coupon-expir ${couponExpirClass}">
+            ${coupon.coupon_code_use === 1
+              ? 'Coupon already redeemed'
+              : (isExpired ? 'Expired on' : 'Expiring on') + ' ' + validTillFormatted}
+          </span>
+        </div>
+      `;
+      fragment.appendChild(wrapper);
+    });
+
+    couponContainer.innerHTML = '';
+    couponContainer.appendChild(fragment);
+  })
+  .catch(error => {
+    couponContainer.innerHTML = `<div class="no-coupon-msg">Could not load coupons.</div>`;
+    console.error('Error fetching coupons:', error);
+  });
+
+  // Copy button handler
+  document.addEventListener('click', function (e) {
+    const btn = e.target.closest('.copy-btn');
+    if (!btn) return;
+
+    const code = btn.dataset.code;
+    navigator.clipboard.writeText(code).then(() => {
+      const svg = btn.querySelector('.copy-icon');
+      svg.style.display = 'none';
+      btn.textContent = 'Copied!';
+      setTimeout(() => {
+        btn.textContent = '';
+        svg.style.display = '';
+        btn.appendChild(svg);
+      }, 1000);
+    });
+  });
+});
+</script> -->
+
+{% endif %}
+
+<!-- order status js -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" defer></script>
+
+<script defer>
+// product status 
+{% for order in customer.orders %}
+  {% for line_item in order.line_items %}
+    {% if line_item.quantity == 1 %}
+      var shopify_order_id = "{{ order.id }}";
+      var customer_email = "{{ customer.email }}";
+      var shopify_item_id = "{{ line_item.id }}";
+
+      console.log({
+        shopify_order_id: "{{ order.id }}",
+        customer_email: "{{ customer.email }}",
+        shopify_item_id: "{{ line_item.id }}"
+      });
+
+      $.ajax({
+        url: 'https://admin3157.gocolors.com/new_go_colors_india/public/api/checkStatus_merge',
+        type: 'post',
+        dataType: 'json',
+        data: {
+          'shopify_order_id': shopify_order_id,
+          'shopify_item_id': shopify_item_id
+        },
+        success: function (response) {
+          console.log("API Response:", JSON.stringify(response, null, 2));
+
+          if (response.qty_sku_wise) {
+            $.each(response.qty_sku_wise, function (sku_key, itemData) {
+              if (sku_key == "{{ line_item.id }}") {
+                const orderStatusArr = itemData["order-status"];
+                if (orderStatusArr && orderStatusArr.length > 0) {
+
+                  let matchedStatus = orderStatusArr.find(status =>
+                    status.shopify_item_id == "{{ line_item.id }}" &&
+                    status.shopify_order_id == "{{ order.id }}"
+                  );
+
+                  if (matchedStatus) {
+                    const keysToCheck = [
+                      'is_delivered',
+                      'is_dispatched',
+                      'is_cancelled',
+                      'is_refunded',
+                      'is_returned'
+                    ];
+
+                    let finalStatus = null;
+
+                    for (let key of keysToCheck) {
+                      if (matchedStatus[key] == 1) {
+                        finalStatus = key.replace('is_', '');
+                        break;
+                      }
+                    }
+
+                    if (!finalStatus) {
+                      finalStatus = matchedStatus.logistic_status;
+                    }
+
+                    const productContainer = $(".pro-details[data-line-item-id='{{ line_item.id }}']");
+                    const proStatusDetails = productContainer.find(".pro-status-details");
+
+                    proStatusDetails.attr("data-label", finalStatus);
+                    proStatusDetails.find(".pro-status").text(finalStatus);
+                    proStatusDetails.addClass(finalStatus.toLowerCase());
+                  }
+                }
+              }
+            });
+          }
+        },
+        error: function (xhr, status, error) {
+          console.error("API Error:", xhr.responseText || error);
+        }
+      });
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+</script>
+
+
+<!-- offline order js -->
+<script defer>
+  // offline order
+    var order_name_url = "{{ order_name_url }}";
+var mobile_no = "{{ customer.phone }}";
+mobile_no = mobile_no.replace('+91', "");
+
+$.ajax({
+    url: 'https://admin3157.gocolors.com/new_go_colors_india/public/api/purchase_order',
+    type: 'get',
+    dataType: 'json',
+    data: {
+        'mobile_no': mobile_no,
+    },
+    success: function(resp) {
+        if (resp.success) {
+            var order_html = '';
+            $.each(resp.order_details, function(k, v) {
+                var order_number = v.order_number;
+                var final_date = v.final_date;
+                var final_date = new Date(v.final_date).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+              });
+                var status = v.delivery_status.toLowerCase();
+                // var order_url = '/order/' + order_number;
+
+                $.each(v.orderLineItem, function(index, item) {
+                    var title = item.title || item.sku || 'Product Title';
+                    // var size = item.size || item.variant || '-';
+                    var qty = item.qty || 1;
+                    // var image = item.image || 'https://via.placeholder.com/112x150?text=No+Image';
+
+                    order_html += `
+                            <li class="order-pro-item">
+                              <a href="/pages/offline-order-details/${order_number}" class="order-pro-link">
+                                <div class="pro-details">
+                                  <div class="pro-id-status">
+                                    <p><span>Order no:</span> ${order_number}</p>
+                                    <div class="pro-status-details ${status}" data-label="${status}">
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
+                                        <circle cx="6.36729" cy="6.60972" r="5.7689" fill="#FF6E6E"/>
+                                      </svg>
+                                      <p class="pro-status">${status}</p>
+                                    </div>
+                                  </div>
+                                  <div class="pro-title">
+                                    <span>${title}</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="17" viewBox="0 0 10 17" fill="none">
+                                      <path d="M1.52979 15.6025L8.91402 8.21831L1.52978 0.834075" stroke="black" stroke-width="1.47684" stroke-linecap="round"/>
+                                    </svg>
+                                  </div>
+                                  <div class="pro-date-qty-size">
+                                    <div class="pro-qty">
+                                      <span class="product-info">Qty : ${qty}</span>
+                                    </div>
+                                    <span class="pro-ord-date">${final_date}</span>
+                                  </div>
+                                </div>
+                              </a>
+                            </li>`;
+                });
+            });
+
+            $('#offline-orders').html(order_html);
+        }
+      applyInitialView('#offline-order');
+    }
+}); 
+</script>
+
+<!-- view-all-btn-js -->
+<script defer>
+  function applyInitialView(containerSelector, isExpanded = false) {
+    const container = document.querySelector(containerSelector);
+    if (!container) return;
+
+    const listItems = container.querySelectorAll('.order-list .order-pro-item');
+    const toggleButton = container.querySelector('.pro-view-all');
+    const noOrderMessage = container.querySelector('.no-offline-order');
+    
+    // Remove all first
+    listItems.forEach(item => item.classList.remove('visible'));
+
+    if (listItems.length === 0) {
+      toggleButton.style.display = 'none';
+      if (noOrderMessage) noOrderMessage.style.display = 'block';
+    } 
+    else if (listItems.length > 4) {
+      toggleButton.style.display = 'inline-block';
+      listItems.forEach((item, index) => {
+        if (isExpanded || index < 4) item.classList.add('visible');
+      });
+      toggleButton.textContent = isExpanded ? 'View less' : 'View all';
+    } else {
+      listItems.forEach(item => item.classList.add('visible'));
+      toggleButton.style.display = 'none';
+    }
+  }
+
+  function setupToggleButtons() {
+    const buttons = document.querySelectorAll('.pro-view-all');
+
+    buttons.forEach(button => {
+      let isExpanded = false;
+
+      button.addEventListener('click', function () {
+        const containerSelector = button.getAttribute('data-target');
+        isExpanded = !isExpanded;
+        applyInitialView(containerSelector, isExpanded);
+
+        if (!isExpanded) {
+          document.querySelector(containerSelector).scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    applyInitialView('#online-order');
+    setupToggleButtons();
+
+    // Delay to wait for API-loaded offline content
+    const waitForOfflineOrders = setInterval(() => {
+      const offlineItems = document.querySelectorAll('#offline-order .order-pro-item');
+      if (offlineItems.length > 0) {
+        applyInitialView('#offline-order');
+        clearInterval(waitForOfflineOrders);
+      }
+    }, 300); // check every 300ms until orders are loaded
+  });
+</script>
+
+  
+<script defer>
+  // on click scroll
+  document.querySelectorAll('.account-bar a[href^="#"]').forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+
+    const targetId = this.getAttribute('href');
+    const targetElement = document.querySelector(targetId);
+    const offset = window.innerWidth <= 991 ? 140 : 81;
+
+    if (!targetElement) return;
+
+    // Always force scroll to exact offset from top
+    const scrollTargetY = targetElement.getBoundingClientRect().top + window.scrollY - offset;
+
+    // Use requestAnimationFrame to force scroll even if element is in view
+    requestAnimationFrame(() => {
+      window.scrollTo({
+        top: scrollTargetY,
+        behavior: 'smooth'
+      });
+    });
+  });
+});
+
+
+  
+  // order tab 
+document.querySelectorAll(".order-tab-item a").forEach(tab => {
+  tab.addEventListener("click", e => {
+    e.preventDefault();
+    const id = tab.getAttribute("href").substring(1);
+
+    document.querySelectorAll(".tab-content > div").forEach(div =>
+      div.style.display = div.id === id ? "block" : "none"
+    );
+
+    document.querySelectorAll(".order-tab-item").forEach(li =>
+      li.classList.toggle("active", li.contains(tab))
+    );
+  });
+});
+
+// Show first tab by default
+document.querySelector(".order-tab-item a").click();
+
+</script> 
+  
+<!-- go rewards member logic script -->
+{% if customer %}
+  <script defer>
+    // redirect tab 
+    const rewardLink = document.querySelector('.go-rewards-item a');
+    if (rewardLink) {
+      rewardLink.addEventListener('click', function(e) {
+        const href = rewardLink.getAttribute('href');
+    
+        if (href && !href.startsWith('#')) {
+          e.preventDefault();
+          window.location.href = href; 
+        }
+      });
+    }
+    // go rewards member logic script
+    const customerEmail = "{{ customer.email }}";
+    const customerPhone = "{{ customer.default_address.phone }}";
+    document.addEventListener("DOMContentLoaded", function () {
+      const section = document.querySelector('.order-go-rewards');
+      const rewardLink = document.querySelector('.go-rewards-item a');
+      const goRewardBtn = document.querySelector('.goreward-btn'); 
+
+      if (rewardLink) {
+        rewardLink.setAttribute("href", "/pages/go-rewards-member");
+      }
+
+      if (section) section.style.display = 'none';
+      if (goRewardBtn) goRewardBtn.style.display = 'none';
+
+      fetch('https://admin3157.gocolors.com/new_go_colors_india/public/check-rewards-customer', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          email: customerEmail,
+          mobile: customerPhone
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        const message = data.message;
+        console.log("GoColors API Message:", message);
+
+        // Invited and form filled
+        if (message === "Invited and form filled") {
+          if (section) section.style.display = 'none';
+          if (goRewardBtn) goRewardBtn.style.display = 'inline-block';
+          if (rewardLink) rewardLink.setAttribute("href", "/pages/go-rewards-member");
+        }
+
+        // Invited but form not filled
+        else if (message === "Invited but form not filled") {
+          // if (section) {
+          //   section.style.display = 'block';
+          //   section.style.cursor = 'pointer';
+            
+          //   const linkInside = section.querySelector("a");
+          //   if (linkInside) {
+          //     linkInside.setAttribute("href", "/pages/go-rewards-member");
+          //     linkInside.addEventListener("click", function (e) {
+          //       e.preventDefault(); 
+          //       window.location.href = '/pages/go-rewards-member'; 
+          //     });
+          //   } else {
+          //     section.onclick = () => {
+          //       window.location.href = '/pages/go-rewards-member';
+          //     };
+          //   }
+          // }
+          if (section) section.style.display = 'none';
+          if (goRewardBtn) goRewardBtn.style.display = 'inline-block';
+          if (rewardLink) rewardLink.setAttribute("href", "/pages/go-rewards-member");
+        }
+        
+        // Not invited but form filled
+        else if (message === "Not invited but form filled") {
+          
+          section.style.display = "block";
+          
+          const bannerLink = section.querySelector("a");
+          if (bannerLink) {
+            bannerLink.removeAttribute("href");
+            bannerLink.style.cursor = "pointer";
+        
+            bannerLink.addEventListener("click", function (e) {
+              e.preventDefault();
+              const popup = document.getElementById("go-rewards-thankyou-popup");
+              if (popup) {
+                popup.style.display = "flex";
+                setTimeout(() => {
+                  popup.style.display = "none";
+                }, 2000);
+              }
+            });
+          }
+          if (rewardLink) rewardLink.setAttribute("href", "#go-rewards-block");
+          document.querySelector('.goreward-btn')?.classList.add('hidden');
+        }
+
+        // Not invited and form not filled
+        else if (message === "Not invited and form not filled") {
+          if (section) {
+            section.style.display = 'block';
+            section.style.cursor = 'pointer';
+        
+            const linkInside = section.querySelector("a");
+            if (linkInside) {
+              linkInside.setAttribute("href", "/pages/go-rewards");
+              linkInside.addEventListener("click", function (e) {
+                e.preventDefault();
+                window.location.href = '/pages/go-rewards';
+              });
+            } else {
+              section.onclick = () => {
+                window.location.href = '/pages/go-rewards';
+              };
+            }
+          }
+          if (goRewardBtn) goRewardBtn.style.display = 'none';
+          if (rewardLink) rewardLink.setAttribute("href", "#go-rewards-block");
+        }
+      })
+      .catch(error => {
+        console.error("GoColors API Error:", error);
+      });
+    });
+  </script>
+{% endif %}
+
+
+
+{% schema %}
+{
+  "name": "t:sections.main-account.name",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    },
+    {
+      "type": "image_picker",
+      "id": "default_coupon_image",
+      "label": "Default Coupon Image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "coupon_image",
+      "name": "Coupon Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "coupon_image",
+          "label": "Coupon Image"
+        }
+      ]
+    }
+  ],
+}
+{% endschema %}

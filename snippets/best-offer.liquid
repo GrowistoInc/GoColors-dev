@@ -1,0 +1,130 @@
+<style>
+  .popup_pagecontent{
+    text-align: left;
+  }
+  .popup_pagecontent p{
+    margin: 0;
+    font-size: 14px;
+  }
+  .best-offer-block ul{
+    padding-left: 19px;
+  }
+  .best-offer-block ul li::marker {
+    color: #DF2E84; /* Change the bullet color to your desired color */
+  }
+  .best-offer-block ul li{
+    font-size:14px;
+  }
+</style>
+{% if product.metafields.custom.best_offer != blank %}
+  <div class="best-offer-block"> 
+    <div class="best-offer-header">
+      <div class="icon-with-bestoffer">
+       <svg xmlns="http://www.w3.org/2000/svg" id="bxs-offer" width="18.462" height="18.461" viewBox="0 0 18.462 18.461">
+        <path id="Path_74865" data-name="Path 74865" d="M33.4,25.326l1.02-1.763a.924.924,0,0,0-.337-1.262L32.32,21.28V19.246a.924.924,0,0,0-.924-.924H29.364l-1.019-1.764a.932.932,0,0,0-.561-.431.918.918,0,0,0-.7.092l-1.765,1.02-1.765-1.021a.924.924,0,0,0-1.262.338l-1.02,1.765H19.237a.924.924,0,0,0-.924.924v2.032L16.547,22.3a.922.922,0,0,0-.337,1.263l1.02,1.763-1.02,1.763a.928.928,0,0,0,.336,1.263l1.765,1.02V31.4a.924.924,0,0,0,.924.924h2.033l1.02,1.765a.923.923,0,0,0,1.263.337l1.763-1.02,1.765,1.02a.925.925,0,0,0,1.262-.337l1.019-1.765H31.4a.924.924,0,0,0,.924-.924V29.373l1.765-1.02a.924.924,0,0,0,.337-1.263Zm-10.4-4.63a1.387,1.387,0,1,1-1.387,1.386A1.387,1.387,0,0,1,23.005,20.7Zm.277,8.872L21.8,28.46l5.545-7.393,1.479,1.108Zm4.344.37a1.387,1.387,0,1,1,1.387-1.386,1.387,1.387,0,0,1-1.387,1.386Z" transform="translate(-16.085 -16.095)" fill="#df2e84"/>
+      </svg>
+        <h3>{{ block.settings.offer_heading }}</h3>
+      </div>
+          {% comment %}product.metafields.custom.best_offers_see_details metafield for url {% endcomment %}      
+      <span>
+      <a href="javascript:void(0);" id="seeDetailsBtn">See details
+        <!-- <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#DF2E84" height="8px" width="8px" version="1.1" id="Layer_1" viewBox="0 0 330 330" xml:space="preserve">
+        <path id="XMLID_222_" d="M250.606,154.389l-150-149.996c-5.857-5.858-15.355-5.858-21.213,0.001  c-5.857,5.858-5.857,15.355,0.001,21.213l139.393,139.39L79.393,304.394c-5.857,5.858-5.857,15.355,0.001,21.213  C82.322,328.536,86.161,330,90,330s7.678-1.464,10.607-4.394l149.999-150.004c2.814-2.813,4.394-6.628,4.394-10.606  C255,161.018,253.42,157.202,250.606,154.389z"/>
+        </svg>       -->
+        <svg class="w-[12px] h-[12px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 24 24">
+  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="m9 5 7 7-7 7"/>
+</svg>
+
+      </a>      
+      </span>     
+    </div>
+      {% assign offer_text = product.metafields.custom.best_offer | split: '|' %}
+       <ul>      
+  {% for offer in offer_text %}
+    {% if offer != "" %}
+      <li>{{ offer }}</li>
+    {% endif %}
+  {% endfor %}
+</ul>
+  </div>
+    <div id="popupoffer_modal" class="offer_modal">
+    <div class="offer_modal-content">
+      <span class="closeBtn">&times;</span>
+        {% assign page_handle = product.metafields.custom.best_offer_see_detail %}
+        {% assign pageurl = "https://gocolors.com/pages/" | append: page_handle %}     
+        {% assign page = pages[page_handle] %} 
+        {% if page %}
+          <div class="popup-content">
+            <h2>{{ page.title }}</h2>
+            <div class="popup_pagecontent">{{ page.content }}</div>
+          </div>
+        {% else %}
+          <p>Page not found.</p>
+        {% endif %}
+    </div>
+  </div>
+{% endif %}
+
+<style>
+  /* offer_modal styles */
+.offer_modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(255 255 255 / 60%);
+}
+
+/* offer_modal content */
+.offer_modal-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 20px;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 500px;
+  text-align: center;
+  border: 1px solid #1A1A1A;
+}
+
+/* Close button */
+.closeBtn {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.closeBtn:hover,
+.closeBtn:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+</style>
+
+<script>
+const seeDetailsBtn = document.getElementById('seeDetailsBtn');
+const popupoffer_modal = document.getElementById('popupoffer_modal');
+const closeBtn = document.querySelector('.closeBtn');
+ if (seeDetailsBtn) {
+  seeDetailsBtn.addEventListener('click', function() {
+    popupoffer_modal.style.display = 'block';
+  });
+ }
+ if (closeBtn) {  
+  closeBtn.addEventListener('click', function() {
+    popupoffer_modal.style.display = 'none';
+  });
+ }
+window.addEventListener('click', function(e) {
+  if (e.target === popupoffer_modal) {
+    popupoffer_modal.style.display = 'none';
+  }
+});
+</script>

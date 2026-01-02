@@ -1,0 +1,207 @@
+<style>
+       h2.page-title {font-size: 30px;display:flex;align-items: center;font-weight: 600;gap:17px;}
+      .icon { width: 25px;height: 25px;}
+      .contact-columns { display: grid; grid-template-columns: 1fr 1fr; padding-right: 4rem;gap: 2rem; margin: 6.2rem 4.2rem 3rem;position: relative;top: 0;bottom: 0;left: 0;right: 0;width: 96%;}
+      .contact-block h3 {font-size: 25px;font-weight: 500;margin: 0rem;}
+      .contact-block li {display: flex;align-items: center;gap:16px}
+      .contact-details {list-style: none;display: flex; padding: 23px 0 31px;flex-direction: column; margin: 0;gap: 20px;}
+      .contact-details a {text-decoration: underline;transition: color 0.2s ease;}
+      .contact-details a:hover {color: #155ab6;}
+      .contact-block a.btn-enquire { width: fit-content;display: inline-block;font-size: 14px;line-height: normal;text-decoration:none;border: 1px solid #333;padding: 1rem;border-radius: 50px;transition: 0.25s ease;background-color:#fff;}
+      .contact-block a.btn-enquire:hover {background: #333;color: #fff;}
+      .contact-details img {height: 31px;width: 31px;}
+      .contact-block li p {margin: 0;color: #000;font-size: 14px;line-height: 1.4;font-weight: 100;}
+       li p.addres {padding-right: 9rem; }
+      .contact-columns::after {content: "";position: absolute;right:56%;border-right: 1px solid #000;display: block;width: 1px;height: 100%;}
+      .contact-block {border-bottom: 1px solid #000;width: 80%; max-width: 100%;}
+
+      @media screen and (min-width:1200px){
+        .contact-block:last-child,.contact-block:nth-last-child(2) {border-bottom:none}
+         {%- for block in section.blocks -%}
+          {% if block.settings.btn-url != blank %}
+            .contact-block-{{ block.id }}{position: relative;top: 0;bottom: 0;left: 0;right: 0;padding-bottom: 40px;}
+            .contact-block-{{ block.id }} a.btn-enquire{position: absolute;bottom: 0;}
+          {% endif %}
+         {%- endfor -%}
+      }
+      
+      /* Tablet */
+      @media (max-width: 1024px) {
+        .contact-block {display: flex;flex-direction: column;gap: 0.2rem;min-height:auto; } }
+
+      /* Mobile */
+      @media (max-width: 720px) {
+     .contact-columns {grid-template-columns: 1fr;margin: 0;width:100%;padding:0;}
+      section.get-in-touch {max-width:100%;}
+      .contact-columns::after{border:none}
+      .contact-block:third-child{ border-bottom: 1px solid #000000 ;}
+      .contact-block:last-child{ border-bottom:none;}
+      h1.page-title {font-size: 1.5rem;}
+      .contact-block {gap: 0.2rem;width: 100%;}
+      .contact-block h3 {font-size: 20px;}
+      li p.addres {padding-right: 0;}
+      h2.page-title{font-size:24px;}
+      .contact-block a.btn-enquire{margin-bottom:30px;}
+      }
+  
+</style>
+
+<section class="get-in-touch page-width">
+  <h2 class="page-title"> 
+     <a href="/">
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <circle cx="12" cy="12" r="11" stroke="#000" stroke-width="2" fill="none" />
+        <polyline points="13 16 9 12 13 8" stroke="#000" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+ </a>
+     {{ section.settings.heading }}</h2>
+  <div class="contact-columns">
+    {% for block in section.blocks %}
+      <div class="contact-block contact-block-{{ block.id }}">
+        {% if block.settings.title != blank %}
+          <h3>{{ block.settings.title }}</h3>
+        {% endif %}
+        <ul class="contact-details">
+          {% if block.settings.username != blank %}
+            <li>
+              <img src="{{ block.settings.icon1 | default: 'user.svg' | img_url }}" alt="">
+              <p class="contact-username">{{ block.settings.username }}</p>
+            </li>
+          {% endif %}
+          {% if block.settings.address != blank %}
+            <li>
+              <img src="{{ block.settings.icon2 | default: 'location.svg' | img_url }}" alt="">
+              <p class="addres">{{ block.settings.address }}</p>
+            </li>
+          {% endif %}
+          {% if block.settings.email != blank %}
+            <li>
+              <img src="{{ block.settings.icon3 | default: 'email.svg' | img_url }}" alt="">
+              <a href="mailto:{{ block.settings.email }}">{{ block.settings.email }}</a>
+            </li>
+          {% endif %}
+          {% if block.settings.number != blank %}
+            <li>
+              <img src="{{ block.settings.icon4 | default: 'phone.svg' | img_url }}" alt="">
+              <p>{{ block.settings.number }}</p>
+            </li>
+          {% endif %}
+         {% if block.settings.wnumber != blank %}
+  <li>
+     <img src="{{ block.settings.icon5 | default: 'whatsaap.svg' | img_url }}" alt="WhatsApp">
+    <a href="https://wa.me/{{ block.settings.wnumber | remove: '-' | remove: ' ' }}" target="_blank">
+     
+      <p>{{ block.settings.wnumber }}</p>
+    </a>
+  </li>
+{% endif %}
+
+        </ul>
+         {% if block.settings.show_enquire %}
+            <a href="{{ block.settings.btn-url }}" class="btn-enquire">Enquire now</a>
+          {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Get In Touch",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Get In Touch"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "contact",
+      "name": "Contact Info",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Corporate Office"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon1",
+          "label": "Icon (Username)"
+        },
+        {
+          "type": "text",
+          "id": "username",
+          "label": "Username",
+          "default": "Ms. Gayathri Kethar, Company Secretary & Compliance Officer"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon2",
+          "label": "Icon (Address)"
+        },
+        {
+          "type": "textarea",
+          "id": "address",
+          "label": "Address",
+          "default": "123 Main St, City, State, ZIP"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon3",
+          "label": "Icon (Email)"
+        },
+        {
+          "type": "text",
+          "id": "email",
+          "label": "Email",
+          "default": "email@example.com"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon4",
+          "label": "Icon (Phone)"
+        },
+        {
+          "type": "text",
+          "id": "number",
+          "label": "Phone Number",
+          "default": "(123) 456-7890"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon5",
+          "label": "Icon (WhatsApp)"
+        },
+        {
+          "type": "text",
+          "id": "wnumber",
+          "label": "WhatsApp Number",
+          "default": "+1 (123) 456-7890"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_enquire",
+          "label": "Show Enquire Button",
+          "default": true
+        },
+        {
+        "type":"url",
+        "id":"btn-url",
+        "label":"Button Url"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Get In Touch",
+      "category": "Contact",
+      "blocks": [{ "type": "contact" }]
+    }
+  ]
+}
+{% endschema %}

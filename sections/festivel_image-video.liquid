@@ -1,0 +1,176 @@
+<style>
+  .main-container.festivale {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    row-gap: 2.5rem;
+  }
+    .fest-box img{
+      width:100%;
+    }
+ .main-container video {
+     height: 100%;
+     width:100%;
+  } 
+  .mobile{
+    display:block
+  }
+  .desktop{
+    display:none;
+  }
+  iframe {
+    width: 100%;
+  }
+@media screen and (min-width: 1200px) { 
+  .mobile{
+    display:none;
+  }
+   .desktop{
+    display:block;
+  }
+  video.desktop{    
+    width:100%;
+    height: 500px;
+  }
+  .fest-box {
+    flex: 100%;
+    width: 100%;
+  } 
+  .video-div{
+    max-height:500px;
+  }
+ 
+}
+
+@media screen and (min-width: 1400px) {
+  .video-div{
+    max-height:550px;
+  }
+}
+</style>
+
+<div class="main-container festivale">
+  {% if section.settings.image  != blank %}
+ 
+  <div class="fest-box">
+    {% if section.settings.image  != blank %} <img class="home-image desktop" src="{{ section.settings.image | img_url:'' }}"> {% endif %}
+       {% if section.settings.mob-image  != blank %} <img class="home-image mobile" src="{{ section.settings.mob-image | img_url:'' }}"> {% endif %}
+  </div>
+ {% endif %}
+  <div class="fest-box video-div ">
+    
+        <div data-video-youtube class="item slide-youtube embed-responsive">
+          <div class="fluid-width-video-wrapper">  
+           {% if section.settings.youtube_iframe != blank %} 
+            <iframe class="desktop" width="{{ section.settings.videoWidth }}" height="{{ section.settings.videoHeight }}" src="https://www.youtube.com/embed/{{ section.settings.youtube_iframe }}?rel=0&amp;autoplay=1&mute=1" title="Introducing Warm Tech by Go Colors : Your Winter Fashion Wonderland" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+           {% endif %}
+           {% if section.settings.mobile_youtube_iframe != blank %}
+                 <iframe class="mobile" width="320" height="560" src="https://www.youtube.com/embed/{{ section.settings.mobile_youtube_iframe }}?rel=0&amp;autoplay=1&mute=1" title="Introducing Warm Tech by Go Colors : Your Winter Fashion Wonderland" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          {% endif %}
+             </div>
+        </div>
+         {% if section.settings.video_source != blank %}
+           <video class="desktop"  preload="auto"
+                           autoplay="true"
+                           muted="true"
+                           loop="true"
+                           controls="false"
+                           disablePictureInPicture="false"
+                           controlsList='nodownload noplaybackrate'>
+               <source type="video/mp4" src="{{ section.settings.video_source }}">
+            </video> 
+           {% endif %}
+              {% if section.settings.video_source_mob  != blank %}
+              <video class="mobile"  preload="auto"
+                           autoplay="true"
+                           muted="true"
+                           loop="true"
+                           controls="false">
+                <source type="video/mp4" src="{{ section.settings.video_source_mob }}">
+              </video>                
+            {% endif %}        
+      </div> 
+</div>
+
+
+{% schema %}
+  {
+    "name": "image-video",
+    "settings": [
+       {
+        "type": "image_picker",
+        "id": "image",
+        "label": "festivale-image"
+      },
+      {
+        "type": "image_picker",
+        "id": "mob-image",
+        "label": "Mobile Image"
+      },
+       {
+        "type": "url",
+        "id": "button_link",
+        "label": "image-link"
+      },
+       {
+            "type": "radio",
+            "id": "video__type",
+            "label": "Video Type",
+            "options" : [
+              {
+                "value" : "youtube",
+                "label" : "Youtube"
+              },
+              {
+                "value" : "mp4",
+                "label" : "MP4"
+              }
+            ]
+          },
+       {
+            "type": "text",
+            "id": "youtube_iframe",
+            "label": "Youtube ID"
+          },
+         {
+            "type": "text",
+            "id": "mobile_youtube_iframe",
+            "label": "Mobile Youtube ID"
+          }, 
+          {
+               "type": "text",
+            "id": "videoWidth",
+            "label": "Desktop Video Width",
+            "default":"640",
+            "info": "Add numberic value for unit Px"
+          },
+          {
+             "type": "text",
+            "id": "videoHeight",
+            "default":"500",
+            "label": "Desktop Video Height",
+            "info": "Add numberic value for unit Px"
+          },
+       {
+            "type": "url",
+            "id": "video_source",
+            "label": "Video Source"
+          },
+       {
+            "type": "url",
+            "id": "video_source_mob",
+            "label": "Video Source Mobile"
+          }     
+    ],
+    "presets": [
+       {
+        "name": "image-video",
+        "category": "Video",
+        "settings": {
+        }
+      }
+    ]
+  }
+{% endschema %}
+
+

@@ -1,0 +1,178 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "investor_left_block_yVk8rz": {
+      "type": "Investor-left-block",
+      "blocks": {
+        "image_block_abgyjR": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g3660.svg",
+            "title": "Our Business",
+            "url": "https://gocolors.com/pages/our-business"
+          }
+        },
+        "image_block_37y3hy": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Vector_011e1c53-c3cc-4177-8696-dad1f349b037.svg",
+            "title": "Board of Directors",
+            "url": "https://gocolors.com/pages/board-of-directors"
+          }
+        },
+        "image_block_nEAacp": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Component_1.svg",
+            "title": "Corporate Governance",
+            "url": "https://gocolors.com/pages/corporate-governance"
+          }
+        },
+        "image_block_eE7znK": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g3725.svg",
+            "title": "Annual reports",
+            "url": "https://gocolors.com/pages/annual-reports"
+          }
+        },
+        "image_block_UTMTxD": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_1.svg",
+            "title": "Earning Call  Transcripts",
+            "url": "https://gocolors.com/pages/earning-call-transcripts"
+          }
+        },
+        "image_block_CK4pG3": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Vector_1_e879eb32-0411-4431-bf21-69107ea6f385.svg",
+            "title": "Quarterly  Financial Results",
+            "url": "https://gocolors.com/pages/quarterly-financial-results"
+          }
+        },
+        "image_block_CxWwR6": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_17.svg",
+            "title": "Investor Presentation",
+            "url": "https://gocolors.com/pages/investor-presentation"
+          }
+        },
+        "image_block_4cJd7X": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_18.svg",
+            "title": "Press Releases",
+            "url": "https://gocolors.com/pages/press-releases"
+          }
+        },
+        "image_block_KxCiJF": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Vector_2.svg",
+            "title": "Credit Rating",
+            "url": "https://gocolors.com/pages/credit-rating"
+          }
+        },
+        "image_block_T6ciCA": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_19.svg",
+            "title": "Corporate Announcements",
+            "url": "https://gocolors.com/pages/corporate-announcements"
+          }
+        },
+        "image_block_crRnnW": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_13.svg",
+            "title": "Shareholding Pattern",
+            "url": "https://gocolors.com/pages/shareholding-pattern"
+          }
+        },
+        "image_block_QeBtgP": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g788.svg",
+            "title": "Shareholder Grievances",
+            "url": "https://gocolors.com/pages/shareholder-grievances-1"
+          }
+        },
+        "image_block_UGkLeN": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/x31_650_x2C__Employee_x2C__group_x2C__management_x2C__organization_x2C__team.svg",
+            "title": "KMP Details",
+            "url": "https://gocolors.com/pages/kmp"
+          }
+        },
+        "image_block_dtiKgE": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_14.svg",
+            "title": "MOA AOA/  Directors Profile",
+            "url": "https://gocolors.com/pages/moa-aoa"
+          }
+        },
+        "image_block_C3aeEH": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Component_1_1.svg",
+            "title": "Policies",
+            "url": "https://gocolors.com/pages/investor-policies"
+          }
+        },
+        "image_block_hQLDcc": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g2733.svg",
+            "title": "Archivals",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_block_abgyjR",
+        "image_block_37y3hy",
+        "image_block_nEAacp",
+        "image_block_eE7znK",
+        "image_block_UTMTxD",
+        "image_block_CK4pG3",
+        "image_block_CxWwR6",
+        "image_block_4cJd7X",
+        "image_block_KxCiJF",
+        "image_block_T6ciCA",
+        "image_block_crRnnW",
+        "image_block_QeBtgP",
+        "image_block_UGkLeN",
+        "image_block_dtiKgE",
+        "image_block_C3aeEH",
+        "image_block_hQLDcc"
+      ],
+      "name": "Investor Left Blocks",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "investor_left_block_yVk8rz"
+  ]
+}

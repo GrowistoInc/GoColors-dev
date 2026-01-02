@@ -1,0 +1,50 @@
+<div class="iwishWrapper">
+  <div class="iwishTitle">
+    <h1>{{ iwishPageTitle }}</h1>
+  </div>
+  <div class="iwishCategoryWrapper">
+    {{ iwishCategoryList }}
+    {{ iwishCategoryManage }}
+  </div>
+  <div class="iwishMsg">
+    {{ iwishLoginNote }}
+    {{ sysMessage }}
+  </div>
+  <ul class="iwishProducts">
+    {{ productSnippet }}
+  </ul>
+  <div>
+    {{ shareWishlist }}
+  </div>
+</div>
+
+{% capture phandle %}{{productHandle}}{% endcapture %}
+{% assign product = all_products[phandle] %}
+{% assign prosku = product.selected_or_first_available_variant.sku | split: '-' %}
+<li class="iwishItem boost-pfs-filter-product-item boost-pfs-filter-product-item-grid boost-pfs-filter-grid-width-3 boost-pfs-filter-grid-width-mb-2">
+  {{ form }}
+  <div class="iwishImgWrap">
+    <a href="{{productLink}}"><img src="{{productImgSrc}}" alt=""></a>
+  </div>
+  <div class="iwishMeta boost-pfs-filter-product-bottom">
+    <div class="boost-pfs-filter-product-bottom-inner">
+      <div class="iwishMeta-title">
+        <a class="boost-pfs-filter-product-item-title" href="{{productLink}}">{{ productTitle }}</a>
+      </div>
+      <div class="iwishMeta-sub-title" style="font-size: 14px; padding-bottom: 5px;">
+        {{ product.type }}: {{ prosku[0] }}
+      </div>
+      <!-- <div class="iwishMeta-variant-title">{{variantTitle}}</div> -->
+      {%- if product.price_varies -%}
+        <div class="iwishMeta-price boost-pfs-filter-product-item-regular-price">
+          {{ product.price_min | money }} - {{ product.price_max | money }}
+        </div>
+      {% else %}
+        <div class="iwishMeta-price boost-pfs-filter-product-item-regular-price">{{ product.price | money }}</div>
+      {% endif %}
+      {{ iwishCategoryTransfer }}
+      <div><a class="iwishRemoveBtn" href="{{removeWishLink}}" title="Remove from wishlist">Remove</a></div>
+    </div>
+  </div>
+  {{ /form }}
+</li>

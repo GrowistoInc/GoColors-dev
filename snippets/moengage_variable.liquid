@@ -1,0 +1,31 @@
+<script>
+    var variant_qty = "{{ product.selected_or_first_available_variant.inventory_quantity }}"; //selected variant inventory on pdp
+    var customer_email = "{{ customer.email }}";        // Customer Email ID.
+    var customer_login = "";                            // Logged In/Not Logged In    
+    var customer_id = "{{ customer.id }}";              // Customer ID
+    var template_name = "{{ template.name }}";          // Shopify calling which Template
+    var page_type = "";                                 // for Page Name
+    var event_page = "";                                // Event Values
+    var collection_name = "{{ handle }}";               // Collection Handle
+    var category_name = "";                             // Category
+    var sub_category_name = "";                         // Sub Category
+    var product_type = "{{ product.type }}";            // Product Type
+    var product_brand = "{{ product.vendor }}";         // Product Vendor
+    var collcetion_title = "{{ collection.title }}";    // Collection Title
+    var page_title = "{{ page.title }}";                // Page Title
+    var page_name = "";                                 // Page Name
+    var brand_name = "";                                // Brand Value (Products Type)
+    var product_type = "{{ product.type }}";            // Product Type
+    var product_brand = "{{ product.vendor }}";         // Product Vendor
+    var product_name = "'{{ product.title }}'";            // Product Name
+  //  var product_sku = "{{ current_variant.sku }}";       // Product Sku
+    var product_sku = "{{ product.selected_or_first_available_variant.sku }}";       // Product Sku
+    var variant_id= "{{ product.selected_or_first_available_variant.id }}"
+    var sellingPrice = "{{ product.price | money_without_currency }}";   // Product Price
+    var price = "{{ product.compare_at_price | money_without_currency }}";
+    var variant_qty = "{{ current_variant.inventory_quantity }}"; //variant qty
+    var meta_pdp_category = "{{ product.metafields.custom.category_1 }}"; //category 
+    var meta_pdp_sub_category = "{{product.metafields.custom.category_2 }}"; //cateogry2
+    var checkout_step = "{{ Shopify.Checkout.step }}"; //cateogry2
+   var gsf_conversion_data = {page_type : 'product', event : 'view_item', data : {product_data : [{variant_id : "{{ product.selected_or_first_available_variant.id }}", product_id : "{{ product.id }}", name : "{{ product.title | strip_html | escape | strip_newlines }}", price : {%if shop.money_format contains 'comma_separator'%}"{{ product.selected_or_first_available_variant.price | money_without_currency | replace:',','-' |  replace:'.',',' | replace:'-','.' | remove: ',' }}"{%elsif shop.money_format contains 'apostrophe_separator'%}"{{ product.selected_or_first_available_variant.price | money_without_currency | remove: "'" }}"{%else%}"{{ product.selected_or_first_available_variant.price | money_without_currency | remove: ',' }}"{%endif%}, currency : "{{ shop.currency }}", sku : "{{ product.selected_or_first_available_variant.sku | strip_html | escape }}", brand : "{{ product.vendor }}", variant : "{{ product.selected_or_first_available_variant.title | strip_html | escape }}", category : "{{ product.type | strip_html | escape }}", quantity : "{{ product.selected_or_first_available_variant.inventory_quantity }}" }], total_price : {%if shop.money_format contains 'comma_separator'%}"{{ product.selected_or_first_available_variant.price | money_without_currency | replace:',','-' |  replace:'.',',' | replace:'-','.' | remove: ',' }}"{%elsif shop.money_format contains 'apostrophe_separator'%}"{{ product.selected_or_first_available_variant.price | money_without_currency | remove: "'" }}"{%else%}"{{ product.selected_or_first_available_variant.price | money_without_currency | remove: ',' }}"{%endif%}, shop_currency : {% for currency in shop.enabled_currencies %}{% if currency == cart.currency %}{% assign shop_currency = currency.iso_code %}{% endif %}{% endfor %}{% if shop_currency != '' %}"{{ shop_currency }}"{% else %}"{{ shop.currency }}"{% endif %}}};
+</script>

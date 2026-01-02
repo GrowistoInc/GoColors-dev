@@ -1,0 +1,206 @@
+<style>
+.insta-video {position: relative;top: 0;bottom: 0;right: 0;left: 0;width:100%;height:100%;}
+.insta-div{position:relative;top:0; bottom:0;left:0;right:0;width:100%;height:100%;}
+.slider_video video { width: 100%;height: 100%;border-radius: 5px;} 
+img.inst-btn {position: absolute;top: 40%;left: 0;right: 0;margin: 0 auto; width: 2rem; height: 2rem;}
+p.text {font-size: 14px;color: #000; line-height: 18px;padding: 0 1rem 0;font-weight:500;color: #fff;text-transform: capitalize;}
+p.text:hover{color:#fff;text-decoration:underline;}
+a.insta-div {display: block;height: 100%;width: 100%;}
+.product_name {position: absolute;bottom: 10%;left: 0;right: 0;text-align: center;}
+.container_heading{overflow:hidden;}
+.slider_video .swiper-button-prev, .slider_video .swiper-button-next{display:none}
+.container_heading h2.heading {font-size: 20px;font-weight: 600; width: fit-content;margin: 30px 50px; text-transform: uppercase;padding-bottom: 0;}
+.container_heading .page-wrapper {margin-left: -80px; margin-right: -80px;overflow-y: hidden; padding:0;}
+.slider_video .swiper-slide, swiper-slide{padding: 1.5rem 1rem;margin-right: 0 !important;}
+.slider_video .swiper-slide.swiper-slide-next {padding: 0;}
+.section-{{ section.id }}-padding{padding:{{ section.settings.mob_padding_top }}px 0 {{ section.settings.mob_padding_bottom }}px;}
+@media screen and (min-width: 700px) and (max-width: 1200px){.slider_video .swiper-slide, swiper-slide,   .slider_video .swiper-slide.swiper-slide-next {padding: 0;}.container_heading .page-wrapper {margin-left: auto;margin-right: auto;  } }
+@media screen and (min-width:1200px) {
+  .section-{{ section.id }}-padding {padding-top: {{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px;}
+  .container_heading .page-wrapper { margin-left: 50px;margin-right: 50px;   }
+  .slider_video .swiper-slide, swiper-slide,   
+  .slider_video .swiper-slide.swiper-slide-next {padding: 0;    margin-right:20px !important;}
+ .slider_video .swiper-button-next:after, .slider_video .swiper-button-prev:after {font-size: 18px;color: #fff;display:none;}
+ .container_heading h2.heading {font-size: 30px;}
+ .slider_video .swiper-button-next, .slider_video .swiper-rtl .slider_video .swiper-button-prev ,
+ .slider_video .swiper-button-prev, .slider_video .swiper-rtl  .slider_video .swiper-button-next{background-color: #000000;width: 3rem; height: 3rem;top: 55%;opacity: 0.5;display:flex;align-items:center;justify-content:center;}
+ .slider_video .swiper-button-prev{left: 0;}
+ .slider_video .swiper-button-next {right:0;}
+ .slider_video {padding:0rem 0 0rem;position:relative;top:0;bottom:0;left:0;right:0;}
+}
+</style> 
+<div class="container_heading section-{{ section.id }}-padding ">
+    <h2 class="heading">{{ section.settings.heading }}</h2>
+  {% assign desktop_view = section.settings.dekstop_view %}
+  <div class="page-wrapper ">
+    <div class="swiper slider_video">
+        <div class="swiper-wrapper">
+          {% for block in section.blocks %}
+            <div class="swiper-slide">
+                 <a href="{{ block.settings.product-url }}" class="insta-div">
+                    <div class="insta-video">                      
+                    {% if block.settings.youtube_iframe != blank %}
+                   <iframe class="mobile" width="320" height="560" src="https://www.youtube.com/embed/{{ block.settings.youtube_iframe }}?rel=0&amp;autoplay=1&mute=1" title="Introducing Warm Tech by Go Colors : Your Winter Fashion Wonderland" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    {% else %}
+                       <video
+                           src="{{ block.settings.video-link }}"
+                           preload="auto"   
+                           loop="true"
+                           controls="false"
+                           disablePictureInPicture="false"
+                           controlsList='nodownload noplaybackrate'
+                        > </video>   
+                  {% endif %}
+                    </div>
+                    <div class="product_name">                  
+                       <p class="text">{{ block.settings.text_wrapp }}</p>                 
+                   </div>             
+                  </a>
+            </div>
+          {% endfor %}
+        </div>
+      <div class="swiper-button-next"  role="button">
+        <img src="https://cdn.shopify.com/s/files/1/0598/8158/6848/files/arrow-right_2.svg?v=1699872634" alt="next arrow">
+      </div>
+      <div class="swiper-button-prev"  role="button" >
+        <img src="https://cdn.shopify.com/s/files/1/0598/8158/6848/files/arrow-right_3.svg?v=1699872842" alt="prev arrow">
+      </div>
+    </div>
+  </div>
+</div> 
+<script>
+  $(document).ready(function(){
+   new Swiper(".slider_video",{
+     spaceBetween:20,
+     slidesPerView: {{ desktop_view }},
+     freeMode: false,
+     rewind: false,
+     loop: true,
+     navigation:{
+       nextEl:".swiper-button-next",
+       prevEl:".swiper-button-prev"
+     },
+     breakpoints:{
+       320:{
+         slidesPerView:3,
+         spaceBetween:10
+       },
+       640:{
+         slidesPerView:3,
+         spaceBetween:10
+       },
+       768:{
+         slidesPerView:4,
+         spaceBetween:20
+       },
+       1024:{
+         slidesPerView:{{ desktop_view }},
+         spaceBetween:20
+       }
+     }
+   });
+  });
+</script>
+{% schema %}
+{
+   "name": "Video slide Slider",
+   "settings": [
+      {
+         "type": "text",
+         "id": "heading",
+         "label": "Heading",
+         "default": "TAKE A LOOK AND SHOP"
+      },
+     {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 50
+    },
+      {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 50
+    },
+      {
+      "type": "range",
+      "id": "mob_padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Padding top",
+      "default": 20
+    },
+      {
+      "type": "range",
+      "id": "mob_padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Padding bottom",
+      "default": 50
+    },
+      {
+      "type": "range",
+      "id": "dekstop_view",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "label": "Desktop slides To View",
+      "default": 6
+    }
+   ],
+   "blocks": [
+      {
+         "type": "Image_banner",
+         "name": "Slider Video",
+         "settings": [
+             {
+                "type": "text",
+                "id": "video-link",
+                "label": "video link"
+            },
+            {
+            "type": "text",
+            "id": "youtube_iframe",
+            "label": "Youtube ID"
+          },
+            {
+               "type": "text",
+               "id": "text_wrapp",
+               "label": "product Name"
+            },
+           {
+             "type":"url",
+             "id":"product-url",
+             "label":"product url"
+           }
+         ]
+      }
+   ],
+   "presets": [
+      {
+         "name": "Video slide Slider",
+         "category": "video",
+         "blocks": [
+            {
+               "type": "Image_banner"
+            }
+         ]
+      }
+   ]
+}
+{% endschema %}
+
+  

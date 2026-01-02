@@ -1,0 +1,877 @@
+{{ 'custom-style.css' | asset_url | stylesheet_tag }}
+{{ 'custom-order.css' | asset_url | stylesheet_tag }}
+{{ 'customer.css' | asset_url | stylesheet_tag }}
+{% render 'returnprime_script' %}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+<style>
+    .main-order .breadcrumb a{
+      font-size: 10px;
+    }
+    .main-order .breadcrumb span{
+      font-size: 16px;
+      font-weight: bold;
+    }
+    .main-order .breadcrumb{
+      align-items: center;
+    }
+    .main-order .return_order{
+      font-size: 15px;
+    }
+    tr.order_summary.refund_order_total {
+      border-top: 1px solid #a7a5a5;
+  }
+    td.label.total_refund_amount.res_totalamount {
+      font-weight: bold;
+  }
+  td.label.total_refund_amount.res_totalamount span {
+      font-weight: normal;
+  }
+  #order_details tr th{
+      padding: .4em .6em;
+  }
+
+  .order-card {
+    border-radius: 16px;
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  }
+  .cancel-button {
+    padding: 6px 16px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    background: #fff;
+    cursor: pointer;
+  }
+  .cancel-button:hover {
+    background: #f44336;
+    color: white;
+    border-color: #f44336;
+  }
+  .invoice-button {
+    text-align: center;
+  }
+  .invoice-button button {
+    padding: 4px 28px;
+    border-radius: 30px;
+    border: 1px solid #000;
+    background: white;
+    font-size:1.6rem;
+    color:#000;
+    cursor: pointer;
+  }
+  .order-container{
+    padding-top:50px;
+    padding-bottom:50px;
+  }
+  .order-card .order-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+    margin-bottom: 28px;
+  }
+  .order-header span.order-id, .order-header span.order-date{
+    font-family:Montserrat, sans-serif;
+    font-size:2.1rem;
+    color:#000;
+  }
+  .order-card .product-info {
+    display: flex;
+    gap: 21px;
+    margin-bottom:45px;
+  }
+  .product-image img {
+    border-radius: 12px;
+    width: 132px;
+    height: auto;
+  }
+  .product-details a{
+    text-decoration:none;
+  }
+  .product-details h4{
+    margin:0 0 5px;
+    font-size:2.1rem;
+    font-weight:500;
+    color:#000000;
+  }
+  .product-details p.sku{
+    font-family:Montserrat, sans-serif;
+    margin:0 0 5px;
+    font-size:1.6rem;
+    color:#000000;
+  }
+  .product-details .qty-size-block{
+    display:flex;
+    gap:45px;
+    align-items:center;
+  }
+  .product-details .qty-size-block p{
+    font-family:Montserrat, sans-serif;
+    font-size:2.1rem;
+    margin:0;
+    color:#000;
+  }
+  .address-info, .payment-info {
+    background: #fff;
+    padding: 16px;
+    border-radius: 12px;
+    margin-top: 16px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+  .address-info h4, .payment-info h4{
+    font-size:1.8rem;
+    font-weight:500;
+    margin:0 0 21px;
+    color:#000;
+  }
+  .address-info p.pro-name-num{
+    font-family:Montserrat, sans-serif;
+    font-size:1.8rem;
+    font-weight:500;
+    margin:0;
+    color:#000;
+    text-transform: capitalize;
+  }
+  .address-info p {
+    font-family:Montserrat, sans-serif;
+    font-size: 1.8rem;
+    margin: 11px 0 0;
+    color:#000;
+  }
+  .payment-info p, .payment-info span{
+    font-family:Montserrat, sans-serif;
+    font-size:1.8rem;
+    margin:0;
+    color:#000;
+  }
+  .payment-info .pay-details-item, .payment-info .re-price-discount{
+    border-bottom:1px solid #000000;
+    padding:10px 0;
+  }
+  .payment-info .re-price-discount{
+    padding-top:0;
+  }
+  .payment-info .pay-details-item:last-child{
+    border:none;
+    margin-bottom:0;
+  }
+  .payment-info .pro-name-price, .pay-details-item, .discount-price{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .payment-info .pro-name-price p, .payment-info .pro-name-price span{
+    font-size:1.8rem;
+    margin:0;
+    color:#000;
+  }
+  div#return_to_store{
+    display:none;
+  }
+  @media screen and (max-width: 768px) {
+    .order-container{
+      padding-top:30px;
+      padding-bottom:30px;
+    }
+    div#return_to_store{
+      display:block;
+    }
+    .order-card{
+      padding:15px 10px;
+    }
+    .order-card .order-header{
+      margin-bottom:19px;
+    }
+    .order-card .product-info{
+      margin-bottom:35px;
+    }
+    .order-card nav.navslider{
+      padding:0 0 10px;
+    }
+    .product-image img{
+      width:91px;
+    }
+    .product-details h4, .order-header span.order-id, .order-header span.order-date{
+      font-size:1.4rem;
+    }
+    .product-details .qty-size-block p{
+      font-size:1.4rem;
+    }
+    .product-details p.sku{
+      font-size:1.2rem;
+    }
+    .address-info h4, .payment-info h4{
+      font-size:1.4rem;
+      margin:0 0 14px;
+    }
+    .address-info p.pro-name-num, .address-info p{
+      font-size:1.4rem;
+    }
+    .payment-info .pro-name-price span, .payment-info span{
+      font-size:1.4rem;
+    }
+    .payment-info span.price, .payment-info span.discount, .payment-info span.total{
+      white-space:nowrap;
+    }
+    .invoice-button button{
+      padding: 4px 14px;
+    }
+  }
+</style>
+
+<div class="order-container page-width">
+{%- for order in customer.orders -%}
+  {%- for line_item in order.line_items -%}
+        <div class="check_order hidden" data-orde-id="{{ order.name }}">
+        {% assign qty = line_item.quantity | plus: 0 %}
+        {% assign fulfilled = line_item.successfully_fulfilled_quantity | plus: 0 %}
+        {% assign tracking = line_item.fulfillment.tracking_number | escape %}
+        {% for i in (1..qty) %}
+        <div
+            class="order-card"
+            data-order-id="{{ order.id }}"
+            data-line-item-id="{{ line_item.id }}-{{ i }}"
+            data-tracking="{{ tracking }}"
+            data-fulfilled="{{ fulfilled }}"
+            data-quantity="{{ qty }}"
+            data-unit-index="{{ i }}"
+        >
+            <div class="order-header">
+            <span class="order-id">Order no: {{ order.name }}</span>
+            <span class="order-date">{{ order.created_at | date: '%d/%m/%Y' }}</span>
+            </div>
+
+            <div class="product-info">
+            <div class="product-image">
+                <img src="{{ line_item.image | img_url: 'medium' }}" alt="{{ line_item.name }}">
+            </div>
+            <div class="product-details">
+                <h4>{{ line_item.product.title }}</h4>
+                <p class="sku">SKU: {{ line_item.sku }}</p>
+                <div class="qty-size-block">
+                <p>Qty: 1</p>
+                {% for option in line_item.variant.options %}
+                    <p>Size: {{ option }}</p>
+                {% endfor %}
+                </div>
+            </div>
+            </div>
+
+            <nav class="navslider">
+            <div id="orderDataDiv" class="lineItemDiv_new_{{ line_item.id }}_{{ i }}"></div>
+            </nav>
+            {% if line_item.fulfillment.tracking_number
+            and line_item.successfully_fulfilled_quantity >= line_item.quantity
+            %}
+            {% else %}
+            <div class="order-cancle-placed" id="{{ line_item.id }}-{{ i }}_order-placed-block">
+                <div class="order-placed">
+                <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38" fill="none">
+                    <rect x="0.853027" y="0.763672" width="36.6751" height="36.6751" rx="18.3375" fill="#8DC43F"/></rect>
+                    <path d="M12.855 19.3695L16.93 23.6483L25.08 14.4795" stroke="white" stroke-width="2.29219" stroke-linecap="round" stroke-linejoin="round"/>
+                    </path>
+                </svg>
+                <div class="ord-placed-details">
+                    <p>Order Placed</p>
+                    <span class="order-date">{{ order.created_at | date: '%d/%m/%Y' }}</span>
+                </div>
+                </div>
+                <a
+                target="_blank"
+                title="Cancel"
+                class="btn btn-cancel custom-white-btn btn-secondary  cancel_acbtn {{ line_item.id }}_cancel"
+                data-order-id="{{ order.id }}"
+                data-sku="{{ line_item.sku }}"
+                data-title-name="{{ line_item.title }}"
+                data-order-number="{{ order.order_number }}"
+                data-remaining_qty="0"
+                >Cancel</a
+                >
+                  
+                {% assign gift_return_code = '' %}
+                {% for discount_allocation in line_item.line_level_discount_allocations %} 
+                {% assign gift_return_code = discount_allocation.discount_application.title %}
+                {% endfor %}
+                {%- assign gift_return_code_handle = gift_return_code | handleize -%}
+                 {%- assign gift_return_code = '' -%}
+                {%- unless gift_return_code_handle == 'buy-1-amp-get-1-free'
+                or gift_return_code_handle == 'buy-2-amp-get-2-free'
+                or gift_return_code_handle == 'buy-3-amp-get-3-free'
+                or gift_return_code_handle == 'buy-4-amp-get-4-free'
+                or gift_return_code_handle == 'buy-5-amp-get-5-free'
+                or  gift_return_code_handle == 'buy-one-amp-get-one-free'
+                or gift_return_code_handle == 'buy-two-amp-get-two-free'
+                or gift_return_code_handle == 'buy-three-amp-get-three-free'
+                or gift_return_code_handle == 'buy-four-amp-get-four-free'
+                or gift_return_code_handle == 'buy-five-amp-get-five-free'
+            -%}
+            
+                {% endunless %}
+
+          
+            </div>
+            {% endif %}
+{% comment %} 
+                      {% if order.fulfillment_status == 'fulfilled' %}
+                <button
+                    class="js-return-exchange {% if order.fulfillment_status != 'fulfilled' %} disabled{% endif %}"
+                    data-order="{{ order.name }}"
+                    data-customer="{{ customer.email }}"
+                    data-order_name="{{order.id}}"
+                    data-label="Return"
+                >
+                    Return / Exchange
+                </button>
+                {% else %}
+                   <p class="js-return-exchange disabled">Not Available</p>
+                {% endif %}
+ {% endcomment %}
+            <div class="order-cancle-placed" id="{{ line_item.id }}-{{ i }}_order-returned-block" style="display:none;">
+            <div class="order-placed">
+                <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38" fill="none">
+                <rect x="0.853027" y="0.763672" width="36.6751" height="36.6751" rx="18.3375" fill="#8DC43F"/></rect>
+                <path d="M12.855 19.3695L16.93 23.6483L25.08 14.4795" stroke="white" stroke-width="2.29219" stroke-linecap="round" stroke-linejoin="round"/>
+                </path>
+                </svg>
+                <div class="ord-placed-details">
+                <p>Order Delivered</p>
+                <span class="order-date order-delivery-date"></span>
+                </div>
+            </div>
+              {% if order.fulfillment_status == 'fulfilled' %}
+              <button style="font-size:14px" data-order_name={{order.id}} data-label="Return"
+                 class="return__exchange js-return-exchange {% if order.fulfillment_status != 'fulfilled' %} disabled{% endif %}" 
+                data-order="{{ order.name }}" data-customer="{{ customer.email }}">Return / Exchange</button>
+            {% endif %} 
+            {%- assign gift_return_code = '' -%}
+            {%- for discount_application in order.discount_applications -%}
+                {%- assign gift_return_code = discount_application.title -%}
+                <span style="display:none"> {{ discount_application.title  }} </span>
+                {%- endfor -%}
+                {%- assign gift_return_code_handle = gift_return_code | handleize -%}
+            <span style="display:none" datat-tags="{{ line_item.product.tags| split:',' }}"> {{ gift_return_code_handle  }} </span>
+            {% comment %} {%- assign gift_return_code = '' -%}
+            {% if line_item.product.tags contains 'pfs:label-EOSS' %}
+            {% else %}
+            {%- unless gift_return_code_handle == 'buy-1-amp-get-1-free'
+                or gift_return_code_handle == 'buy-2-amp-get-2-free'
+                or gift_return_code_handle == 'buy-3-amp-get-3-free'
+                or gift_return_code_handle == 'buy-4-amp-get-4-free'
+                or gift_return_code_handle == 'buy-5-amp-get-5-free'
+                or gift_return_code_handle == 'buy-one-amp-get-one-free'
+                or gift_return_code_handle == 'buy-two-amp-get-two-free'
+                or gift_return_code_handle == 'buy-three-amp-get-three-free'
+                or gift_return_code_handle == 'buy-four-amp-get-four-free'
+                or gift_return_code_handle == 'buy-five-amp-get-five-free'
+            -%}  
+                {% endunless %} 
+                <a  datat-tags="{{ line_item.product.tags| split:',' }}"
+                target="_blank"
+                style="display:none;"
+                title="Return"
+                class="return_cta_button custom-white-btn btn  btn-return  return_acbtn {{ line_item.id }}_return"
+                data-order-id="{{ order.id }}"
+                data-sku="{{ line_item.sku }}"
+                data-item-id="{{ line_item.id }}"
+                data-title-name="{{ line_item.title }}"
+                data-order-number="{{ order.order_number }}"
+                data-remaining_qty="0"
+                >Return</a
+                >
+            
+                
+            {% endif %} {% endcomment %}
+            <!--
+                <div class="invoice-button">
+                <button>Get Invoice</button>
+                </div>
+            -->
+            </div>
+            <div class="order-cancle-placed" id="{{ line_item.id }}-{{ i }}_order-cancle-block" style="display:none;">
+            <div class="order-placed order-cancelled">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                <rect x="0.625977" y="0.0683594" width="39.3208" height="39.3208" rx="19.6604" fill="#FF1919"/></rect>
+                <path d="M14.3463 26.1406L19.2167 19.8223L19.1947 20.5902L14.5657 14.6229H16.3208L20.1162 19.559L19.458 19.5371L23.2534 14.6229H24.9646L20.2917 20.656L20.3136 19.8223L25.2279 26.1406H23.4508L19.4361 20.8754L20.0504 20.9631L16.1014 26.1406H14.3463Z" fill="white"/></path>
+                </svg>
+                <div class="ord-placed-details">
+                <p>Cancelled</p>
+                {% if order.cancelled_at %}
+                    <span class="order-date">{{ order.cancelled_at | date: '%d/%m/%Y' }}</span>
+                {% endif %}
+                </div>
+            </div>
+            </div>
+        </div>
+        {% endfor %}
+        </div>
+        {% endfor %}
+      <div class="address-info hidden" data-orde-id="{{ order.name }}">
+        <h4>Delivery Address:</h4>
+        <p class="pro-name-num">
+          {{ order.shipping_address.name }}
+          {{ order.shipping_address.phone }}
+        </p>
+        <p>
+          {{ order.shipping_address.address1 }}, {{ order.shipping_address.address2 }}, {{ order.shipping_address.city }},
+          {{ order.shipping_address.zip }}
+        </p>
+      </div>
+      <div class="payment-info hidden" data-orde-id="{{ order.name }}">
+        <h4>Payment Information:</h4>
+        <div class="re-price-discount">
+          {% for line_item in order.line_items %}
+            <div class="pro-name-price">
+              <span>{{ line_item.product.title }}</span>
+              <span class="price">₹ {{ line_item.original_price | money_without_currency }}</span>
+            </div>
+          {% endfor %}
+          {%- if order.total_discounts != blank %}
+            <div class="discount-price">
+              <span>Discount</span>
+              <span class="discount">
+                <s class="price-item price-item--regular"> -₹ {{ order.total_discounts | money_without_currency }} </s>
+              </span>
+            </div>
+          {%- endif -%}
+        </div>
+        {%- if order.total_price != blank %}
+          <div class="pay-details-item total-discount-price">
+            <span>Discounted Price </span>
+            <span class="discounted">₹ {{ order.total_price | money_without_currency }}</span>
+          </div>
+        {%- endif -%}
+        {%- if order.total_tax != blank %}
+          <div class="pay-details-item order-tax">
+            <span>Tax</span><span class="tax">₹ {{ order.total_tax | money_without_currency }}</span>
+          </div>
+        {%- endif -%}
+        <div class="pay-details-item pro-total-price">
+          <span>Total Paid</span>
+          <span class="total">₹ {{ order.total_price | money_without_currency }}</span>
+        </div>
+      </div>
+     {% endfor %}
+  
+
+  
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+  const params = new URLSearchParams(window.location.search);
+  const phone = params.get("customer_phone");
+  const orderId = localStorage.getItem('orderId');
+  console.log('params: ',window.location.search);
+  console.log(phone + " phone " + orderId + "orderId" );
+  document.querySelectorAll('.check_order , .address-info , .payment-info').forEach(function (item) {
+   const current_orderId = item.getAttribute('data-orde-id');
+   console.log('orderId ',orderId, 'current_orderId ',current_orderId);
+    if (current_orderId !== orderId ) {
+      item.remove();return;
+    }
+    else{
+     item.classList.remove('hidden');
+    } 
+  });
+ }); 
+</script>
+<script>
+  {%- for order in customer.orders -%}
+  {% for line_item in order.line_items %}
+    {% assign qty = line_item.quantity | plus: 0 %}
+      {% for i in (1..qty) %}
+                   var customer_email ="{{ customer.email}}";
+                  localStorage.setItem("customer_email", customer_email);
+                  var name ="{{ customer.name}}";
+                  localStorage.setItem("name", name);
+                  var shopify_item_id = {{ line_item.id }}-{{i}}
+                  var shopify_order_id = "{{ order.id }}";
+                  var total_cancel_qty = 0;
+                  console.log(shopify_item_id, '{{ line_item.id }}-{{i}}');
+                 $.ajax({
+                   url: 'https://admin3157.gocolors.com/new_go_colors_india/public/api/checkStatus_merge',
+                    type: 'post',
+                    dataType: 'json',
+                     data: {
+                      'shopify_order_id': shopify_order_id
+                    },
+                    success: function(resp) {
+                    var refund_amount = resp.total_refund_amount;
+                    var payment_mode = resp.payment_mode;
+                    $.each(resp.qty_sku_wise, function(key, value) {
+
+                      for (i=1;i<=value.total_qty;i++)
+                         {
+                         var current_i = {{ i }};
+                      if (value.total_qty >= current_i) {
+                        // this comes from Liquid
+                    var html_new = "";
+                       html_new+='<div class="lineItemDiv lineItemDiv_new_' + value.shopify_item_id + '_' + current_i + '"><span class="lineItemQty"><span class="damage-msg oneQTY damage-msg-'+ value.shopify_item_id + '_' +i+'"> <div class="tooltip-order">'+
+                        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" xml:space="preserve" enable-background="new 0 0 64 64" style="&#10;fill: #000;&#10;"><path d="M32.331 46.326c-1.753 0-3.278-.711-4.32-2.024-.971-1.222-1.384-2.833-1.135-4.421l1.196-7.618-.276.142a2.816 2.816 0 0 1-2.575-5.009l5.205-2.676a2.815 2.815 0 0 1 4.069 2.941L32.45 40.685c.41-.043 1.467-.301 3.435-1.668a2.815 2.815 0 1 1 3.214 4.624c-2.459 1.71-4.568 2.585-6.446 2.677a5.815 5.815 0 0 1-.322.008z" fill="#000" class="fill-515151"/><circle cx="32.803" cy="19.233" r="3.143" fill="#000" class="fill-515151"/><path d="M32 59.5C16.836 59.5 4.5 47.164 4.5 32S16.836 4.5 32 4.5 59.5 16.837 59.5 32 47.163 59.5 32 59.5zm0-49.368c-12.058 0-21.868 9.81-21.868 21.868S19.942 53.868 32 53.868c12.058 0 21.868-9.81 21.868-21.868S44.058 10.132 32 10.132z" fill="#000" class="fill-515151"/></svg>'+
+                         '<span class="tooltip-ordertext">Damage Items Text</span></div></span></span><ul>'+
+                          '<li id='+value.shopify_item_id+'_newstep1_'+current_i+' class="active"><span>Order Received</span></li>'+
+                          '<li id='+value.shopify_item_id+'_newstep2_'+current_i+' ><span>Picked up</span></li>'+
+                          '<li id='+value.shopify_item_id+'_newstep8_'+current_i+' ><span>In-Transit</span></li>'+
+                         '<li id='+value.shopify_item_id+'_newstep3_'+current_i+' ><span>Out for delivery</span></li>'+
+                          '<li id='+value.shopify_item_id+'_newstep4_'+current_i+' ><span>Delivered</span></li>'+
+                         '<li id='+value.shopify_item_id+'_newstep6_'+current_i+'  class="hidden"><span>Order Cancelled</span></li>'+
+                          '<li id='+value.shopify_item_id+'_newstep7_'+current_i+' class="hidden"><span>Return initiated</span></li>'+
+                          '<li id='+value.shopify_item_id+'_newstep5_'+current_i+' class="hidden"><span>Refunded</span></li>'+
+                        ' <li id='+value.shopify_item_id+'_newstep9_'+current_i+' class="hidden" ><span>Returned</span></li>'+
+                          '<li id='+value.shopify_item_id+'_newstep10_'+current_i+' class="hidden" ><span>Return Pickedup</span></li>'+
+                          '<li id='+value.shopify_item_id+'_newstep11_'+current_i+' class="hidden" ><span>RTO</span></li>'+
+                        '</ul>'+
+                         '<div class="trackingDiv"><a data-cc-animate-click  href="" target="_blank" class ="orderTrack track_awb_'+value.shopify_item_id+'_'+current_i+'" >track now </a></div>'+
+                           '</div>';
+
+                          $(".lineItemDiv_new_" + value.shopify_item_id + "_" + current_i).html(html_new);
+                         }
+                        }
+                      if (value.delivery_date) {
+                        // Extract the date part
+                        var deliveryDate = value.delivery_date.split(' ')[0]; // "2025-04-15"
+
+                        // Split the date into [year, month, day]
+                        var dateParts = deliveryDate.split('-'); // ["2025", "04", "15"]
+
+                        // Format as dd/mm/yyyy
+                        var formattedDate = dateParts[2] + '/' + dateParts[1] + '/' + dateParts[0]; // "15/04/2025"
+
+                        // Update the span with the formatted date
+                        $(".order-date.order-delivery-date").text(formattedDate);
+                      }
+                      console.log("order status: " + JSON.stringify(value['order-status'], null, 2));
+
+                        $.each(value['order-status'], function(k, v) {
+                         parseInt(k);
+                        if (parseInt(k - 1) < 0) {
+                          k = 0
+                        }
+                        else {
+                          k = k;
+                        }
+                       // if(v.btn == "false")
+                       //  {
+                       //    console.log("track_awb_" + $('.track_awb_'+v.shopify_item_id +'_'+parseInt(k + 1)));
+                       //      // $('.track_awb_' + v.shopify_item_id +'_'+ parseInt(k + 1)).hide();
+                       //  }
+                       //  else{
+                           var track_url="";
+                           if(v.logistic_partner=="shiprocket")
+                           {
+                              track_url="https://shiprocket.co/tracking/";
+                           }
+                           else if(v.logistic_partner=="Delivery")
+                           {
+                               track_url="https://www.delhivery.com/track/package/";
+                           }
+                           $('.track_awb_' + v.shopify_item_id +'_'+ parseInt(k + 1)).attr('href', track_url+v.final_awb);
+                          //$(this).closest("#RetrunButton").find("#final_awb_number").val(v.final_awb);
+                           $('.final_awb_number_'+v.shopify_item_id).val(v.final_awb);
+                         // }
+                        if (v.logistic_status == "damaged") {
+                           $("span.damage-msg-"+  v.shopify_item_id + '_' +parseInt(k + 1)).show();
+                         }
+                        if(v.awb_number === null || v.awb_number === ""){
+                           $(".lineItemDiv_new_" + value.shopify_item_id + '_' + parseInt(k + 1)).hide();
+                        }
+                        if (v.is_cancelled == 1) {
+                          $('#' + v.shopify_item_id + '_newstep6_' + parseInt(k + 1)).addClass('active');
+                           $('#' + v.shopify_item_id + '_newstep6_' + parseInt(k + 1)).removeClass('hidden');
+                          $('#' + v.shopify_item_id + '_newstep2_' + parseInt(k + 1)).hide();
+                          $('#' + v.shopify_item_id + '_newstep3_' + parseInt(k + 1)).hide();
+                          $('#' + v.shopify_item_id + '_newstep4_' + parseInt(k + 1)).hide();
+                          $('#' + v.shopify_item_id + '_newstep8_' + parseInt(k + 1)).hide();
+                          $('#' + v.shopify_item_id + '_newstep7_' + parseInt(k + 1)).hide();
+                          $('#' + v.shopify_item_id + '_newstep9_' + parseInt(k + 1)).hide();
+
+                           $(".lineItemDiv_new_" + value.shopify_item_id + '_' + parseInt(k + 1)).hide();
+                         // $('#' + v.shopify_item_id + current_i + '_order-cancle-block').css('display', 'flex');
+                          // console.log($('.cancle-placed').attr('id'));
+                          $('#' + v.shopify_item_id +'-'+ parseInt(k + 1)+ '_order-cancle-block').css('display', 'flex');
+                           $('#' + v.shopify_item_id +'-'+ parseInt(k + 1)+ '_order-placed-block').hide();
+                          {%- if  order.gateway contains "Cash on Delivery (COD)" or order.tags contains 'COD'  -%}
+                            $('#' + v.shopify_item_id + '_newstep9_' + parseInt(k + 1)).hide();
+                          {% else %}
+                              console.log('#' + v.shopify_item_id + '_newstep6_' + parseInt(k + 1)+"final------cod---else----");
+                            if (v.is_refunded == 1) {
+                              $('#' + v.shopify_item_id + '_newstep5_' + parseInt(k + 1)).show();
+                              $('#' + v.shopify_item_id + '_newstep5_' + parseInt(k + 1)).addClass('active');
+                              $('#' + v.shopify_item_id + '_newstep5_' + parseInt(k + 1)).removeClass('hidden');
+                            }
+                            // $('#' + v.shopify_item_id + '_newstep5_' + parseInt(k + 1)).show();
+                            // $('#' + v.shopify_item_id + '_newstep5_' + parseInt(k + 1)).addClass('active');
+                    {% endif %}
+                          }
+
+                        if (v.logistic_status == "in_transit") {
+                          $('#' + v.shopify_item_id + '_newstep2_' + parseInt(k + 1)).addClass('active');
+                          $('#' + v.shopify_item_id + '_newstep8_' + parseInt(k + 1)).addClass('active');
+                          $('#' + v.shopify_item_id + '_newstep2_' + parseInt(k + 1)).removeClass('hidden');
+                          $('#' + v.shopify_item_id + '_newstep8_' + parseInt(k + 1)).removeClass('hidden');
+                          $('#' + v.shopify_item_id + '_newstep9_' + parseInt(k + 1)).hide();
+                          $('#' + v.shopify_item_id +'-'+ parseInt(k + 1)+ '_order-placed-block').hide();
+                        }
+
+                      if (v.logistic_status == "out-for-delivery") {
+                      $('#' + v.shopify_item_id + '_newstep2_' + parseInt(k + 1)).addClass('active');
+                      $('#' + v.shopify_item_id + '_newstep8_' + parseInt(k + 1)).addClass('active');
+                      $('#' + v.shopify_item_id + '_newstep3_' + parseInt(k + 1)).addClass('active');
+                      $('#' + v.shopify_item_id + '_newstep2_' + parseInt(k + 1)).removeClass('hidden');
+                      $('#' + v.shopify_item_id + '_newstep8_' + parseInt(k + 1)).removeClass('hidden');
+                      $('#' + v.shopify_item_id + '_newstep3_' + parseInt(k + 1)).removeClass('hidden');
+
+                      $('#' + v.shopify_item_id + '_newstep9_' + parseInt(k + 1)).hide();
+                      $('#' + v.shopify_item_id +'-'+ parseInt(k + 1)+ '_order-placed-block').hide();
+                      }
+                      if (v.is_dispatched == 1) {
+                      $('#' + v.shopify_item_id + '_newstep2_' + parseInt(k + 1)).addClass('active');
+                      $('#' + v.shopify_item_id + '_newstep2_' + parseInt(k + 1)).removeClass('hidden');
+                      $('#' + v.shopify_item_id + '_newstep9_' + parseInt(k + 1)).hide();
+                       $('#' + v.shopify_item_id +'-'+ parseInt(k + 1)+ '_order-placed-block').hide();
+                      }
+                      if (v.is_delivered == 1) {
+                        $('#' + v.shopify_item_id + '_newstep2_' + parseInt(k + 1)).addClass('active');
+                        $('#' + v.shopify_item_id + '_newstep3_' + parseInt(k + 1)).addClass('active');
+                        $('#' + v.shopify_item_id + '_newstep4_' + parseInt(k + 1)).addClass('active');
+                        $('#' + v.shopify_item_id + '_newstep8_' + parseInt(k + 1)).addClass('active');
+                        $('#' + v.shopify_item_id + '_newstep2_' + parseInt(k + 1)).removeClass('hidden');
+                        $('#' + v.shopify_item_id + '_newstep3_' + parseInt(k + 1)).removeClass('hidden');
+                        $('#' + v.shopify_item_id + '_newstep4_' + parseInt(k + 1)).removeClass('hidden');
+                        $('#' + v.shopify_item_id + '_newstep8_' + parseInt(k + 1)).removeClass('hidden');
+                        $('#' + v.shopify_item_id + '_newstep9_' + parseInt(k + 1)).hide();
+                        $('.track_awb_'+value.shopify_item_id+'_'+parseInt(k + 1)+'').hide();
+                        $('#' + v.shopify_item_id +'-'+ parseInt(k + 1)+ '_order-returned-block').css('display','flex');
+                        $(".lineItemDiv_new_" + value.shopify_item_id + '_' + parseInt(k + 1)).hide();
+                        $('#' + v.shopify_item_id +'-'+ parseInt(k + 1)+ '_order-placed-block').hide();
+                      }
+
+                        if (v.is_returned == 1 || v.is_return_initiated==1) {
+                          $('#' + v.shopify_item_id + '_newstep7_' + parseInt(k + 1)).show();
+                          $('#' + v.shopify_item_id + '_newstep7_' + parseInt(k + 1)).addClass('active');
+                          $('#' + v.shopify_item_id + '_newstep4_' + parseInt(k + 1)).addClass('active');
+                           $('#' + v.shopify_item_id + '_newstep7_' + parseInt(k + 1)).removeClass('hidden');
+                          $('#' + v.shopify_item_id + '_newstep4_' + parseInt(k + 1)).removeClass('hidden');
+                          $('#' + v.shopify_item_id + '_newstep3_' + parseInt(k + 1)).hide();
+                          $('#' + v.shopify_item_id + '_newstep2_' + parseInt(k + 1)).hide();
+                          $('#' + v.shopify_item_id + '_newstep5_' + parseInt(k + 1)).hide();
+                          $('#' + v.shopify_item_id + '_newstep8_' + parseInt(k + 1)).hide();
+                          {%-if  order.gateway contains "Cash on Delivery (COD)"  or order.tags contains 'COD' -%}
+                            $('#' + v.shopify_item_id + '_newstep9_' + parseInt(k + 1)).show();
+                          {% else %}
+                          $('#' + v.shopify_item_id + '_newstep10_' + parseInt(k + 1)).show();
+                          $('#' + v.shopify_item_id + '_newstep5_' + parseInt(k + 1)).show();
+                          {% endif %}
+                          if (v.logistic_status == "return_pickup") {
+                          $('#' + v.shopify_item_id + '_newstep10_' + parseInt(k + 1)).addClass('active');
+                            $('#' + v.shopify_item_id + '_newstep10_' + parseInt(k + 1)).removeClass('hidden');
+                          }
+                          $('.track_awb_'+value.shopify_item_id+'_'+parseInt(k + 1)+'').show();
+                          // if(v.btn == "false")
+                          //   {
+                          //  console.log("track_awb_" + $('.track_awb_'+v.shopify_item_id +'_'+parseInt(k + 1)));
+                          //  $('.track_awb_' + v.shopify_item_id +'_'+ parseInt(k + 1)).hide();
+                          //  }
+                          $('#' + v.shopify_item_id +'-'+ parseInt(k + 1)+ '_order-returned-block').css('display','none');
+                          $(".lineItemDiv_new_" + value.shopify_item_id + '_' + parseInt(k + 1)).show();
+                          $('#' + v.shopify_item_id +'-'+ parseInt(k + 1)+ '_order-placed-block').hide();
+                      }
+
+                        if (v.logistic_status == "rto_in_transit") {
+                          $('#' + v.shopify_item_id + '_newstep1_' + parseInt(k + 1)).addClass('active');
+                          $('#' + v.shopify_item_id + '_newstep2_' + parseInt(k + 1)).addClass('active');
+                          $('#' + v.shopify_item_id + '_newstep8_' + parseInt(k + 1)).addClass('active');
+                          $('#' + v.shopify_item_id + '_newstep3_' + parseInt(k + 1)).addClass('active');
+
+                          $('#' + v.shopify_item_id + '_newstep1_' + parseInt(k + 1)).removeClass('hidden');
+                          $('#' + v.shopify_item_id + '_newstep2_' + parseInt(k + 1)).removeClass('hidden');
+                          $('#' + v.shopify_item_id + '_newstep8_' + parseInt(k + 1)).removeClass('hidden');
+                          $('#' + v.shopify_item_id + '_newstep3_' + parseInt(k + 1)).removeClass('hidden');
+                          $('#' + v.shopify_item_id + '_newstep11_' + parseInt(k + 1)).show();
+                          $('#' + v.shopify_item_id + '_newstep11_' + parseInt(k + 1)).addClass('active');
+                          $('#' + v.shopify_item_id + '_newstep11_' + parseInt(k + 1)).addClass('active');
+                          $('#' + v.shopify_item_id + '_newstep11_' + parseInt(k + 1)).removeClass('hidden');
+                          $('#' + v.shopify_item_id + '_newstep11_' + parseInt(k + 1)).removeClass('hidden');
+                          $('#' + v.shopify_item_id + '_newstep4_' + parseInt(k + 1)).hide();
+                          $('#' + v.shopify_item_id + '_newstep5_' + parseInt(k + 1)).show();
+                          $('#' + v.shopify_item_id +'-'+ parseInt(k + 1)+ '_order-placed-block').hide();
+                      }
+
+                        if (v.is_refunded == 1 && v.is_returned == 1) {
+                          $('#' + v.shopify_item_id + '_newstep7_' + parseInt(k + 1)).show();
+                          $('#' + v.shopify_item_id + '_newstep7_' + parseInt(k + 1)).addClass('active');
+                          $('#' + v.shopify_item_id + '_newstep4_' + parseInt(k + 1)).addClass('active');
+                          $('#' + v.shopify_item_id + '_newstep7_' + parseInt(k + 1)).removeClass('hidden');
+                          $('#' + v.shopify_item_id + '_newstep4_' + parseInt(k + 1)).removeClass('hidden');
+                          $('#' + v.shopify_item_id + '_newstep3_' + parseInt(k + 1)).hide();
+                          $('#' + v.shopify_item_id + '_newstep2_' + parseInt(k + 1)).hide();
+                          $('#' + v.shopify_item_id + '_newstep5_' + parseInt(k + 1)).hide();
+                          $('#' + v.shopify_item_id + '_newstep8_' + parseInt(k + 1)).hide();
+                          $('#' + v.shopify_item_id +'-'+ parseInt(k + 1)+ '_order-placed-block').hide();
+                          {%- if  order.gateway contains "Cash on Delivery (COD)"  or order.tags contains 'COD' -%}
+                          $('#' + v.shopify_item_id + '_newstep9_' + parseInt(k + 1)).show();
+                          $('#' + v.shopify_item_id + '_newstep9_' + parseInt(k + 1)).addClass('active');
+                          $('#' + v.shopify_item_id + '_newstep9_' + parseInt(k + 1)).removeClass('hidden');
+                          {% else %}
+                          $('#' + v.shopify_item_id + '_newstep10_' + parseInt(k + 1)).show();
+                          $('#' + v.shopify_item_id + '_newstep10_' + parseInt(k + 1)).addClass('active');
+                          $('#' + v.shopify_item_id + '_newstep10_' + parseInt(k + 1)).removeClass('hidden');
+                          $('#' + v.shopify_item_id + '_newstep5_' + parseInt(k + 1)).show();
+                          $('#' + v.shopify_item_id + '_newstep5_' + parseInt(k + 1)).addClass('active');
+                          $('#' + v.shopify_item_id + '_newstep5_' + parseInt(k + 1)).removeClass('hidden');{% endif %}
+
+                          if (v.is_cancelled == 1) {
+                          $('#' + v.shopify_item_id + '_newstep7_' + parseInt(k + 1)).hide();
+                          $('#' + v.shopify_item_id + '_newstep10_' + parseInt(k + 1)).hide();
+                          $('#' + v.shopify_item_id +'-'+ parseInt(k + 1)+ '_order-cancle-block').css('display', 'flex');
+                          $('#' + v.shopify_item_id +'-'+ parseInt(k + 1)+ '_order-placed-block').hide();
+                          $(".lineItemDiv_new_" + value.shopify_item_id + '_' + parseInt(k + 1)).hide();
+                          $('#' + v.shopify_item_id +'-'+ parseInt(k + 1)+ '_order-placed-block').hide();
+                          }
+                           $(".lineItemDiv_new_" + value.shopify_item_id + '_' + parseInt(k + 1)).show();
+                          }
+                        })
+
+                         $('.' + key + '_cancel_order_quantity').text(value.total_cancel_quantity);
+                         $('.' + key + '_return_order_quantity').text(value.total_return_quantity);
+
+                         if(value.cancel_qty > 0 ){
+                          console.log(value.cancel_qty + 'value.cancel_qty222');
+                        	   $('.' + key + '_cancel').attr('data-remaining_qty', value.cancel_qty);
+                       	   $('.' + key + '_cancel').show();
+                          }
+                          else {
+                             $('.' + key + '_cancel').hide();
+                             $('#' + key + '_order-placed-block').hide();
+                         }
+
+                         if (value.return_qty > 0 && value.return_show == 'yes') {
+                           $('.' + key + '_return').attr('data-remaining_qty', value.return_qty);
+                           $('.' + key + '_return').show();
+                         }
+                         else {
+                           $('.' + key + '_return').hide();
+                         }
+                          if (value.cancel_qty == 0 && value.return_qty == 0) {
+                          }
+                         else {
+                            $(".colm_change_show").show();
+                            $(".colm_change").removeAttr("colspan");
+                         }
+                         var payment_cod = $.trim($(".payment_cod").html());
+
+                         if (refund_amount == "" || refund_amount == "0.00" || payment_cod == "COD") {
+                           $('.refund_order_total').hide();
+                         }
+                        else {
+                           $('.total_refund_amount').html(' Total Refund Amount :' + '<span> ₹ ' + refund_amount + '</span>');
+                           $('.refund_order_total').show();
+                        }
+
+                     });
+                     }
+                   });
+                  // added by snehal on 5-1-24
+    {% endfor %}
+  {% endfor %}
+  {% endfor %}
+</script>
+<script>
+(function() {
+  function applyVisibleLiClasses() {
+    document.querySelectorAll('.lineItemDiv').forEach(container => {
+      const ul = container.querySelector('ul');
+      if (!ul) return;
+
+      const visibleLis = Array.from(ul.querySelectorAll('li')).filter(li => {
+        const isHiddenByClass = li.classList.contains('hidden');
+        const isHiddenByStyle = window.getComputedStyle(li).display === 'none';
+        return !isHiddenByClass && !isHiddenByStyle;
+      });
+
+      visibleLis.forEach((li, index) => {
+        li.classList.add('active-li', `active-li-${index + 1}`);
+      });
+
+      ul.querySelectorAll('li.last-active').forEach(li => {
+        li.classList.remove('last-active');
+      });
+
+      const activeLis = visibleLis.filter(li => li.classList.contains('active'));
+      if (activeLis.length > 0) {
+        activeLis[activeLis.length - 1].classList.add('last-active');
+      }
+    });
+  }
+
+  function waitForLineItemDivAndApply(attempts = 0) {
+    const exists = document.querySelector('.lineItemDiv');
+    if (exists) {
+      applyVisibleLiClasses();
+    } else if (attempts < 20) {
+      setTimeout(() => waitForLineItemDivAndApply(attempts + 1), 100);
+    }
+  }
+
+  waitForLineItemDivAndApply();
+
+  const observer = new MutationObserver(() => {
+    waitForLineItemDivAndApply();
+  });
+
+  observer.observe(document.body, { childList: true, subtree: true });
+})();
+</script>
+
+{% render 'order_action_new' %}
+
+{% schema %}
+{
+  "name": "New Order Deatils",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+    "name":"New Order Deatils"
+    }
+  ]
+}
+{% endschema %}

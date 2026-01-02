@@ -1,0 +1,186 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "investor_left_block_HC9P4a": {
+      "type": "Investor-left-block",
+      "blocks": {
+        "image_block_x3ATVH": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g3660.svg",
+            "title": "Our Business",
+            "url": ""
+          }
+        },
+        "image_block_RmbJAj": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Vector_011e1c53-c3cc-4177-8696-dad1f349b037.svg",
+            "title": "Board of Directors",
+            "url": ""
+          }
+        },
+        "image_block_XCp3ir": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Component_1.png",
+            "title": "Corporate Governance",
+            "url": ""
+          }
+        },
+        "image_block_V7GLxk": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g3723.png",
+            "title": "Annual reports",
+            "url": ""
+          }
+        },
+        "image_block_awaykD": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group.png",
+            "title": "Earning Call  <br>Transcripts",
+            "url": ""
+          }
+        },
+        "image_block_dMgxRg": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Vector.png",
+            "title": "Quarterly <br> Financial Results",
+            "url": ""
+          }
+        },
+        "image_block_UbrUkP": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_17.png",
+            "title": "Investor Presentation",
+            "url": ""
+          }
+        },
+        "image_block_hxpfkw": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_18.png",
+            "title": "Press Releases",
+            "url": ""
+          }
+        },
+        "image_block_LeQj3P": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Vector_1.png",
+            "title": "Credit Rating",
+            "url": ""
+          }
+        },
+        "image_block_n7jXWp": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_19.png",
+            "title": "Corporate <br>Announcements",
+            "url": ""
+          }
+        },
+        "image_block_DP7KiX": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_13.png",
+            "title": "Shareholding Pattern",
+            "url": ""
+          }
+        },
+        "image_block_HzdU87": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g786.png",
+            "title": "Shareholder Grievances",
+            "url": ""
+          }
+        },
+        "image_block_89KRkb": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/x31_650_x2C__Employee_x2C__group_x2C__management_x2C__organization_x2C__team.png",
+            "title": "KMP Details",
+            "url": ""
+          }
+        },
+        "image_block_idafk8": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_14.png",
+            "title": "MOA AOA/ <br> Directors Profile",
+            "url": ""
+          }
+        },
+        "image_block_YgaXkT": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g299.png",
+            "title": "Policies",
+            "url": ""
+          }
+        },
+        "image_block_Q6QKDm": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g2737.png",
+            "title": "Archivals",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_block_x3ATVH",
+        "image_block_RmbJAj",
+        "image_block_XCp3ir",
+        "image_block_V7GLxk",
+        "image_block_awaykD",
+        "image_block_dMgxRg",
+        "image_block_UbrUkP",
+        "image_block_hxpfkw",
+        "image_block_LeQj3P",
+        "image_block_n7jXWp",
+        "image_block_DP7KiX",
+        "image_block_HzdU87",
+        "image_block_89KRkb",
+        "image_block_idafk8",
+        "image_block_YgaXkT",
+        "image_block_Q6QKDm"
+      ],
+      "name": "Investor Left Blocks",
+      "settings": {}
+    },
+    "investor_text_field_QiV7jr": {
+      "type": "Investor-text-field",
+      "name": "Investor page text Field",
+      "settings": {
+        "richtext": "<p><strong>In case of any shareholder grievances, please reach out to:</strong></p><p>Ms. Gayathri Kethar,<br/>Company Secretary & Compliance Officer,<br/>Go Fashion (India) Ltd.,<br/>No. 43/20, Nungambakkam High Road, Chennai - 600034<br/>Ph: 044-42 111 777<br/>E mail id:<a href=\"mailto:investor.relations@gocolors.com\">investor.relations@gocolors.com</a></p><p><strong>Registrar and Share Transfer Agents:</strong></p><p>Kfin Technologies Limited,<br/>Selenium Building, Tower-B, Plot No. 31 & 32,<br/>Financial District, Nanakramguda, Serilingampally,<br/>Hyderabad, Rangareddi, Telangana - 500032<br/>Tel No: 040-67162222<br/>mail ID:<a href=\"mailto:einward.ris@kfintech.com\" title=\"einward.ris@kfintech.com\">einward.ris@kfintech.com</a><br/>Website:<a href=\"https://www.kfintech.com/\" title=\"https://www.kfintech.com/\">www.kfintech.com</a></p>"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "investor_left_block_HC9P4a",
+    "investor_text_field_QiV7jr"
+  ]
+}

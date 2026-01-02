@@ -1,0 +1,66 @@
+<style>
+.directors {display: grid; grid-template-columns: repeat(2, 1fr);grid-template-rows: repeat(2, auto);gap: 20px;}.ibox {display: flex;gap: 15px;}.nbox {padding-top: 7rem;}.directors .card {padding: 15px;}.directors .card h3 {margin: 0 0 5px;font-size: 27px;font-weight: 500;}.directors .card h5{font-size: 27px;font-weight: 400;margin:0;}.directors .card p {margin: 5px 0;font-size: 16px;color: #000;}.directors .card a {color: #007BFF;text-decoration: none;font-size: 0.9em;}.directors .card a:hover {text-decoration: underline;}
+@media (max-width: 768px) {.directors {grid-template-columns: 1fr;}.ibox { align-items: center;text-align: center;}.nbox {padding-top: 0;}.directors .card img {width: 50%;height: auto;}.directors .card h3,.directors .card h5 {font-size: 18px;}.directors .card p {font-size: 14px;} }
+</style>
+<section class="directors">
+  {%- for block in section.blocks -%}
+    <div class="card">
+      <div class="ibox">
+        {%- if block.settings.image -%}<img src="{{ block.settings.image | img_url: '' }}" alt="{{ block.settings.name }}" width="173px" height="137px"> {%- endif -%}
+        <div class="nbox">
+          <h3>{{ block.settings.name }}</h3><h5>{{ block.settings.designation }}</h5>
+        </div>
+      </div>
+      <p>{{ block.settings.description }}</p>
+      {%- if block.settings.link -%}<a href="{{ block.settings.link }}">Read more...</a>{%- endif -%}
+    </div>
+  {%- endfor -%}
+</section>
+{% schema %}
+{
+  "name": "Investor BOD",
+  "class": "Investor_text_feild Investor_right_part",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "director",
+      "name": "Director",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Director Image"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name",
+          "default": "Director Name"
+        },
+        {
+          "type": "text",
+          "id": "designation",
+          "label": "Designation",
+          "default": "Designation"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Read More Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Investor Board Of Directors"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,251 @@
+{{ 'customer.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+<style>
+.coupons-section h2{
+  margin:0 0 59px;
+}
+body.gradient.go-rewards-member, body.gradient.go-rewards-member .rich-text.content-container{
+  background: #fff;
+}
+#coupon-list{padding: 0 25px;}
+@media screen and (max-width: 768px) {
+  #coupon-list{padding: 0 15px;}
+  .coupons-section h2{
+    font-size:1.6rem;
+    margin:0 0 14px;
+  }
+  .gradient.go-rewards-member h2.rich-text__heading.rte.inline-richtext.h2{
+    font-size:1.6rem;
+  }
+}
+</style>
+<div id="coupon-list" class="section-{{ section.id }}-padding ">
+  <div class="coupons-section" id="coupons-block" style="display:none">
+        {% if section.settings.heading != blank %}  <h2>{{ section.settings.heading  }}</h2> {% endif %}
+          <div class="coupons-details-block" 
+               data-images='[
+                 {%- for block in section.blocks -%}
+                   {%- assign image_url = block.settings.coupon_image | image_url: width: 800 -%}
+                   "{{ image_url }}"{%- unless forloop.last -%},{%- endunless -%}
+                 {%- endfor -%}
+               ]'
+               data-default-image="{{ section.settings.default_coupon_image | image_url: width: 800 }}">
+          </div>
+    </div>
+</div>
+
+{% if customer %}
+<script>
+const customerMobile = "{{ customer.default_address.phone }}";
+
+fetch('https://capillary.binaryic.in/api/GetCustomerCoupons', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    mobile: customerMobile,
+    store_name: "go-colors-india.myshopify.com",
+    type: "Go_Rewards"
+  })
+})
+.then(response => response.json())
+.then(data => {
+  const coupons = data || [];
+
+  const couponContainer = document.querySelector('.coupons-details-block');
+  const couponSection = document.getElementById('coupons-block');
+  if (!couponContainer || !couponSection) return;
+  if (coupons.length === 0) {
+    couponContainer.innerHTML = `<div class="no-coupon-msg">No Coupon Available</div>`;
+    return;
+  }
+  const today = new Date();
+today.setHours(0, 0, 0, 0);
+
+// ✅ Check if ALL coupons are expired
+const allExpired = coupons.every(coupon => {
+if (!coupon.validTill) return true; // if no expiry, treat as expired
+  const expiry = new Date(coupon.validTill);
+  expiry.setHours(0, 0, 0, 0);
+  console.log( `Checking coupon: ${coupon.code}, expiry: ${expiry}, today: ${today}`);
+  return expiry < today; // expired?
+});
+if (allExpired) {
+  console.log("ALL EXPIRED");
+  couponSection.style.display = "none";
+} else {
+  console.log("Some coupons still valid");
+  couponSection.style.display = "block";
+}
+
+  const imageList = JSON.parse(couponContainer.getAttribute('data-images') || '[]');
+  const defaultImage = couponContainer.getAttribute('data-default-image') || "{{ 'coupon-default.jpg' | asset_url }}";
+  // Sort coupons by validTill date (soonest to latest)
+  coupons.sort((a, b) => {
+  const now = new Date();
+  const isAExpired = new Date(a.valid_till).setHours(0, 0, 0, 0) < new Date().setHours(0, 0, 0, 0);
+  const isBExpired = new Date(b.valid_till).setHours(0, 0, 0, 0) < new Date().setHours(0, 0, 0, 0);
+  const isAUsed = a.coupon_code_use === 1;
+  const isBUsed = b.coupon_code_use === 1;
+  // Determine category: 0 = available, 1 = used, 2 = expired
+  const getCategory = (coupon, isExpired, isUsed) => {
+    if (!isUsed && !isExpired) return 0; // available
+    if (isUsed) return 1;                // used
+    return 2;                            // expired
+  };
+
+  const aCategory = getCategory(a, isAExpired, isAUsed);
+  const bCategory = getCategory(b, isBExpired, isBUsed);
+
+  if (aCategory !== bCategory) {
+    return aCategory - bCategory; // Sort by category
+  }
+  // Within available group, sort by earliest valid_till date
+  if (aCategory === 0) {
+    return new Date(a.valid_till) - new Date(b.valid_till);
+  }
+  return 0; // Keep relative order for used/expired
+});
+
+  couponContainer.innerHTML = '';
+  coupons.forEach((coupon, index) => {
+  const offer = coupon.offer || 'Coupon Offer';
+  const conditions = coupon.metadata || 'No Conditions';
+  const code = coupon.code || 'No Code';
+  const validTillRaw = coupon.validTill || '';
+  const validTillDate = new Date(validTillRaw);
+  const today = new Date();
+  const validTillFormatted = validTillRaw.split('T')[0].split('-').reverse().join('/');
+  // Determine if expired
+  const isExpired = validTillDate.setHours(0, 0, 0, 0) < today.setHours(0, 0, 0, 0);
+  const couponExpirClass = coupon.coupon_code_use === 1 ? 'redeemed' : (isExpired ? 'expired' : '');
+  if(!isExpired ){
+  // Use corresponding image or fallback to default
+  const image = imageList[index] || defaultImage;
+  const couponHTML = `
+    <div class="coupons-details">
+      <div class="coupon-image">
+        <img src="${image}" width="100%" height="100%" />
+      </div>
+      <div class="coupon-data">
+        
+        <span class="coupon-condition">${conditions}</span>
+        <span class="coupon-code">${code}
+          ${(coupon.coupon_code_use !== 1 && !isExpired) ? `
+            <button class="copy-btn" data-code="${code}" aria-label="Copy code">
+              <svg class="copy-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <path d="M7.7063 12.5777C7.7063 11.4485 8.15484 10.3657 8.95325 9.56726C9.75166 8.76885 10.8345 8.32031 11.9637 8.32031H25.7973C26.3563 8.32031 26.91 8.43043 27.4265 8.64438C27.943 8.85834 28.4123 9.17193 28.8077 9.56726C29.203 9.96259 29.5166 10.4319 29.7305 10.9484C29.9445 11.465 30.0546 12.0186 30.0546 12.5777V26.4113C30.0546 26.9704 29.9445 27.524 29.7305 28.0405C29.5166 28.557 29.203 29.0263 28.8077 29.4217C28.4123 29.817 27.943 30.1306 27.4265 30.3446C26.91 30.5585 26.3563 30.6686 25.7973 30.6686H11.9637C11.4046 30.6686 10.851 30.5585 10.3344 30.3446C9.81791 30.1306 9.34858 29.817 8.95325 29.4217C8.55792 29.0263 8.24432 28.557 8.03037 28.0405C7.81642 27.524 7.7063 26.9704 7.7063 26.4113V12.5777Z" stroke="#FC007E" stroke-width="2.39446" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2.93919 23.8631C2.44913 23.5846 2.04151 23.1814 1.75777 22.6944C1.47402 22.2074 1.32427 21.6539 1.32373 21.0903V5.12719C1.32373 3.37125 2.76041 1.93457 4.51635 1.93457H20.4794C21.6767 1.93457 22.328 2.54915 22.8739 3.53088" stroke="#FC007E" stroke-width="2.39446" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>` : ''}
+        </span>
+        <span class="coupon-expir ${couponExpirClass}">
+          ${coupon.coupon_code_use === 1
+            ? 'Coupon already redeemed'
+            : (isExpired ? 'Expired on' : 'Expiring on') + ' ' + validTillFormatted}
+        </span>
+      </div>
+    </div>
+  `;
+  couponContainer.insertAdjacentHTML('beforeend', couponHTML);
+  }
+});
+
+})
+.catch(error => {
+  console.error('Error fetching coupons:', error);
+});
+
+// Copy button handler
+document.addEventListener('click', function (e) {
+  const btn = e.target.closest('.copy-btn');
+  if (!btn) return;
+
+  const code = btn.closest('.coupon-code').childNodes[0].textContent.trim();
+  navigator.clipboard.writeText(code).then(() => {
+    const svg = btn.querySelector('.copy-icon');
+    svg.style.display = 'none';
+    btn.textContent = 'Copied!';
+    setTimeout(() => {
+      btn.textContent = '';
+      svg.style.display = '';
+      btn.appendChild(svg);
+    }, 1000);
+  });
+});
+</script>
+{% endif %}
+{% schema %}
+{
+  "name": "Go Rewards Cupon",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default":"Available Rewards"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    },
+    {
+      "type": "image_picker",
+      "id": "default_coupon_image",
+      "label": "Default Coupon Image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "coupon_image",
+      "name": "Coupon Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "coupon_image",
+          "label": "Coupon Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Go Rewards Cupon",
+    }
+  ]
+}
+{% endschema %}

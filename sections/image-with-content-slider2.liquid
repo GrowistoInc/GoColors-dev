@@ -1,0 +1,361 @@
+ {{ 'binary.css' | asset_url | stylesheet_tag }}
+ {{ 'custom-image-slider.css' | asset_url | stylesheet_tag }}
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top_mob }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mob }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+
+  }
+  
+  @media screen and (max-width:749px){
+    .cr-left-side-content p{
+      line-height: 24px;
+          margin: 13px 0px 21px 0px;
+    }
+    img.sml-icon{
+      padding-top: 0;
+    }
+    .cr-left-side-content h4{
+     line-height: 20px;
+      font-size: 12px;
+    }
+    
+    .hm-img-with-txt-section.desktop-slider {
+    padding-left: 10px;
+}
+    img.cln-lv-img {
+    height: auto;
+        width: 57%;
+            }
+    .swiper-slider-box{
+      align-items: center;
+       background: transparent !important;
+    }
+    
+    .crd-text-sec {
+     gap: 0 !important;
+       }
+    .cr-left-side-content {
+    border-radius: 10px;
+    position: absolute;
+    padding: 18px 15px 12px 15px;
+    top: auto;
+    bottom: auto;
+    height: auto;  
+}
+
+img.cln-lv-img {
+    border-radius: 10px;
+    position: relative;
+    margin:0;
+}
+    .hm-image-w-text-slider{
+      padding: 30px 0;
+    }
+  }
+
+   .hm-image-w-text-slider h2{
+      text-align:left !important;
+    }
+.cr-left-side-content h4{
+  font-size: 12px;
+  font-weight: 600;
+}
+  
+  .swiper-slide{
+  display: flex;
+  justify-content: left;
+  }
+  .swiper-slider-box{
+    border-radius:20px;
+  }
+  .crd-text-sec{
+  display:flex;
+  flex-direction:column;
+  gap:3.12rem;
+}
+  
+  }
+ .mob-slider-content{
+  text-align: center;
+ }
+  .main-slider-block{
+    display: flex;
+    /* padding-top: 30px; */
+    padding-bottom: 30px;
+    align-items: center;
+  } 
+  .client-img img{
+    border-radius:10px;
+  }
+  .mob-slider-content{
+    text-align: center;
+    right: 10%;
+    position: relative;
+    padding: 0 15px;
+    padding-bottom: 12px;
+    padding-top:19px;
+    border-radius:10px;
+  }
+  .sml-icon-m{
+    padding-top:0px !important;
+  }
+.mob-slider-content p{
+  font-size:14px;
+  letter-spacing: 0px;
+  margin: 0;
+  padding-bottom: 21px;
+  padding-top: 14px;
+}
+.mob-slider-content h4{
+  font-size:12px;
+  letter-spacing: 0px;
+  margin: 0;
+}  
+  .mob-head-txt{
+    text-align: left !important;!i;!;
+    padding-top: 30px;
+    /* padding-left: 10px; */
+  }
+  .ic-box-slider2{
+    padding-left:10px;
+  }
+
+ .btn-nxt-m{
+   right: 31px;
+}
+  .mob-slider{
+    /* display:none; */
+  }
+  .desktop-slider{
+    /* display:none; */
+  }
+  .hm-image-w-text-slider.sub-tab-coll-contentss h2{
+    margin: 0 0 30px;
+  }
+{%- endstyle -%}
+<div class="hm-img-with-txt-section desktop-slider" style="background:{{ section.settings.sec-bg-color }};">
+<div class="hm-image-w-text-slider section-{{ section.id }}-padding sub-tab-coll-contentss">
+    <h2 class="">{{ section.settings.sec-heading }}</h2>
+<div class="ic-box-slider swiper">
+  <div class="swiper-wrapper">
+  {%- for block in section.blocks -%}
+   <div class="swiper-slide swiper-slider-box" style="background:{{ block.settings.blc-bg-color }};">
+    <!-- <div class="clients-img-container"> -->
+      <picture class="cln-img-box">         
+        {% if block.settings.content-img != blank %}
+          <source srcset="{{ block.settings.content-img | img_url: 'master' }}" width="217px" height="335px" />              
+        {% endif %}          
+        <img class="cln-lv-img" src="https://cdn.shopify.com/s/files/1/0613/4851/1914/files/placeholder-svg.svg?v=1731331716" width="217px" height="335px" alt="{{ shop.name }}" />
+      </picture> 
+    <!-- </div> -->
+    <div class="cr-left-side-content " style="background:{{ block.settings.blc-bg-color }}">
+      {% if block.settings.inr-img != blank %}
+      <!-- <div class="sml-icon-img"> -->
+        <img class="sml-icon" src="{{block.settings.inr-img | img_url:'' }}" width="100%" height="550" alt="{{ shop.name }}" />
+      <!-- </div> -->
+      {% endif %}
+         <div class="crd-text-sec">
+            {{ block.settings.content }}
+        <h4>{{ block.settings.admin-id }}</h4>
+         </div>
+    </div>
+   </div>  
+  {%- endfor -%}
+  </div>
+    <div class="client-lv-swiper-next"> </div>
+    <div class="client-lv-swiper-prev"> </div>
+  </div>
+</div>
+</div>
+
+ <!-- For mobile slider -->
+{% comment %}
+<div class="mob-slider">
+  <div class="ic-box-slider2" style="background:{{ section.settings.sec-bg-color }};" >  
+    <h2 class="mob-head-txt">{{ section.settings.sec-heading }}</h2>
+      <div class="swiper swiper-container">
+    <div class="swiper-wrapper">
+  {%- for block in section.blocks -%}
+    <div class="main-slider-block swiper-slide">
+    <div class="client-img">
+    <picture class="">         
+      {% if block.settings.content-img != blank %}
+        <source srcset="{{ block.settings.content-img | img_url: 'master' }}" width="217px" height="335px" />              
+      {% endif %}          
+      <img class="" src="https://cdn.shopify.com/s/files/1/0613/4851/1914/files/placeholder-svg.svg?v=1731331716" width="217px" height="335px" alt="{{ shop.name }}" />
+    </picture> 
+    </div>
+    <div class="mob-slider-content" style="background:{{ block.settings.blc-bg-color }};">
+      {% if block.settings.inr-img != blank %}     
+        <img class="sml-icon sml-icon-m" src="{{block.settings.inr-img | img_url:'' }}" width="100%" height="550" alt="{{ shop.name }}" />
+       {% endif %}
+        <p>{{ block.settings.content }}</p>
+        <h4>{{ block.settings.admin-id }}</h4>
+    </div>
+    </div>
+  {% endfor %}
+    </div>
+        <div class="swiper-pagination"> </div>
+    <!-- Add Navigation Buttons -->
+    <div class="client-lv-swiper-next btn-nxt-m"> </div>
+    <div class="client-lv-swiper-prev"> </div>
+    
+  </div>
+  </div>  
+</div>
+{% endcomment %}
+ 
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const swiper = new Swiper('.swiper-container', {
+      loop: true, // Enable infinite loop
+      // pagination: {
+      //   el: '.swiper-pagination',
+      //   clickable: true,
+      // },
+      navigation: {
+        nextEl: '.client-lv-swiper-next',
+        prevEl: '.client-lv-swiper-prev',
+      },
+      slidesPerView: 1, // Adjust the number of visible slides
+      spaceBetween: 10, // Space between slides
+    });
+  });
+</script>
+<script>
+  var swiper = new Swiper(".ic-box-slider", {
+    slidesPerView: 2,
+    // loop: true,
+    speed: 800,
+   navigation: {
+        nextEl: ".client-lv-swiper-next",
+        prevEl: ".client-lv-swiper-prev",
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    breakpoints: {
+      220: {
+        slidesPerView: 1.05,
+        spaceBetween: 20,
+      },
+      768: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      990: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      1024: {
+        slidesPerView: 2.35, // Updated for min-width 1024px
+        spaceBetween: 20,
+      }
+    }
+  });
+</script>
+
+{% schema %}
+  {
+    "name": "Image with content slide2",
+    "settings": [
+      {
+        "type": "color",
+        "id": "sec-bg-color",
+        "label": "Background color"
+      },
+      {
+        "type": "text",
+        "id": "sec-heading",
+        "label": "section title"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding top",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding bottom",
+        "default": 0
+      }, 
+      {
+        "type": "range",
+        "id": "padding_top_mob",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding top Mobile",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom_mob",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding bottom Mobile",
+        "default": 0
+      }
+    ],
+    "blocks":[
+          {
+      "type": "image",
+      "name": "Image Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "content-img",
+          "label": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "inr-img",
+          "label": "Content image"
+        },
+         {
+          "type": "color",
+          "id": "blc-bg-color",
+          "label": "Background color"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Description"
+        },
+        {
+          "type": "text",
+          "id": "admin-id",
+          "label": "Admin id"
+        },
+      ],
+     }
+    ],
+    "presets": [
+      {
+      "name": "Image with content slide2"
+      }
+    ]
+  }
+{% endschema %}

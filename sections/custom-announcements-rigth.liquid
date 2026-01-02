@@ -1,0 +1,102 @@
+<!-- document-list.liquid -->
+<section class="document-list-section">
+  <ul class="document-list">
+    {%- for block in section.blocks -%}
+      <li>
+        <span>{{ block.settings.title }}</span>
+        <div class="actions">
+          <a href="{{ block.settings.tab_url }}" target="_blank" title="View">
+            <img src="{{ 'viewg.png' | file_url }}">
+          </a>
+          <a href="{{ block.settings.tab_url }}" target="_blank" title="Download">
+            <img src="{{ 'downg.png' | file_url }}">
+          </a>
+        </div>
+      </li>
+    {%- endfor -%}
+
+    {% assign extra_lines = section.settings.extra_docs | split: '||' %}
+    {%- for line in extra_lines -%}
+      {%- assign parts = line | split: '::' -%}
+      {%- if parts.size == 2 -%}
+        <li>
+          <span>{{ parts[0] }}</span>
+          <div class="actions">
+            <a href="{{ parts[1] }}" target="_blank" title="View">
+              <img src="{{ 'viewg.png' | file_url }}">
+            </a>
+            <a href="{{ parts[1] }}" target="_blank" title="Download">
+              <img src="{{ 'downg.png' | file_url }}">
+            </a>
+          </div>
+        </li>
+      {%- endif -%}
+    {%- endfor -%}
+  </ul>
+
+  {% if section.blocks.size == 0 and section.settings.extra_docs == blank %}
+    <p>No documents added yet.</p>
+  {% endif %}
+</section>
+
+<style>
+.document-list {
+  list-style: none;
+  padding: 0;
+}
+
+.document-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 8px 0;
+}
+
+.actions a {
+  text-decoration: none;
+  margin-left: 10px;
+  font-size: 18px;
+}
+</style>
+
+{% schema %}
+{
+  "name": "Document List",
+  "class": "Investor_text_feild Investor_right_part",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "extra_docs",
+      "label": "Extra Documents (Title::URL, one per line)",
+      "default": "Extra Doc 1::https://example.com/doc1.pdf\nExtra Doc 2::https://example.com/doc2.pdf"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "document",
+      "name": "Document",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Document Title",
+          "default": "New Document"
+        },
+        {
+          "type": "url",
+          "id": "tab_url",
+          "label": "PDF Url"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "corporate Announcements custom"
+    }
+  ]
+}
+{% endschema %}

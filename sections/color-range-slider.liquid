@@ -1,0 +1,322 @@
+<style>
+#shopify-section-{{ section.id }} {padding-block: {{ section.settings.padding_top_mob }}px {{ section.settings.padding_bottom_mob }}px;background:{{ section.settings.sec-bg-color }};}
+.slider-range{ position: relative; padding: 1rem 1rem;}
+.swiper-button-prev.swiper-prev-range {padding: 3px 3px 3px 5px;}
+.swiper-button-next.swiper-next-range {padding: 3px 3px 3px 7px;}
+.swiper-button-next.swiper-next-range ,
+.swiper-button-prev.swiper-prev-range{top: 40%;background-color: #fff;border-radius: 25px;z-index: 1; width: 30px;height: 30px;display: block;}
+.prd-range { display: none;transition: display 0.3s ease-in;}
+.color-filters { margin-bottom: 20px; }
+.color-spectrum-slider {width: 80%;display: flex;flex-direction: row;justify-content: center;align-items: center;position: relative;max-width: 735px;margin: 0 auto;padding-bottom: 42px;}
+.slider-range .card-wrapper {margin: 0;}
+.color-spectrum-slider input[type='range'] {
+  {% comment %} background: linear-gradient(90deg, #221f20 6%, #334fb4 17%, #1b4b1b 28%, #fffb00 48%, #ff0000 56%, #972525 79%, #ffffff 93%); {% endcomment %}
+  background: linear-gradient(
+  90deg,
+  #000000 0%,   /* Black */
+  #808080 11%,  /* Grey */
+  #0000ff 22%,  /* Blue */
+  #008000 33%,  /* Green */
+  #ffd700 44%,  /* Gold */
+  #f5f5dc 55%,  /* Beige */
+  #ff0000 66%,  /* Red */
+  #8b4513 77%,  /* Brown */
+  #ffc0cb 88%,  /* Pink */
+  #ffffff 100%  /* White */
+);
+  height: 10px;
+  width: 100%;
+  max-width: 735px;
+  border-radius: 55px;
+  -webkit-appearance: none;    box-shadow: 0 1px 4px 0 #3333334d;
+}
+.color-spectrum-slider input[type='range']::-webkit-slider-thumb{
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: transperant;
+  cursor: pointer;box-shadow: 0 1px 4px 0 #3333334d;
+  border: 6px solid #fff;
+}
+.color-spectrum-slider .range-bubble {background: #fff;color: #df2e84;box-shadow: 0 1px 4px 0 #cc79c04d;transform: scale(1.10) translateY(0px);border-radius: 4px; font-size: 12px;font-weight: 500; top: 30px;  left: 50%; line-height: 22px; padding: 2px 12px;position: absolute;text-align: center; text-transform: capitalize;transform: translate(-50%); }
+.featured-tabs-wrapper {display: flex; flex-direction:column;justify-content: space-between;margin-bottom: 2rem;padding-inline: 1rem;}
+.featured-tabs-wrapper h2 { margin: 0;}
+ul.filterTab {margin: 0;display: flex;list-style: none;padding:1rem;overflow-x: auto;white-space: nowrap;}
+ul.filterTab li{padding:0.5rem 1.5rem;background:transparent;cursor:pointer;border-radius: 10px;line-height: 20px;transition: background-color 0.5s ease, color 0.5s ease;font-size: 14px;color: #000;}
+ul.filterTab li.active{background: #fff;color:#df2e84;box-shadow: 0 1px 4px 0 #cc79c04d; }
+ul.filterTab li:hover{background: #f5f5f5;color: #df2e84; outline: none;    box-shadow: 0 1px 4px 0 #cc79c04d;}
+.prd-range{padding-inline: 0rem;}
+.prd-range .card-wrapper{
+    opacity: 0;
+    transform: scale(.97) translateY(3%);
+    transform-origin: center;
+    animation-delay: inherit;
+}
+ .prd-range.active .card-wrapper{
+    animation-duration: .65s;
+    animation-timing-function: cubic-bezier(0,0,.3,1);
+    animation-delay: inherit;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+    animation-name: product_card_animation;
+    margin-bottom: 1.5rem;
+  }
+  .prd_range_filter .prd-range  .card__information{padding-bottom:0;}
+  .prd_range_filter .prd-range .custom-data , .prd_range_filter .prd-range .card-information {display: none;}
+@keyframes product_card_animation {
+  0% {
+    opacity: .1;
+    transform: scale(.8) translateY(3%);
+  }
+  100% {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+  }
+  }
+  .section_desc * {
+    margin: 0;
+    font-size: 14px;
+  }
+  .prd_range_filter .full-unstyled-link{display: -webkit-inline-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;overflow: hidden;}
+@media screen and (min-width:1200px){
+  #shopify-section-{{ section.id }} {padding-block: {{ section.settings.padding_top }}px  {{ section.settings.padding_bottom }}px;}
+  .featured-tabs-wrapper{margin-bottom:3rem;flex-direction: row;padding-inline: 0rem;gap:15px;align-items: center;}
+  .slider-range{padding: 2rem 0rem 0;}.color-spectrum-slider{width:100%;margin-top: 2rem;}
+  .prd_range_filter{max-width: 95%;margin: 0 auto; }
+  ul.filterTab{padding:1rem;gap:10px;}
+  ul.filterTab li{padding:0.5rem 2rem;}.prd-range.active .card-wrapper{margin-bottom: 4.5rem;}
+  .prd-range .swiper-pagination{bottom: 0 !important;}
+  ul.filterTab li.active{box-shadow: 0 1px 4px 0 #cc79c04d;transform: scale(1.10) translateY(0px);}
+  ul.filterTab li:hover{transform: scale(1.03) translateY(0px); box-shadow: 0 1px 4px 0 #cc79c04d;}
+}
+</style>
+{%- if section.settings.heading != blank -%} 
+  <h2 class="sub-tab-coll-contentss inline-richtextss">{{ section.settings.heading }}</h2>
+{%- endif -%}
+
+<div class="slider-range">
+  {%- for block in section.blocks -%}
+    {%- case block.type -%}
+      {%- when 'collectionstab' -%}
+        <div 
+          class="prd-range swiper" 
+          data-color="{{ block.settings.color | handleize }}" >
+          
+          <div class='swiper-wrapper'>
+            {%- for product in block.settings.collection.products limit:block.settings.products_to_show -%}
+              <div class="swiper-slide">
+                {% render 'card-product',
+                  card_product: product,
+                  grid_combo_offer: false,
+                  media_aspect_ratio: 'portrait',
+                  show_secondary_image: false,
+                  show_vendor: false,
+                  show_mrp_label: section.settings.show_mrp_label,
+                  show_rating: section.settings.show_rating,
+                  quick_add: 'none',
+                  section_id: section.id
+                %}
+              </div>
+            {%- endfor -%}
+          </div> 
+          <div class="swiper-pagination small-hide"></div>
+        </div>
+    {%- endcase -%}
+  {%- endfor -%}
+
+  <div class="swiper-button-next swiper-next-range">&nbsp;</div>
+  <div class="swiper-button-prev swiper-prev-range">&nbsp;</div>  
+</div>  
+
+<!-- Range Slider -->
+<div class="color-spectrum-slider">
+  <input 
+    type="range" 
+    min="0" 
+    max="100" 
+    step="0" 
+    id="colorSpectrum" 
+    value="0" 
+    aria-label="Color Filter Slider">
+  <output id="rangeBubble" class="range-bubble shown">Loading...</output>
+</div>
+
+
+{%- if section.settings.description != blank -%}
+  <div class="section_desc page-width" style="text-align:center;">{{ section.settings.description }}</div>
+{%- endif -%}
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  const productGrids = document.querySelectorAll('.prd-range');
+  const colorSlider = document.getElementById('colorSpectrum');
+  const colorOutput = document.getElementById('rangeBubble');
+  const swipers = {};
+
+  // Build color map dynamically based on section blocks order
+  const colorMap = [];
+  productGrids.forEach((grid, index) => {
+    const colorName = grid.dataset.color.trim().toLowerCase();
+    grid.dataset.range = index; // Store index for reference
+    colorMap.push(colorName);
+  });
+
+  // Dynamically calculate step size
+  const totalColors = colorMap.length;
+  const stepSize = 100 / (totalColors - 1);
+  colorSlider.setAttribute('step', stepSize);
+  colorSlider.value = 0; // start from first color
+
+  function initSwiper(grid) {
+    const gridId = grid.dataset.color;
+    if (!swipers[gridId]) {
+      swipers[gridId] = new Swiper(grid, {
+        slidesPerView: 2,
+        spaceBetween: 16,
+        navigation: {
+          nextEl: ".swiper-next-range",
+          prevEl: ".swiper-prev-range",
+        },
+        pagination: {
+          el: grid.querySelector('.swiper-pagination'),
+          clickable: true
+        },
+        breakpoints: {
+          768: { slidesPerView: 3 },
+          1200: { slidesPerView: 5 }
+        }
+      });
+    }
+  }
+
+  function updateView() {
+    const sliderValue = parseFloat(colorSlider.value);
+    const nearestIndex = Math.round(sliderValue / stepSize);
+    const colorName = colorMap[nearestIndex];
+
+    colorOutput.innerText = colorName;
+    
+    // Show/hide collections
+    productGrids.forEach(grid => {
+      if (grid.dataset.color.trim().toLowerCase() === colorName) {
+        grid.style.display = 'flex';
+        grid.classList.add('active');
+        initSwiper(grid);
+      } else {
+        grid.style.display = 'none';
+        grid.classList.remove('active');
+      }
+    });
+
+    // Bubble position
+    colorOutput.style.left = `calc(${(nearestIndex * stepSize)}%)`;
+  }
+
+  // When user moves or clicks slider
+  colorSlider.addEventListener('input', updateView);
+  colorSlider.addEventListener('change', updateView);
+
+  // Initialize first color
+  updateView();
+});
+</script>
+
+
+{% schema %}
+{
+   "name": "Color Range Slider",
+  "class": "prd_range_filter",
+  "settings": [
+    {
+      "type":"text",
+      "id":"heading",
+      "label":"Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Add Description"
+    },
+    {
+      "type": "color",
+      "id": "sec-bg-color",
+      "label": "Background color"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 50
+    }, 
+    {
+      "type": "range",
+      "id": "padding_top_mob",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top Mobile",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mob",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom Mobile",
+      "default": 30
+    }
+  ],
+  "blocks": [
+      {
+       "type": "collectionstab",
+      "name": "Collections List",
+      "settings":[
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Featured Collection"
+        },
+        {
+          "type": "range",
+          "id": "products_to_show",
+          "min": 2,
+          "max": 50,
+          "step": 1,
+          "default": 10,
+          "label": "t:sections.featured-collection.settings.products_to_show.label"
+        },
+        {
+          "type": "text",
+          "id": "color",
+          "label": "Color Name"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Color Range Slider",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

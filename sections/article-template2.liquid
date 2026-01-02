@@ -1,0 +1,167 @@
+<style>
+  .fitness-blog .fitness-blog-blog-container {
+    text-align: center; 
+  }
+.fitness-blog-blog-container.page-width{
+    margin: 0 auto;
+  }
+  .fitness-blog .fitness-blog-blog-container img {
+    display: block; 
+    margin: 0 auto 20px auto; 
+  }
+
+  .fitness-blog .fitness-blog-blog-container h2 {
+    text-align: center;
+    margin-top: 20px; 
+  }
+  .fitness-blog .fitness-blog-blog-container p,
+  .fitness-blog .fitness-blog-blog-container a{
+    text-align: center !important;
+    /* margin-bottom: 20px; */    
+  }
+  .fitness-blog .fitness-blog-blog-container img{
+    margin:0 auto;
+    width: 100%;
+  }
+.fitness-blog-blog-container .row .col-sm-12 > *,
+  .fitness-blog-blog-container .row > *{
+    text-align:center;
+  }
+    .fitness-blog .fitness-blog-blog-container span {
+    display: block; 
+    margin: 10px 0; 
+  }
+  .fitness-blog .fitness-blog-blog-container .row {
+      margin: 0;
+    justify-content:center;
+  }
+  div#shopify-section-article-template2>* {
+      text-align: center;
+  }
+  div:empty,p:empty,span:empty,h2:empty{
+    display:none;
+  }
+  @media (max-width: 768px) {
+    .fitness-blog .fitness-blog-blog-container img {
+      margin-bottom: 10px; 
+    }
+
+    .fitness-blog .fitness-blog-blog-container h2 {
+      margin-top: 10px; 
+    }
+
+    .fitness-blog .fitness-blog-blog-container span {
+      margin-top: 5px;
+    }
+     .fitness-blog .fitness-blog-blog-container span.sharing-label {
+        display: none;
+    }
+  }
+</style>
+
+ {% paginate article.comments by 50 %}
+  <div class="fitness-blog">
+      <header>
+    <h2>{{ article.title }}</h2> 
+    <!-- {%- if section.settings.blog_show_date -%}
+      <span>
+        {{ article.created_at | date : '%B %d, %Y' }}
+      </span>
+    {%- endif -%} -->
+  </header>
+
+    <div class="fitness-blog-blog-container page-width">
+      {%- if article.image -%}
+        <img src="{{ article.image | img_url: '' }}" alt="{{ article.image.alt | escape }}">
+      {%- endif -%}
+   
+      {%- if article.heading -%}
+        <h2>{{ article.heading }}</h2>
+      {%- endif -%}
+
+      {%- if article.content -%}
+        <p>{{ article.content }}</p>
+      {%- endif -%}
+      
+      <div data-cc-animate data-cc-animate-delay=".5s">
+        {% render 'social-sharing', share_title: article.title, share_permalink: article.url, share_image: article.image %}
+      </div>
+        </div>
+  </div>
+  <div data-cc-animate data-cc-animate-delay=".5s">
+        {% form article %}
+        <hr>
+        <h3 id="add-comment-title">{{ 'blogs.comments.form_title' | t }}</h3>
+
+        {% if form.errors %}
+        <div class="feedback error">
+          {{ form.errors | default_errors }}
+        </div>
+        {% endif %}
+
+        <div class="form">
+          <div class="input-row">
+            <input aria-label="{{ 'blogs.comments.name' | t }}" placeholder="{{ 'blogs.comments.name' | t }}" required{% if form.errors contains "author" %} class="error"{% endif %} type="text" name="comment[author]" id="comment-author" value="{{ form.author }}" />
+          </div>
+
+          <div class="input-row">
+            <input aria-label="{{ 'blogs.comments.email' | t }}" placeholder="{{ 'blogs.comments.email' | t }}" required{% if form.errors contains "email" %} class="error"{% endif %} type="email" name="comment[email]" id="comment-email" value="{{ form.email }}" />
+          </div>
+
+          <div class="input-row">
+            <textarea aria-label="{{ 'blogs.comments.message' | t }}" placeholder="{{ 'blogs.comments.message' | t }}" required{% if form.errors contains "body" %} class="error"{% endif %} name="comment[body]" id="comment-body">{{ form.body }}</textarea>
+          </div>
+
+          <div class="wide-action">
+            <input type="submit" value="{{ 'blogs.comments.post' | t }}" />
+          </div>
+        </div>
+        {% endform %}
+      </div>
+      
+      {% if blog.next_article or blog.previous_article %}
+    <div class="other-products other-products--articles" data-cc-animate data-cc-animate-delay=".5s">
+      <div class="other-products__label">
+        <a data-cc-animate-click href="{{ blog.url }}">{{ 'blogs.article.back_to_blog_html' | t: blog: blog.title }}</a>
+      </div>
+      <div class="other-products__products">
+        {% if blog.previous_article %}
+        <span class="other-products__product previous">
+          <a data-cc-animate-click href="{{ blog.previous_article }}">
+            <div class="other-products__product__arrow"><span class="arr">{% render 'svg-chevron-left' %}</span></div>
+            <div class="other-products__product__title h5">{{ 'blogs.article.older_post' | t }}</div>
+          </a>
+        </span>
+        {% endif %}
+        {% if blog.next_article %}
+        <span class="other-products__product next">
+          <a data-cc-animate-click href="{{ blog.next_article }}" >
+            <div class="other-products__product__title h5">{{ 'blogs.article.newer_post' | t }}</div>
+            <div class="other-products__product__arrow"><span class="arr">{% render 'svg-chevron-right' %}</span></div>
+          </a>
+        </span>
+        {% endif %}
+      </div>
+    </div>
+    {% endif %}
+
+{% endpaginate %}
+{% schema %}
+{
+  "name": "Posts",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "blog_show_author",
+      "label": "Show author",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "blog_show_date",
+      "label": "Show date",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

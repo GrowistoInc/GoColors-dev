@@ -1,0 +1,463 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "investor_left_block_bdYb74": {
+      "type": "Investor-left-block",
+      "blocks": {
+        "image_block_yLHF9B": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g3660.svg",
+            "title": "Our Business",
+            "url": "https://gocolors.com/pages/our-business"
+          }
+        },
+        "image_block_6kQG4T": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Vector_011e1c53-c3cc-4177-8696-dad1f349b037.svg",
+            "title": "Board of Directors",
+            "url": "https://gocolors.com/pages/board-of-directors"
+          }
+        },
+        "image_block_J6ejGb": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Component_1.svg",
+            "title": "Corporate Governance",
+            "url": "https://gocolors.com/pages/corporate-governance"
+          }
+        },
+        "image_block_XKbYBk": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g3725.svg",
+            "title": "Annual reports",
+            "url": "https://gocolors.com/pages/annual-reports"
+          }
+        },
+        "image_block_CJwJyx": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_1.svg",
+            "title": "Earning Call  Transcripts",
+            "url": "https://gocolors.com/pages/earning-call-transcripts"
+          }
+        },
+        "image_block_gJ3aWt": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Vector_1_e879eb32-0411-4431-bf21-69107ea6f385.svg",
+            "title": "Quarterly  Financial Results",
+            "url": ""
+          }
+        },
+        "image_block_A8eRTW": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_17.svg",
+            "title": "Investor Presentation",
+            "url": "https://gocolors.com/pages/investor-presentation"
+          }
+        },
+        "image_block_JVmA8C": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_18.svg",
+            "title": "Press Releases",
+            "url": "https://gocolors.com/pages/press-releases"
+          }
+        },
+        "image_block_fAy9iQ": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Vector_2.svg",
+            "title": "Credit Rating",
+            "url": "https://gocolors.com/pages/credit-rating"
+          }
+        },
+        "image_block_y4F3nn": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_19.svg",
+            "title": "Corporate Announcements",
+            "url": "https://gocolors.com/pages/corporate-announcements"
+          }
+        },
+        "image_block_ir8F8D": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_13.svg",
+            "title": "Shareholding Pattern",
+            "url": "https://gocolors.com/pages/shareholding-pattern"
+          }
+        },
+        "image_block_RQ996J": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g788.svg",
+            "title": "Shareholder Grievances",
+            "url": "https://gocolors.com/pages/shareholder-grievances-1"
+          }
+        },
+        "image_block_X9gWqi": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/x31_650_x2C__Employee_x2C__group_x2C__management_x2C__organization_x2C__team.svg",
+            "title": "KMP Details",
+            "url": "https://gocolors.com/pages/kmp"
+          }
+        },
+        "image_block_Ji4rT6": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_14.svg",
+            "title": "MOA AOA/  Directors Profile",
+            "url": "https://gocolors.com/pages/moa-aoa"
+          }
+        },
+        "image_block_MJaYcJ": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Component_1_1.svg",
+            "title": "Policies",
+            "url": "https://gocolors.com/pages/investor-policies"
+          }
+        },
+        "image_block_pdki3H": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g2733.svg",
+            "title": "Archivals",
+            "url": "https://gocolors.com/pages/archivals"
+          }
+        }
+      },
+      "block_order": [
+        "image_block_yLHF9B",
+        "image_block_6kQG4T",
+        "image_block_J6ejGb",
+        "image_block_XKbYBk",
+        "image_block_CJwJyx",
+        "image_block_gJ3aWt",
+        "image_block_A8eRTW",
+        "image_block_JVmA8C",
+        "image_block_fAy9iQ",
+        "image_block_y4F3nn",
+        "image_block_ir8F8D",
+        "image_block_RQ996J",
+        "image_block_X9gWqi",
+        "image_block_Ji4rT6",
+        "image_block_MJaYcJ",
+        "image_block_pdki3H"
+      ],
+      "name": "Investor Left Blocks",
+      "settings": {}
+    },
+    "quarterly_right_section_m6mNhP": {
+      "type": "quarterly-right-section",
+      "blocks": {
+        "report_PjeGB9": {
+          "type": "report",
+          "name": "Report - Q1",
+          "settings": {
+            "year": "2025-26",
+            "title": "INTEGRATED FILING - FINANCIALS Q1 FY26",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INTEGRATED_FILING_-_FINANCIALS_Q1_FY26.pdf?v=1757676965",
+            "quarter": "Q1"
+          }
+        },
+        "report_nDCmnm": {
+          "type": "report",
+          "settings": {
+            "year": "2024-25",
+            "title": "INTEGRATED FILING - FINANCIALS Q4 FY25",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INTEGRATED_FILING_-_FINANCIALS_Q4_FY25.pdf?v=1757676966",
+            "quarter": "Q4"
+          }
+        },
+        "report_MBLBdN": {
+          "type": "report",
+          "settings": {
+            "year": "2025-26",
+            "title": "FINANCIAL RESULTS Q1 FY26",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/FINANCIAL_RESULTS_Q1_FY26.pdf?v=1754040681",
+            "quarter": "Q1"
+          }
+        },
+        "report_mqJAWd": {
+          "type": "report",
+          "settings": {
+            "year": "2024-25",
+            "title": "FINANCIAL RESULTS Q4 FY25",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/FINANCIAL_RESULTS_Q4_FY25.pdf?v=1746002186",
+            "quarter": "Q4"
+          }
+        },
+        "report_wrkCpr": {
+          "type": "report",
+          "settings": {
+            "year": "2024-25",
+            "title": "INTEGRATED FILING - FINANCIALS Q3 FY25",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INTEGRATED_FILING_-_FINANCIALS_Q3_FY25.pdf?v=1737796797",
+            "quarter": "Q3"
+          }
+        },
+        "report_PBLd9g": {
+          "type": "report",
+          "settings": {
+            "year": "2024-25",
+            "title": "FINANCIAL RESULTS Q3 FY25",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/FINANCIAL_RESULTS_Q3_FY25_1.pdf?v=1738566656",
+            "quarter": "Q3"
+          }
+        },
+        "report_Ndhphp": {
+          "type": "report",
+          "settings": {
+            "year": "2024-25",
+            "title": "FINANCIAL RESULTS Q2 FY25",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/FINANCIAL_RESULTS_Q2_FY25_1.pdf?v=1738566656",
+            "quarter": "Q2"
+          }
+        },
+        "report_33J4CB": {
+          "type": "report",
+          "settings": {
+            "year": "2024-25",
+            "title": "FINANCIAL RESULTS Q1 FY25",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/FINANCIAL_RESULTS_Q1_FY25_1.pdf?v=1738566655",
+            "quarter": "Q1"
+          }
+        },
+        "report_X7Cfex": {
+          "type": "report",
+          "settings": {
+            "year": "2023-24",
+            "title": "FINANCIAL RESULTS Q4 FY24",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/FINANCIAL_RESULTS_Q4_FY24_1.pdf?v=1738566656",
+            "quarter": "Q4"
+          }
+        },
+        "report_GiaNbM": {
+          "type": "report",
+          "settings": {
+            "year": "2023-24",
+            "title": "FINANCIAL RESULTS Q3 FY24",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/FINANCIAL_RESULTS_Q3_FY24.pdf?v=1707214510",
+            "quarter": "Q3"
+          }
+        },
+        "report_haMfmU": {
+          "type": "report",
+          "settings": {
+            "year": "2023-24",
+            "title": "FINANCIAL RESULTS Q2 FY24",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/FINANCIAL_RESULTS_Q2.pdf?v=1698904276",
+            "quarter": "Q2"
+          }
+        },
+        "report_LfGhKN": {
+          "type": "report",
+          "settings": {
+            "year": "2023-24",
+            "title": "FINANCIAL RESULTS Q1 FY24",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/FINANCIAL_RESULTS_Q1_FY24.pdf?v=1690954159",
+            "quarter": "Q1"
+          }
+        },
+        "report_yBemaJ": {
+          "type": "report",
+          "settings": {
+            "year": "2022-23",
+            "title": "FINANCIAL RESULTS Q4 FY23",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/FINANCIAL_RESULTS_Q4_FY23.pdf?v=1688640055",
+            "quarter": "Q4"
+          }
+        },
+        "report_PYtVTc": {
+          "type": "report",
+          "settings": {
+            "year": "2022-23",
+            "title": "FINANCIAL RESULTS Q3 FY23",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Financial_Results_Q3_FY23.pdf?v=1674803811",
+            "quarter": "Q3"
+          }
+        },
+        "report_xkKHyi": {
+          "type": "report",
+          "settings": {
+            "year": "2022-23",
+            "title": "FINANCIAL RESULTS Q2 FY23",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Financial_Results_Q2_FY22-23.pdf?v=1668430320",
+            "quarter": "Q2"
+          }
+        },
+        "report_NFzLgA": {
+          "type": "report",
+          "settings": {
+            "year": "2022-23",
+            "title": "FINANCIAL RESULTS Q1 FY23",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Outcome_of_Board_Meeting_-_Q1_FY_23.pdf?v=1660133137",
+            "quarter": "Q1"
+          }
+        },
+        "report_DpVxTr": {
+          "type": "report",
+          "settings": {
+            "year": "2021-22",
+            "title": "FINANCIAL RESULTS Q4 FY22",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Financial_Results_-_Q4_-_FY_22.pdf?v=1651911790",
+            "quarter": "Q4"
+          }
+        },
+        "report_f9mYFx": {
+          "type": "report",
+          "settings": {
+            "year": "2021-22",
+            "title": "FINANCIAL-RESULTS Q3 FY22",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/FINANCIAL-RESULTS_Q3_FY22.pdf?v=1744009784",
+            "quarter": "Q3"
+          }
+        }
+      },
+      "block_order": [
+        "report_PjeGB9",
+        "report_nDCmnm",
+        "report_MBLBdN",
+        "report_mqJAWd",
+        "report_wrkCpr",
+        "report_PBLd9g",
+        "report_Ndhphp",
+        "report_33J4CB",
+        "report_X7Cfex",
+        "report_GiaNbM",
+        "report_haMfmU",
+        "report_LfGhKN",
+        "report_yBemaJ",
+        "report_PYtVTc",
+        "report_xkKHyi",
+        "report_NFzLgA",
+        "report_DpVxTr",
+        "report_f9mYFx"
+      ],
+      "name": "quarterly reports right",
+      "settings": {}
+    },
+    "querte_check_9pbp6U": {
+      "type": "querte-check",
+      "blocks": {
+        "quarter_4rYCmL": {
+          "type": "quarter",
+          "settings": {
+            "title": "Q1",
+            "year": "2025 || 2024 ||",
+            "detail_titles": "Report 1||Report 2||Report 3Report 1||Report 2||Report 3",
+            "detail_urls": "https://example.com/report1.pdf||https://example.com/report2.pdf||https://example.com/report3.pdfhttps://example.com/report1.pdf||https://example.com/report2.pdf||https://example.com/report3.pdf"
+          }
+        },
+        "quarter_FXT9WX": {
+          "type": "quarter",
+          "settings": {
+            "title": "Q2",
+            "year": "2025",
+            "detail_titles": "Report 1||Report 2||Report 3||Report 1||Report 2||Report 3",
+            "detail_urls": "https://example.com/report1.pdf||https://example.com/report2.pdf||https://example.com/report3.pdf"
+          }
+        },
+        "quarter_9kerBY": {
+          "type": "quarter",
+          "settings": {
+            "title": "Q3",
+            "year": "2025",
+            "detail_titles": "Report 1||Report 2||Report 3",
+            "detail_urls": "https://example.com/report1.pdf||https://example.com/report2.pdf||https://example.com/report3.pdf"
+          }
+        },
+        "quarter_igDwfz": {
+          "type": "quarter",
+          "settings": {
+            "title": "Q4",
+            "year": "2025",
+            "detail_titles": "Report 1||Report 2||Report 3",
+            "detail_urls": "https://example.com/report1.pdf||https://example.com/report2.pdf||https://example.com/report3.pdf"
+          }
+        }
+      },
+      "block_order": [
+        "quarter_4rYCmL",
+        "quarter_FXT9WX",
+        "quarter_9kerBY",
+        "quarter_igDwfz"
+      ],
+      "disabled": true,
+      "name": "Quarter Reports",
+      "settings": {}
+    },
+    "querte_check2_QcdaVN": {
+      "type": "querte-check2",
+      "blocks": {
+        "tab_7aeUcE": {
+          "type": "tab",
+          "settings": {
+            "tab_label": "Q1",
+            "announcements_json": "[\n  {\n    \"year\": \"2024-25\",\n    \"title\": \"TRADING WINDOW CLOSURE Q4 FY25\",\n    \"view_link\": \"#\",\n    \"download_link\": \"#\"\n  },\n  {\n    \"year\": \"2023-24\",\n    \"title\": \"INVESTOR MEET INTIMATION 18-02-2025\",\n    \"view_link\": \"#\",\n    \"download_link\": \"#\"\n  }\n]"
+          }
+        },
+        "tab_Mpfgdi": {
+          "type": "tab",
+          "settings": {
+            "tab_label": "Q1",
+            "announcements_json": "[{\"year\":\"2024-25\",\"title\":\"TRADING WINDOW CLOSURE Q4 FY25\",\"view_link\":\"#\",\"download_link\":\"#\"}]"
+          }
+        },
+        "tab_PGV6HL": {
+          "type": "tab",
+          "settings": {
+            "tab_label": "Q1",
+            "announcements_json": "[{\"year\":\"2024-25\",\"title\":\"TRADING WINDOW CLOSURE Q4 FY25\",\"view_link\":\"#\",\"download_link\":\"#\"}]"
+          }
+        },
+        "tab_G4bJdc": {
+          "type": "tab",
+          "settings": {
+            "tab_label": "Q1",
+            "announcements_json": "[{\"year\":\"2024-25\",\"title\":\"TRADING WINDOW CLOSURE Q4 FY25\",\"view_link\":\"#\",\"download_link\":\"#\"}]"
+          }
+        }
+      },
+      "block_order": [
+        "tab_7aeUcE",
+        "tab_Mpfgdi",
+        "tab_PGV6HL",
+        "tab_G4bJdc"
+      ],
+      "disabled": true,
+      "name": "Custom Tabs Example",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "investor_left_block_bdYb74",
+    "quarterly_right_section_m6mNhP",
+    "querte_check_9pbp6U",
+    "querte_check2_QcdaVN"
+  ]
+}

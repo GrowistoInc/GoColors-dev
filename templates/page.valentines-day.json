@@ -1,0 +1,204 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "page_redirect_content_6dcpHH": {
+      "type": "page-redirect-content",
+      "blocks": {
+        "text_96Jw8t": {
+          "type": "text",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "text_96Jw8t"
+      ],
+      "disabled": true,
+      "settings": {
+        "menu": "page-redirect",
+        "padding_top": 40,
+        "padding_bottom": 52,
+        "padding-top-mob": 40,
+        "padding-bottom-mob": 40
+      }
+    },
+    "valentine_banner_X8xGVf": {
+      "type": "valentine-banner",
+      "settings": {
+        "image": "shopify://shop_images/Spring_banner_1900x600_wo_cta.jpg",
+        "mobile-image": "shopify://shop_images/Spring_banner_mob_wo_cts.jpg",
+        "image_height": "adapt"
+      }
+    },
+    "valentine_colors_EtHqKy": {
+      "type": "valentine-colors",
+      "blocks": {
+        "collection_pXCqkY": {
+          "type": "collection",
+          "settings": {
+            "collection": "sunflower",
+            "image": "shopify://shop_images/colours-19.png"
+          }
+        },
+        "collection_WHKjfe": {
+          "type": "collection",
+          "settings": {
+            "collection": "cherry-blossom",
+            "image": "shopify://shop_images/Colours-12_1.png"
+          }
+        },
+        "collection_QgiyFC": {
+          "type": "collection",
+          "settings": {
+            "collection": "blue-bells",
+            "image": "shopify://shop_images/colours-27.png"
+          }
+        },
+        "collection_4NpMJ3": {
+          "type": "collection",
+          "settings": {
+            "collection": "lavender",
+            "image": "shopify://shop_images/colours-20.png"
+          }
+        },
+        "collection_LKye7p": {
+          "type": "collection",
+          "settings": {
+            "collection": "lily-stem",
+            "image": "shopify://shop_images/colours-28.png"
+          }
+        },
+        "collection_HnfBjt": {
+          "type": "collection",
+          "disabled": true,
+          "settings": {
+            "collection": "browns-solid",
+            "image": "shopify://shop_images/red_c9bdc17f-6089-4d31-a837-92f7b606d99a.png"
+          }
+        },
+        "collection_cKUVLk": {
+          "type": "collection",
+          "disabled": true,
+          "settings": {
+            "collection": "mustards-solid",
+            "image": "shopify://shop_images/Mustard.png"
+          }
+        }
+      },
+      "block_order": [
+        "collection_pXCqkY",
+        "collection_WHKjfe",
+        "collection_QgiyFC",
+        "collection_4NpMJ3",
+        "collection_LKye7p",
+        "collection_HnfBjt",
+        "collection_cKUVLk"
+      ],
+      "settings": {
+        "title": "Bloom in Colors",
+        "padding_top": 10,
+        "padding_bottom": 40,
+        "mob_padding_top": 10,
+        "mob_padding_bottom": 10,
+        "padd": "26px 0px"
+      }
+    },
+    "featured_collection_nxMqL6": {
+      "type": "featured-collection",
+      "custom_css": [
+        ".collection__title h2 {text-align: center; font-size: 24px; font-weight: bold;}"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "pastels-springs",
+        "products_to_show": 24,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_mrp_label": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "valentine_blog_Y4zUTB": {
+      "type": "valentine-blog",
+      "blocks": {
+        "text_hHBzP6": {
+          "type": "Text",
+          "settings": {
+            "blog_image": "shopify://shop_images/summer_hues.jpg",
+            "blog_heading": "Summer Hues: The Sunshine Palette Continues!",
+            "blog_url": "https://gocolors.com/blogs/news/summer-hues-the-sunshine-palette-continues",
+            "blog_content": "Sunshine seekers! We're back with another dose of summer-style inspiration, because let's face it, the first half of pastel paradise was just too good to leave hanging!",
+            "reverse_layout": true
+          }
+        },
+        "text_KkEejc": {
+          "type": "Text",
+          "disabled": true,
+          "settings": {
+            "blog_image": "shopify://shop_images/Valentine_s-Day-Blog_1.jpg",
+            "blog_heading": "Everything Striped by Go Colors: Stride in Style!",
+            "blog_url": "https://gocolors.com/blogs/news/everything-striped-by-go-colors-stride-in-style",
+            "blog_content": "Today we’ll talk about a canvas of style, comfort, and chic vibes through our extensive collection of striped pants. Whether you're drawn to the breezy charm of Linen Pants or the sporty appeal of Joggers, we've got your fashion desires sorted. Fasten your seatbelts, ladies!",
+            "reverse_layout": false
+          }
+        }
+      },
+      "block_order": [
+        "text_hHBzP6",
+        "text_KkEejc"
+      ],
+      "settings": {
+        "padding_top": 20,
+        "padding_bottom": 50,
+        "mob_padding_top": 20,
+        "mob_padding_bottom": 20,
+        "blog_heading": "Blogs",
+        "heading_fontsize": 25,
+        "mob_heading_fontsize": 20,
+        "blog_heading_fontsize": 20,
+        "blog_content_fontsize": 15,
+        "heading_alignment": "center"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "page_redirect_content_6dcpHH",
+    "valentine_banner_X8xGVf",
+    "valentine_colors_EtHqKy",
+    "featured_collection_nxMqL6",
+    "valentine_blog_Y4zUTB"
+  ]
+}

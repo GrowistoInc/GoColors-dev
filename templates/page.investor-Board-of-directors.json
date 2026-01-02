@@ -1,0 +1,254 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "investor_left_block_RbKFxD": {
+      "type": "Investor-left-block",
+      "blocks": {
+        "image_block_fN7ALg": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g3660.svg",
+            "title": "Our Business",
+            "url": "https://gocolors.com/pages/our-business"
+          }
+        },
+        "image_block_VBXkLe": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Vector_011e1c53-c3cc-4177-8696-dad1f349b037.svg",
+            "title": "Board of Directors",
+            "url": ""
+          }
+        },
+        "image_block_3yhRPk": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Component_1.svg",
+            "title": "Corporate Governance",
+            "url": "https://gocolors.com/pages/corporate-governance"
+          }
+        },
+        "image_block_gNz4dy": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g3725.svg",
+            "title": "Annual reports",
+            "url": "https://gocolors.com/pages/annual-reports"
+          }
+        },
+        "image_block_377DDC": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_1.svg",
+            "title": "Earning Call  Transcripts",
+            "url": "https://gocolors.com/pages/earning-call-transcripts"
+          }
+        },
+        "image_block_jkr7nW": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Vector_1_e879eb32-0411-4431-bf21-69107ea6f385.svg",
+            "title": "Quarterly  Financial Results",
+            "url": "https://gocolors.com/pages/quarterly-financial-results"
+          }
+        },
+        "image_block_NzmRLL": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_17.svg",
+            "title": "Investor Presentation",
+            "url": "https://gocolors.com/pages/investor-presentation"
+          }
+        },
+        "image_block_ggtcyh": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_18.svg",
+            "title": "Press Releases",
+            "url": "https://gocolors.com/pages/press-releases"
+          }
+        },
+        "image_block_iHz7eP": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Vector_2.svg",
+            "title": "Credit Rating",
+            "url": "https://gocolors.com/pages/credit-rating"
+          }
+        },
+        "image_block_jPHXdG": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_19.svg",
+            "title": "Corporate Announcements",
+            "url": "https://gocolors.com/pages/corporate-announcements"
+          }
+        },
+        "image_block_NDWr6V": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_13.svg",
+            "title": "Shareholding Pattern",
+            "url": "https://gocolors.com/pages/shareholding-pattern"
+          }
+        },
+        "image_block_FJhwPh": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g788.svg",
+            "title": "Shareholder Grievances",
+            "url": "https://gocolors.com/pages/shareholder-grievances-1"
+          }
+        },
+        "image_block_LniAJD": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/x31_650_x2C__Employee_x2C__group_x2C__management_x2C__organization_x2C__team.svg",
+            "title": "KMP Details",
+            "url": "https://gocolors.com/pages/kmp"
+          }
+        },
+        "image_block_kBRtKK": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_14.svg",
+            "title": "MOA AOA/  Directors Profile",
+            "url": "https://gocolors.com/pages/moa-aoa"
+          }
+        },
+        "image_block_7wyfRr": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Component_1_1.svg",
+            "title": "Policies",
+            "url": "https://gocolors.com/pages/investor-policies"
+          }
+        },
+        "image_block_eXaQGR": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g2733.svg",
+            "title": "Archivals",
+            "url": "https://gocolors.com/pages/archivals"
+          }
+        }
+      },
+      "block_order": [
+        "image_block_fN7ALg",
+        "image_block_VBXkLe",
+        "image_block_3yhRPk",
+        "image_block_gNz4dy",
+        "image_block_377DDC",
+        "image_block_jkr7nW",
+        "image_block_NzmRLL",
+        "image_block_ggtcyh",
+        "image_block_iHz7eP",
+        "image_block_jPHXdG",
+        "image_block_NDWr6V",
+        "image_block_FJhwPh",
+        "image_block_LniAJD",
+        "image_block_kBRtKK",
+        "image_block_7wyfRr",
+        "image_block_eXaQGR"
+      ],
+      "name": "Investor Left Blocks",
+      "settings": {}
+    },
+    "board_of_directors_7ajnwx": {
+      "type": "Board-of-directors",
+      "blocks": {
+        "director_wLetJz": {
+          "type": "director",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_14.png",
+            "name": "Director 1",
+            "designation": "Designation",
+            "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt",
+            "link": ""
+          }
+        },
+        "director_QF4xnc": {
+          "type": "director",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_14_1.png",
+            "name": "Director 2",
+            "designation": "Designation",
+            "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt",
+            "link": ""
+          }
+        },
+        "director_jWNnY4": {
+          "type": "director",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_14_2.png",
+            "name": "Director 3",
+            "designation": "Designation",
+            "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt",
+            "link": ""
+          }
+        },
+        "director_npCfPH": {
+          "type": "director",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_14_5.png",
+            "name": "Director 4",
+            "designation": "Designation",
+            "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt",
+            "link": ""
+          }
+        },
+        "director_NgDbjj": {
+          "type": "director",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_14_3.png",
+            "name": "Director 5",
+            "designation": "Designation",
+            "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt",
+            "link": ""
+          }
+        },
+        "director_hFLz8H": {
+          "type": "director",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_14_4.png",
+            "name": "Director 6",
+            "designation": "Designation",
+            "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "director_wLetJz",
+        "director_QF4xnc",
+        "director_jWNnY4",
+        "director_npCfPH",
+        "director_NgDbjj",
+        "director_hFLz8H"
+      ],
+      "name": "Board-of-directors",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "investor_left_block_RbKFxD",
+    "board_of_directors_7ajnwx"
+  ]
+}

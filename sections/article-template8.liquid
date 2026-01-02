@@ -1,0 +1,425 @@
+<style>
+  .blogTemplate8 .blog-content img {
+    width: 100%;
+    height: 100%;
+  }
+
+
+</style>
+<section class="blog-main section-{{ section.id }} page-width page-width--narrow blogTemplate8"
+  style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;">
+
+  <!-- Title -->
+  <h1>{{ article.title }}</h1>
+
+  <!-- Meta -->
+  <div class="blog-meta">
+    {% comment %} <span>{{ article.author }} </span> {% endcomment %}
+    <span>{{ article.published_at | date: "%B %d, %Y" }}</span>
+  </div>
+
+  <!-- Subtitle -->
+  {% if section.settings.show_subtitle and article.metafields.custom.blog8_subtitle %}
+    <p class="blog-subtitle article-summary">{{ article.metafields.custom.blog8_subtitle }}</p>
+  {% endif %}
+
+  <!-- Featured image -->
+  {% if article.image %}
+    <img src="{{ article.image | img_url: '1200x' }}" alt="{{ article.title }}" class="blog8-article-banner">
+  {% endif %}
+
+  <!-- Content -->
+  <div class="blog-content-wrapper">
+    <div class="blog-content">
+      {{ article.content }}
+    </div>
+  </div>
+
+ <!-- Look Section -->
+{% if article.metafields.custom.blog8_looks.value %}
+  {% assign look_sections = article.metafields.custom.blog8_looks.value %}
+
+  {% for look_section in look_sections %}
+    <div class="blog-look-section">
+      <!-- Title -->
+      {% if look_section.title %}
+        <h2 class="look-title">{{ look_section.title }}</h2>
+      {% endif %}
+
+      <!-- Banner Image -->
+      {% if look_section.banner_image %}
+        <div class="look-banner">
+          <img src="{{ look_section.banner_image | image_url: width: 800 }}" alt="{{ look_section.title }}">
+        </div>
+      {% endif %}
+
+      <!-- Description (Richtext) -->
+      {% if look_section.description %}
+        <div class="look-description">
+          {{ look_section.description | metafield_tag }}
+        </div>
+      {% endif %}
+
+      <!-- Products List -->
+    {% if look_section.products.value %}
+      <div class="look-products">
+        <p><strong>Get The Look:</strong></p>
+        <div class="look-products-grid">
+          {% for product in look_section.products.value %}
+            {% if product != blank %}
+              <a href="{{ product.url }}" class="look-product-card">
+                <img src="{{ product.featured_image | image_url: width: 400 }}" alt="{{ product.title }}">
+                <div class="product-content-wrap">
+                      {% if product.metafields.Loungename.lounge_name != blank %}
+                      <h4>{{ product.title | escape }}</h4>
+                      
+                    
+                    <div class="lang-sec truncate-three-lines">
+                      {% if product.metafields.Loungename.lounge_name != blank %}
+                         <span class="lang1">{{ product.metafields.Loungename.lounge_name }}</span>{% if product.metafields.Color.color != blank %}<span class="lang1">{{product.metafields.Color.color }}{% endif %} </span>
+                       {% endif%}
+        			</div>
+                  {% else %}
+                    
+                      <h4>{{ product.title | escape }}</h4>
+                    <div class="lang-sec truncate-three-lines">
+                    {% if product.metafields.Color.color != blank %}
+                    {% assign prosku = product.selected_or_first_available_variant.sku | split:"-" %}
+                     {{product.type}} : {{ prosku[0] }} | {{product.metafields.Color.color }} 
+                     {% comment %} {{product.type}} : {{product.metafields.Color.color }} {% endcomment %}
+                    {% endif%}
+                    </div>
+                  {% endif %}
+                    <p class="product-price">
+                    {{ product.price | money }}
+                    {% if product.compare_at_price > product.price %}
+                        <span class="product-compare">{{ product.compare_at_price | money }}</span>
+                        {% assign discount = product.compare_at_price | minus: product.price | times: 100 | divided_by: product.compare_at_price %}
+                        <span class="product-discount">{{ discount }}% Off</span>
+                    {% endif %}
+                    </p>
+                    <button class="shop-now">Shop Now</button>
+                </div>
+              </a>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+    </div>
+  {% endfor %}
+{% endif %}
+
+
+
+  <!-- Look Section End -->
+
+  <!-- Key Takeaways -->
+     {% if article.metafields.custom.key_takeaways %}
+        <div class="key-takeaway">
+          {{ article.metafields.custom.key_takeaways | metafield_tag }}
+        </div>
+      {% endif %}
+    <!-- Key Takeaways end -->
+
+  <!-- Comments -->
+  {% if section.settings.show_comments %}
+    {% form article %}
+      <h3 id="add-comment-title">What do you think?</h3>
+      {% if form.errors %}
+        <div class="feedback error">{{ form.errors | default_errors }}</div>
+      {% endif %}
+
+      <div class="form">
+        <div class="input-row">
+          <input aria-label="{{ 'blogs.comments.name' | t }}" placeholder="{{ 'blogs.comments.name' | t }}" required type="text" name="comment[author]" id="comment-author" value="{{ form.author }}">
+        </div>
+        <div class="input-row">
+          <input aria-label="{{ 'blogs.comments.email' | t }}" placeholder="{{ 'blogs.comments.email' | t }}" required type="email" name="comment[email]" id="comment-email" value="{{ form.email }}">
+        </div>
+        <div class="input-row">
+          <textarea aria-label="{{ 'blogs.comments.message' | t }}" placeholder="{{ 'blogs.comments.message' | t }}" required name="comment[body]" id="comment-body">{{ form.body }}</textarea>
+        </div>
+        <div class="wide-action">
+          <input type="submit" value="{{ 'blogs.comments.post' | t }}">
+        </div>
+      </div>
+    {% endform %}
+  {% endif %}
+</section>
+
+<style>
+    {% comment %} .section-{{ section.id }}{
+        max-width:680px;
+        margin:0 auto;
+    } {% endcomment %}
+    .section-{{ section.id }} h1{
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 32px;
+    letter-spacing: -0.3px;
+    text-align: left;
+    margin-bottom:0;
+    }
+    .blog-meta {
+    margin: 6px 0 0;
+    font-size: 14px;
+    line-height: normal;
+}
+.blog-meta span:first-child{
+    color:rgb(255 138 152);
+}
+.blog-meta span:last-child{
+    color:#888888;
+}
+.blog-meta span:last-child:before{
+        content: "";
+    width: 0;
+    height: 10px;
+    margin: 0 15px;
+    display: inline-block;
+    background: none !important;
+    border-right: 1px solid;
+    opacity: 0.7;
+}
+.blog-main p{
+        margin: 8px 0;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    letter-spacing: 0px;
+}
+    .blog-main .article-summary {
+    background-color: rgb(243 244 245);
+    border-left: 4px solid rgb(255 138 152);
+    border-radius: 4px 0 0 4px;
+    margin: 26px 0 32px 0;
+    padding: 12px;
+    font-style: italic;
+    font-size:14px;
+    line-height:24px;
+    letter-spacing:normal;
+    color:#313131;
+}
+.blog8-article-banner{
+    border-radius: 8px;
+    overflow: hidden;
+    width: 100%;
+}
+h2.look-title{
+    margin: 32px 0 16px 0;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 600;
+}
+.look-banner img{
+    width:100%;
+    max-width: 100%;
+    height: auto;
+}
+
+    .look-products {
+  margin: 0;
+}
+
+.look-products-grid {
+  display: flex;
+  flex-wrap:wrap;
+  justify-content: center;
+  gap: 16px;
+  row-gap:0;
+  
+}
+
+.look-product-card {
+  width: calc(50% - 8px);
+  display: flex;
+  align-items: flex-start;
+  background: #fff;
+  border-radius: 16px;
+  padding: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  {% comment %} transition: transform 0.2s ease, box-shadow 0.2s ease; {% endcomment %}
+  text-decoration: none;
+  color: inherit;
+}
+
+{% comment %} .look-product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+} {% endcomment %}
+
+.look-product-card img {
+  width: 125px;
+  height: 100%;
+  object-fit: cover;
+  margin-right: 16px;
+}
+
+.look-product-card .product-vendor {
+  font-size: 14px;
+  color: #111;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.look-product-card .product-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #222;
+  margin-bottom: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 180px;
+}
+
+.look-product-card .product-price {
+  font-size: 16px;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 8px;
+}
+
+.look-product-card .product-compare {
+  text-decoration: line-through;
+  margin-left: 6px;
+  font-size: 14px;
+  color: #888;
+  font-weight: 400;
+}
+
+.look-product-card .product-discount {
+  font-size: 14px;
+  color: #0a8d3a;
+  margin-left: 8px;
+  font-weight: 600;
+}
+
+.look-product-card .shop-now {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 8px 16px;
+  background: #00142d;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 24px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+{% comment %} .look-product-card .shop-now:hover {
+  background: #002855;
+} {% endcomment %}
+
+.product-content-wrap h4, .product-content-wrap .lang-sec {
+    overflow: hidden;
+    white-space: normal;
+    letter-spacing: 0;
+    /* padding: 0 5px; */
+    line-height: normal;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+}
+
+.product-content-wrap h4 {
+    -webkit-line-clamp: 1;
+    font-size:20px;
+    font-weight:600;
+    margin:0;
+}
+.product-content-wrap .lang-sec {
+    margin: 6px 0;
+    font-size: 14px;
+}
+.look-banner {
+    text-align: center;
+}
+.key-takeaway h2{
+      margin: 32px 0 16px 0;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 600;
+    letter-spacing: -0.1px;
+}
+.blog-main ol {
+    padding: 0 20px;
+    margin: 0;
+}
+@media (max-width: 750px) {
+  .look-products-grid {
+   gap:16px;
+  }
+  .look-product-card{
+     width:100%;   
+}
+}
+@media screen and (min-width: 769px) {
+    h2.look-title {
+        font-size: 24px;
+        line-height: 32px;
+    }
+    .look-banner img {
+        max-width: 520px;
+            margin: 0 auto;
+    }
+    .key-takeaway h2{
+        font-size: 24px;
+        line-height: 32px;
+    }
+    .look-product-card {
+    margin: 20px 0;
+    }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Blog 8",
+  "settings": [
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 100,
+      "default": 40,
+      "step": 5,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 100,
+      "default": 40,
+      "step": 5,
+      "unit": "px"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_subtitle",
+      "label": "Show subtitle metafield",
+      "default": true
+    },
+
+    {
+      "type": "checkbox",
+      "id": "show_comments",
+      "label": "Enable comments form",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Blog 8",
+      
+    }
+  ]
+}
+{% endschema %}

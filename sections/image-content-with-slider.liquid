@@ -1,0 +1,177 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top_mob }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mob }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+  .swiper-slide{
+  }
+{%- endstyle -%}
+<div class="hm-img-with-txt-section" style="background:{{ section.settings.sec-bg-color }};">
+<div class="hm-image-w-text-slider section-{{ section.id }}-padding">
+    <h2 class="sub-tab-coll-contentss">{{ section.settings.sec-heading }}</h2>
+<div class="ic-box-slider swiper">
+  <div class="swiper-wrapper">
+  {%- for block in section.blocks -%}
+   <div class="swiper-slide image-w-content-m1-box">
+    <div class="clients-img-container">
+      <picture class="cln-img-box">         
+        {% if block.settings.content-img != blank %}
+          <source srcset="{{ block.settings.content-img | img_url: 'master' }}" width="100%" height="100%" />              
+        {% endif %}          
+        <img src="https://cdn.shopify.com/s/files/1/0613/4851/1914/files/placeholder-svg.svg?v=1731331716" width="100%" height="550" alt="{{ shop.name }}" />
+      </picture> 
+    </div>
+    <div class="cr-left-side-content" style="background:{{ block.settings.blc-bg-color }};">
+      {% if block.settings.inr-img != blank %}
+      <div class="sml-icon-img">
+        <img class="sml-icon" src="{{block.settings.inr-img | img_url:'' }}" width="100%" height="550" alt="{{ shop.name }}" />
+      </div>
+      {% endif %}
+        {{ block.settings.content }}
+        <h4>{{ block.settings.admin-id }}</h4>
+    </div>
+   </div>
+  {%- endfor -%}
+  </div>
+    <div class="swiper-button-next"> </div>
+    <div class="swiper-button-prev"> </div>
+  </div>
+</div>
+</div>
+
+
+
+<script>
+  var swiper = new Swiper(".ic-box-slider", {
+    slidesPerView: 4,
+    // loop: true,
+    speed: 800,
+   navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    breakpoints: {
+      220: {
+        slidesPerView: 1.05,
+        spaceBetween: 22,
+      },
+      768: {
+        slidesPerView: 1.05,
+        spaceBetween: 22,
+      },
+      990: {
+        slidesPerView: 2,
+        spaceBetween: 50,
+      },
+      1024: {
+        slidesPerView: 2, // Updated for min-width 1024px
+        spaceBetween: 100,
+      }
+    }
+  });
+</script>
+{% schema %}
+  {
+    "name": "Image with content slider",
+    "settings": [
+      {
+        "type": "color",
+        "id": "sec-bg-color",
+        "label": "Background color"
+      },
+      {
+        "type": "text",
+        "id": "sec-heading",
+        "label": "section title"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding top",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding bottom",
+        "default": 0
+      }, 
+      {
+        "type": "range",
+        "id": "padding_top_mob",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding top Mobile",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom_mob",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding bottom Mobile",
+        "default": 0
+      }
+    ],
+    "blocks":[
+          {
+      "type": "image",
+      "name": "Image Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "content-img",
+          "label": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "inr-img",
+          "label": "Content image"
+        },
+         {
+          "type": "color",
+          "id": "blc-bg-color",
+          "label": "Background color"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Description"
+        },
+        {
+          "type": "text",
+          "id": "admin-id",
+          "label": "Admin id"
+        },
+      ],
+     }
+    ],
+    "presets": [
+      {
+      "name": "Image with content slider"
+      }
+    ]
+  }
+{% endschema %}

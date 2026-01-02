@@ -1,0 +1,266 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "share_label": ""
+          }
+        },
+        "price_K387RD": {
+          "type": "price",
+          "settings": {
+            "show_mrp_label": true
+          }
+        },
+        "exploremore_tahGVC": {
+          "type": "exploremore",
+          "settings": {}
+        },
+        "similarcolors_CqWGtC": {
+          "type": "similarcolors",
+          "settings": {
+            "similar-heading": "similar colors"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "custom_liquid_RF4QzN": {
+          "type": "custom_liquid",
+          "disabled": true,
+          "settings": {
+            "custom_liquid": "{% assign target_gender_values = product.metafields.shopify.target-gender.value | default: \"\" %}\n{% assign target_gender_string = '' %}\n{% for value in target_gender_values %}\n{% if forloop.last %}\n{% assign target_gender_string = target_gender_string | append: value.label %}\n{% else %}\n{% assign target_gender_string = target_gender_string | append: value.label | append: ',' %}\n{% endif %}\n{% endfor %}\n\n{% assign available_sizes = product.variants | map: 'option1' | uniq %}\n{% assign aisizing_enable = product.metafields.custom.aisizing_enable.value | default: true %}\n{% assign tryon_enable = product.metafields.custom.tryon_enable.value | default: false %}\n{% assign preferred_tryon_image = product.metafields.custom.preferred_tryon_image | file_url %}\n{% assign cart_token = cart.token | default: '' %}\n{% assign shop_currency = cart.currency.iso_code | default: shop.currency %}\n\n<script src=\"https://staging.truesize.ai/Common/external/v4.5/fms.js\" defer></script>\n\n<style>\n  .highlight {\n    border: 2px solid #df2e84;\n    box-shadow: 0 0 10px #df2e84;\n    background-color: rgb(var(--color-foreground)) !important;\n    color: rgb(var(--color-background)) !important;\n  }\n\n  @font-face {\n    font-family: \"HelveticaNeue\";\n    src: url(\"https://staging.truesize.ai/Common/external/font/helvetica-neue/HelveticaNeueBlack.otf\") format(\"opentype\");\n    font-weight: normal;\n    font-style: normal;\n  }\n\n  sizeme-integ {\n    font-family: \"HelveticaNeue\", Arial, sans-serif;\n  }\n</style>\n\n\n\n<find-my-size clientid=\"9298069968234136\" apiKey=\"16LaFbsOmQwDFDHoSPpd\" brand=\"gocolorsV2test\"\n  email=\"{{ customer.email | default: '' }}\" product=\"{{ product.title | default: '' }}\"\n  category=\"{{ product.type | default: '' }}\" gender=\"female\" productid=\"{{ product.id | default: '' }}\"\n  domain=\"{{ shop.domain | default: '' }}\" enabled=\"{{ aisizing_enable | default: true }}\"\n  available_sizes=\"{{ available_sizes | join: ',' }}\" highlight_event=\"Highlight_Size\" target=\"modal\"\n  enabletryon=\"{{ tryon_enable | default: false }}\" product_img_url=\"{{ preferred_tryon_image }}\"\n  measurement-names=\"height, waist circumference, hip circumference, inseam length\"\n  brandlogoUrl=\"https://gocolors.com/cdn/shop/files/Untitled-51.png\" sizeguide_by_category=\"true\" isEditEnable=\"true\"\n  controlmeasurementvalidation=\"false\" product-fit=\"{{ product.metafields.fit.fit }}\"\n  usebrandsizingforallfitprefernce=\"true\" fit-option-labels=\"Snug, Relaxed, Wide\"\n  sessiontoken=\"\"\n  fit-preferences-mapping='{\"Fit and Flare\":\"Snug\", \"Baggy Fit\":\"Relaxed\",\"Bodycon fit\":\"Snug\",\"Standard Fit\": \"Standard\", \"Relaxed Fit\": \"Relaxed\", \"Fit & Flare\": \"Snug\", \"Slim Fit\": \"Snug\", \"Tapered Fit\": \"Relaxed\", \"Regular Fit\": \"Relaxed\", \"Bootcut Fit\": \"Snug\", \"Mom&#39;s Fit\": \"Relaxed\", \"Jogger Fit\": \"Snug\", \"Wide Fit\": \"Relaxed\", \"Smart fit\": \"Wide\", \"Straight Fit\": \"Relaxed\", \"Flared Fit\": \"Snug\", \"Loose Fit\": \"Wide\", \"Skinny Fit\": \"Snug\", \"Regular\": \"Relaxed\"}'\n  >\n</find-my-size>\n\n\n\n<script>\n  function Highlight_Size(size) {\n    const sizeRadios = document.querySelectorAll('input[name*=\"SIZE-1\"]');\n    sizeRadios.forEach((radio) => {\n      const label = document.querySelector(`label[for=\"${radio.id}\"]`);\n      if (radio.value.trim() === size) {\n        // radio.checked = true;\n        // radio.dispatchEvent(new Event(\"change\"));\n        radio.click();\n        label.classList.add(\"highlight\");\n        label.title = \"Your recommended size\";\n      } else {\n        label.classList.remove(\"highlight\");\n      }\n    });\n  }\n\n</script>"
+          }
+        },
+        "pincodechecker_Wg3Qh3": {
+          "type": "pincodechecker",
+          "settings": {}
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": false
+          }
+        },
+        "fabricspecification_iF6dRA": {
+          "type": "fabricspecification",
+          "disabled": true,
+          "settings": {
+            "image_0": "shopify://shop_images/Group_20904.png",
+            "text_0": "Anti Static",
+            "image_1": "shopify://shop_images/Group_20903.png",
+            "text_1": "Breathable",
+            "image_2": "shopify://shop_images/Group_20902.png",
+            "text_2": "Slip On",
+            "image_3": "shopify://shop_images/Group_20901.png",
+            "text_3": "Super Stretch",
+            "image_4": "shopify://shop_images/Group_20900.png",
+            "text_4": "Ultra Soft Fabric"
+          }
+        },
+        "icon_with_text_9cMxmF": {
+          "type": "icon-with-text",
+          "settings": {
+            "layout": "horizontal",
+            "icon_1": "heart",
+            "image_1": "shopify://shop_images/Group_21075.png",
+            "heading_1": "Free Delivery",
+            "icon_2": "return",
+            "image_2": "shopify://shop_images/Group_21076.png",
+            "heading_2": "Easy Returns",
+            "icon_3": "truck",
+            "image_3": "shopify://shop_images/Group_21077.png",
+            "heading_3": "Cash on Delivery"
+          }
+        },
+        "description": {
+          "type": "description",
+          "disabled": true,
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "title",
+        "share",
+        "price_K387RD",
+        "exploremore_tahGVC",
+        "similarcolors_CqWGtC",
+        "variant_picker",
+        "custom_liquid_RF4QzN",
+        "pincodechecker_Wg3Qh3",
+        "quantity_selector",
+        "buy_buttons",
+        "fabricspecification_iF6dRA",
+        "icon_with_text_9cMxmF",
+        "description"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-1",
+        "media_size": "large",
+        "constrain_to_viewport": true,
+        "media_fit": "cover",
+        "gallery_layout": "columns",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "mobile_thumbnails": "hide",
+        "hide_variants": true,
+        "enable_video_looping": true,
+        "padding_top": 13,
+        "padding_bottom": 12
+      }
+    },
+    "featured_collection_pdp_U9qwke": {
+      "type": "featured-collection-pdp",
+      "settings": {
+        "title": "Similar Products",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "12",
+        "products_to_show": 25,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": false,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 100,
+        "padding_bottom": 36
+      }
+    },
+    "featured_collection_RjxeWx": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "title": "Mostlysane Collection",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "mostlysane-collection",
+        "products_to_show": 50,
+        "columns_desktop": 4,
+        "full_width": true,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": true,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_mrp_label": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 0
+      }
+    },
+    "featured_collection_HA3PiR": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "title": "End Of Season Sale",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "end-of-season-sale_25",
+        "products_to_show": 50,
+        "columns_desktop": 4,
+        "full_width": true,
+        "show_view_all": false,
+        "view_all_style": "solid",
+        "enable_desktop_slider": true,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_mrp_label": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 0
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "disabled": true,
+      "settings": {
+        "heading": "You May Also Like",
+        "heading_size": "h2",
+        "products_to_show": 10,
+        "color_scheme": "scheme-1",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_mrp_label": false,
+        "show_rating": false,
+        "padding_top": 0,
+        "padding_bottom": 52
+      }
+    },
+    "1746266494053a447f": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "175318751875baeaf1": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "featured_collection_pdp_U9qwke",
+    "featured_collection_RjxeWx",
+    "featured_collection_HA3PiR",
+    "related-products",
+    "1746266494053a447f",
+    "175318751875baeaf1"
+  ]
+}

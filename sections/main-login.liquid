@@ -1,0 +1,519 @@
+{% comment %} <style>
+  input::placeholder{
+    color:#3e3e3e;
+  }
+  .memeber_login {
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+  }
+  .form {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+.login_page input {
+  font-weight: var(--font-body-weight);
+  font-family: var(--font-body-family);
+  font-size: 1.6rem;
+  width: 320px;
+  height: 45px;
+  border: 1px solid #707070;
+  padding: 1.5rem;
+  border: 1px solid #3E3E3E;
+  border-radius: 25px;
+  color: #3e3e3e;
+  height: 4rem;
+}
+.otp_btns_div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 320px;
+  gap: 15px;
+  margin: 10px auto;
+}
+.alert-success {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: green;
+    color: #fff;
+    padding:  5px 10px 5px 30px;
+    text-align: center;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    margin-bottom:2rem;
+}
+  span.close {
+    position: absolute;
+    left: 10px;
+    color: #000;
+    background-color: #fff;
+    border-radius: 50px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    padding-bottom: 2px;
+  }
+  /* .otp_error{
+    display:none;
+  } */
+  .otp_btns_div input {
+    background-color: transparent;
+    color: #000;
+    font-weight: 400;
+    font-size: 14px !important;
+    width: 100%;
+    padding: 0;
+  }
+  form.otp_id {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  input#checkValidation {
+    padding: 0;
+    background:black;
+    color:white;
+  }
+  div#signup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 40px auto 20px;
+  }
+ .alert-success span {
+    font-size: 12px;
+  }
+  .login_page {
+    padding-top: 2rem;
+  }
+  .memeber_login h1{
+    font-weight:600;
+    font-size:2.6rem;
+    text-align: center;
+  }
+  @media screen and (min-width:1200px){
+    .alert-success span {
+      font-size: 15px;
+    }
+    span.close{
+      left: 5px;
+    }
+  }
+</style>
+<div class="login_page">
+   <div class="memeber_login">
+    <h1>MEMBER LOGIN / SIGN UP</h1>
+    <div class="form" id="signup">
+      <input  aria-label="customer[note][phonenumber]" name="customer[phone]" placeholder="Phone"  pattern="[0-9]" size="10"  
+         id="phone"  class="large phone"  type="tel" value=""    maxlength="10"  minlength="10" 
+         onkeypress="return /[0-9]/i.test(event.key)">
+         <span class="login_err" style="color:red;"></span>
+        <input type="button" value="Submit" id="checkValidation">
+    </div>
+    <form method="post" class="form otp_id" style="display:none;" >
+      <div class="alert-success" >
+        <span>An OTP has been sent to your registered Mobile</span>
+        <span class="close" data-dismiss="alert">x</span>
+      </div>
+     <input type="text" value="" name="otp" class="otp {% if form.errors contains "otp" %}error{% endif %}" 
+      onkeypress="return /[0-9]/i.test(event.key)" size="6" maxlength="6" minlength="6"  placeholder="Please enter 6 digit OTP" >
+      <span class="otp_error tet" style="color:red;"></span>
+       <div class="otp_btns_div">
+         <input type="button" data-cc-animate data-cc-animate-delay="0.8s" value="Verify" class="checkOtp acc_btn" >
+         <input type="button" data-cc-animate data-cc-animate-delay="0.8s" value="Resend OTP" class="resendOTP acc_btn" >
+       </div>
+   </form>
+  </div>
+</div>
+<script>
+$(document).ready(function(){
+   var account_page = "{{ shop.url }}/pages/my-account";
+   var register_page = "{{ shop.url }}/pages/member-registration";
+  var currant_page = "/checkout";
+   $('#checkValidation').click(function(e){
+     var mob_no = $('#phone').val();
+     $(".messsage_show").remove(); 
+     if (mob_no.length < 10) {
+      $('#phone').after('<span class="messsage_show">Please enter 10 digit mobile number</span>');
+      e.preventDefault();
+      return false;
+     }
+     else {
+      count = 1;
+      console.log('success form');
+       $(this).prop('disabled', true );
+    }
+     if(count == 1){
+       $.ajax({
+        url: "https://admin3157.gocolors.com/new_go_colors_india/public/api/verify-mobileno",
+        type: "POST",
+        dataType: "json",
+        crossDomain: true,
+        format: "json",
+        data: {
+          "mobile_no": mob_no
+        },
+        success: function(resp) {
+          console.log(resp);
+          if (resp.success == true) {
+            $.ajax({
+              url: "https://admin3157.gocolors.com/new_go_colors_india/public/api/send-otp",
+              type: 'POST',
+              dataType: 'json',
+              data: {
+                "mobile_no": mob_no
+              },
+               success: function(resp) {
+                  if (resp.success == true) {
+                    $('#signup').hide();
+                    $('.memeber_login h1').hide();
+                    $('.otp_id').show();
+                    $('.close').click(function(){
+                      $('.alert-success').hide();
+                    });
+                  }
+                 else{
+                   $('.otp_error').text("Something went wrong");
+                    e.preventDefault();
+                    return false;
+                 }
+               }
+            });
+          }
+          else if (resp.success == false) { 
+              localStorage.setItem('mobile_Number', mob_no);
+              //localStorage.getItem('mobile_Number')
+              window.location.href = register_page ;
+          }
+        }
+      });
+     }
+     else{
+       console.log("enter mobile number");
+     }
+   }); 
+   $('.checkOtp').click(function(){
+     VerifyOtp();
+   });
+   $('.resendOTP').click(function(){
+     ResendOtp();
+   });
+  
+   function VerifyOtp(){
+     $('.loader-login-page').show();
+     var otp = $('.otp').val();
+      var mob_no = $('#phone').val();
+     $.ajax({
+      url: "https://admin3157.gocolors.com/new_go_colors_india/public/api/verify-otp",
+      type: 'POST',
+      dataType: 'json',
+      data: {
+        "mobile_no": mob_no,
+        "otp": otp
+      },
+      success: function(resp) {
+        $(".alert-success").hide();
+        if (resp.success == true) {
+          $.ajax({
+            url: "https://admin3157.gocolors.com/new_go_colors_india/public/api/multipass-login",
+            type: 'POST',
+            dataType: 'json',
+            data: {
+              "mobile_no": mob_no,
+              "url": currant_page
+            },
+            success: function(resp) {
+              if (resp.success == true) {
+                 var mobile_no = "{{ customer.phone }}";
+                  var email = "{{ customer.email }}";
+                  var mobile_no = mobile_no.replace('+91', "");
+                  var storage_pincode = localStorage.getItem("pincode_val");
+                  if(storage_pincode != ''){
+                    var data1 = {
+                      'pincode':storage_pincode,
+                      'phone':mobile_no,
+                      'email':email
+                    }
+                      $.ajax({
+                        type: 'GET',
+                        dataType: 'json',
+                        async:false,         
+                        url: 'https://admin3157.gocolors.com/new_go_colors_india/public/api/pincode-check-shiproket',
+                        data: data1,
+                        success: function(res){
+                          window.location.href = resp.redirect_url;
+                        }
+                      });
+                  }
+                  window.location.href = resp.redirect_url;
+                  
+              }
+             else{
+               $('.loader-login-page').hide();
+                console.log("not success");
+              }
+            }
+          }); 
+        }
+        else {
+          $('.otp_error').text("Invalid OTP");
+          $('.loader-login-page').hide();
+          e.preventDefault();
+          return false;
+        }
+      }
+     });
+   }
+   function ResendOtp(){
+      var mob_no = $('#phone').val();
+      $.ajax({
+      url: "https://admin3157.gocolors.com/new_go_colors_india/public/api/send-otp",
+      type: 'POST',
+      dataType: 'json',
+      data: {
+        "mobile_no": mob_no
+      },
+      success: function(resp) {
+        if (resp.success == true) {
+          $('#signup').hide();
+          $('.memeber_login h1').hide();
+          $('.otp_id').show();
+          $('.close').click(function(){
+            $('.alert-success').hide();
+          });
+        }
+        else {
+          $('.otp_error').text("Something went wrong");
+          e.preventDefault();
+          return false;
+        }
+      }
+     });
+    }
+});
+</script>
+{% comment %}
+{{ 'customer.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- if section.settings.enable_shop_login_button == false -%}
+  {%- assign hide_shop_login_button = true -%}
+{%- endif -%}
+
+<div class="customer login section-{{ section.id }}-padding">
+  <h1 id="recover" tabindex="-1">
+    {{ 'customer.recover_password.title' | t }}
+  </h1>
+  <div>
+    <p>
+      {{ 'customer.recover_password.subtext' | t }}
+    </p>
+
+    {%- form 'recover_customer_password' -%}
+      {% assign recover_success = form.posted_successfully? %}
+      <div class="field">
+        <input
+          type="email"
+          value=""
+          name="email"
+          id="RecoverEmail"
+          autocorrect="off"
+          autocapitalize="off"
+          autocomplete="email"
+          {% if form.errors %}
+            aria-invalid="true"
+            aria-describedby="RecoverEmail-email-error"
+            autofocus
+          {% endif %}
+          placeholder="{{ 'customer.login_page.email' | t }}"
+        >
+        <label for="RecoverEmail">
+          {{ 'customer.login_page.email' | t }}
+        </label>
+      </div>
+      {%- if form.errors -%}
+        <small id="RecoverEmail-email-error" class="form__message">
+          <span class="svg-wrapper">
+            {{- 'icon-error.svg' | inline_asset_content -}}
+          </span>
+          {{ form.errors.messages.form }}
+        </small>
+      {%- endif -%}
+
+      <button>
+        {{ 'customer.login_page.submit' | t }}
+      </button>
+
+      <a href="#login">
+        {{ 'customer.login_page.cancel' | t }}
+      </a>
+    {%- endform -%}
+  </div>
+
+  <h1 id="login" tabindex="-1">
+    {{ 'customer.login_page.title' | t }}
+  </h1>
+  <div>
+    {%- if recover_success == true -%}
+      <h3 class="form__message" tabindex="-1" autofocus>
+        <span class="svg-wrapper">
+          {{- 'icon-success.svg' | inline_asset_content -}}
+        </span>
+        {{ 'customer.recover_password.success' | t }}
+      </h3>
+    {%- endif -%}
+    {%- form 'customer_login', novalidate: 'novalidate' -%}
+      {%- if form.errors -%}
+        <h2 class="form__message" tabindex="-1" autofocus>
+          <span class="visually-hidden">{{ 'accessibility.error' | t }} </span>
+          <span class="svg-wrapper">
+            {{- 'icon-error.svg' | inline_asset_content -}}
+          </span>
+          {{ 'templates.contact.form.error_heading' | t }}
+        </h2>
+        {{ form.errors | default_errors }}
+      {%- endif -%}
+
+      {%- if shop.features.login_with_shop_classic_customer_accounts? -%}
+        <section name="sign-in-with-shop-provider">
+          {{ shop | login_button: hide_button: hide_shop_login_button }}
+
+          {%- unless hide_shop_login_button -%}
+            <p>
+              {{ 'customer.login_page.alternate_provider_separator' | t }}
+            </p>
+          {%- endunless -%}
+        </section>
+      {%- endif -%}
+
+      <div class="field">
+        <input
+          type="email"
+          name="customer[email]"
+          id="CustomerEmail"
+          autocomplete="email"
+          autocorrect="off"
+          autocapitalize="off"
+          {% if form.errors contains 'form' %}
+            aria-invalid="true"
+          {% endif %}
+          placeholder="{{ 'customer.login_page.email' | t }}"
+        >
+        <label for="CustomerEmail">
+          {{ 'customer.login_page.email' | t }}
+        </label>
+      </div>
+
+      {%- if form.password_needed -%}
+        <div class="field">
+          <input
+            type="password"
+            value=""
+            name="customer[password]"
+            id="CustomerPassword"
+            autocomplete="current-password"
+            {% if form.errors contains 'form' %}
+              aria-invalid="true"
+            {% endif %}
+            placeholder="{{ 'customer.login_page.password' | t }}"
+          >
+          <label for="CustomerPassword">
+            {{ 'customer.login_page.password' | t }}
+          </label>
+        </div>
+
+        <a href="#recover">
+          {{ 'customer.login_page.forgot_password' | t }}
+        </a>
+      {%- endif -%}
+
+      <button>
+        {{ 'customer.login_page.sign_in' | t }}
+      </button>
+
+      <a href="{{ routes.account_register_url }}">
+        {{ 'customer.login_page.create_account' | t }}
+      </a>
+    {%- endform -%}
+  </div>
+
+  {%- if shop.checkout.guest_login -%}
+    <div>
+      <hr>
+      <h2>{{ 'customer.login_page.guest_title' | t }}</h2>
+
+      {%- form 'guest_login' -%}
+        <button>
+          {{ 'customer.login_page.guest_continue' | t }}
+        </button>
+      {%- endform -%}
+    </div>
+  {%- endif -%}
+</div>
+{% endcomment %}
+{% schema %}
+{
+  "name": "t:sections.main-login.name",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_shop_login_button",
+      "label": "t:sections.main-login.shop_login_button.enable",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ]
+}
+{% endschema %} {% endcomment %}

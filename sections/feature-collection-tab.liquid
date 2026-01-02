@@ -1,0 +1,201 @@
+{{ 'custom-image-slider.css' | asset_url | stylesheet_tag }}
+{%-  style -%}
+.section-{{ section.id }}-padding {padding-block: {{ section.settings.padding_top_mob }}px {{ section.settings.padding_bottom_mob }}px;background-color: {{ section.settings.bg-color}};}
+@media screen and (min-width: 750px) {.section-{{ section.id }}-padding {padding-top: {{ section.settings.padding_top }}px {{ section.settings.padding_bottom }}px;}}
+{%-  endstyle -%}
+<div class=" page-width home-tab color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
+  {%- if section.settings.title != blank -%}<h2 class="sub-tab-coll-contentss inline-richtextss">{{ section.settings.title | escape }}</h2> {%- endif -%}
+  <ul class="collection_tab_heading">
+    {%- for block in section.blocks -%}
+      <li class="{%- if forloop.index == 1 -%}activeTab{%-  endif -%}" data-tab="tab{{ forloop.index }}">{{ block.settings.tabLabel }}</li>
+    {%-  endfor -%}
+  </ul>
+  {%- for block in section.blocks -%}
+    <div id="tab{{ forloop.index }}" class="main-tabs" {%  if forloop.first %} style="display:block" {% endif %}>
+
+    <div  class="swiper collectionsProducts collectionsProducts{{ forloop.index }}" >
+      <div class="clr-trnd-swiper-next"> </div>
+      <div class="clr-trnd-swiper-prev"> </div> 
+      <div class="swiper-wrapper feature-trend-block" >
+        {%-  for product in block.settings.collection.products limit: section.settings.products_to_show -%}
+          <div id="Slide-{{ section.id }}-{{ forloop.index }} "class="swiper-slide trends-slide {%-  if settings.animations_reveal_on_scroll -%} scroll-trigger animate--slide-in{%-  endif -%}" >
+            <div class="CollectionProduct">                    
+               {%- render 'card-product',
+                card_product: product,
+                grid_combo_offer: false,
+                media_aspect_ratio: section.settings.image_ratio,
+                image_shape: section.settings.image_shape,
+                show_secondary_image: section.settings.show_secondary_image,
+                show_vendor: section.settings.show_vendor,
+                show_mrp_label: section.settings.show_mrp_label,
+                show_rating: section.settings.show_rating,
+                quick_add: section.settings.quick_add,
+                section_id: section.id
+              -%}
+          
+            </div>             
+          </div> 
+        {%- endfor -%}
+      </div>
+    </div>
+    <div class="swiper-scrollbar swiper-scrollbar-{{ forloop.index }}"></div>
+     {%- if block.settings.Collection-url != blank -%}<a class="green-btn page-width" href="{{ block.settings.Collection-url }}">Explore</a>{%- endif -%}
+     </div>
+  {%- endfor -%}
+  
+</div>
+{%-  schema -%}
+  {
+    "name": "Collection Tab",
+    "settings": [
+      {
+        "type": "color_scheme",
+        "id": "color_scheme",
+        "label": "t:sections.all.colors.label",
+        "default": "background-1"
+      },
+      {
+        "type": "color",
+        "id": "bg-color",
+        "label": "background color"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading"
+      },
+      {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 2,
+      "max": 25,
+      "step": 1,
+      "default": 4,
+      "label": "t:sections.featured-collection.settings.products_to_show.label"
+    },
+      {
+      "type": "checkbox",
+      "id": "show_rating",
+      "default": false,
+      "label": "t:sections.featured-collection.settings.show_rating.label",
+      "info": "t:sections.featured-collection.settings.show_rating.info"
+    },
+    {
+      "type": "select",
+      "id": "quick_add",
+      "default": "none",
+      "label": "t:sections.main-collection-product-grid.settings.quick_add.label",
+      "info": "t:sections.main-collection-product-grid.settings.quick_add.info",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.main-collection-product-grid.settings.quick_add.options.option_1"
+        },
+        {
+          "value": "standard",
+          "label": "t:sections.main-collection-product-grid.settings.quick_add.options.option_2"
+        },
+        {
+          "value": "bulk",
+          "label": "t:sections.main-collection-product-grid.settings.quick_add.options.option_3"
+        }
+      ]
+    },
+       {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 40
+    },
+      {
+      "type": "select",
+      "id": "image_ratio",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.featured-collection.settings.image_ratio.options__1.label"
+        },
+        {
+          "value": "portrait",
+          "label": "t:sections.featured-collection.settings.image_ratio.options__2.label"
+        },
+        {
+          "value": "square",
+          "label": "t:sections.featured-collection.settings.image_ratio.options__3.label"
+        }
+      ],
+      "default": "adapt",
+      "label": "t:sections.featured-collection.settings.image_ratio.label"
+    },
+       {
+      "type": "header",
+      "content": "Mobile Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mob",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mob",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 20
+    }
+    ],
+    "blocks": [
+      {
+        "name": "Choose collection",
+        "type": "Collection",
+        "settings": [
+          {
+            "type": "text",
+            "id": "tabLabel",
+            "label": "Collection Tab Label"
+          }, {
+            "type": "collection",
+            "id": "collection",
+            "label": "Select Collection"
+          }, {
+            "type": "url",
+            "id": "Collection-url",
+            "label": "View all button Url"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Collection Tab"
+
+      }
+    ]
+  }
+{%-  endschema -%}

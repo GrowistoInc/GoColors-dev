@@ -1,0 +1,577 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "data_inrichment_banner_Dq4ei3": {
+      "type": "data-inrichment-banner",
+      "settings": {
+        "Desktopbanner1": "shopify://shop_images/Go_Rewards_Desktop_banner_1_742443d8-5520-4229-9579-b19d50d54b82.jpg",
+        "Mobilebanner1": "shopify://shop_images/Go_Rewards_Mobile_banner_1.jpg",
+        "url1": "",
+        "url2": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "mob_padding_top": 0,
+        "mob_padding_bottom": 0
+      }
+    },
+    "data_inrichment_banner_GiQtFR": {
+      "type": "data-inrichment-banner",
+      "settings": {
+        "Desktopbanner1": "shopify://shop_images/Go_Rewards_Desktop_Banner_2.jpg",
+        "Mobilebanner1": "shopify://shop_images/Go_Rewards_Mobile_banner_2.jpg",
+        "url1": "",
+        "url2": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "mob_padding_top": 0,
+        "mob_padding_bottom": 0
+      }
+    },
+    "data_inrichment_banner_bemYHr": {
+      "type": "data-inrichment-banner",
+      "disabled": true,
+      "settings": {
+        "Desktopbanner1": "shopify://shop_images/GR_desktop_banner_3_1749x450_3b44503d-6729-458e-8de4-a2798152c7ac.jpg",
+        "Mobilebanner1": "shopify://shop_images/GR_mobile_banner_3_430x385_95765caf-c753-4fad-9a36-09514b9ff131.jpg",
+        "url1": "#signupForm",
+        "url2": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "mob_padding_top": 0,
+        "mob_padding_bottom": 0
+      }
+    },
+    "test_4BYJRj": {
+      "type": "test",
+      "blocks": {
+        "image_RYei3f": {
+          "type": "image",
+          "settings": {
+            "desktop__image": "shopify://shop_images/Nov_Rewards_254b107f-f4f2-4607-89a5-ea088702171c.jpg",
+            "mobile__image": "shopify://shop_images/Nov_Rewards_ddd717f8-021f-4ea0-afa3-b324e5c5fde1.jpg",
+            "collec-link": ""
+          }
+        },
+        "image_nj9wRa": {
+          "type": "image",
+          "settings": {
+            "desktop__image": "shopify://shop_images/Sep_Rewards.jpg",
+            "mobile__image": "shopify://shop_images/Sep_Rewards_27cad7c0-a440-446a-b463-d6a185d50970.jpg",
+            "collec-link": ""
+          }
+        },
+        "image_F9qwre": {
+          "type": "image",
+          "settings": {
+            "desktop__image": "shopify://shop_images/Aug_Rewards.jpg",
+            "mobile__image": "shopify://shop_images/Aug_Rewards_f7932848-2dd7-40c3-9d40-7ede356cd17d.jpg",
+            "collec-link": ""
+          }
+        },
+        "image_QNRR8N": {
+          "type": "image",
+          "settings": {
+            "desktop__image": "shopify://shop_images/July_Rewards.jpg",
+            "mobile__image": "shopify://shop_images/July_Rewards_1843fe49-6f54-476b-b436-2fa276f133f2.jpg",
+            "collec-link": ""
+          }
+        },
+        "image_TDRPkY": {
+          "type": "image",
+          "settings": {
+            "desktop__image": "shopify://shop_images/Go_Rewards_Banners_Desktop_Banner_4.jpg",
+            "mobile__image": "shopify://shop_images/Go_Rewards_Banners_Mobile_banner_4.jpg",
+            "collec-link": ""
+          }
+        },
+        "image_wBkK8n": {
+          "type": "image",
+          "settings": {
+            "desktop__image": "shopify://shop_images/Go_Rewards_Banners_Desktop_Banner_3.jpg",
+            "mobile__image": "shopify://shop_images/Go_Rewards_Banners_Mobile_banner_3.jpg",
+            "collec-link": ""
+          }
+        },
+        "image_Uwfexn": {
+          "type": "image",
+          "settings": {
+            "desktop__image": "shopify://shop_images/Go_Rewards_Banners_Desktop_Banner_3_copy.jpg",
+            "mobile__image": "shopify://shop_images/Go_Rewards_Banners_Mobile_banner_6.jpg",
+            "collec-link": ""
+          }
+        },
+        "image_iVjfBN": {
+          "type": "image",
+          "settings": {
+            "desktop__image": "shopify://shop_images/Go_Rewards_Banners_Desktop_banner_7.jpg",
+            "mobile__image": "shopify://shop_images/Go_Rewards_Banners_Mobile_banner_7.jpg",
+            "collec-link": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_RYei3f",
+        "image_nj9wRa",
+        "image_F9qwre",
+        "image_QNRR8N",
+        "image_TDRPkY",
+        "image_wBkK8n",
+        "image_Uwfexn",
+        "image_iVjfBN"
+      ],
+      "name": "Test",
+      "settings": {
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mob": 0,
+        "padding_bottom_mob": 0,
+        "add-page-width": false
+      }
+    },
+    "invite_only_rewards_jjTcdz": {
+      "type": "invite-only-rewards",
+      "blocks": {
+        "benefit_wqfqpf": {
+          "type": "benefit",
+          "settings": {
+            "icon": "shopify://shop_images/first_image.png",
+            "title": "Exclusive Discounts"
+          }
+        },
+        "benefit_hqhXW4": {
+          "type": "benefit",
+          "settings": {
+            "icon": "shopify://shop_images/second_image.png",
+            "title": "Birthday Surprises"
+          }
+        },
+        "benefit_ihNzFw": {
+          "type": "benefit",
+          "settings": {
+            "icon": "shopify://shop_images/thired_image.png",
+            "title": "Gift vouchers from other brands"
+          }
+        },
+        "benefit_wmBWDV": {
+          "type": "benefit",
+          "settings": {
+            "icon": "shopify://shop_images/fourth_image.png",
+            "title": "Shopping Helpline"
+          }
+        },
+        "benefit_CziqNf": {
+          "type": "benefit",
+          "settings": {
+            "icon": "shopify://shop_images/fifth_image.png",
+            "title": "Early access to sale events"
+          }
+        }
+      },
+      "block_order": [
+        "benefit_wqfqpf",
+        "benefit_hqhXW4",
+        "benefit_ihNzFw",
+        "benefit_wmBWDV",
+        "benefit_CziqNf"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "The most exciting invite-only shopping rewards program for our top tier customers",
+        "register_text": "Register now to avail amazing benefits",
+        "register_link": "#message_show_1",
+        "section_color": "#ffffff",
+        "button_color": "#ff5ba5",
+        "button_font_color": "#ffffff",
+        "padding_top": 0,
+        "padding_bottom": 70,
+        "mob_padding_top": 0,
+        "mob_padding_bottom": 50
+      }
+    },
+    "invite_only_rewards_form_FFqUkA": {
+      "type": "invite-only-rewards-form",
+      "settings": {
+        "form_title": "Update Your Profile",
+        "form_background": "shopify://shop_images/imgpsh_fullsize_anim.png",
+        "form_background_color": "#78c548",
+        "button_text": "Submit",
+        "button_color": "#000000",
+        "include_terms_checkbox": true,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "padding_top_mob": 20,
+        "padding_bottom_mob": 20
+      }
+    },
+    "go_rewards_image_HbDnxz": {
+      "type": "go_rewards_image",
+      "settings": {
+        "image": "shopify://shop_images/faq_image_mobile_9eaae80b-8ede-4f94-a90b-114b99dae0fb.png",
+        "padding_top": 0,
+        "padding_bottom": 10,
+        "padding_top_mob": 0,
+        "padding_bottom_mob": 10
+      }
+    },
+    "collapsible_content_FDfazX": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_rEz37N": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What is Go Rewards?",
+            "icon": "none",
+            "row_content": "<p>Go Rewards is an exclusive, invite-only shopping rewards program designed for our top-tier customers. Members of this program can enjoy a variety of amazing benefits including exclusive discounts, birthday surprises, gift vouchers from other brands, a dedicated shopping helpline, and early access to sale events.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_9cnnYE": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How can I join Go Rewards?",
+            "icon": "none",
+            "row_content": "<p>Membership to Go Rewards is by invitation only. If you are one of our top-tier customers, you will receive an invitation via WhatsApp. Simply follow the instructions provided in the WhatsApp message to complete your registration and start enjoying the benefits.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_BDwQ7V": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What if I am not invited but still want to be part of GoRewards?",
+            "icon": "none",
+            "row_content": "<p>Currently, Go Rewards is an invite-only program. However, you can increase your chances of being invited by continuing to shop with us and engaging with our brand. We periodically review our customer base and extend invitations to those who meet our criteria for top-tier customers.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_GLGi9Y": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Is there a membership fee for Go Rewards?",
+            "icon": "none",
+            "row_content": "<p>No, there is no membership fee for Go Rewards. It is a complimentary program for our top-tier customers.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_TWRJik": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How long do I remain a Go Rewards member?",
+            "icon": "none",
+            "row_content": "<p>Your Go Rewards membership will last as long as you continue to meet the criteria for top-tier customers. We periodically review memberships, and you will be notified if there are any changes to your membership status.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_YcF8U8": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What is different about Go Rewards?",
+            "icon": "none",
+            "row_content": "<p>Go Rewards stands out by offering an unparalleled, premium shopping experience exclusively curated for our most valued customers. Unlike traditional loyalty programs, Go Rewards provides a suite of exceptional benefits including exclusive discounts, delightful birthday surprises, gift vouchers from esteemed partner brands, a dedicated shopping helpline, and early access to exclusive sale events, among many other privileges. This program is meticulously designed to reward our top-tier customers with extraordinary perks, ensuring a superior and truly personalized shopping journey.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_3zeieX": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What are the benefits that I get from being a Go Rewards member?",
+            "icon": "none",
+            "row_content": "<p>As a Go Rewards member, you will enjoy the following benefits:</p><ol><li><strong>Exclusive Discounts:</strong> Special discounts on a wide range of products available only to Go Rewards members.</li><li><strong>Birthday Surprises:</strong> Receive a special surprise on your birthday, which could be a discount coupon, a gift voucher, or a special gift.</li><li><strong>Gift Vouchers from Other Brands:</strong> Access to gift vouchers from our partnering brands, providing you with more shopping options and value.</li><li><strong>Shopping Helpline:</strong> A dedicated shopping helpline to assist you with any queries, product recommendations, and order assistance.</li><li><strong>Early Access to Sale Events: </strong>Get early access to our exclusive sales and promotions before they are available to the general public, giving you the advantage of shopping for the best deals and products before they sell out.</li><li> <strong>Many More Benefits Throughout the Year: </strong>Enjoy additional exclusive perks and special offers that go beyond the ordinary, ensuring a continuously rewarding experience.<br/></li></ol>",
+            "page": ""
+          }
+        },
+        "collapsible_row_FztfHW": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What kind of exclusive discounts can I expect?",
+            "icon": "none",
+            "row_content": "<p>As a Go Rewards member, you will receive special discounts on a wide range of products across our store. These discounts are exclusive to members and are updated regularly to ensure you always have access to great deals.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_NCaKfW": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What are the birthday surprises?",
+            "icon": "none",
+            "row_content": "<p>Go Rewards members will receive a special surprise on their birthday. This could be a discount coupon, a gift voucher, or a special gift. The birthday surprise will be communicated to you via WhatsApp or Email.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_JxLXTG": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What kind of gift vouchers from other brands are available?",
+            "icon": "none",
+            "row_content": "<p>We have partnered with various popular brands to provide you with gift vouchers. These vouchers can be used to shop at these partner brands, giving you more value and options for your shopping needs.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_xPbhbR": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How does the shopping helpline work?",
+            "icon": "none",
+            "row_content": "<p>Go Rewards members will soon have access to a dedicated shopping helpline. This helpline will be available to assist with any shopping queries, product recommendations, order assistance, and more. More details about this exciting feature will be shared through WhatsApp or Email.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_yMHnVx": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What does early access to sale events mean?",
+            "icon": "none",
+            "row_content": "<p>As a Go Rewards member, you will get early access to our exclusive sales and promotions before they are available to the general public. This gives you the advantage of shopping for the best deals and products before they sell out.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_cBdHba": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I share my Go Rewards membership with others?",
+            "icon": "none",
+            "row_content": "<p>Go Rewards membership is non transferable and is exclusive to the individual who received the invitation. Benefits and discounts are linked to<br/>your account and cannot be shared with others.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_3wTd4n": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How will I be notified about my Go Rewards benefits?",
+            "icon": "none",
+            "row_content": "<p>You will receive notifications about your Go Rewards benefits via WhatsApp or Email. Make sure your contact information is up-to-date to ensure you receive all communications.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_QwnK4U": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What if I have more questions about Go Rewards?",
+            "icon": "none",
+            "row_content": "<p>If you have any additional questions or need further assistance, please contact our customer support team at customercare@gocolors.com</p><p></p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_rEz37N",
+        "collapsible_row_9cnnYE",
+        "collapsible_row_BDwQ7V",
+        "collapsible_row_GLGi9Y",
+        "collapsible_row_TWRJik",
+        "collapsible_row_YcF8U8",
+        "collapsible_row_3zeieX",
+        "collapsible_row_FztfHW",
+        "collapsible_row_NCaKfW",
+        "collapsible_row_JxLXTG",
+        "collapsible_row_xPbhbR",
+        "collapsible_row_yMHnVx",
+        "collapsible_row_cBdHba",
+        "collapsible_row_3wTd4n",
+        "collapsible_row_QwnK4U"
+      ],
+      "disabled": true,
+      "settings": {
+        "caption": "",
+        "heading": "Frequently Asked Questions",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "row",
+        "color_scheme": "",
+        "container_color_scheme": "",
+        "open_first_collapsible_row": true,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "collapsible_content_old_BEUPGr": {
+      "type": "collapsible-content-old",
+      "blocks": {
+        "collapsible_row_b36CVx": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What is Go Rewards?",
+            "row_content": "<p>Go Rewards is an exclusive, invite-only shopping rewards program designed for our top-tier customers. Members of this program can enjoy a variety of amazing benefits including exclusive discounts, birthday surprises, gift vouchers from other brands, a dedicated shopping helpline, and early access to sale events.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_Hf6aTA": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How can I join Go Rewards?",
+            "row_content": "<p>Membership to Go Rewards is by invitation only. If you are one of our top-tier customers, you will receive an invitation via WhatsApp. Simply follow the instructions provided in the WhatsApp message to complete your registration and start enjoying the benefits.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_jwwx6e": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What if I am not invited but still want to be part of Go Rewards?",
+            "row_content": "<p>Currently, Go Rewards is an invite-only program. However, you can increase your chances of being invited by continuing to shop with us and engaging with our brand. We periodically review our customer base and extend invitations to those who meet our criteria for top-tier customers.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_84ppFY": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Is there a membership fee for Go Rewards?",
+            "row_content": "<p>No, there is no membership fee for Go Rewards. It is a complimentary program for our top-tier customers.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_BynDeH": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How long do I remain a Go Rewards member?",
+            "row_content": "<p>Your Go Rewards membership will last as long as you continue to meet the criteria for top-tier customers. We periodically review memberships, and you will be notified if there are any changes to your membership status.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_WGGHYJ": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What is different about Go Rewards?",
+            "row_content": "<p>Go Rewards stands out by offering an unparalleled, premium shopping experience exclusively curated for our most valued customers. Unlike traditional loyalty programs, Go Rewards provides a suite of exceptional benefits including exclusive discounts, delightful birthday surprises, gift vouchers from esteemed partner brands, a dedicated shopping helpline, and early access to exclusive sale events, among many other privileges. This program is meticulously designed to reward our top-tier customers with extraordinary perks, ensuring a superior and truly personalized shopping journey.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_CJQWGT": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What are the benefits that I get from being a Go Rewards member?",
+            "row_content": "<p>As a Go Rewards member, you will enjoy the following benefits:</p><ol><li><strong>Exclusive Discounts:</strong> Special discounts on a wide range of products available only to Go Rewards members.</li><li><strong>Birthday Surprises:</strong> Receive a special surprise on your birthday, which could be a discount coupon, a gift voucher, or a special gift.</li><li><strong>Gift Vouchers from Other Brands:</strong> Access to gift vouchers from our partnering brands, providing you with more shopping options and value.</li><li><strong>Shopping Helpline:</strong> A dedicated shopping helpline to assist you with any queries, product recommendations, and order assistance.</li><li><strong>Early Access to Sale Events: </strong>Get early access to our exclusive sales and promotions before they are available to the general public, giving you the advantage of shopping for the best deals and products before they sell out.</li><li> <strong>Many More Benefits Throughout the Year: </strong>Enjoy additional exclusive perks and special offers that go beyond the ordinary, ensuring a continuously rewarding experience.<br/></li></ol>",
+            "page": ""
+          }
+        },
+        "collapsible_row_JNgPFE": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What kind of exclusive discounts can I expect?",
+            "row_content": "<p>As a Go Rewards member, you will receive special discounts on a wide range of products across our store. These discounts are exclusive to members and are updated regularly to ensure you always have access to great deals.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_dYqEcw": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What are the birthday surprises?",
+            "row_content": "<p>Go Rewards members will receive a special surprise on their birthday. This could be a discount coupon, a gift voucher, or a special gift. The birthday surprise will be communicated to you via WhatsApp or Email.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_YWbYzJ": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What kind of gift vouchers from other brands are available?",
+            "row_content": "<p>We have partnered with various popular brands to provide you with gift vouchers. These vouchers can be used to shop at these partner brands, giving you more value and options for your shopping needs.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_CjXGRM": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How does the shopping helpline work?",
+            "row_content": "<p>Go Rewards members will soon have access to a dedicated shopping helpline. This helpline will be available to assist with any shopping queries, product recommendations, order assistance, and more. More details about this exciting feature will be shared through WhatsApp or Email.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_4YbGFa": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What does early access to sale events mean?",
+            "row_content": "<p>As a Go Rewards member, you will get early access to our exclusive sales and promotions before they are available to the general public. This gives you the advantage of shopping for the best deals and products before they sell out.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_PKwGah": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I share my Go Rewards membership with others?",
+            "row_content": "<p>Go Rewards membership is non-transferable and is exclusive to the<br/>individual who received the invitation. Benefits and discounts are linked to<br/>your account and cannot be shared with others.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_PjtqWc": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How will I be notified about my Go Rewards benefits?",
+            "row_content": "<p>You will receive notifications about your Go Rewards benefits via WhatsApp or Email. Make sure your contact information is up-to-date to ensure you receive all communications.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_6xL9b4": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What if I have more questions about Go Rewards?",
+            "row_content": "<p>If you have any additional questions or need further assistance, please contact our customer support team at customercare@gocolors.com</p><p></p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_b36CVx",
+        "collapsible_row_Hf6aTA",
+        "collapsible_row_jwwx6e",
+        "collapsible_row_84ppFY",
+        "collapsible_row_BynDeH",
+        "collapsible_row_WGGHYJ",
+        "collapsible_row_CJQWGT",
+        "collapsible_row_JNgPFE",
+        "collapsible_row_dYqEcw",
+        "collapsible_row_YWbYzJ",
+        "collapsible_row_CjXGRM",
+        "collapsible_row_4YbGFa",
+        "collapsible_row_PKwGah",
+        "collapsible_row_PjtqWc",
+        "collapsible_row_6xL9b4"
+      ],
+      "settings": {
+        "caption": "",
+        "heading": "Frequently Asked Questions",
+        "heading_alignment": "center",
+        "layout": "none",
+        "background_color": "rgba(0,0,0,0)",
+        "heading_background_color": "#303030",
+        "heading_font_background_color": "#ffffff",
+        "open_first_collapsible_row": false,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mob": 30,
+        "padding_bottom_mob": 30
+      }
+    },
+    "page_go_rewards_terms_and_condition_FDyVXg": {
+      "type": "page-go-rewards-terms-and-condition",
+      "settings": {
+        "page": "terms-and-conditions-for-go-rewards-program-for-high-value-customers",
+        "title_color": "#ff5ba5",
+        "title_font_color": "#ffffff",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mob": 36,
+        "padding_bottom_mob": 36
+      }
+    }
+  },
+  "order": [
+    "data_inrichment_banner_Dq4ei3",
+    "data_inrichment_banner_GiQtFR",
+    "data_inrichment_banner_bemYHr",
+    "test_4BYJRj",
+    "invite_only_rewards_jjTcdz",
+    "invite_only_rewards_form_FFqUkA",
+    "go_rewards_image_HbDnxz",
+    "collapsible_content_FDfazX",
+    "collapsible_content_old_BEUPGr",
+    "page_go_rewards_terms_and_condition_FDyVXg"
+  ]
+}

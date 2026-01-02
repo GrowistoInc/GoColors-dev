@@ -1,0 +1,35 @@
+<div class="main-fabric-specification-block--{{ block.id }}">
+  <div class="fabric-mockup">
+    {% if block.settings.image_0 != blank and block.settings.text_0 != blank %}
+      <div class="fabric-type">
+       <div class="fabric_image_main"> <img src="{{ block.settings.image_0 | img_url: 'master' }}" alt="{{ block.settings.text_0 }}"></div>
+        <p>{{ block.settings.text_0 }}</p>
+      </div>
+    {% endif %}
+    {% if block.settings.image_1 != blank and block.settings.text_1 != blank %}
+      <div class="fabric-type">
+        <div class="fabric_image_main"><img src="{{ block.settings.image_1 | img_url: 'master' }}" alt="{{ block.settings.text_1 }}"></div>
+        <p>{{ block.settings.text_1 }}</p>
+      </div>
+    {% endif %}
+    {% if block.settings.image_2 != blank and block.settings.text_2 != blank %}
+      <div class="fabric-type">
+       <div class="fabric_image_main"> <img src="{{ block.settings.image_2 | img_url: 'master' }}" alt="{{ block.settings.text_2 }}"></div>
+        <p>{{ block.settings.text_2 }}</p>
+      </div>
+    {% endif %}
+    {% if block.settings.image_3 != blank and block.settings.text_3 != blank %}
+      <div class="fabric-type">
+       <div class="fabric_image_main"> <img src="{{ block.settings.image_3 | img_url: 'master' }}" alt="{{ block.settings.text_3 }}"></div>
+        <p>{{ block.settings.text_3 }}</p>
+      </div>
+    {% endif %}
+    {% if block.settings.image_4 != blank and block.settings.text_4 != blank %}
+      <div class="fabric-type">
+       <div class="fabric_image_main"> <img src="{{ block.settings.image_4 | img_url: 'master' }}" alt="{{ block.settings.text_4 }}"></div>
+        <p>{{ block.settings.text_4 }}</p>
+      </div>
+    {% endif %}
+  </div>
+</div>
+

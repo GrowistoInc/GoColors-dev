@@ -1,0 +1,195 @@
+<style>
+  table.order_line_data {
+    width: 100%; margin-bottom: 2.5rem;
+  }
+  table.order_line_data thead tr td {
+      border: 0px;
+      width: 100%;
+  }
+   span.hide_line_deatils {
+      text-decoration: underline;
+      text-align: center;
+      justify-content: center;
+     cursor:pointer;
+  }
+  table.order_line_data p.offline_order_label{
+    font-weight: 600;    
+    font-size: 18px;
+  }
+  table.order_line_data p {
+    font-size: 16px;
+  }
+  table.order_line_data tbody tr td {
+      font-size: 14px;
+  }
+  table.order_line_data thead td {
+    padding: 0;
+    text-align:center;
+  }
+  #offline .order_text {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+ #offline .order_text span ,.order_text a {
+    text-decoration:underline;    cursor: pointer;
+   border-bottom:0px
+  }
+  
+  @media screen and (max-width:1200px) {
+    .order_line_data tbody tr {
+    display: flex;flex: 55%;
+    flex-direction: column;
+    flex: 1 auto;   border: 0px;
+    }
+    .order_line_data tbody {
+    display: flex;
+    width: 100%;
+    border: 1px solid #CCCCCC;
+    }
+    .order_line_data tbody tr:first-of-type {
+    flex: 45%;
+    border-right: 1px solid #CCCCCC;
+    }
+    table.order_line_data tbody tr td:last-of-type {
+    border-bottom: 0px;
+    }
+    table.order_line_data tbody tr td {
+     border:0;border-bottom: 1px solid #CCCCCC;
+    }
+    table.order_line_data p {
+    padding-bottom: 13px;
+    }
+    table.order_line_data div {
+    margin-bottom: 2rem;
+    }
+  }
+  @media screen and (min-width:1200px){
+    table.order_line_data {
+      table-layout: fixed;
+    }
+    table.order_line_data thead tr td  div{
+    position: relative;
+    top: 0;
+    right: 0;
+    left:0;
+    bottom:0;
+       text-align:left
+    }
+    table.order_line_data p {
+      font-size: 14px;
+    }
+
+    span.hide_line_deatils {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    table.order_line_data tbody td, table.order_line_data tbody td:first-child{
+      border: 1px solid #CCCCCC;
+      text-align: center;
+      
+    }
+  }
+  
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+{% paginate customer.orders by 999 %}
+  {% assign order_name_url = '' %}
+{% for order in customer.orders %}
+  {% assign order_name_url = order_name_url | append: order.name | append: '~' | append: order.customer_url %}
+{% endfor %}
+{% endpaginate %}
+<script type="text/javascript">
+    $(document).ready(function(){
+        var order_name_url = "{{ order_name_url }}";
+        var mobile_no = "{{customer.phone}}";
+        mobile_no = mobile_no.replace('+91',"");
+        var order_items = [];
+        var items = [];
+       var order_html="";
+        $.ajax({
+            url : 'https://admin3157.gocolors.com/new_go_colors_india/public/api/purchase_order',
+            type: 'get',
+            dataType:'json',
+            data:{
+                'mobile_no'  : mobile_no,
+            },
+            success : function(resp){
+                if(resp.success)
+                {   
+                  console.log('purchase_order',resp.order_details);
+                  $.each(resp.order_details,function(k,v){
+                    console.log('order_details v ',v);
+                    var order_number= v.order_number;
+                    if(order_name_url.indexOf(order_number) > -1){
+                      const after_ = order_name_url.slice(order_name_url.indexOf(order_number) + 1);
+                      const before_ = after_.split('#');
+                      var get_order_url1 = before_[0].split('~');
+                      var get_order_url = get_order_url1[1];
+                    }else{
+                      if(order_number.indexOf('R_') > -1){
+                        //console.log(order_number);
+                        const order_number_new = order_number.replace('R_', '');
+                        const after_ = order_name_url.slice(order_name_url.indexOf(order_number_new) + 1);
+                        const before_ = after_.split('#');
+                        var get_order_url1 = before_[0].split('~');
+                        var get_order_url = get_order_url1[1];
+                      }
+                    }
+                    var PointsRedeemed= v.PointsRedeemed;
+                    var provisional_points= v.provisional_points;
+                    var earned_points= v.earned_points;
+                    var earned_points = Math.round(earned_points);
+                    var OrderLevelCredits= v.OrderLevelCredits;
+                    var final_date= v.final_date;
+                    var amount=v.total_bill_amount;                    
+                    var amount=Math.round(amount).toLocaleString('en');
+                    order_html+= '<table class="online_orde_header"><thead>';
+                    order_html+="<tr>";
+                    order_html+='<td><p class="order_text" data-order_label="'+order_number+'">Order: <span>'+order_number+'</span></p></td>';                  
+                    order_html+='<td><p class="place_order"><span>DATE:</span> '+final_date+'</p></td>';
+                    order_html+="</tr>";
+                    order_html+='</thead></table>';
+                    order_html+='<table class="order_data"><tbody><tr style="background-color:#F8F8F8 ;"><td>ORDER NUMBER</td><td>PURCHASE CHANNEL</td><td>ORDER TOTAL</td></tr>'; 
+                    order_html+='<tr><td>'+order_number+'</td><td>Offline</td> <td style="font-family: var(--bs-font-sans-serif);">'+'₹ '+ amount +'</td> </tr>';   
+                     order_html += '</tbody></table>';
+                    $.each(v.orderLineItem, function(index, item) {
+                        order_html += '<table class="order_line_data" style="display:none" data-order="'+order_number+'">';
+                        if(index === 0) {
+                            order_html += '<thead>';
+                            order_html += '<tr><td colspan="5"><div><p class="offline_order_label">Order: ' + order_number + '</p><p>Date: ' + final_date + '</p><span class="hide_line_deatils">Return To Order</span></div></td></tr>';
+                            order_html += '</thead>';
+                        }
+                        order_html += '<tbody>';
+                        order_html += '<tr style="background-color:#F8F8F8;"><td>SKU</td><td>Price</td><td>Qty</td><td>Total</td><td>Discount</td></tr>';
+                        order_html += '<tr><td>' + item.sku + '</td><td>' + item.price + '</td><td>' + item.qty + '</td><td>' + item.total + '</td><td>' + item.discount + '</td></tr>';
+                        order_html += '</tbody></table>';
+                    });
+
+                       
+                    
+                  });
+                }
+                $('#offline').html(order_html);
+            }
+            
+        });
+       $(document).on('click', '.order_text', function() {
+            var order_label = $(this).data('order_label');
+            $('#offline table').hide();
+            $('#offline table.order_line_data').each(function() {
+                var order_data = $(this).data('order');
+                if(order_label === order_data) {
+                    $(this).show();
+                }
+            });
+        });
+        
+        $(document).on('click', '.hide_line_deatils', function() {
+            $('#offline table').show();
+            $('#offline table.order_line_data').hide();
+        });
+    }); 
+    
+</script> 

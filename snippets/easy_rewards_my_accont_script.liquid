@@ -1,0 +1,51 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+
+    var mobile_no = "{{customer.phone}}";
+    console.log("mobiooooo---------"+mobile_no);
+    var email = "{{ customer.email }}";
+    
+    mobile_no = mobile_no.replace('+91',"");
+    var data = JSON.stringify({
+      "EasyId": mobile_no,
+      "EmailId" : email,
+      "MobileNo" : mobile_no,
+      "StoreName": "go-colors-india.myshopify.com",
+      "CountryCode": "91"
+    });
+    
+    var settings = {
+      "url": "https://gocolors.com/apps/ez/api/CustomerProfile",
+      "method": "POST",
+      "timeout": 0,
+      "headers": {
+        "Content-Type": "application/json",
+        "Cookie": "_s=172a00c3-7b9d-41fd-8141-77b2f2d953fb; _shopify_s=172a00c3-7b9d-41fd-8141-77b2f2d953fb; _shopify_y=b597e3f8-b033-4c84-909a-90f26c2532d6; _y=b597e3f8-b033-4c84-909a-90f26c2532d6; secure_customer_sig="
+      },
+      "data": data,
+  };
+
+  $.ajax(settings).done(function (response) {
+    console.log(response,'ds-----');
+    if(response.ReturnCode == 0){
+      $('#email').html(response.Email)
+      if(response.Email == ""){
+        $('#email').html('{{customer.email}}');
+      }
+      $('#mobile_no').html(response.Mobile)
+      if(response.Mobile == ""){
+        $('#mobile_no').html('{{ customer.phone }}')
+      }
+      $('#name').html(response.FirstName+'  '+response.LastName)
+      if(response.FirstName == "" && response.LastName == ""){
+        $('#name').html('{{ customer.first_name }}'+ "  "+'{{ customer.last_name }}')
+      }
+      $('#dob').html(response.DateOfBirth)
+      $('#point').html(response.AvailablePoints)
+    }
+    
+  });
+});
+</script>

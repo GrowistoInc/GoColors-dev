@@ -1,0 +1,380 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "investor_left_block_qNdAyi": {
+      "type": "Investor-left-block",
+      "blocks": {
+        "image_block_9TCgpk": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g3660.svg",
+            "title": "Our Business",
+            "url": "https://gocolors.com/pages/our-business"
+          }
+        },
+        "image_block_QUYkdN": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Vector_011e1c53-c3cc-4177-8696-dad1f349b037.svg",
+            "title": "Board of Directors",
+            "url": "https://gocolors.com/pages/board-of-directors"
+          }
+        },
+        "image_block_j7gr7r": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Component_1.svg",
+            "title": "Corporate Governance",
+            "url": ""
+          }
+        },
+        "image_block_e9in6E": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g3725.svg",
+            "title": "Annual reports",
+            "url": "https://gocolors.com/pages/annual-reports"
+          }
+        },
+        "image_block_eTk7ym": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_1.svg",
+            "title": "Earning Call  Transcripts",
+            "url": "https://gocolors.com/pages/earning-call-transcripts"
+          }
+        },
+        "image_block_PFgUpa": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Vector_1_e879eb32-0411-4431-bf21-69107ea6f385.svg",
+            "title": "Quarterly  Financial Results",
+            "url": "https://gocolors.com/pages/quarterly-financial-results"
+          }
+        },
+        "image_block_bHxaek": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_17.svg",
+            "title": "Investor Presentation",
+            "url": "https://gocolors.com/pages/investor-presentation"
+          }
+        },
+        "image_block_7B9HAk": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_18.svg",
+            "title": "Press Releases",
+            "url": "https://gocolors.com/pages/press-releases"
+          }
+        },
+        "image_block_JRCX7V": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Vector_2.svg",
+            "title": "Credit Rating",
+            "url": "https://gocolors.com/pages/credit-rating"
+          }
+        },
+        "image_block_MQKUpG": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_19.svg",
+            "title": "Corporate Announcements",
+            "url": "https://gocolors.com/pages/corporate-announcements"
+          }
+        },
+        "image_block_8JLMRC": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_13.svg",
+            "title": "Shareholding Pattern",
+            "url": "https://gocolors.com/pages/shareholding-pattern"
+          }
+        },
+        "image_block_HwzbM9": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g788.svg",
+            "title": "Shareholder Grievances",
+            "url": "https://gocolors.com/pages/shareholder-grievances-1"
+          }
+        },
+        "image_block_qXcPG3": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/x31_650_x2C__Employee_x2C__group_x2C__management_x2C__organization_x2C__team.svg",
+            "title": "KMP Details",
+            "url": "https://gocolors.com/pages/kmp"
+          }
+        },
+        "image_block_AePhei": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_14.svg",
+            "title": "MOA AOA/  Directors Profile",
+            "url": "https://gocolors.com/pages/moa-aoa"
+          }
+        },
+        "image_block_TrgPHx": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Component_1_1.svg",
+            "title": "Policies",
+            "url": "https://gocolors.com/pages/investor-policies"
+          }
+        },
+        "image_block_it4HbM": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g2733.svg",
+            "title": "Archivals",
+            "url": "https://gocolors.com/pages/archivals"
+          }
+        }
+      },
+      "block_order": [
+        "image_block_9TCgpk",
+        "image_block_QUYkdN",
+        "image_block_j7gr7r",
+        "image_block_e9in6E",
+        "image_block_eTk7ym",
+        "image_block_PFgUpa",
+        "image_block_bHxaek",
+        "image_block_7B9HAk",
+        "image_block_JRCX7V",
+        "image_block_MQKUpG",
+        "image_block_8JLMRC",
+        "image_block_HwzbM9",
+        "image_block_qXcPG3",
+        "image_block_AePhei",
+        "image_block_TrgPHx",
+        "image_block_it4HbM"
+      ],
+      "name": "Investor Left Blocks",
+      "settings": {}
+    },
+    "corporate_governance_right_7tVCJJ": {
+      "type": "corporate-governance-right",
+      "blocks": {
+        "document_wtAFJe": {
+          "type": "document",
+          "settings": {
+            "title": "FORM MGT-7 FY25-26",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/FORM_MGT-7_FY24-25.pdf?v=1754633547"
+          }
+        },
+        "document_daiaVt": {
+          "type": "document",
+          "settings": {
+            "title": "OUTCOME OF BOARD MEETING Q1 FY26",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/OUTCOME_OF_BOARD_MEETING_Q1_FY26.pdf?v=1754040681"
+          }
+        },
+        "document_JiBbMB": {
+          "type": "document",
+          "settings": {
+            "title": "FORM MGT-7 FY24-25",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/FORM_MGT-7_FY24-25.pdf?v=1753178803"
+          }
+        },
+        "document_htiLL8": {
+          "type": "document",
+          "settings": {
+            "title": "CSR PROJECTS FY25-26",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/CSR_PROJECTS_FY25-26.pdf?v=1749272498"
+          }
+        },
+        "document_C3fbL8": {
+          "type": "document",
+          "settings": {
+            "title": "Familiarization Program for Independent Directors FY 2024-25",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Familiarization_Program_for_Independent_Directors_FY_2024-25.pdf?v=1743567256"
+          }
+        },
+        "document_biD6YD": {
+          "type": "document",
+          "settings": {
+            "title": "BRSR REPORT FY23-24",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/BRSR_REPORT_FY_23-24.pdf?v=1721043357"
+          }
+        },
+        "document_kJn3zQ": {
+          "type": "document",
+          "settings": {
+            "title": "FORM MGT-7 FY23-24",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/FORM_MGT-7_FY23-24.pdf?v=1717240746"
+          }
+        },
+        "document_HeLJgM": {
+          "type": "document",
+          "settings": {
+            "title": "CSR PROJECTS FY24-25",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/CSR_PROJECTS_FY_24-25.pdf?v=1716008162"
+          }
+        },
+        "document_Ae8Bcx": {
+          "type": "document",
+          "settings": {
+            "title": "FAMILIARISATION PROGRAMME FOR INDEPENDENT DIRECTORS FY 23-24",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/FAMILIARISATION_PROGRAMME_FOR_INDEPENDENT_DIRECTORS_-_FY_23-24_2.pdf?v=1714477520"
+          }
+        },
+        "document_qqxtz7": {
+          "type": "document",
+          "settings": {
+            "title": "CSR PROJECTS FY23-24",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/CSR_PROJECTS_FY_23-24.pdf?v=1683354448"
+          }
+        },
+        "document_jFAkUh": {
+          "type": "document",
+          "settings": {
+            "title": "FORM MGT-7 FY22-23",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/FORM_MGT-7_FY22-23_1b87d0cf-1f9b-44f2-8144-3c0e44aa91c8.pdf?v=1698995193"
+          }
+        },
+        "document_eVdD73": {
+          "type": "document",
+          "settings": {
+            "title": "BRSR REPORT FY22-23",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/BRSR_REPORT_FY22-23.pdf?v=1691993137"
+          }
+        },
+        "document_VKkr46": {
+          "type": "document",
+          "settings": {
+            "title": "FAMILIARISATION PROGRAMME FOR INDEPENDENT DIRECTORS FY 22-23",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/FAMILIARISATION_PROGRAMME_FOR_INDEPENDENT_DIRECTORS_-_FY_22-23.pdf?v=1686046955"
+          }
+        },
+        "document_zYNpfP": {
+          "type": "document",
+          "settings": {
+            "title": "CSR Projects FY22-23",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/CSR_Projects_FY22-23.pdf?v=1653973684"
+          }
+        },
+        "document_qLxQyB": {
+          "type": "document",
+          "settings": {
+            "title": "Familiarisation Programme for Independent Directors FY 21-22",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Familiarisation_Programme_for_Independent_Directors_-_FY_21-22.pdf?v=1650280010"
+          }
+        },
+        "document_ha3Qq8": {
+          "type": "document",
+          "settings": {
+            "title": "AUTHORIZED KMP TO DETERMINE MATERIALITY OF EVENTS",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/AUTHORISED_KEY_MANAGERIAL_PERSONNEL_TO_DETERMINE_MATERIALITY_OF_EVENTSINFORMATION_AND_FOR_MAKING_DISCLOSURES_TO_STOCK_EXCHANGES.pdf?v=1690282238"
+          }
+        },
+        "document_KNipQW": {
+          "type": "document",
+          "settings": {
+            "title": "CODE OF FAIR DISCLOSURE",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/CODE_OF_FAIR_DISCLOSURE_4b81106c-8c0a-4a99-b4d5-025a8340562e.pdf?v=1657891555"
+          }
+        },
+        "document_BzingM": {
+          "type": "document",
+          "settings": {
+            "title": "FAMILIARISATION PROGRAMME FOR INDEPENDENT DIRECTORS",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/FAMILIARISATION_PROGRAMME_FOR_INDEPENDENT_DIRECTORS_8412e3e5-30c4-47c5-8c01-28dcc7c0d795.pdf?v=1657891554"
+          }
+        },
+        "document_NiB9wT": {
+          "type": "document",
+          "settings": {
+            "title": "CODE OF CONDUCT FOR DIRECTORS AND SENIOR MANAGEMENT",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Code_of_Conduct_for_Directors_and_Senior_Management.pdf?v=1645782530"
+          }
+        },
+        "document_7jQTcW": {
+          "type": "document",
+          "settings": {
+            "title": "COMPOSITION OF BOARD AND COMMITTEES",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/COMPOSITION_OF_BOARD_AND_COMMITTEES_57df042e-84cf-495d-a3f0-8dc68bf69340.pdf?v=1689590944"
+          }
+        },
+        "document_FmBCWy": {
+          "type": "document",
+          "settings": {
+            "title": "FAMILIARISATION PROGRAMME FOR INDEPENDENT DIRECTORS",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Familiarisation_Programme_for_Independent_Directors.pdf?v=1645782596"
+          }
+        },
+        "document_pM9qxT": {
+          "type": "document",
+          "settings": {
+            "title": "LETTER OF APPOINTMENT - INDEPENDENT DIRECTOR",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Letter_of_Appointment_-_Independent_Director.pdf?v=1645782613"
+          }
+        },
+        "document_waMP7n": {
+          "type": "document",
+          "settings": {
+            "title": "FORM MGT-7 FY21-22",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Form_MGT_7_21-22.pdf?v=1668594731"
+          }
+        },
+        "document_EQm8Ta": {
+          "type": "document",
+          "settings": {
+            "title": "FORM MGT-7 FY20-21",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Form_MGT-7.pdf?v=1657891554"
+          }
+        }
+      },
+      "block_order": [
+        "document_wtAFJe",
+        "document_daiaVt",
+        "document_JiBbMB",
+        "document_htiLL8",
+        "document_C3fbL8",
+        "document_biD6YD",
+        "document_kJn3zQ",
+        "document_HeLJgM",
+        "document_Ae8Bcx",
+        "document_qqxtz7",
+        "document_jFAkUh",
+        "document_eVdD73",
+        "document_VKkr46",
+        "document_zYNpfP",
+        "document_qLxQyB",
+        "document_ha3Qq8",
+        "document_KNipQW",
+        "document_BzingM",
+        "document_NiB9wT",
+        "document_7jQTcW",
+        "document_FmBCWy",
+        "document_pM9qxT",
+        "document_waMP7n",
+        "document_EQm8Ta"
+      ],
+      "name": "corporate governance ",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "investor_left_block_qNdAyi",
+    "corporate_governance_right_7tVCJJ"
+  ]
+}

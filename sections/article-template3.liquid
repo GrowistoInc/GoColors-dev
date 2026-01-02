@@ -1,0 +1,207 @@
+<article class="page-width">
+   {% paginate article.comments by 50 %}
+<div class="elementor-row">
+    <div class="elementor-widget-wrap">
+       <h2>{{ article.title }}</h2>     
+<div class="elementor-widget-container">
+    <a style="font-size: 0px; width: 24px; height: 24px; margin: 0; margin-bottom: 5px; margin-right: 5px;"
+        title="Share on Facebook" rel="nofollow" data-provider="facebook" class="social-button" target="_blank"
+        href="https://www.facebook.com/GoColorsOfficial/">
+        <img src="https://cdn.shopify.com/s/files/1/0598/8158/6848/files/icons8-facebook.svg?v=1701759492"
+            style="display: inline; width: 24px; height: 24px; margin: 0; padding: 0; border: none; box-shadow: none;"
+            height="24" width="24" class="synved-share-image synved-social-image synved-social-image-share"
+            title="Share on Facebook" alt="Facebook">
+    </a>
+     <a style="font-size: 0px; width: 24px; height: 24px; margin: 0; margin-bottom: 5px; margin-right: 5px;"
+        title="Share on instagram" rel="nofollow" data-provider="instagram" class="social-button" target="_blank" href="https://www.instagram.com/gocolors/?hl=en">
+        <img src="https://cdn.shopify.com/s/files/1/0598/8158/6848/files/icons8-instagram.svg?v=1701759492"
+            style="display: inline; width: 24px; height: 24px; margin: 0; padding: 0; border: none; box-shadow: none;"
+            height="24" width="24" class="synved-share-image synved-social-image synved-social-image-share"
+            title="Share on instagram" alt="instagram">
+    </a>
+    <a style="font-size: 0px; width: 24px; height: 24px; margin: 0; margin-bottom: 5px; margin-right: 5px;"
+        title="Share on linkedin" rel="nofollow" data-provider="linkedin" class="social-button" target="_blank"
+        href="https://www.linkedin.com/company/gocolors"><img
+            src="https://cdn.shopify.com/s/files/1/0598/8158/6848/files/icons8-linkedin.svg?v=1701759594"
+            style="display: inline; width: 24px; height: 24px; margin: 0; padding: 0; border: none; box-shadow: none;"
+            height="24" width="24" class="synved-share-image synved-social-image synved-social-image-share"
+            title="Share on linkedin" alt="linkedin">
+    </a>
+    <a style="font-size: 0px; width: 24px; height: 24px; margin: 0; margin-bottom: 5px; margin-right: 5px;"
+        title="Share on twitter" rel="nofollow" data-provider="facebook" class="social-button" target="_blank" href="">
+        <img src="https://cdn.shopify.com/s/files/1/0598/8158/6848/files/icons8-twitter.svg?v=1701759492"
+            style="display: inline; width: 24px; height: 24px; margin: 0; padding: 0; border: none; box-shadow: none;"
+            height="24" width="24" class="synved-share-image synved-social-image synved-social-image-share"
+            title="Share on twitter" alt="twitter">
+    </a>  
+</div> 
+     {%- if section.settings.blog_show_date -%}
+      <span>
+        {{ article.created_at | date : '%B %d, %Y' }}
+      </span>
+    {%- endif -%}
+      {%- if article.content -%}
+        <p>{{ article.content }}</p>
+      {%- endif -%}
+       {%- if article.heading -%}
+        <h4>{{ article.heading }}</h4>
+      {%- endif -%}
+   <div class="blog-container">
+      {%- if article.article.image -%}
+        <img src="{{ article.article.image.src | img_url: '1024x1024' }}" alt="{{ article.article.image.alt | escape }}">
+      {%- endif -%}
+    </div>
+    </div>
+  <div class="recent_div">
+    <h3>Recent Posts</h3>
+
+     {% assign limit = 5 %}
+{% for article in blog.articles limit: limit %}
+    {%- if article.title != blank -%}
+        <ul>
+            <li class="line-1">
+                <a data-cc-animate-click href="{{ article.url }}">{{ article.title }}</a>
+            </li>
+        </ul>
+    {%- endif -%}
+{% endfor %}
+    </div>
+</div>
+   {% if section.settings.blog_show_social %}
+      <div data-cc-animate data-cc-animate-delay=".5s">
+        {% render 'social-sharing', share_title: article.title, share_permalink: article.url, share_image: article.image %}
+      </div>
+      {% endif %}
+  <div data-cc-animate data-cc-animate-delay=".5s">
+        {% form article %}
+        <hr>
+        <h3 id="add-comment-title">{{ 'blogs.comments.form_title' | t }}</h3>
+
+        {% if form.errors %}
+        <div class="feedback error">
+          {{ form.errors | default_errors }}
+        </div>
+        {% endif %}
+
+        <div class="form">
+          <div class="input-row">
+            <input aria-label="{{ 'blogs.comments.name' | t }}" placeholder="{{ 'blogs.comments.name' | t }}" required{% if form.errors contains "author" %} class="error"{% endif %} type="text" name="comment[author]" id="comment-author" value="{{ form.author }}" />
+          </div>
+
+          <div class="input-row">
+            <input aria-label="{{ 'blogs.comments.email' | t }}" placeholder="{{ 'blogs.comments.email' | t }}" required{% if form.errors contains "email" %} class="error"{% endif %} type="email" name="comment[email]" id="comment-email" value="{{ form.email }}" />
+          </div>
+
+          <div class="input-row">
+            <textarea aria-label="{{ 'blogs.comments.message' | t }}" placeholder="{{ 'blogs.comments.message' | t }}" required{% if form.errors contains "body" %} class="error"{% endif %} name="comment[body]" id="comment-body">{{ form.body }}</textarea>
+          </div>
+
+          <div class="wide-action">
+            <input type="submit" value="{{ 'blogs.comments.post' | t }}" />
+          </div>
+        </div>
+        {% endform %}
+      </div>
+  {% if blog.next_article or blog.previous_article %}
+    <div class="other-products other-products--articles" data-cc-animate data-cc-animate-delay=".5s">
+      <div class="other-products__label">
+        <a data-cc-animate-click href="{{ blog.url }}">{{ 'blogs.article.back_to_blog_html' | t: blog: blog.title }}</a>
+      </div>
+      <div class="other-products__products">
+        {% if blog.previous_article %}
+        <span class="other-products__product previous">
+          <a data-cc-animate-click href="{{ blog.previous_article }}">
+            <div class="other-products__product__arrow"><span class="arr">{% render 'svg-chevron-left' %}</span></div>
+            <div class="other-products__product__title h5">{{ 'blogs.article.older_post' | t }}</div>
+          </a>
+        </span>
+        {% endif %}
+        {% if blog.next_article %}
+        <span class="other-products__product next">
+          <a data-cc-animate-click href="{{ blog.next_article }}" >
+            <div class="other-products__product__title h5">{{ 'blogs.article.newer_post' | t }}</div>
+            <div class="other-products__product__arrow"><span class="arr">{% render 'svg-chevron-right' %}</span></div>
+          </a>
+        </span>
+        {% endif %}
+      </div>
+    </div>
+    {% endif %}
+     {% endpaginate %}
+</article>
+
+{% schema %}
+{
+  "name": "Posts",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "blog_show_author",
+      "label": "Show author",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "blog_show_date",
+      "label": "Show date",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "blog_show_social",
+      "label": "Show social icons",
+      "default": true
+}
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
+
+
+<style><!--
+    @media (min-width: 1024px) {
+.elementor-row {
+                display: flex;
+                width: 100%;
+                gap: 10%;
+}
+  .elementor-row .elementor-widget-wrap span{
+    
+  }
+  
+.elementor-row .elementor-widget-wrap h2{
+    font-size: 2.5rem;
+    padding: 0;
+    margin-bottom: 20px;
+    line-height: 1;
+    text-align: left;
+}
+    
+.elementor-widget-wrap {
+                width: 100%;
+            }
+        }
+  .recent_div h3{
+    text-align: left;
+  }
+
+ .recent_div li a {
+            color: #c6151d;
+            text-decoration: none;
+}
+    
+.recent_div ul {
+            padding: 10px;
+}
+  .sharing.social-links {
+    text-align: center;
+}
+  .sharing .sharing-label {
+     display: block; 
+}
+    --></style>

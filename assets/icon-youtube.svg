@@ -1,0 +1,10 @@
+
+<svg class="icon icon-youtube" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+  <g id="Group_21073" data-name="Group 21073" transform="translate(-51 -336)">
+    <g id="Ellipse_3174" data-name="Ellipse 3174" transform="translate(51 336)" fill="#fff" stroke="#d4d4d4" stroke-width="1">
+      <circle cx="15" cy="15" r="15" stroke="none"/>
+      <circle cx="15" cy="15" r="14.5" fill="none"/>
+    </g>
+    <path id="_5305164_play_video_youtube_youtube_logo_icon" data-name="5305164_play_video_youtube_youtube logo_icon" d="M14.734,78.445a1.884,1.884,0,0,0-1.33-1.33A44.967,44.967,0,0,0,7.524,76.8a44.967,44.967,0,0,0-5.879.314,1.885,1.885,0,0,0-1.33,1.33,21.021,21.021,0,0,0,0,7.244,1.885,1.885,0,0,0,1.33,1.33,44.987,44.987,0,0,0,5.879.314,44.986,44.986,0,0,0,5.879-.314,1.885,1.885,0,0,0,1.33-1.33,19.586,19.586,0,0,0,.314-3.622A19.588,19.588,0,0,0,14.734,78.445ZM6.019,84.324V79.81l3.91,2.257Z" transform="translate(58 269.2)" fill="#646464"/>
+  </g>
+</svg>

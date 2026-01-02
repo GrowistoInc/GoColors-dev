@@ -1,0 +1,325 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "investor_left_block_7TAFbU": {
+      "type": "Investor-left-block",
+      "blocks": {
+        "image_block_qWeix6": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g3660.svg",
+            "title": "Our Business",
+            "url": "https://gocolors.com/pages/our-business"
+          }
+        },
+        "image_block_jjaCwr": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Vector_011e1c53-c3cc-4177-8696-dad1f349b037.svg",
+            "title": "Board of Directors",
+            "url": "https://gocolors.com/pages/board-of-directors"
+          }
+        },
+        "image_block_xqzELM": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Component_1.svg",
+            "title": "Corporate Governance",
+            "url": "https://gocolors.com/pages/corporate-governance"
+          }
+        },
+        "image_block_hy7Q96": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g3725.svg",
+            "title": "Annual reports",
+            "url": "https://gocolors.com/pages/annual-reports"
+          }
+        },
+        "image_block_DNwRLG": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_1.svg",
+            "title": "Earning Call  Transcripts",
+            "url": "https://gocolors.com/pages/earning-call-transcripts"
+          }
+        },
+        "image_block_bPQrqL": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Vector_1_e879eb32-0411-4431-bf21-69107ea6f385.svg",
+            "title": "Quarterly  Financial Results",
+            "url": "https://gocolors.com/pages/quarterly-financial-results"
+          }
+        },
+        "image_block_GXeiJk": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_17.svg",
+            "title": "Investor Presentation",
+            "url": "https://gocolors.com/pages/investor-presentation"
+          }
+        },
+        "image_block_Djjbiy": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_18.svg",
+            "title": "Press Releases",
+            "url": "https://gocolors.com/pages/press-releases"
+          }
+        },
+        "image_block_ffEaHP": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Vector_2.svg",
+            "title": "Credit Rating",
+            "url": "https://gocolors.com/pages/credit-rating"
+          }
+        },
+        "image_block_ecFYPJ": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_19.svg",
+            "title": "Corporate Announcements",
+            "url": "https://gocolors.com/pages/corporate-announcements"
+          }
+        },
+        "image_block_WVMGDw": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_13.svg",
+            "title": "Shareholding Pattern",
+            "url": "https://gocolors.com/pages/shareholding-pattern"
+          }
+        },
+        "image_block_Ygfd9Q": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g788.svg",
+            "title": "Shareholder Grievances",
+            "url": "https://gocolors.com/pages/shareholder-grievances-1"
+          }
+        },
+        "image_block_FgVHKg": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/x31_650_x2C__Employee_x2C__group_x2C__management_x2C__organization_x2C__team.svg",
+            "title": "KMP Details",
+            "url": "https://gocolors.com/pages/kmp"
+          }
+        },
+        "image_block_Y9yPdP": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_14.svg",
+            "title": "MOA AOA/  Directors Profile",
+            "url": "https://gocolors.com/pages/moa-aoa"
+          }
+        },
+        "image_block_Kg74xt": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Component_1_1.svg",
+            "title": "Policies",
+            "url": ""
+          }
+        },
+        "image_block_hyPkYD": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g2733.svg",
+            "title": "Archivals",
+            "url": "https://gocolors.com/pages/archivals"
+          }
+        }
+      },
+      "block_order": [
+        "image_block_qWeix6",
+        "image_block_jjaCwr",
+        "image_block_xqzELM",
+        "image_block_hy7Q96",
+        "image_block_DNwRLG",
+        "image_block_bPQrqL",
+        "image_block_GXeiJk",
+        "image_block_Djjbiy",
+        "image_block_ffEaHP",
+        "image_block_ecFYPJ",
+        "image_block_WVMGDw",
+        "image_block_Ygfd9Q",
+        "image_block_FgVHKg",
+        "image_block_Y9yPdP",
+        "image_block_Kg74xt",
+        "image_block_hyPkYD"
+      ],
+      "name": "Investor Left Blocks",
+      "settings": {}
+    },
+
+    "corporate_governance_right_WHzrwL": {
+      "type": "corporate-governance-right",
+      "blocks": {
+        "document_8DEmyd": {
+          "type": "document",
+          "settings": {
+            "title": "ANTI-BRIBERY POLICY",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/ANTI-BRIBERY_ANTI-CORRUPTION_POLICY.pdf?v=1733556140"
+          }
+        },
+        "document_X99AeL": {
+          "type": "document",
+          "settings": {
+            "title": "ARCHIVAL POLICY",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/ARCHIVAL_POLICY_915eb0ac-e06a-4769-b38a-f1dc56fc6d0b.pdf?v=1657891554"
+          }
+        },
+        "document_r7jtwJ": {
+          "type": "document",
+          "settings": {
+            "title": "Employee Code of Conduct",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/EMPLOYEE_CODE_OF_CONDUCT_1.pdf?v=1738566101"
+          }
+        },
+        "document_NiNcHa": {
+          "type": "document",
+          "settings": {
+            "title": "CORPORATE SOCIAL RESPONSIBILITY POLICY",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/CORPORATE_SOCIAL_RESPONSIBILITY_POLICY_022afe7c-4138-4be3-bcbe-7f793c731186.pdf?v=1733556140"
+          }
+        },
+        "document_zCiNJp": {
+          "type": "document",
+          "settings": {
+            "title": "DIVIDEND DISTRIBUTION POLICY",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/DIVIDEND_DISTRIBUTION_POLICY_71b1c0c0-c8d3-460b-bf44-6219fd8c7797.pdf?v=1738566100"
+          }
+        },
+        "document_qJrVzL": {
+          "type": "document",
+          "settings": {
+            "title": "GRIEVANCE REDRESSAL POLICY",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/GRIEVANCE_REDRESSAL_POLICY_8effe8c5-0c3e-49a3-ad6f-52816a72ec01.pdf?v=1733556140"
+          }
+        },
+        "document_87FN6w": {
+          "type": "document",
+          "settings": {
+            "title": "HEALTH AND SAFETY POLICY",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/EMPLOYEE_HEALTH_AND_SAFETY_POLICY.pdf?v=1733556140"
+          }
+        },
+        "document_bRLeEM": {
+          "type": "document",
+          "settings": {
+            "title": "INSIDER TRADING POLICY",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INSIDER_TRADING_POLICY_6637b578-0ff8-4a72-a7d9-1e30258c6119.pdf?v=1738566100"
+          }
+        },
+        "document_WENCh3": {
+          "type": "document",
+          "settings": {
+            "title": "RELATED PARTY TRANSACTIONS POLICY",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/RELATED_PARTY_TRANSACTION_POLICY_c965eb59-f225-41b0-b6ba-94b353620e45.pdf?v=1738566101"
+          }
+        },
+        "document_frJnCJ": {
+          "type": "document",
+          "settings": {
+            "title": "RISK MANAGEMENT POLICY",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/RISK_MANAGEMENT_POLICY_c690b527-eb31-4eee-b5f8-7ca3f0b64377.pdf?v=1738566100"
+          }
+        },
+        "document_nL6ffL": {
+          "type": "document",
+          "settings": {
+            "title": "STAKEHOLDER ENGAGEMENT POLICY",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/STAKEHOLDER_ENGAGEMENT_POLICY_e451b55e-7260-48b8-97ee-adc642f2d8ab.pdf?v=1733556140"
+          }
+        },
+        "document_rxpbCN": {
+          "type": "document",
+          "settings": {
+            "title": "SUPPLIER CODE OF CONDUCT",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/SUPPLIER_CODE_OF_CONDUCT_b78156ca-2068-4277-a102-ba94d1e07af1.pdf?v=1733556140"
+          }
+        },
+        "document_dxepFn": {
+          "type": "document",
+          "settings": {
+            "title": "SUSTAINABILITY POLICY",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/SUSTAINABILITY_POLICY_f9f44d52-de44-41e0-904f-b187ce9d0521.pdf?v=1733556140"
+          }
+        },
+        "document_yVDFhk": {
+          "type": "document",
+          "settings": {
+            "title": "POLICY FOR DETERMINATION OF MATERIALITY OF EVENTS AND INFORMATION",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/POLICY_FOR_DETERMINATION_OF_MATERIALITY_OF_EVENTS_AND_INFORMATION_1.pdf?v=1738566100"
+          }
+        },
+        "document_Dmi7e6": {
+          "type": "document",
+          "settings": {
+            "title": "POLICY ON MATERIAL SUBSIDIARIES",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/POLICY_ON_MATERIAL_SUBSIDIARIES_912d004a-7004-4a65-8c6a-5919b72efd5f.pdf?v=1733556140"
+          }
+        },
+        "document_CCeJxw": {
+          "type": "document",
+          "settings": {
+            "title": "MATERIALITY POLICY",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/MATERIALITY_POLICY_394643b6-4e93-474d-a598-fd1ccadc3f8c.pdf?v=1733556140"
+          }
+        },
+        "document_4kV3Pb": {
+          "type": "document",
+          "settings": {
+            "title": "VIGIL MECHANISM POLICY",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/VIGIL_MECHANISM_WHISTLE_BLOWER_POLICY.pdf?v=1733556140"
+          }
+        }
+      },
+      "block_order": [
+        "document_8DEmyd",
+        "document_X99AeL",
+        "document_r7jtwJ",
+        "document_NiNcHa",
+        "document_zCiNJp",
+        "document_qJrVzL",
+        "document_87FN6w",
+        "document_bRLeEM",
+        "document_WENCh3",
+        "document_frJnCJ",
+        "document_nL6ffL",
+        "document_rxpbCN",
+        "document_dxepFn",
+        "document_yVDFhk",
+        "document_Dmi7e6",
+        "document_CCeJxw",
+        "document_4kV3Pb"
+      ],
+      "name": "corporate governance ",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "investor_left_block_7TAFbU",
+    "corporate_governance_right_WHzrwL"
+  ]
+}

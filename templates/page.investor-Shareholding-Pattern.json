@@ -1,0 +1,341 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "investor_left_block_qNUhLE": {
+      "type": "Investor-left-block",
+      "blocks": {
+        "image_block_Y7kcFQ": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g3660.svg",
+            "title": "Our Business",
+            "url": ""
+          }
+        },
+        "image_block_bYtjbw": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Vector_011e1c53-c3cc-4177-8696-dad1f349b037.svg",
+            "title": "Board of Directors",
+            "url": ""
+          }
+        },
+        "image_block_yrYzGQ": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Component_1.png",
+            "title": "Corporate Governance",
+            "url": ""
+          }
+        },
+        "image_block_nr4PzH": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g3723.png",
+            "title": "Annual reports",
+            "url": ""
+          }
+        },
+        "image_block_4t3YhJ": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group.png",
+            "title": "Earning Call  <br>Transcripts",
+            "url": ""
+          }
+        },
+        "image_block_PRKN8f": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Vector.png",
+            "title": "Quarterly <br> Financial Results",
+            "url": ""
+          }
+        },
+        "image_block_hBdgpY": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_17.png",
+            "title": "Investor Presentation",
+            "url": ""
+          }
+        },
+        "image_block_aGXPmL": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_18.png",
+            "title": "Press Releases",
+            "url": ""
+          }
+        },
+        "image_block_EfQTN7": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Vector_1.png",
+            "title": "Credit Rating",
+            "url": ""
+          }
+        },
+        "image_block_XAHLHp": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_19.png",
+            "title": "Corporate <br>Announcements",
+            "url": ""
+          }
+        },
+        "image_block_MdAxyp": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_13.png",
+            "title": "Shareholding Pattern",
+            "url": ""
+          }
+        },
+        "image_block_VgRTAx": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g786.png",
+            "title": "Shareholder Grievances",
+            "url": ""
+          }
+        },
+        "image_block_R6KGTN": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/x31_650_x2C__Employee_x2C__group_x2C__management_x2C__organization_x2C__team.png",
+            "title": "KMP Details",
+            "url": ""
+          }
+        },
+        "image_block_bJyhbP": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_14.png",
+            "title": "MOA AOA/ <br> Directors Profile",
+            "url": ""
+          }
+        },
+        "image_block_twPiDD": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g299.png",
+            "title": "Policies",
+            "url": ""
+          }
+        },
+        "image_block_MRr7Xi": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g2737.png",
+            "title": "Archivals",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_block_Y7kcFQ",
+        "image_block_bYtjbw",
+        "image_block_yrYzGQ",
+        "image_block_nr4PzH",
+        "image_block_4t3YhJ",
+        "image_block_PRKN8f",
+        "image_block_hBdgpY",
+        "image_block_aGXPmL",
+        "image_block_EfQTN7",
+        "image_block_XAHLHp",
+        "image_block_MdAxyp",
+        "image_block_VgRTAx",
+        "image_block_R6KGTN",
+        "image_block_bJyhbP",
+        "image_block_twPiDD",
+        "image_block_MRr7Xi"
+      ],
+      "disabled": true,
+      "name": "Investor Left Blocks",
+      "settings": {}
+    },
+    "investor_left_block_XUe4Y6": {
+      "type": "Investor-left-block",
+      "blocks": {
+        "image_block_JM8E3r": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g3660.svg",
+            "title": "Our Business",
+            "url": "https://gocolors.com/pages/our-business"
+          }
+        },
+        "image_block_DEndcW": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Vector_011e1c53-c3cc-4177-8696-dad1f349b037.svg",
+            "title": "Board of Directors",
+            "url": "https://gocolors.com/pages/board-of-directors"
+          }
+        },
+        "image_block_pVxp3F": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Component_1.svg",
+            "title": "Corporate Governance",
+            "url": "https://gocolors.com/pages/corporate-governance"
+          }
+        },
+        "image_block_48Je7H": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g3725.svg",
+            "title": "Annual reports",
+            "url": "https://gocolors.com/pages/annual-reports"
+          }
+        },
+        "image_block_BA6CfY": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_1.svg",
+            "title": "Earning Call  Transcripts",
+            "url": "https://gocolors.com/pages/earning-call-transcripts"
+          }
+        },
+        "image_block_VmKxQN": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Vector_1_e879eb32-0411-4431-bf21-69107ea6f385.svg",
+            "title": "Quarterly  Financial Results",
+            "url": "https://gocolors.com/pages/quarterly-financial-results"
+          }
+        },
+        "image_block_JbHhi4": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_17.svg",
+            "title": "Investor Presentation",
+            "url": "https://gocolors.com/pages/investor-presentation"
+          }
+        },
+        "image_block_4Y6mJm": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_18.svg",
+            "title": "Press Releases",
+            "url": "https://gocolors.com/pages/press-releases"
+          }
+        },
+        "image_block_D3p7RA": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Vector_2.svg",
+            "title": "Credit Rating",
+            "url": "https://gocolors.com/pages/credit-rating"
+          }
+        },
+        "image_block_ckNnRW": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_19.svg",
+            "title": "Corporate Announcements",
+            "url": "https://gocolors.com/pages/corporate-announcements"
+          }
+        },
+        "image_block_JBk7L7": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_13.svg",
+            "title": "Shareholding Pattern",
+            "url": ""
+          }
+        },
+        "image_block_MjYpd7": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g788.svg",
+            "title": "Shareholder Grievances",
+            "url": "https://gocolors.com/pages/shareholder-grievances-1"
+          }
+        },
+        "image_block_YwyBVG": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/x31_650_x2C__Employee_x2C__group_x2C__management_x2C__organization_x2C__team.svg",
+            "title": "KMP Details",
+            "url": "https://gocolors.com/pages/kmp"
+          }
+        },
+        "image_block_x8MhCM": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_14.svg",
+            "title": "MOA AOA/  Directors Profile",
+            "url": "https://gocolors.com/pages/moa-aoa"
+          }
+        },
+        "image_block_3jJXDB": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Component_1_1.svg",
+            "title": "Policies",
+            "url": "https://gocolors.com/pages/investor-policies"
+          }
+        },
+        "image_block_KPdMUE": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g2733.svg",
+            "title": "Archivals",
+            "url": "https://gocolors.com/pages/archivals"
+          }
+        }
+      },
+      "block_order": [
+        "image_block_JM8E3r",
+        "image_block_DEndcW",
+        "image_block_pVxp3F",
+        "image_block_48Je7H",
+        "image_block_BA6CfY",
+        "image_block_VmKxQN",
+        "image_block_JbHhi4",
+        "image_block_4Y6mJm",
+        "image_block_D3p7RA",
+        "image_block_ckNnRW",
+        "image_block_JBk7L7",
+        "image_block_MjYpd7",
+        "image_block_YwyBVG",
+        "image_block_x8MhCM",
+        "image_block_3jJXDB",
+        "image_block_KPdMUE"
+      ],
+      "name": "Investor Left Blocks",
+      "settings": {}
+    },
+    "corporate_governance_right_rbeAnn": {
+      "type": "corporate-governance-right",
+      "name": "corporate governance ",
+      "settings": {
+        "extra_docs": "SHAREHOLDING PATTERN Q1 FY26::\n      https://cdn.shopify.com/s/files/1/0598/8158/6848/files/SHAREHOLDING_PATTERN_Q1_FY25.pdf?v=1753178805\n        \n      ||\n      SHAREHOLDING PATTERN Q4 FY25::\n      https://cdn.shopify.com/s/files/1/0598/8158/6848/files/SHAREHOLDING_PATTERN_Q4_FY25.pdf?v=1744873104\n        \n      ||\n      SHAREHOLDING PATTERN Q3 FY25::\n      https://cdn.shopify.com/s/files/1/0598/8158/6848/files/SHAREHOLDING_PATTERN_Q3_FY24-25.pdf?v=1737118126\n        \n      ||\n      SHAREHOLDING PATTERN Q2 FY25::\n        \n      https://cdn.shopify.com/s/files/1/0598/8158/6848/files/SHAREHOLDING_PATTERN_Q2_FY24-25.pdf?v=1729505177\n      ||\n      SHAREHOLDING PATTERN Q1 FY25::\n      https://cdn.shopify.com/s/files/1/0598/8158/6848/files/SHAREHOLDING_PATTERN_Q1_FY24-25_1.pdf?v=1738385707\n        \n      ||\n      SHARE HOLDING PATTERN Q4 FY24::\n      https://cdn.shopify.com/s/files/1/0598/8158/6848/files/SHARE_HOLDING_PATTERN_Q4.pdf?v=1713351648\n        \n      ||\n      SHAREHOLDING PATTERN Q3 FY24::\n        \n      https://cdn.shopify.com/s/files/1/0598/8158/6848/files/SHAREHOLDING_PATTERN_Q3.pdf?v=1704976817\n      ||\n      SHAREHOLDING PATTERN Q2 FY24::\n        \n      https://cdn.shopify.com/s/files/1/0598/8158/6848/files/SHAREHOLDING_PATTERN_Q2.pdf?v=1697015637\n      ||\n      SHAREHOLDING PATTERN Q1 FY24::\n      https://cdn.shopify.com/s/files/1/0598/8158/6848/files/SHAREHOLDING_PATTERN_Q1.pdf?v=1689853799\n        \n      ||\n      SHAREHOLDING PATTERN Q4 FY23::\n      https://cdn.shopify.com/s/files/1/0598/8158/6848/files/SHAREHOLDING_PATTERN_Q4_FY22-23.pdf?v=1683090350\n        \n      ||\n      SHAREHOLDING PATTERN Q3 FY23::\n      https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Shareholding_Pattern_Q3_FY22-23.pdf?v=1674551344\n        \n      ||\n      SHAREHOLDING PATTERN Q2 FY23::\n      https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Shareholding_Pattern_Q2_FY22-23.html.pdf?v=1667036148\n        \n      ||\n      SHAREHOLDING PATTERN Q1 FY23::\n      https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Shareholding_Pattern_Q1_-_FY_22-23.pdf?v=1659599464\n        \n      ||\n      SHAREHOLDING PATTERN Q4 FY22::\n      https://cdn.shopify.com/s/files/1/0598/8158/6848/files/SHAREHOLDING_PATTERN_-_Q4_-_FY21-22_17a4c8ed-395d-43df-b5b1-e30f7a7cf09d.pdf?v=1651205736\n        \n      ||\n      SHAREHOLDING PATTERN Q3 FY22::\n      https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Shareholding_pattern_-_Q3_-_FY21-22.pdf?v=1648470133\n        \n      ||\n      SHAREHOLDING PATTERN Q2 FY22::\n      https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Shareholding-Pattern-Nov-2021.pdf?v=1645782942\n        \n      ||"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "investor_left_block_qNUhLE",
+    "investor_left_block_XUe4Y6",
+    "corporate_governance_right_rbeAnn"
+  ]
+}

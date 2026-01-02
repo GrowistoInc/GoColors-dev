@@ -1,0 +1,198 @@
+{%- # Kwikpass changes - [Starts] -%}
+<script>
+  function autoLoginMbl (){
+        document.getElementById('kp-account2').classList.add('kwik-pass-account2');
+        document.getElementsByClassName('kwik-pass-account2')[0].addEventListener('click', function(e){
+          handleShopifyLogin(e,"https://gocolors.com/account")
+        });
+      }
+      window.addEventListener('user-loggedin', function(event) {
+         const { token } = event?.detail;
+         if (token){
+           autoLoginMbl();
+         }
+      });
+    document.addEventListener('DOMContentLoaded',function () {
+      var userToken = localStorage.getItem('KWIKSESSIONTOKEN');
+      if (userToken){
+        autoLoginMbl();
+      }
+  })
+</script>
+{%- # Kwikpass changes - [Ends] -%}
+<style>
+.section-{{ section.id }}-padding {padding-block: {{ section.settings.padding_top_mob }}px {{ section.settings.padding_bottom_mob }}px;}.mob-icon-img { max-width: max-content;height: 100%;line-height: 0px;padding: 8px 2.4rem;}.mob-icon-img.active {background: #535353;border-radius: 19px;}.mob-icon-img.cart-icn-mob { position: relative;}.footermob-img {height: 100%;}.gs-footer-btns {display: flex;padding: 6px 3rem;justify-content: space-between;align-items: center;}.footer-button-links{border-radius: 20px 20px 0px 0px;position: fixed;bottom: 0px;width: 100%; z-index: 999;}.footer-button-links .cart-count-bubble.foot-count-bbl {top: 0px;left: 35px; width: 14px;height: 14px;color: #FFFFFF;background: #DF2E84;font-size: 10px;line-height: 10px;letter-spacing: 0px;}.footer_wish span.iwish-counter{background-color: rgb(223, 46, 132); width: 14px;height: 14px;font-size: 10px;line-height: 10px;letter-spacing: 0px;top: -4px;}
+@media(min-width:768px){ .section-{{ section.id }}-padding { padding-block: {{ section.settings.padding_top }}px {{ section.settings.padding_bottom }}px;}}  
+</style> 
+<div  class="footer-button-links section-{{ section.id }}-padding mob-visible" style="background:{{ section.settings.foot-bg-color }};">
+  <div class="gs-footer-btns">
+   {%- if section.settings.mob-icon-%}
+    <div class="mob-icon-img home-icn-mob active"> 
+      <a href="{{ section.settings.icon-link }}" role="link">   
+           {{- 'home.svg' | inline_asset_content -}}      </a>
+    </div>
+  {%- endif -%}
+    {%- if section.settings.mob-icon2 -%}
+    <div class="mob-icon-img cart-icn-mob">
+      <a href="{{ section.settings.icon-link2 }}" id="cart-footer-icon-bubble">   
+         {{- 'footer-cart.svg' | inline_asset_content -}}       
+          {%- if cart != empty -%}
+            <div class="cart-count-bubble foot-count-bbl">
+            {%- if cart.item_count < 100 -%}
+            <span aria-hidden="true" id='update-count'>{{ cart.item_count }}</span>
+            {%- endif -%}
+            <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+            </div>
+        {%- endif -%}
+        </a>     
+    </div>
+  {%- endif -%}
+    {%- render 'wishlist-app-links', linkType: 'wishlist-drawer-mob-link' -%}
+    
+    {%- if section.settings.mob-icon3 -%}
+    <div class="mob-icon-img profile-icn-mob">   
+     {%- # Kwikpass changes - [Starts] -%}
+      {%- comment -%}
+      <a href="{{ section.settings.icon-link4 }}"><img class="footermob-img" src="{{section.settings.mob-icon4 | img_url:'' }}" width="100%" height="550" alt="{{ shop.name }}" loading="lazy"> </a>
+      {%- endcomment -%}
+      <span  onclick="kpHandleLogin();" id="kp-account2">
+      <svg width="24" height="24" viewBox="0 0 27 27" fill="currantColor" xmlns="http://www.w3.org/2000/svg" id="kpicon">
+      <path d="M22.9129 12.935L13.7571 23.0474C13.5348 23.2929 13.1284 23.1084 13.1669 22.7794L14.0816 14.9731H10.6991C10.4034 14.9731 10.2484 14.6219 10.4478 14.4035L20.3133 3.59739C20.5589 3.32834 20.9984 3.58134 20.8891 3.92887L18.2354 12.3664H22.6607C22.9557 12.3664 23.1109 12.7163 22.9129 12.935Z" fill="#FEA203"/>
+      <path id="svgkp-path" fill-rule="evenodd" clip-rule="evenodd" d="M16.6079 5.35819C16.4805 5.1933 16.3421 5.03582 16.1932 4.8869C15.2702 3.96387 14.0183 3.44531 12.7129 3.44531C11.4075 3.44531 10.1556 3.96387 9.2326 4.8869C8.30957 5.80993 7.79102 7.06183 7.79102 8.36719C7.79102 9.67255 8.30957 10.9244 9.2326 11.8475C9.48368 12.0986 9.75909 12.3197 10.0533 12.5086L11.0235 11.4503C10.7335 11.2914 10.4649 11.0911 10.227 10.8531C9.56766 10.1938 9.19727 9.29959 9.19727 8.36719C9.19727 7.43479 9.56766 6.54057 10.227 5.88127C10.8863 5.22196 11.7805 4.85156 12.7129 4.85156C13.6453 4.85156 14.5395 5.22196 15.1988 5.88127C15.3636 6.04604 15.5103 6.22549 15.6377 6.41654L16.6079 5.35819ZM20.6413 18.6497L19.6746 19.7132C20.1676 20.4122 20.4473 21.2264 20.4473 22.0781V23.8359C20.4473 24.2243 20.7621 24.5391 21.1504 24.5391C21.5387 24.5391 21.8535 24.2243 21.8535 23.8359V22.0781C21.8535 20.7863 21.4016 19.6103 20.6413 18.6497ZM12.3111 17.5078H10.3026C7.27113 17.5078 4.97852 19.6394 4.97852 22.0781V23.8359C4.97852 24.2243 4.66372 24.5391 4.27539 24.5391C3.88707 24.5391 3.57227 24.2243 3.57227 23.8359V22.0781C3.57227 18.6922 6.67684 16.1016 10.3026 16.1016H12.4885L12.3111 17.5078Z" fill="#000" stroke="#000"/>
+      </svg>
+      </span>
+      {%- # Kwikpass changes - [Ends] -%}
+    </div>
+  {%- endif -%}
+    
+  </div>
+</div>    
+
+<script>
+ document.addEventListener("DOMContentLoaded", function () {
+  var cartIcon = document.querySelector(".cart-icn-mob");
+  if (cartIcon) {
+    cartIcon.addEventListener("click", function (event) {
+      event.preventDefault();
+      var cartDrawer = document.querySelector("cart-drawer");
+      if (cartDrawer) { cartDrawer.classList.add("active");}
+      document.body.classList.add("overflow-hidden");
+    });
+  }
+  var currentUrl = window.location.pathname;
+  document.querySelectorAll(".mob-icon-img").forEach(function (el) {el.classList.remove("active"); });
+  if (currentUrl === "/") {
+    var homeIcon = document.querySelector(".home-icn-mob");
+    if (homeIcon) homeIcon.classList.add("active");
+  } else if (currentUrl.startsWith("/account")) {
+    var profileIcon = document.querySelector(".profile-icn-mob");
+    if (profileIcon) profileIcon.classList.add("active");
+  } else if (currentUrl.startsWith("/cart")) {
+    var cartIcon = document.querySelector(".cart-icn-mob");
+    if (cartIcon) cartIcon.classList.add("active");
+  }
+});
+</script>
+{%- schema -%}
+  {
+    "name": "Footer buttons",
+    "enabled_on": {
+      "groups": ["footer"]
+     },
+    "settings": [
+      {
+        "type": "color",
+        "id": "foot-bg-color",
+        "label": "Background color"
+      },
+      {
+        "type": "image_picker",
+        "id": "mob-icon",
+        "label": "Home icon"
+      },
+      {
+        "type": "url",
+        "id":"icon-link",
+        "label": "Home Link"
+      },
+      {
+        "type": "image_picker",
+        "id": "mob-icon2",
+        "label": "Cart icon"
+      },
+      {
+        "type": "url",
+        "id":"icon-link2",
+        "label": "Cart Link"
+      },
+      {
+        "type": "image_picker",
+        "id": "mob-icon3",
+        "label": "Wishlist icon"
+      },
+      {
+        "type": "url",
+        "id":"icon-link3",
+        "label": "Wishlist Link"
+      },
+      {
+        "type": "image_picker",
+        "id": "mob-icon4",
+        "label": "Account icon"
+      },
+      {
+        "type": "url",
+        "id":"icon-link4",
+        "label": "Account Link"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding top",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding bottom",
+        "default": 0
+      }, 
+      {
+        "type": "range",
+        "id": "padding_top_mob",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding top Mobile",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom_mob",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding bottom Mobile",
+        "default": 0
+      }
+    ],
+    "blocks":[
+    ],
+    "presets": [
+      {
+      "name": "Footer buttons"
+      }
+    ]
+  }
+{%- endschema -%}
+

@@ -1,0 +1,284 @@
+
+{%-  assign procolors = product.metafields.Colors.Colors | split:","  -%}  
+{%-  assign palatte_solids = product.metafields.PalatteSolids.palatte_solids | split:","  -%}  
+{%-  assign palattesolids = palatte_solids[0] | split:"|"  -%}  
+{%-  assign palatte_metallic = product.metafields.PalatteMetallic.palatte_metallic | split:","  -%}  
+{%-  assign palattemetallic = palatte_metallic[0] | split:"|"  -%}  
+{%-  assign palatte_prints = product.metafields.PalattePrints.palatte_prints | split:","  -%}  
+{%-  assign palatteprints = palatte_prints[0] | split:"|"  -%}  
+{%-  assign palatte_denims = product.metafields.PalatteDenims.palatte_denims | split:","  -%}  
+{%-  assign palattedenims = palatte_denims[0] | split:"|"  -%}  
+{%-  assign palatte_cotton = product.metafields.PalatteCotton.palatte_cotton | split:","  -%}  
+{%-  assign palattecotton = palatte_cotton[0] | split:"|"  -%}  
+{%-  assign palatte_viscose = product.metafields.PalatteViscose.palatte_viscose | split:","  -%}  
+{%-  assign palatteviscose = palatte_viscose[0] | split:"|"  -%}  
+
+{%-  assign activetab = 'solids'  -%}  
+{%-  assign show_slider_solids = false  -%}  
+{%-  assign show_slider_metallic = false  -%}  
+{%-  assign show_slider_prints = false  -%}  
+{%-  assign show_slider_denims = false  -%}  
+{%-  assign show_slider_cotton = false  -%}  
+{%-  assign show_slider_viscose = false  -%}  
+
+{%-  assign solids = palatte_solids  -%}  
+{%-  assign primary_solid = ""  -%}  
+{%-  assign other_solids = ""  -%}  
+
+{%-  for solidval in solids  -%}  
+  {%-  assign solid = solidval | split:"|"  -%}  
+  {%-  if solid[1] == product.handle  -%}  
+    {%-  assign primary_solid = solidval  -%}  
+  {%-  else  -%}  
+    {%-  assign other_solids = other_solids | append: solidval | append: ","  -%}  
+  {%-  endif  -%}  
+{%-  endfor  -%}  
+
+{%-  assign other_solids = other_solids | split: ","  -%}   
+
+  {%-  for solidval in other_solids  -%}  
+   {%- if forloop.index > 13 -%}
+     {%-  assign show_slider_solids = true  -%}  
+     {%-  else  -%}  
+     {%-  assign show_slider_solids = false  -%}  
+  {%-  endif  -%}  
+{%-  endfor  -%}  
+<!-- palatte_metallic -->
+{%-  assign metallic = palatte_metallic  -%}  
+{%-  assign primary_metallic = ""  -%}  
+{%-  assign other_metallic = ""  -%}  
+{%-  for metallic_val in metallic  -%}  
+  {%-  assign solid = metallic_val | split:"|"  -%}  
+  {%-  if solid[1] == product.handle  -%}  
+    {%-  assign primary_metallic = metallic_val  -%}  
+  {%-  else  -%}  
+    {%-  assign other_metallic = other_metallic | append: metallic_val | append: ","  -%}  
+  {%-  endif  -%}  
+{%-  endfor  -%}  
+{%-  assign other_metallic = other_metallic | split: ","  -%}    
+  {%-  for metallic_val in other_metallic  -%}  
+   {%- if forloop.index > 13 -%}
+     {%-  assign show_slider_metallic = true  -%}  
+     {%-  else  -%}  
+     {%-  assign show_slider_metallic = false  -%}  
+  {%-  endif  -%}  
+{%-  endfor  -%}  
+<!-- palatte_prints  -->
+{%-  assign prints = palatte_prints  -%}  
+{%-  assign primary_prints = ""  -%}  
+{%-  assign other_prints = ""  -%}  
+{%-  for printsval in prints  -%}  
+  {%-  assign solid = printsval | split:"|"  -%}  
+  {%-  if solid[1] == product.handle  -%}  
+    {%-  assign primary_prints = printsval  -%}  
+  {%-  else  -%}  
+    {%-  assign other_prints = other_prints | append: printsval | append: ","  -%}  
+  {%-  endif  -%}  
+{%-  endfor  -%}  
+{%-  assign other_prints = other_prints | split: ","  -%}  
+   {%-  for printsval in other_prints  -%}  
+   {%- if forloop.index > 13 -%}
+     {%-  assign show_slider_prints = true  -%}  
+     {%-  else  -%}  
+     {%-  assign show_slider_prints = false  -%}  
+  {%-  endif  -%}  
+{%-  endfor  -%}  
+<!-- palatte_denims  -->
+  {%-  assign denims = palatte_denims  -%}  
+  {%-  assign primary_denims = ""  -%}  
+  {%-  assign other_denims = ""  -%}  
+  {%-  for denimsval in denims  -%}  
+    {%-  assign solid = denimsval | split:"|"  -%}  
+    {%-  if solid[1] == product.handle  -%}  
+      {%-  assign primary_denims = denimsval  -%}  
+    {%-  else  -%}  
+      {%-  assign other_denims = other_denims | append: denimsval | append: ","  -%}  
+    {%-  endif  -%}  
+  {%-  endfor  -%}  
+  {%-  assign other_denims = other_denims | split: ","  -%}  
+  {%-  for denimsval in other_denims  -%}  
+   {%- if forloop.index > 13 -%}
+     {%-  assign show_slider_denims = true  -%}  
+     {%-  else  -%}  
+     {%-  assign show_slider_denims = false  -%}  
+    {%-  endif  -%}  
+  {%-  endfor  -%}  
+<!-- palatte_cotton -->
+{%-  assign cotton = palatte_cotton  -%}  
+{%-  assign primary_cotton = ""  -%}  
+{%-  assign other_cotton = ""  -%}  
+{%-  for cottonval in cotton  -%}  
+  {%-  assign solid = cottonval | split:"|"  -%}  
+  {%-  if solid[1] == product.handle  -%}  
+    {%-  assign primary_cotton = cottonval  -%}  
+  {%-  else  -%}  
+    {%-  assign other_cotton = other_cotton | append: cottonval | append: ","  -%}  
+  {%-  endif  -%}  
+{%-  endfor  -%}  
+{%-  assign other_cotton = other_cotton | split: ","  -%}  
+  {%-  for cottonval in other_cotton  -%}  
+   {%- if forloop.index > 13 -%}
+     {%-  assign show_slider_cotton = true  -%}  
+     {%-  else  -%}  
+     {%-  assign show_slider_cotton = false  -%}  
+    {%-  endif  -%}  
+  {%-  endfor  -%}  
+<!-- palatte_viscose -->
+{%-  assign viscose = palatte_viscose  -%}  
+  {%-  assign primary_viscose = ""  -%}  
+  {%-  assign other_viscose = ""  -%}  
+  {%-  for viscoseval in viscose  -%}  
+  {%-  assign solid = viscoseval | split:"|"  -%}  
+  {%-  if solid[1] == product.handle  -%}  
+    {%-  assign primary_viscose = viscoseval  -%}  
+  {%-  else  -%}  
+    {%-  assign other_viscose = other_viscose | append: viscoseval | append: ","  -%}  
+  {%-  endif  -%}  
+  {%-  endfor  -%}  
+{%-  assign other_viscose = other_viscose | split: ","  -%}   
+{%-  for viscose in other_viscose  -%}  
+   {%- if forloop.index > 13 -%}
+     {%-  assign show_slider_viscose = true  -%}  
+     {%-  else  -%}  
+     {%-  assign show_slider_viscose = false  -%}  
+    {%-  endif  -%}  
+{%-  endfor  -%}    
+ 
+
+{%-  if procolors != blank or palatte_solids != blank or  palatte_metallic != blank or palatte_prints!= blank or palatte_denims != blank or palatte_cotton != blank or palatte_viscose != blank  -%}  
+<div class="product-detail__form" id="palatte">
+<div class="palatte_heading">
+      <h4>Select Color</h4>  
+  {%-  if show_slider_solids == true or show_slider_metallic == true or  show_slider_cotton == true 
+        or show_slider_denims == true or show_slider_prints == true or show_slider_viscose == true  -%}   
+      <div class='palatte_btn'>
+        <div class="swiper-button-prev swiper-prev-trial">&nbsp;</div>
+        <div class="swiper-button-next swiper-next-trial">&nbsp;</div>
+        
+      </div>{%-  endif  -%}  
+    </div>
+
+   
+ 
+    <div class="
+      {%-  if show_slider_solids == true or show_slider_metallic == true or  show_slider_cotton == true 
+        or show_slider_denims == true or show_slider_prints == true or show_slider_viscose == true  -%}   
+        swiper palatte-slider-main 
+        {%-  else  -%}   palatte-Nolider-main {%-  endif  -%}  " 
+      {{ show_slider_solids  }}>
+      {%-  if show_slider_solids == true or show_slider_metallic == true or  show_slider_cotton == true 
+        or show_slider_denims == true or show_slider_prints == true or show_slider_viscose == true  -%}  
+        <div class="swiper-wrapper">{%-  endif  -%}  
+         <!-- palatte_solids -->
+        {%-  if primary_solid != ""  -%}  
+          {%-  assign solid = primary_solid | split:"|"  -%}  
+          <a data-lenght-solidss="{{ solids.size }}" class="swiper-slide solids active_palatte swiper-slide-active" href="/products/{{ solid[1] }}">
+           <p class="palattl-img-wrapper" >  <img  width="46" height="46" src="https://cdn.shopify.com/s/files/1/0598/8158/6848/files/{{ solid[0] | replace: ' ', '_' }}.jpg" alt="" />
+            </p>
+              {%-  assign solidunder = solid[0] | split:"_"  -%}  
+            <span>{{ solidunder[0] }}</span>
+          </a>
+        {%-  endif  -%}  
+        {%-  for solidval in other_solids  -%}  
+          {%-  assign solid = solidval | split:"|"  -%}  
+          <a data-lenght-solidss="{{ solids.size }}" class="swiper-slide solids" href="/products/{{ solid[1] }}">
+            <p class="palattl-img-wrapper" > <img  width="46" height="46" src="https://cdn.shopify.com/s/files/1/0598/8158/6848/files/{{ solid[0] | replace: ' ', '_' }}.jpg" alt="" />
+             </p>{%-  assign solidunder = solid[0] | split:"_"  -%}  
+            <span>{{ solidunder[0] }}</span>
+          </a>
+        {%-  endfor  -%}  
+       <!-- palatte_metallic -->
+        {%-  if primary_metallic != ""  -%}  
+          {%-  assign solid = primary_metallic | split:"|"  -%}  
+          <a data-lenght-metallics="{{ metallic.size }}" class="swiper-slide metallic active_palatte swiper-slide-active" href="/products/{{ solid[1] }}">
+           <p class="palattl-img-wrapper" > <img  width="46" height="46" src="https://cdn.shopify.com/s/files/1/0598/8158/6848/files/{{ solid[0] | replace: ' ', '_' }}.jpg" alt="" />
+            </p> {%-  assign solidunder = solid[0] | split:"_"  -%}  
+            <span>{{ solidunder[0] }}</span>
+          </a>
+        {%-  endif  -%}  
+        {%-  for metallic_val in other_metallic  -%}  
+          {%-  assign solid = metallic_val | split:"|"  -%}  
+          <a data-lenght-metallics="{{ metallic.size }}" class="swiper-slide metallic" href="/products/{{ solid[1] }}">
+           <p class="palattl-img-wrapper" > <img  width="46" height="46" src="https://cdn.shopify.com/s/files/1/0598/8158/6848/files/{{ solid[0] | replace: ' ', '_' }}.jpg" alt="" />
+             </p>{%-  assign solidunder = solid[0] | split:"_"  -%}  
+            <span>{{ solidunder[0] }}</span>
+          </a>
+        {%-  endfor  -%}  
+         <!-- palatte_prints  -->
+        {%-  if primary_prints != ""  -%}  
+          {%-  assign solid = primary_prints | split:"|"  -%}  
+          <a data-lenght-printss="{{ prints.size }}" class="swiper-slide prints active_palatte swiper-slide-active" href="/products/{{ solid[1] }}">
+          <p class="palattl-img-wrapper" >  <img  width="46" height="46" src="https://cdn.shopify.com/s/files/1/0598/8158/6848/files/{{ solid[0] | replace: ' ', '_' }}.jpg" alt="" />
+            </p> {%-  assign solidunder = solid[0] | split:"_"  -%}  
+            <span>{{ solidunder[0] }}</span>
+          </a>
+        {%-  endif  -%}  
+        {%-  for printsval in other_prints  -%}  
+          {%-  assign solid = printsval | split:"|"  -%}  
+          <a data-lenght-printss="{{ prints.size }}" class="swiper-slide prints" href="/products/{{ solid[1] }}">
+          <p class="palattl-img-wrapper" >  <img  width="46" height="46" src="https://cdn.shopify.com/s/files/1/0598/8158/6848/files/{{ solid[0] | replace: ' ', '_' }}.jpg" alt="" />
+            </p> {%-  assign solidunder = solid[0] | split:"_"  -%}  
+            <span>{{ solidunder[0] }}</span>
+          </a>
+        {%-  endfor  -%}  
+         <!-- palatte_denims  -->
+        {%-  if primary_denims != ""  -%}  
+          {%-  assign solid = primary_denims | split:"|"  -%}  
+          <a data-lenght-denimss="{{ denims.size }}" class="swiper-slide denims active_palatte swiper-slide-active" href="/products/{{ solid[1] }}">
+           <p class="palattl-img-wrapper" > <img  width="46" height="46" src="https://cdn.shopify.com/s/files/1/0598/8158/6848/files/{{ solid[0] | replace: ' ', '_' }}.jpg" alt="" />
+             </p>{%-  assign solidunder = solid[0] | split:"_"  -%}  
+            <span>{{ solidunder[0] }}</span>
+          </a>
+        {%-  endif  -%}  
+        {%-  for denimsval in other_denims  -%}  
+          {%-  assign solid = denimsval | split:"|"  -%}  
+          <a data-lenght-denimss="{{ denims.size }}" class="swiper-slide denims" href="/products/{{ solid[1] }}">
+           <p class="palattl-img-wrapper" > <img  width="46" height="46" src="https://cdn.shopify.com/s/files/1/0598/8158/6848/files/{{ solid[0] | replace: ' ', '_' }}.jpg" alt="" />
+             </p>{%-  assign solidunder = solid[0] | split:"_"  -%}  
+            <span>{{ solidunder[0] }}</span>
+          </a>
+        {%-  endfor  -%}  
+         <!-- palatte_cotton -->
+        {%-  if primary_cotton != ""  -%}  
+          {%-  assign solid = primary_cotton | split:"|"  -%}  
+          <a data-lenght-cottons="{{ cotton.size }}" class="swiper-slide cotton active_palatte swiper-slide-active" href="/products/{{ solid[1] }}">
+           <p class="palattl-img-wrapper" > <img  width="46" height="46" src="https://cdn.shopify.com/s/files/1/0598/8158/6848/files/{{ solid[0] | replace: ' ', '_' }}.jpg" alt="" />
+             </p>{%-  assign solidunder = solid[0] | split:"_"  -%}  
+            <span>{{ solidunder[0] }}</span>
+          </a>
+        {%-  endif  -%}  
+        {%-  for cottonval in other_cotton  -%}  
+          {%-  assign solid = cottonval | split:"|"  -%}  
+          <a data-lenght-cottons="{{ cotton.size }}" class="swiper-slide cotton" href="/products/{{ solid[1] }}">
+           <p class="palattl-img-wrapper" > <img  width="46" height="46" src="https://cdn.shopify.com/s/files/1/0598/8158/6848/files/{{ solid[0] | replace: ' ', '_' }}.jpg" alt="" />
+            </p> {%-  assign solidunder = solid[0] | split:"_"  -%}  
+            <span>{{ solidunder[0] }}</span>
+          </a>
+        {%-  endfor  -%}  
+         <!-- palatte_viscose -->
+        {%-  if primary_viscose != ""  -%}  
+          {%-  assign solid = primary_viscose | split:"|"  -%}  
+          <a data-lenght-viscoses="{{ viscose.size }}" class="swiper-slide viscose active_palatte swiper-slide-active" href="/products/{{ solid[1] }}">
+           <p class="palattl-img-wrapper" > <img  width="46" height="46" src="https://cdn.shopify.com/s/files/1/0598/8158/6848/files/{{ solid[0] | replace: ' ', '_' }}.jpg" alt="" />
+             </p>{%-  assign solidunder = solid[0] | split:"_"  -%}  
+            <span>{{ solidunder[0] }}</span>
+          </a>
+        {%-  endif  -%}  
+        {%-  for viscoseval in other_viscose  -%}  
+          {%-  assign solid = viscoseval | split:"|"  -%}  
+          <a data-lenght-viscoses="{{ viscose.size }}" class="swiper-slide viscose" href="/products/{{ solid[1] }}">
+           <p class="palattl-img-wrapper" > <img  width="46" height="46" src="https://cdn.shopify.com/s/files/1/0598/8158/6848/files/{{ solid[0] | replace: ' ', '_' }}.jpg" alt="" />
+           </p>{%-  assign solidunder = solid[0] | split:"_"  -%}  
+            <span>{{ solidunder[0] }}</span>
+          </a>
+        {%-  endfor  -%}  
+      
+     {%-  if show_slider_solids == true or show_slider_metallic == true or  show_slider_cotton == true 
+        or show_slider_denims == true or show_slider_prints == true or show_slider_viscose == true  -%}   </div>{%-  endif  -%}  
+    </div>
+ 
+</div>
+{%-  endif  -%}  
+<script>
+var activetab = "{{activetab}}";
+</script>  

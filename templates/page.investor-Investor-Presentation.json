@@ -1,0 +1,323 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "investor_left_block_EmAYxY": {
+      "type": "Investor-left-block",
+      "blocks": {
+        "image_block_ctexGK": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g3660.svg",
+            "title": "Our Business",
+            "url": "https://gocolors.com/pages/our-business"
+          }
+        },
+        "image_block_jjWY8g": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Vector_011e1c53-c3cc-4177-8696-dad1f349b037.svg",
+            "title": "Board of Directors",
+            "url": "https://gocolors.com/pages/board-of-directors"
+          }
+        },
+        "image_block_E3apgc": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Component_1.svg",
+            "title": "Corporate Governance",
+            "url": "https://gocolors.com/pages/corporate-governance"
+          }
+        },
+        "image_block_qdHTPG": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g3725.svg",
+            "title": "Annual reports",
+            "url": "https://gocolors.com/pages/annual-reports"
+          }
+        },
+        "image_block_QQ6zNG": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_1.svg",
+            "title": "Earning Call  Transcripts",
+            "url": "https://gocolors.com/pages/earning-call-transcripts"
+          }
+        },
+        "image_block_Ubwarf": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Vector_1_e879eb32-0411-4431-bf21-69107ea6f385.svg",
+            "title": "Quarterly  Financial Results",
+            "url": "https://gocolors.com/pages/quarterly-financial-results"
+          }
+        },
+        "image_block_hM6BRY": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_17.svg",
+            "title": "Investor Presentation",
+            "url": ""
+          }
+        },
+        "image_block_XnFFPV": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_18.svg",
+            "title": "Press Releases",
+            "url": "https://gocolors.com/pages/press-releases"
+          }
+        },
+        "image_block_R9zNpR": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Vector_2.svg",
+            "title": "Credit Rating",
+            "url": "https://gocolors.com/pages/credit-rating"
+          }
+        },
+        "image_block_YKKtdd": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_19.svg",
+            "title": "Corporate Announcements",
+            "url": "https://gocolors.com/pages/corporate-announcements"
+          }
+        },
+        "image_block_LEdA7B": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_13.svg",
+            "title": "Shareholding Pattern",
+            "url": "https://gocolors.com/pages/shareholding-pattern"
+          }
+        },
+        "image_block_kfxTWy": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g788.svg",
+            "title": "Shareholder Grievances",
+            "url": "https://gocolors.com/pages/shareholder-grievances-1"
+          }
+        },
+        "image_block_FMBjDn": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/x31_650_x2C__Employee_x2C__group_x2C__management_x2C__organization_x2C__team.svg",
+            "title": "KMP Details",
+            "url": "https://gocolors.com/pages/kmp"
+          }
+        },
+        "image_block_gX4EAM": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_14.svg",
+            "title": "MOA AOA/  Directors Profile",
+            "url": "https://gocolors.com/pages/moa-aoa"
+          }
+        },
+        "image_block_BE93Qh": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Component_1_1.svg",
+            "title": "Policies",
+            "url": "https://gocolors.com/pages/investor-policies"
+          }
+        },
+        "image_block_kqEhmh": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g2733.svg",
+            "title": "Archivals",
+            "url": "https://gocolors.com/pages/archivals"
+          }
+        }
+      },
+      "block_order": [
+        "image_block_ctexGK",
+        "image_block_jjWY8g",
+        "image_block_E3apgc",
+        "image_block_qdHTPG",
+        "image_block_QQ6zNG",
+        "image_block_Ubwarf",
+        "image_block_hM6BRY",
+        "image_block_XnFFPV",
+        "image_block_R9zNpR",
+        "image_block_YKKtdd",
+        "image_block_LEdA7B",
+        "image_block_kfxTWy",
+        "image_block_FMBjDn",
+        "image_block_gX4EAM",
+        "image_block_BE93Qh",
+        "image_block_kqEhmh"
+      ],
+      "name": "Investor Left Blocks",
+      "settings": {}
+    },
+    "corporate_governance_right_prDE6E": {
+      "type": "corporate-governance-right",
+      "blocks": {
+        "document_AMkYRg": {
+          "type": "document",
+          "name": "Q1",
+          "settings": {
+            "title": "INVESTOR PRESENTATION Q1 FY26",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INVESTOR_PRESENTATION_Q1_FY26.pdf?v=1754040682"
+          }
+        },
+        "document_4qFA7B": {
+          "type": "document",
+          "name": "Q4",
+          "settings": {
+            "title": "INVESTOR PRESENTATION Q4 FY25",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INVESTOR_PRESENTATION_Q4_FY25.pdf?v=1746002186"
+          }
+        },
+        "document_wx4yeR": {
+          "type": "document",
+          "name": "Q3",
+          "settings": {
+            "title": "INVESTOR PRESENTATION Q3 FY25",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INVESTOR_PRESENTATION_Q3_FY_24-25.pdf?v=1737796797"
+          }
+        },
+        "document_XyYTmq": {
+          "type": "document",
+          "name": "Q2",
+          "settings": {
+            "title": "INVESTOR PRESENTATION Q2 FY25",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INVESTOR_PRESENTATION_Q2_FY_24-25.pdf?v=1729846522"
+          }
+        },
+        "document_M7aGbw": {
+          "type": "document",
+          "name": "Q1",
+          "settings": {
+            "title": "INVESTOR PRESENTATION Q1 FY25",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INVESTOR_PRESENTATION_Q1_FY_24-25.pdf?v=1721805493"
+          }
+        },
+        "document_hCGcd3": {
+          "type": "document",
+          "name": "Q4 ",
+          "settings": {
+            "title": "INVESTOR PRESENTATION Q4 FY24",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INVESTOR_PRESENTATION_Q4_FY23-24.pdf?v=1714727179"
+          }
+        },
+        "document_gX4qFa": {
+          "type": "document",
+          "name": "Q3",
+          "settings": {
+            "title": "INVESTOR PRESENTATION Q3 FY24",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INVESTOR_PRESENTATION_Q3_FY23-24.pdf?v=1707209520"
+          }
+        },
+        "document_BaaUR6": {
+          "type": "document",
+          "name": "Q2",
+          "settings": {
+            "title": "INVESTOR PRESENTATION Q2 FY24",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INVESTOR_PRESENTATION_Q2_FY23-24.pdf?v=1698740176"
+          }
+        },
+        "document_yakALJ": {
+          "type": "document",
+          "name": "Q1 ",
+          "settings": {
+            "title": "INVESTOR PRESENTATION Q1 FY24",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INVESTOR_PRESENTATION_Q1_FY23-24.pdf?v=1690795144"
+          }
+        },
+        "document_kbaHmC": {
+          "type": "document",
+          "name": "Q4",
+          "settings": {
+            "title": "INVESTOR PRESENTATION Q4 FY23",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INVESTOR_PRESENTATION_Q4_FY22-23.pdf?v=1683285689"
+          }
+        },
+        "document_RnHUEp": {
+          "type": "document",
+          "name": "Q3",
+          "settings": {
+            "title": "INVESTOR PRESENTATION Q3 FY23",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Investor_Presentation_Q3_FY23.pdf?v=1674652123"
+          }
+        },
+        "document_MxeTJY": {
+          "type": "document",
+          "name": "Q2 ",
+          "settings": {
+            "title": "INVESTOR PRESENTATION Q2 FY23",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Investor_Presentation_Q2_FY22-23.pdf?v=1667555872"
+          }
+        },
+        "document_ReWAn3": {
+          "type": "document",
+          "name": "Q1 ",
+          "settings": {
+            "title": "INVESTOR PRESENTATION Q1 FY23",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/GFL_-_Investor_Presentation_-_Q1_-_FY_23.pdf?v=1660133136"
+          }
+        },
+        "document_iqT7pV": {
+          "type": "document",
+          "name": "Q4 ",
+          "settings": {
+            "title": "INVESTOR PRESENTATION Q4 FY22",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Investor_Presentation_Q4_FY22.pdf?v=1651926860"
+          }
+        },
+        "document_gKK7Xa": {
+          "type": "document",
+          "name": "Q3 ",
+          "settings": {
+            "title": "INVESTOR PRESENTATION Q3 FY22",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Investor_Presentation_Q3-FY22.pdf?v=1645782778"
+          }
+        }
+      },
+      "block_order": [
+        "document_AMkYRg",
+        "document_4qFA7B",
+        "document_wx4yeR",
+        "document_XyYTmq",
+        "document_M7aGbw",
+        "document_hCGcd3",
+        "document_gX4qFa",
+        "document_BaaUR6",
+        "document_yakALJ",
+        "document_kbaHmC",
+        "document_RnHUEp",
+        "document_MxeTJY",
+        "document_ReWAn3",
+        "document_iqT7pV",
+        "document_gKK7Xa"
+      ],
+      "name": "corporate governance ",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "investor_left_block_EmAYxY",
+    "corporate_governance_right_prDE6E"
+  ]
+}

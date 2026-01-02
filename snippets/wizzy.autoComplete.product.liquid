@@ -1,0 +1,75 @@
+<script type='text/template' id='wizzy-autocomplete-topproducts' wizzy-override>
+    <div class="wizzy-autocomplete-top-products">
+        <p class="top-products-title">[[topProductsTitle]]</p>
+        <ul class="autocomplete-top-products">
+            [[#products]]
+
+            <li class="topproduct-item" title="[[& name ]]" data-id="[[id]]"
+                data-groupId="[[#groupId]][[groupId]][[/groupId]][[#singleVarientGroupId]][[singleVarientGroupId]][[/singleVarientGroupId]]">
+            <a href="[[&url]]" class="topproduct-item-link">
+                <div class="topproduct-item-image">
+                    <img src="[[ mainImage ]]" class="topproduct-image" loading="lazy" />
+                </div><!-- ending of topproduct-item-image -->
+                <div class="topproduct-item-image hover-image">
+                    [[#hoverImage]]
+                    <img src="[[ hoverImage ]]" class="topproduct-image" loading="lazy" />
+                    [[/hoverImage]]
+                    [[^hoverImage]]
+                    <img src="[[ mainImage ]]" class="topproduct-image" loading="lazy" />
+                    [[/hoverImage]]
+                </div><!-- ending of topproduct-item-image -->
+                <div class="topproduct-item-info">
+                    <p class="topproduct-title">[[& name ]]</p>
+                    [[#hasCategories]]
+                    <p class="topproduct-in-category">in [[&category]]</p>
+                    [[/hasCategories]]
+                    <p class="topproduct-price">
+                        [[#priceWithCurrency]]&nbsp;[[ sellingPrice ]][[/priceWithCurrency]]&nbsp;
+                        [[#price]]
+                        [[#discountPercentage]]
+                        <span class="topproduct-original-price">
+                            [[#priceWithCurrency]][[ price ]][[/priceWithCurrency]]
+                        </span>
+                         [[/discountPercentage]]
+                        [[/price]]
+                        
+                        <br>
+                     [[#discountPercentage]]
+                        <span class="topproduct-item-discount">
+                          
+                          
+                               [[discountPercentage]]% off
+                           
+                        </span>
+                    [[/discountPercentage]]
+                    </p>
+                    <div class="wizzy-product-item-reviews">
+              [[#avgRatings]]
+              <span class="product-item-reviews-avgRatings">[[avgRatings]]</span
+              ><span
+                class="product-item-review-wrapper"
+                >&#x2605;</span
+              >[[#totalReviews]]<span
+                class="product-item-reviews-totalReviews"
+                >([[totalReviews]])</span
+              >[[/ totalReviews]] [[/avgRatings]]
+              [[#numberOfReviews]]
+                  [[#reviewData]] [[ & reviewData]] [[/reviewData]] 
+                  <span class="jdgm-prev-badge__text-wizzy">[[#jdgmReviewData]] [[jdgmReviewData]] [[/jdgmReviewData]] | ([[numberOfReviews]])</span>
+              [[/numberOfReviews]]
+            </div>
+                </div><!-- ending of topproduct-item-info -->
+            </a><!-- ending of topproduct-item-link -->
+            </li><!-- ending of topproduct-item -->
+
+            [[/products]]
+        </ul><!-- ending of autocomplete-top-products -->
+        [[^isForDefault]]
+        <div class="autocomplete-top-products-view-more">
+            <button type="button" class="btn btn--small wizzy-autocomplete-top-products-view-more">
+                View all 
+            </button>
+        </div>
+        [[/isForDefault]]
+    </div><!-- ending of top-products -->
+</script>

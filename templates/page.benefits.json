@@ -1,0 +1,139 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "page_redirect_content_6dcpHH": {
+      "type": "page-redirect-content",
+      "blocks": {
+        "text_96Jw8t": {
+          "type": "text",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "text_96Jw8t"
+      ],
+      "disabled": true,
+      "settings": {
+        "menu": "page-redirect",
+        "padding_top": 40,
+        "padding_bottom": 52,
+        "padding-top-mob": 40,
+        "padding-bottom-mob": 40
+      }
+    },
+    "dropdown_content_section_jAie7L": {
+      "type": "dropdown-content-section",
+      "blocks": {
+        "content_block_KdkFVb": {
+          "type": "content_block",
+          "settings": {
+            "label": "March 2025",
+            "description": "<p>Welcome to the Go Rewards program! By participating in our rewards program, you agree to the following terms and conditions:<br/></p><h2><strong>Exclusive Offer</strong></h2><ul><li>The gift voucher worth ₹200 will be applicable on a minimum purchase of ₹1500 and is valid only on new styles.</li><li>The voucher is valid from March 15, 2025 till June 7, 2025.</li><li>The voucher can be redeemed only once.</li><li>The voucher is applicable only against the phone number given at the time of purchase.</li><li>The voucher does not apply to discounted products.</li><li>The voucher is applicable only on www.gocolors.com</li><li>The voucher is non-transferable & cannot be exchanged for cash.</li><li>The voucher once expired, will not be re-issued.</li></ul><h2><strong>Birthday Offer</strong></h2><ul><li>The gift voucher worth ₹200 will be applicable on a minimum purchase of ₹800.</li><li>The voucher is only available to customers with birthdays in March.</li><li>The voucher is valid till March 31, 2025.</li><li>The voucher can be redeemed only once.</li><li>The voucher is applicable only against the phone number given at the time of purchase.</li><li>The voucher does not apply to discounted products.</li><li>The voucher is applicable in all stores and online except exhibition stores.</li><li>The voucher is non-transferable & cannot be exchanged for cash.</li><li>The voucher once expired, will not be re-issued.</li></ul><h2><strong>Brand Partner Offer With Naturals</strong></h2><p>₹5000 off on a full-length keratin treatment worth ₹9000</p><ul><li>The voucher is worth ₹5000 discount on a Full-Length Keratin Treatment worth ₹9000.</li><li>A prior appointment is mandatory. The voucher is valid till June 30, 2025.</li><li>The voucher cannot be exchanged for cash.</li><li>The voucher can only be redeemed once.</li><li>The voucher cannot be redeemed in conjunction with any other offer.</li><li>The voucher is applicable only in Exclusive Naturals outlets. Find the salon nearest you <a href=\"https://naturals.in/SALON_LOCATOR/\" target=\"_blank\"><span style=\"text-decoration:underline\">here</span></a>.</li></ul><p>ONE + ONE offer on SKIN GOALS Facial services</p><ul><li>Enjoy any facial service above ₹1,999 and get another facial FREE!<br/></li><li>A prior appointment is mandatory. The voucher is valid till June 30, 2025.</li><li>The voucher cannot be exchanged for cash.</li><li>The voucher can only be redeemed once.</li><li>The voucher cannot be redeemed in conjunction with any other offer.</li><li>The voucher is applicable only in Exclusive Naturals outlets. Find the salon nearest you <a href=\"https://naturals.in/SALON_LOCATOR/\" target=\"_blank\"><span style=\"text-decoration:underline\">here</span></a>.</li></ul>"
+          }
+        },
+        "content_block_Ax8pnz": {
+          "type": "content_block",
+          "settings": {
+            "label": "April 2025",
+            "description": "<p>Welcome to the Go Rewards program! By participating in our rewards program, you agree to the following terms and conditions:<br/></p><h2><strong>Exclusive Offer</strong></h2><ul><li>The gift voucher worth ₹200 will be applicable on a minimum purchase of ₹1500 and is valid only on new styles.</li><li>The voucher is valid till June 30, 2025.</li><li>The voucher can be redeemed only once.</li><li>The voucher is applicable only against the phone number given at the time of purchase.</li><li>The voucher does not apply to discounted products.</li><li>The voucher is applicable in all stores & website except exhibition stores.</li><li>The voucher is non-transferable & cannot be exchanged for cash.</li><li>The voucher once expired, will not be re-issued.</li></ul><h2><strong>Birthday Offer</strong></h2><ul><li>The gift voucher worth ₹200 will be applicable on a minimum purchase of ₹800.</li><li>The voucher is only available to customers with birthdays in April.</li><li>The voucher is valid till April 30th, 2025.</li><li>The voucher can be redeemed only once.</li><li>The voucher is applicable only against the phone number given at the time of purchase.</li><li>The voucher does not apply to discounted products.</li><li>The voucher is applicable in all stores & website except exhibition stores.</li><li>The voucher is non-transferable & cannot be exchanged for cash.</li><li>The voucher once expired, will not be re-issued.</li></ul><h2><strong>Brand Partner Offer With Health & Glow</strong></h2><ul><li>This voucher is valid only for health & glow registered customers and only valid across health & glow stores.</li><li>Find the nearest health & glow store <a href=\"https://stores.healthandglow.com/ \" target=\"_blank\" title=\"https://stores.healthandglow.com/ \"><span style=\"text-decoration:underline\">here</span>.</a></li><li>Each voucher entitles the holder to receive 15% off on minimum shopping of Rs.999/- and above and max discount of Rs.350/-</li><li>Voucher can be redeemed only in full and no carry forward for future transactions.</li><li>This voucher is valid till 31st May 2025.</li><li>Voucher and its associated discount are non-transferable and cannot be sold or exchanged for cash.</li><li>Only one voucher can be redeemed per transaction and only once per customer.</li><li>health & glow is not responsible for lost, stolen, or damaged vouchers. No replacements will be issued.</li><li>health & glow reserves the right to modify or cancel the voucher program at any time without prior notice.</li><li>By using this voucher, the customer agrees to abide by these terms and conditions and any additional terms that may apply.</li><li>These terms and conditions shall be governed by and construed in accordance with the laws of Bangalore jurisdiction only.</li><li>For any inquiries related to the voucher, please contact / visit your nearby health & glow store.</li></ul>"
+          }
+        },
+        "content_block_Jw7tCw": {
+          "type": "content_block",
+          "settings": {
+            "label": "May 2025",
+            "description": "<p>Welcome to the Go Rewards program! By participating in our rewards program, you agree to the following terms and conditions:<br/></p><h2><strong>Birthday Offer</strong></h2><ul><li>The gift voucher worth ₹200 will be applicable on a minimum purchase of ₹800.</li><li>The voucher is only available to customers with birthdays in May.</li><li>The voucher is valid till May 31, 2025.</li><li>The voucher can be redeemed only once.</li><li>The voucher is applicable only against the phone number given at the time of purchase.</li><li>The voucher does not apply to discounted products.</li><li>The voucher is applicable in all stores & website except exhibition stores.</li><li>The voucher is non-transferable & cannot be exchanged for cash.</li><li>The voucher once expired, will not be re-issued.</li></ul><p></p><h2><strong>Exclusive Offer</strong></h2><ul><li>The gift voucher worth ₹200 will be applicable on a minimum purchase of ₹1500 and is valid only on summer shorts</li><li>The voucher is valid till June 30, 2025.</li><li>The voucher can be redeemed only once.</li><li>The voucher is applicable only against the phone number given at the time of purchase.</li><li>The voucher does not apply to discounted products.</li><li>The voucher is applicable in all stores & website except exhibition stores.</li><li>The voucher is non-transferable & cannot be exchanged for cash.</li><li>The voucher once expired, will not be re-issued.</li></ul>"
+          }
+        },
+        "content_block_VJCzdb": {
+          "type": "content_block",
+          "settings": {
+            "label": "June 2025",
+            "description": "<p><strong>Birthday Offer</strong></p><ol><li>The gift voucher worth ₹500 will be applicable on a minimum purchase of ₹1000.</li><li>The voucher is only available to customers with birthdays in June.</li><li>The voucher is valid till June 30, 2025.</li><li>The voucher can be redeemed only once.</li><li>The voucher is applicable only against the phone number given at the time of purchase.</li><li>The voucher does not apply to discounted products.</li><li>The voucher is applicable in all stores except exhibition stores.</li><li>The voucher is non-transferable & cannot be exchanged for cash.</li><li>The voucher once expired, will not be re-issued.</li></ol><p><strong>Exclusive Offer</strong></p><ol><li>The gift voucher worth ₹200 will be applicable on a minimum purchase of ₹2000.</li><li>The voucher is valid till June 30, 2025.</li><li>The voucher can be redeemed only once.</li><li>The voucher is applicable only against the phone number given at the time of purchase.</li><li>The voucher does not apply to discounted products.</li><li>The voucher is applicable in all stores except exhibition stores.</li><li>The voucher is non-transferable & cannot be exchanged for cash.</li><li>The voucher once expired, will not be re-issued.</li></ol>"
+          }
+        },
+        "content_block_JXPyjt": {
+          "type": "content_block",
+          "settings": {
+            "label": "July 2025",
+            "description": "<p><strong>Birthday Offer</strong></p><ol><li>The gift voucher worth ₹200 will be applicable on a minimum purchase of ₹799.</li><li>The voucher is only available to customers with birthdays in July.</li><li>The voucher is valid till July 31st, 2025.</li><li>The voucher can be redeemed only once.</li><li>The voucher is applicable only against the phone number given at the time of purchase.</li><li>The voucher does not apply to discounted products.</li><li>The voucher is applicable in all stores except exhibition stores.</li><li>The voucher is non-transferable & cannot be exchanged for cash.</li><li>The voucher once expired, will not be re-issued.</li></ol><p><strong>Exclusive Offer</strong></p><ol><li>The gift voucher worth ₹200 will be applicable on a minimum purchase of ₹2000.</li><li>The voucher is valid till July 31st, 2025.</li><li>The voucher can be redeemed only once.</li><li>The voucher is applicable only against the phone number given at the time of purchase.</li><li>The voucher does not apply to discounted products.</li><li>The voucher is applicable in all stores except exhibition stores.</li><li>The voucher is non-transferable & cannot be exchanged for cash.</li><li>The voucher once expired, will not be re-issued.</li><li>The voucher<strong> does not apply to EOSS articles.</strong></li></ol>"
+          }
+        },
+        "content_block_TTWWFz": {
+          "type": "content_block",
+          "settings": {
+            "label": "August 2025",
+            "description": "<p><strong>Birthday Offer</strong></p><ol><li>The gift voucher worth ₹500 will be applicable on a minimum purchase of ₹1000.</li><li>The voucher is only available to customers with birthdays in Aug.</li><li>The voucher is valid till Aug 31st, 2025.</li><li>The voucher can be redeemed only once.</li><li>The voucher is applicable only against the phone number given at the time of purchase.</li><li>The voucher does not apply to discounted products.</li><li>The voucher is applicable in all stores except exhibition stores.</li><li>The voucher is non-transferable & cannot be exchanged for cash.</li><li>The voucher once expired, will not be re-issued.</li></ol><p><strong>Exclusive Offer</strong></p><ol><li>The gift voucher worth ₹200 will be applicable on a minimum purchase of ₹2000.</li><li>The voucher is valid till Aug 31st, 2025.</li><li>The voucher can be redeemed only once.</li><li>The voucher is applicable only against the phone number given at the time of purchase.</li><li>The voucher does not apply to discounted products.</li><li>The voucher is applicable in all stores except exhibition stores.</li><li>The voucher is non-transferable & cannot be exchanged for cash.</li><li>The voucher once expired, will not be re-issued.</li><li>The voucher<strong> does not apply to EOSS articles.</strong></li></ol>"
+          }
+        },
+        "content_block_CVHFeT": {
+          "type": "content_block",
+          "settings": {
+            "label": "September 2025",
+            "description": "<p><strong>Birthday Offer</strong></p><ol><li>The gift voucher worth ₹500 will be applicable on a minimum purchase of ₹1000.</li><li>The voucher is only available to customers with birthdays in September.</li><li>The voucher is valid till Sep 30th, 2025.</li><li>The voucher can be redeemed only once.</li><li>The voucher is applicable only against the phone number given at the time of purchase.</li><li>The voucher does not apply to discounted products.</li><li>The voucher is applicable in all stores except exhibition stores.</li><li>The voucher is non-transferable & cannot be exchanged for cash.</li><li>The voucher once expired, will not be re-issued.</li></ol><p><strong>Exclusive Offer</strong></p><ol><li>The gift voucher worth ₹200 will be applicable on a minimum purchase of ₹2000.</li><li>The voucher is valid till Sep 30th, 2025.</li><li>The voucher can be redeemed only once.</li><li>The voucher is applicable only against the phone number given at the time of purchase.</li><li>The voucher does not apply to discounted products.</li><li>The voucher is applicable in all stores except exhibition stores.</li><li>The voucher is non-transferable & cannot be exchanged for cash.</li><li>The voucher once expired, will not be re-issued.</li><li>The voucher<strong> does not apply to EOSS articles.</strong></li></ol>"
+          }
+        },
+        "content_block_PUKwb9": {
+          "type": "content_block",
+          "settings": {
+            "label": "October 2025",
+            "description": "<p><strong>Birthday Offer</strong></p><ol><li>The gift voucher worth ₹500 will be applicable on a minimum purchase of ₹1000.</li><li>The voucher is only available to customers with birthdays in October.</li><li>The voucher is valid till Oct 30th, 2025.</li><li>The voucher can be redeemed only once.</li><li>The voucher is applicable only against the phone number given at the time of purchase.</li><li>The voucher does not apply to discounted products.</li><li>The voucher is applicable in all stores except exhibition stores.</li><li>The voucher is non-transferable & cannot be exchanged for cash.</li><li>The voucher once expired, will not be re-issued.</li></ol>"
+          }
+        },
+        "content_block_Q48ytU": {
+          "type": "content_block",
+          "settings": {
+            "label": "November 2025",
+            "description": "<p><strong>Birthday Offer</strong></p><ol><li>The gift voucher worth ₹500 will be applicable on a minimum purchase of ₹1000.</li><li>The voucher is only available to customers with birthdays in November.</li><li>The voucher is valid till Nov 30th, 2025.</li><li>The voucher can be redeemed only once.</li><li>The voucher is applicable only against the phone number given at the time of purchase.</li><li>The voucher does not apply to discounted products.</li><li>The voucher is applicable in all stores except exhibition stores.</li><li>The voucher is non-transferable & cannot be exchanged for cash.</li><li>The voucher once expired, will not be re-issued.</li></ol><p><strong>Exclusive Offer</strong></p><ol><li>The gift voucher worth ₹200 will be applicable on a minimum purchase of ₹2000.</li><li>The voucher is valid till Nov 30th, 2025.</li><li>The voucher can be redeemed only once.</li><li>The voucher is applicable only against the phone number given at the time of purchase.</li><li>The voucher does not apply to discounted products.</li><li>The voucher is applicable in all stores except exhibition stores.</li><li>The voucher is non-transferable & cannot be exchanged for cash.</li><li>The voucher once expired, will not be re-issued.</li></ol><p><strong>FirstCry- Brand offer </strong></p><p>Get ₹300 off on a minimum order value of ₹1500.</p><p>Applicable only on Bath & Skincare, Feeding & Nursing, and Health & Safety categories </p><p><strong>Terms & Conditions</strong>:</p><ol><li>Get ₹300 off on a minimum purchase of ₹1500 from the Bath & Skincare, Feeding & Nursing, and Health & Safety categories on FirstCry Website. <a href=\"https://firstcry-app.onelink.me/1985322080/zigirkja\" target=\"_blank\">https://firstcry-app.onelink.me/1985322080/zigirkja</a></li><li>Coupons can be used once per user, valid till 31st Jan’26.</li><li>Prices inclusive of all taxes.</li><li>This coupon cannot be combined with any other ongoing offer or coupon.</li><li>Coupon code cannot be used to purchase FirstCry Club Membership.</li><li>Not valid at FirstCry, BabyHug, or BabyOye offline stores.</li></ol><p><strong>How to Redeem:</strong></p><ol><li>Copy the coupon code.</li><li>Visit the FirstCry app, mobile site, or desktop site.</li><li>Add eligible items to your cart.</li><li>Go to your cart and apply the code under the Apply Coupon Code section.</li><li>Proceed to checkout and complete your payment using any available payment option.</li></ol>"
+          }
+        },
+        "content_block_J8rBT6": {
+          "type": "content_block",
+          "settings": {
+            "label": "December 2025",
+            "description": "<p><strong>Birthday Offer</strong></p><ol><li>The gift voucher worth ₹500 will be applicable on a minimum purchase of ₹1000.</li><li>The voucher is only available to customers with birthdays in Dec.</li><li>The voucher is valid till Dec 31st, 2025.</li><li>The voucher can be redeemed only once.</li><li>The voucher is applicable only against the phone number given at the time of purchase.</li><li>The voucher does not apply to discounted products.</li><li>The voucher is applicable in all stores except exhibition stores.</li><li>The voucher is non-transferable & cannot be exchanged for cash.</li><li>The voucher once expired, will not be re-issued.</li></ol>"
+          }
+        }
+      },
+      "block_order": [
+        "content_block_KdkFVb",
+        "content_block_Ax8pnz",
+        "content_block_Jw7tCw",
+        "content_block_VJCzdb",
+        "content_block_JXPyjt",
+        "content_block_TTWWFz",
+        "content_block_CVHFeT",
+        "content_block_PUKwb9",
+        "content_block_Q48ytU",
+        "content_block_J8rBT6"
+      ],
+      "settings": {
+        "margin_top_desktop": 40,
+        "margin_bottom_desktop": 40,
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 20
+      }
+    }
+  },
+  "order": [
+    "main",
+    "page_redirect_content_6dcpHH",
+    "dropdown_content_section_jAie7L"
+  ]
+}

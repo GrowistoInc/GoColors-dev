@@ -1,0 +1,603 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding-top-mob }}px;
+      padding-bottom: {{ section.settings.padding-bottom-mob }}px;  
+  } 
+  
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+
+<style>
+.site-page-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  color: #FFFFFF;
+  font-size: 12px;
+}
+.site-page-info h6{
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: 400;
+  margin: 0px;
+  padding: 20px 0;
+}
+.page-title{
+  color: #1A1A1A;
+  display: flex;
+  justify-content:center;
+  margin: 0px;
+  text-transform: capitalize;
+  letter-spacing: 0px;
+  padding: 0 1rem;
+}
+.main-redirect-menu .breadcrumbs-for-one{
+  margin: 0px;
+}
+.con-box, .right-side-img {
+  padding-left: 0rem ;
+}
+.con-box, .image-overup.our-found-img-text {
+  margin-top: -20rem;
+}
+/* a.p-link.link.list-menu__item--link.black {
+  color: #262626;
+} */
+a.p-link.link.list-menu__item--link.pink {
+  color: #DF2E84;
+}
+.menu-page-content {
+  width: 100%;
+}
+.menu-page-content p {
+  margin-top: 0px;
+}
+.menu-page-content h2 {
+  font-size: 32px ;
+  letter-spacing: 0px;
+  margin-bottom: 15px;
+  margin-top: 5px;
+  /* text-transform: uppercase; */
+}
+.menu-page-content h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  margin-top: 3rem;
+  {% comment %} color:#856925; {% endcomment %}
+}
+.menu-page-content h3:first-child{
+  margin-top: 0;
+}
+{% comment %} .menu-page-content strong{
+  font-size: 2rem;
+  font-weight:400;
+  color:#856925;
+} {% endcomment %}
+.menu-page-content h4 {
+  font-size: 24px ;
+  margin-bottom: 1rem;
+  margin-top: 2.5rem;
+  text-transform: uppercase;
+}
+.menu-page-content p {
+  letter-spacing: 0px;
+  color: #4A4A4A;
+  font-size: 14px;
+  line-height: 24px;
+  margin-top: 0px;
+}
+.menu-page-content p b {
+  font-size: 14px;
+  letter-spacing: 0px;
+  {% comment %} color: #000000; {% endcomment %}
+}
+.menu-page-content p a {
+  color: #4A4A4A;
+  letter-spacing: 0px;
+  font-size: 14px;
+}
+ul.redirect-set {
+  list-style: none;
+  background: #FFFFFF;
+  padding: 2rem;
+  margin: 0px;
+  border-radius: 2rem;
+}
+li h3 {
+  gap: 12px;
+}
+a.link.list-menu__item--link.list-menu__item--active{
+  width:150px;
+}
+.rdp-one.page-width {
+  display: flex;
+  column-gap: 47px;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+li.all-licontent {
+  color: #595959;
+  font-size: 16px;
+  width: 213px;
+  border-bottom: 1px solid #E4E4E4;
+}
+a.p-link.link.list-menu__item--link {
+  color:#959595;
+  font-size: 14px;
+  padding-top: 8px;
+  padding-bottom:8px;
+}
+span.ae-select-content {
+  display: none;
+}
+@media only screen and (min-width: 1200px) {
+  .rdp-one.page-width {
+    width: 1200px;
+    max-width: 100%;
+  }
+}
+
+@media only screen and (max-width: 840px) {
+  .for-heading-of-page .page-title{
+    justify-content: flex-start;
+  }
+  .menu-page-content p{
+    margin-bottom: 0px;
+  }
+  .menu-page-content{
+    padding: 20px 0px;
+  }
+  .main-redirect-menu .breadcrumbs-for-one {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+  }
+  .content-title {
+    font-size: 26px;
+    letter-spacing: 0px;
+  }
+  ul.redirect-set {
+    list-style: none;
+    background: #FCFCFC;
+    height: auto;
+    padding: 0px 17px 0 17px;
+    line-height: 44px;
+    border: 1px solid;
+  }
+  .rdp-one.page-width {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 1rem 0rem;
+  }
+  span.ae-select-content {
+    font-size: 16px;
+    padding-left: 20px;
+  }
+  .content-title{
+    padding-top: 40px;
+    font-size: 32px;
+    display: flex;
+    justify-content: center;
+  }
+  .content-titles {
+    margin: 0;
+  }
+  a.p-link.link.list-menu__item--link {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  .dropdown-wrapper{
+    width:100%;
+  }
+  .dropdown-wrapper.active .ae-select {
+    border-bottom: none;
+  }
+  .dropdown-wrapper .ae-select.chosen {
+    color: #333;
+  }
+  .dropdown-wrapper .ae-select .down-icon, .ae-select .up-icon {
+    position: absolute;
+    right: 8px;
+    top: 7px;
+  }
+  .dropdown-wrapper .ae-dropdown .dropdown-menu {
+    box-shadow: none;
+    position: relative;
+    top: 10px;
+    z-index: 1;
+    border-radius: 0 0 22px 22px;
+    width: 100%;
+  }
+  .dropdown-wrapper .ae-dropdown .ae-select, .dropdown-wrapper .ae-dropdown .dropdown-menu>li {
+    cursor: pointer;
+    background: #FCFCFC;
+    width: 100%;
+  }
+  .dropdown-wrapper .ae-dropdown .ae-select{
+    border-radius: 22px;
+    box-shadow: 0px 3px 10px #00000017;
+    padding-top: 10px;
+    position: relative;
+    border: 1px solid #E5E5E5;
+    height: 50px;
+  }
+  .dropdown-wrapper .ae-dropdown .ae-select.active {
+    border-radius: 22px 22px 0 0;
+  }
+  .dropdown-wrapper .ae-dropdown .dropdown-menu>li>a:focus, .dropdown-wrapper .ae-dropdown .dropdown-menu>li>a:hover {
+    background: none;
+  }
+  .dropdown-wrapper .ae-disabled{
+    pointer-events: none;
+  }
+  .ae-hide{
+    display:none;
+    font-size: 16px;
+    color: #595959;
+  }
+  ul.dropdown-menu{
+    list-style-type: none;
+  }
+  ul.dropdown-menu{
+    margin:0px;
+    border: 1px solid #E5E5E5;
+    border-top: 0;
+  }
+  li.selected {
+    width: auto;
+    border-bottom: 1px solid #E4E4E4;
+  }
+  li.selected:last-child {
+    border-bottom: none; /* Removes border-bottom from the last child */
+  }  
+  span.ae-select-content {
+    display: block;
+  }
+  .js-acc-single-trigger::after {
+    content: "";
+    position: absolute;
+    right: 15px;
+    top: 45%;
+    transition: transform 0.2s ease-in-out;
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-top: solid 2px #000;
+    border-right: solid 2px #000;
+    transform: translateY(-50%) rotate(135deg);
+  } 
+  .js-acc-single-trigger.active::after {
+    transform: translateY(-50%) rotate(-45deg);
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .content-title {
+    padding-top: 40px;
+    font-size: 20px !important;
+    display: flex;
+    justify-content: center;
+  }
+  .content-paragraph, p {
+    letter-spacing: 0px;
+    color: #595959;
+    font-size: 14px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    padding: 5px 0px;
+  }
+  .page-title {
+    font-weight: 300 !important;
+  }
+}
+.main-redirect-menu {
+  background: #FAF9F6;
+}
+.main-site-box-content{
+  background-color:#F9F9F9 ; 
+  padding: 30px 32px;
+  margin-top: 22px;
+}
+.main-site-box-content h2{
+  font-size: 16px;
+  color: #272727;
+}
+.main-site-box-content h4{
+  font-size: 14px;
+  color: #272727;
+  padding-left: 22px;
+  margin-bottom: 8px;
+  font-weight: 500;
+  margin-top: 20px;
+}
+.main-site-box-content ul{
+  font-size: 14px;
+  color: #272727;
+  font-weight: 500;
+  padding: 0px;
+  margin: 8px auto;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.sitemap-container li{
+  list-style: none;
+}
+.dropdown-content a {
+  color:#272727;
+  padding:7px 16px 5px 0.5rem;
+  text-decoration: none;
+  display: block;
+  font-weight: 500;
+  font-size: 12px;
+}
+.sitemap-container {
+  display: flex;
+  flex-direction: column;
+  padding-left: 5px;
+}
+#shopByStyle ul{
+  padding-top: 0px;
+}
+ul.sitemap-dd{
+  padding: 0px;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+ul.content-of-foot{
+  padding: 0px;
+}
+a.footer-on-site{
+  font-size: 12px;
+  text-decoration: none;
+  color: #505050;
+}
+.two-saprate-box-site a{
+  color: #505050;
+  text-decoration: none;
+}
+.two-saprate-box-site li{
+  padding: 10px 0px;
+}
+ul.inner-link {
+  padding: 0px;
+  background: #f5f5f5;
+}
+.forborder{
+  border-bottom: 1px solid #E9E9E9;
+}
+li.dropdown {
+  padding-bottom: 20px;
+}
+ul.sitemap-dd.dropbtn {
+  padding-left: 4px;
+  padding-top: 10px;
+}
+.dropdown-content ul{
+  padding: 0px 30px 10px 4rem;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0px;
+}
+.sitemap-container i.fas.fa-plus {
+  font-size: 14px;
+  padding-right: 5px;
+  color: #707070;
+}
+.sitemap-container i.fas.fa-minus{
+  font-size: 14px;
+  padding-right: 5px;
+  color: #707070;
+}
+.footer-on-site {
+  background: #F9F9F9;
+  padding: 30px 32px;
+  margin-top: 20px;
+}
+.footer-on-site h2{
+  font-size: 16px;
+  color:#272727;
+}
+@media only screen and (max-width: 990px) {
+
+  .two-saprate-box-site .list-menu__item--link {
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+    font-size:12px;
+  }
+  .two-saprate-box-site li{
+    padding:0px;
+  }
+}
+@media only screen and (max-width: 450px) {
+  .main-site-box-content {
+    padding: 20px;
+  }
+  .dropdown-content ul {
+    padding: 10px 30px 10px 2rem;
+  }
+
+  h2.links-by-foot{
+    margin-bottom: 15px;
+    margin-top: 5px;
+    font-size: 16px;
+    color: #272727;
+  }
+}
+</style>
+
+<div class="main-redirect-menu section-{{ section.id }}-padding"> 
+
+  <div class="rdp-one page-width">
+    {% if section.settings.menu != blank %}
+     <div class="sticky">  
+      <div class="dropdown-wrapper">
+        <div class="ae-dropdown dropdown">
+          <div class="mob-dropdownwrap">
+          <div class="ae-select js-acc-single-trigger">
+            <span class="ae-select-content"></span>
+            <ul class="dropdown-menu ae-hide redirect-set collapsible ">
+              {%- for link in section.settings.menu.links -%}
+              <li class="all-licontent {% if link.active %}selected list-menu__item--active{% endif %}">
+                  <a
+                      href="{{ link.url }}"
+                      class="p-link link list-menu__item--link {% if link.active %}black pink{% endif %}"
+                    >
+                      {{ link.title }}
+                    </a>
+                </li>
+              {%- endfor -%}
+            </ul>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+
+    {% for block in section.blocks %}
+      <div class="menu-page-content">
+        <div class="for-heading-of-page ">
+           <h2 class="page-title" aria-current="page">{{ page.title | capitalize }}</h2>
+        </div>
+        {{ page.content }}
+        <h3 class="content-titles"></h3>
+        <p class="content-paragraph"></p>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<script>
+  // Set initial content based on the first active link
+  var initialSelected = $('.dropdown-menu > li.list-menu__item--active');
+  var selectedContent = initialSelected.length ? initialSelected.text() : '';
+  $('.ae-select-content').text(selectedContent);
+
+  // Handle option selection
+  var newOptions = $('.dropdown-menu > li');
+  newOptions.click(function() {
+    selectedContent = $(this).text();
+    $('.ae-select-content').text(selectedContent);
+    $('.dropdown-menu > li').removeClass('selected');
+    $(this).addClass('selected');
+  });
+
+  // Toggle dropdown menu visibility
+  var aeDropdown = $('.ae-dropdown');
+  aeDropdown.click(function() {
+    $('.dropdown-menu').toggleClass('ae-hide');
+  });
+
+  document.addEventListener("DOMContentLoaded", function() {
+    var dropdownWrapper = document.querySelector(".dropdown-wrapper");
+    var aeSelect = dropdownWrapper.querySelector(".ae-select");
+    var dropdownMenu = dropdownWrapper.querySelector(".dropdown-menu");
+
+    aeSelect.addEventListener("click", function() {
+        dropdownWrapper.classList.toggle("active");
+    });
+
+    dropdownMenu.addEventListener("click", function() {
+        dropdownWrapper.classList.remove("active");
+    });
+});
+
+  document.addEventListener("DOMContentLoaded", function() {
+    var accTrigger = document.querySelector(".js-acc-single-trigger");
+    var dropdownMenu = document.querySelector(".dropdown-menu");
+
+    if (accTrigger && dropdownMenu) {
+        accTrigger.addEventListener("click", function() {
+            // Toggle the 'active' class on click
+            accTrigger.classList.toggle("active");
+            
+            // Add logic to close the dropdown when clicking outside
+            // Here, you should toggle the 'active' class off when clicking outside the dropdown
+        });
+    }
+});
+
+</script>
+
+
+
+{% schema %}
+{
+    "name": "Left Nav Redirect Content",
+    "class": "default-page",
+    "settings": [
+      {
+        "type": "link_list",
+        "id": "menu",
+        "default": "footer",
+        "label": "Menu"
+      },
+     {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 52
+    },
+    {
+        "type":"range",
+        "min":0,
+        "max":120,
+        "default":40,
+        "step":2,
+        "id":"padding-top-mob",
+        "label":"Padding Top Mobile"
+      },
+      {
+        "type":"range",
+        "min":0,
+        "max":120,
+        "default":40,
+        "step":2,
+        "id":"padding-bottom-mob",
+        "label":"Padding Bottom Mobile"
+      }
+    ],
+  "blocks": [
+      {
+        "name": "Content ",
+        "type": "text",
+        "limit":1,
+        "settings": [
+         
+        ]
+      }
+    ],
+  "presets": [
+    {
+      "name": "Left Nav Redirect Content"
+    }
+  ]
+}
+
+{% endschema %}

@@ -1,0 +1,253 @@
+{{ 'component-article-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'section-main-blog.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- paginate blog.articles by 6 -%}
+  <div class="main-blog page-width section-{{ section.id }}-padding new-main-blog">
+    <h1 class="title--primary{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+      {{ blog.title | escape }}
+    </h1>
+    {% assign articles = blog.articles %}
+      {% if section.settings.layout == 'new_collage' %}
+        <div class="blog-articles--new-collage">
+          {% if articles.size > 0 %}
+            <div class="new-collage-wrapper">
+              <!-- First Article Large -->
+              {% assign first_article = articles[0] %}
+              <div class="new-collage-large">
+                {% render 'article-card',
+                  article: first_article,
+                  media_height: section.settings.image_height,
+                  media_aspect_ratio: first_article.image.aspect_ratio,
+                  show_image: section.settings.show_image,
+                  show_date: section.settings.show_date,
+                  show_author: section.settings.show_author,
+                  show_excerpt: true
+                %}
+              </div>
+              <!-- Two Medium Articles (2nd, 3rd) -->
+              <div class="new-collage-medium">
+                {% for article in articles offset:1 limit:2 %}
+                  {% render 'article-card',
+                    article: article,
+                    media_height: section.settings.image_height,
+                    media_aspect_ratio: article.image.aspect_ratio,
+                    show_image: section.settings.show_image,
+                    show_date: section.settings.show_date,
+                    show_author: section.settings.show_author,
+                    show_excerpt: true
+                  %}
+                {% endfor %}
+              </div>
+              <!-- Second Large Article (4th) -->
+              {% if articles.size > 3 %}
+                <div class="new-collage-large">
+                  {% render 'article-card',
+                    article: articles[3],
+                    media_height: section.settings.image_height,
+                    media_aspect_ratio: articles[3].image.aspect_ratio,
+                    show_image: section.settings.show_image,
+                    show_date: section.settings.show_date,
+                    show_author: section.settings.show_author,
+                    show_excerpt: true
+                  %}
+                </div>
+              {% endif %}
+              <!-- Two More Medium Articles (5th, 6th) -->
+              {% if articles.size > 4 %}
+                <div class="new-collage-medium">
+                  {% for article in articles offset:4 limit:2 %}
+                    {% render 'article-card',
+                      article: article,
+                      media_height: section.settings.image_height,
+                      media_aspect_ratio: article.image.aspect_ratio,
+                      show_image: section.settings.show_image,
+                      show_date: section.settings.show_date,
+                      show_author: section.settings.show_author,
+                      show_excerpt: true
+                    %}
+                  {% endfor %}
+                </div>
+              {% endif %}
+            </div>
+          {% endif %}
+        </div>
+    {% endif %}
+    {%- if paginate.pages > 1 -%}
+      {%- render 'pagination', paginate: paginate -%}
+    {%- endif -%}
+  </div>
+{%- endpaginate -%}
+
+<style>
+    @media screen and (min-width: 750px){
+    .blog-articles--new-collage .new-collage-wrapper {
+        display: grid;
+        grid-gap: 10px;
+      }
+       .new-collage-large .article-card__image-wrapper.card__media  ,
+       .new-collage-large .article-card__image-wrapper.card__media .article-card__image.media.media--hover-effect ,
+       .new-collage-large .article-card__image-wrapper.card__media img.motion-reduce{
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        .new-collage-large .card__inner .card__content {
+            display: none;
+        }
+
+.new-collage-large {
+  grid-column: span 2 !important;
+}
+
+.new-collage-medium {
+  display: grid;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 20px;
+}
+.blog-articles--new-collage .blog-articles{
+    grid-template-columns: unset;
+}
+}
+
+.new-collage-wrapper .card-wrapper{
+  margin-left:0;
+  margin-right:0;
+  margin-bottom:0;
+}
+
+.new-collage-large .card__information {
+    text-align: center;
+}
+.new-collage-wrapper .card--standard>.card__content .card__information{
+ padding-top: 25px;
+ padding-left: 2.5rem;
+    padding-right: 2.5rem;
+}
+.new-collage-wrapper .card:not(.ratio)>.card__content{
+  background-color:#f3f3f3;
+}
+.new-main-blog .card__heading{
+  font-weight:normal;
+  font-size:24px;
+}
+    .title--primary {
+        font-size: 26px;
+    }
+</style>
+{% schema %}
+{
+  "name": "New Main Blog",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.main-blog.settings.header.content"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "options": [
+        {
+          "value": "new_collage",
+          "label": "New Collage"
+        }
+      ],
+      "default": "new_collage",
+      "label": "Layout",
+      "info": "Only New Collage layout is available."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_image",
+      "default": true,
+      "label": "t:sections.main-blog.settings.show_image.label"
+    },
+    {
+      "type": "select",
+      "id": "image_height",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.main-blog.settings.image_height.options__1.label"
+        },
+        {
+          "value": "small",
+          "label": "t:sections.main-blog.settings.image_height.options__2.label"
+        },
+        {
+          "value": "medium",
+          "label": "t:sections.main-blog.settings.image_height.options__3.label"
+        },
+        {
+          "value": "large",
+          "label": "t:sections.main-blog.settings.image_height.options__4.label"
+        }
+      ],
+      "default": "medium",
+      "label": "t:sections.main-blog.settings.image_height.label",
+      "info": "t:sections.main-blog.settings.image_height.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_date",
+      "default": true,
+      "label": "t:sections.main-blog.settings.show_date.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_author",
+      "default": false,
+      "label": "t:sections.main-blog.settings.show_author.label"
+    },
+    {
+      "type": "paragraph",
+      "content": "t:sections.main-blog.settings.paragraph.content"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+        "name": "New Main Blog"
+    }
+  ]
+}
+{% endschema %}

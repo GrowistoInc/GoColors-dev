@@ -1,0 +1,1705 @@
+{% render 'moengage_variable' %}
+
+{% for transaction in transactions %}
+  {% assign payment_type = {{ transaction.gateway_display_name }} %}
+{% endfor %}
+{% assign line_item_qty = '' %}
+{% assign line_item_sku = '' %}
+{% assign line_item_price = '' %}
+{% assign original_price = '' %}
+{% for line_item in order.line_items %}
+  {% assign line_item_cat = line_item.sku | append: '_cat' %}
+
+  {% assign line_item_subcat = line_item.sku | append: '_subcat' %}
+  {% if cookies.line_item_cat %}
+    {% assign line_item_cat_cook = cookieValue_cat %}
+  {% else %}
+    {% assign line_item_cat_cook = '' %}
+  {% endif %}
+
+  {% if cookies.line_item_subcat %}
+    {% assign line_item_subcat_cook = cookieValue_subcat %}
+  {% else %}
+    {% assign line_item_subcat_cook = '' %}
+  {% endif %}
+
+  {% assign line_item_qty = line_item.quantity | append: ',' | append: line_item_qty %}
+  {% assign line_item_sku = line_item.sku | append: ',' | append: line_item_sku %}
+  {% assign line_item_price = line_item.price | money_without_currency | replace: ',', '' %}
+  {% assign line_item_price_concat = line_item_price | append: ',' | append: line_item_price_concat %}
+  {% assign original_price = line_item.final_price
+    | money_without_currency
+    | replace: ',', ''
+    | append: ','
+    | append: original_price
+  %}
+{% endfor %}
+<script>
+$(document).ready(function(){
+  var current_url = window.location.href;
+  var order_qty = "{{ line_item_qty }}";
+  var order_qty = order_qty.slice(0, -1);
+  var tnk_order_qty = order_qty.split(",");
+  var order_sku = "{{ line_item_sku }}";
+  var tnk_order_sku = order_sku.slice(0, -1);
+  var selling_order_price = "{{ line_item_price_concat }}";
+  var selling_order_price = selling_order_price.slice(0, -1);
+  tnk_selling_order_price= selling_order_price.split(",");
+  var original_price = "{{ original_price }}";
+  var original_price = original_price.slice(0, -1);
+  tnk_original_price = original_price.split(",");
+  var tnk_order_id = "{{ order.id }}";
+  var tnk_order_price = "{{ order.total_price  | money_without_currency | replace: ",", "" }}";
+  var selectedcolor="";
+  var selectedpalatte="";
+  var availability = 'Not Available';
+  
+  var url_split = current_url.split('step=');
+  var length_var=url_split.length;
+  var step=url_split[length_var-1];
+  var step_chk="";
+  var moengage_event=";"
+  
+  // ********************** Homepage events   **********************
+  
+  // ********************** header  **********************
+  
+  // **********************  navigation code for category and sub category **********************
+  
+  $('summary.header__menu-item').mouseenter(function(){
+    var categoryName = $(this).attr('data-category');
+     console.log('categoryName ' + categoryName);
+      Moengage.track_event("navBarCategoryClicked", {
+        "navBarCategoryClicked.categoryName":categoryName,
+      });
+  });
+  $('summary.menu-drawer__menu-item').click(function(){
+    var categoryName = $(this).attr('data-category');
+     console.log('categoryName ' + categoryName);
+      Moengage.track_event("navBarCategoryClicked", {
+        "navBarCategoryClicked.categoryName":categoryName,
+      });
+  });
+  $('.menu-drawer__menu-item').click(function(event){
+    var Subcategory = $(this).data('subcatgeory');
+    console.log(" Subcategory : " + Subcategory);
+  
+     Moengage.track_event("navBarSubcategoryClicked", {
+        "navBarSubcategoryClicked.subcategoryName":Subcategory,
+      });
+  });
+  $('.mega-menu__link').click(function(event){
+   var Subcategory = $(this).attr('data-subcatgeory');
+   Moengage.track_event("navBarSubcategoryClicked", {
+    "navBarSubcategoryClicked.subcategoryName":Subcategory,
+   });
+  
+  
+  });
+  
+  // ********************** website  logo click code **********************
+  
+  $('.top-logos').click(function(){
+    console.log('logoClicked');
+    Moengage.track_event("logoClicked", {
+        "logoClicked":"logoClicked",
+    });
+  });
+  
+  // **********************  shop by color logo code here  *******************************
+  
+    // $(".alt-logo").on('click', function() {
+    //   console.log('shopByColorsClicked')
+    //     Moengage.track_event("shopByColorsClicked", {
+    //     "shopByColorsClicked":"shopByColorsClicked",
+    //     });
+      
+    // });
+  
+   // ********************** signUpClicked **********************
+  
+    $('.signUp ').click(function(){
+      console.log('signUpClicked');
+      Moengage.track_event("signUpClicked", {
+      "signUpClicked":"signUpClicked",
+      });
+    });
+   
+  //  ************************* signup **********************
+  
+    $('#signup #phone').blur(function(e){ 
+       var value= $("#phone").val();
+       Moengage.add_mobile("91"+ value);
+       Moengage.track_event("phoneNumberEntered", {
+          "phoneNumberEntered": value ,
+        });
+    });
+    $(document).on('click','#checkValidation',function(){
+      var value = $("#phone").val();
+        var value= "91"+ value
+      //Moengage.add_user_attribute("phoneNumberSubmitted",value);
+        Moengage.track_event("phoneNumberSubmitted", {
+        "phoneNumberSubmitted.phoneNumber": value,
+      });
+       Moengage.track_event("otpRequested", {
+        "otpRequested": 'otpRequested',
+      });
+    }); 
+  
+   // ************************* login otp verify
+  
+    // $('#checkOtp').click(function(){
+    //   var otpStatus = $.trim($('.otp_error').text());
+    //     Moengage.track_event("otpVerificationAttempted", {
+    //     "otpVerificationAttempted": 'otpVerificationAttempted' ,
+    //       "otpVerificationAttempted.otpStatus": otpStatus,
+    //   });
+       
+   // });
+  
+   // ************************* resend otp
+
+    $(document).on('click','#resendOTP',function(){
+      var value=$("#otp").val();
+      console.log(value);
+       Moengage.track_event("otpResendRequested",{
+         "otpResendRequested":"otpResendRequested",
+       });
+    
+    }); 
+
+
+    // ************************* user registeration  
+  
+    $('.member_registration .new_user_reg').click(function(){
+        var first_name = $("#first_name").val();
+        var last_name = $("#last_name").val();
+        var email_id = $("#email").val();
+        var phone = $("#phone").val();
+        var month =$("#month").val();
+        var  year =$("#year").val();
+        var  day = $("#day").val();
+        var DOB = day+"-"+month+"-"+year;
+        var gender=$("input[name='customer[gender]']:checked").val();
+        var name = first_name + " " + last_name ;
+        if($('.termscheck').prop('checked')){
+          var optIn = 'checked';
+        }
+        else{
+          var optIn = 'Unchecked'
+        }
+        var val=$(".termscheck").val();
+        var terms=""; 
+        if(val=="on"){
+          terms="Aggreed";
+        }
+        else{
+          terms="not Aggreed";
+        }
+      
+        var Mobile_no = "91"+phone;
+        var moenge_id = phone ;
+      
+        Moengage.track_event("userRegistrationSubmitted",{
+          "First Name":first_name,
+          "Last Name":last_name,
+          "Email":email_id,
+          "Dob": DOB,
+          "Gender":gender,
+           "OptIn":optIn,
+        });
+      
+        Moengage.track_event("registrationOtpRequested", {
+            "phone Number":"91"+phone,
+        });
+      	Moengage.add_first_name(first_name);
+        Moengage.add_last_name(last_name);
+        Moengage.add_email(email_id);
+        Moengage.add_mobile(Mobile_no);
+        Moengage.add_unique_user_id(Mobile_no);
+      	Moengage.add_user_name(first_name + " " + last_name ); // Full name for user
+        Moengage.add_gender(gender);
+        Moengage.add_birthday(new Date(year, month, day));
+      
+    });
+         
+     // ********************** wishlistIconClicked
+  
+    $('.wishlist').click(function(){
+       console.log('wishlistIconClicked')
+       Moengage.track_event("wishlistIconClicked", {
+          "wishlistIconClicked":"wishlistIconClicked",
+          });
+    });
+    $('.iwish-desktop').click(function(){
+       console.log('wishlistIconClicked')
+      Moengage.track_event("wishlistIconClicked", {
+        "wishlistIconClicked":"wishlistIconClicked",
+      });
+    });
+  
+    // ********************** cartIconClicked
+  
+    $('a.header_cart_content').click(function(){
+       console.log('cartIconClicked')
+        Moengage.track_event("cartIconClicked", {
+        "cartIconClicked":"cartIconClicked",
+       });
+      // ************************************ Cart drawer opnend ************************************
+      setTimeout(function(){
+        var draweopen = $('.drawer');
+         if (draweopen.length) {
+            if (draweopen.hasClass('active')) {
+              
+              console.log('true Cart Drawer is opend');
+              
+             // ************************************ cart drawer data ************************************
+              
+                $('.cart-items .cart-item .cart-item__details a.cart-item__name').each(function() {
+                    var title = $.trim($(this).text());
+                    var category = $(this).data('category');
+                    var subcategory = $(this).data('subcategory');
+                    var sku = $(this).data('sku');
+                    var price = $(this).data('price');
+                    var DefaultQuantity = $(this).data('quantity'); 
+                  // ************************************ onclick deafult cart drawer data ************************************
+                  
+                    Moengage.track_event("CartDrawerData", {
+                      "CartDrawer.title": title,
+                      "CartDrawer.category": category,
+                      "CartDrawer.subcategory": subcategory,
+                      "CartDrawer.sku": sku,
+                      "CartDrawer.price": price,
+                      "CartDrawer.DefaultQuantity": DefaultQuantity,
+                    });
+
+                 // ************************************ onclick deafult cart drawer data ************************************
+                
+                  // code in drawer.js at bottom
+               
+                }); 
+              
+            // ************************************ Ajax Checkout clicked checkoutInitiated  ************************************
+              
+                $('#CartDrawer-Checkout').click(function(event){
+                     var cartProductCount = $('.cart-items .cart-item').length;
+                     var cartTotal = $('.order__summary_total_value').text().trim();
+                       $('.cart-items .cart-item .cart-item__details a.cart-item__name').each(function() {
+                        var title = $.trim($(this).text());
+                        var category = $(this).data('category');
+                        var subcategory = $(this).data('subcategory');
+                        var sku = $(this).data('sku');
+                        var price = $(this).data('price');
+                        var DefaultQuantity = $(this).data('quantity'); 
+                        
+                          Moengage.track_event("checkoutInitiated", {
+                            "checkoutInitiated.title":title,
+                               "checkoutInitiated.numberofItems":cartProductCount,
+                                "checkoutInitiated.cartTotal":cartTotal,
+                                "checkoutInitiated.sku":sku,
+                                "checkoutInitiated.price":price,
+                                "checkoutInitiated.quantity":DefaultQuantity,
+                             });
+                       });
+                   });
+            }
+         }
+      },1000);
+    });
+  
+   // ********************** myAccountClicked if logged in 
+  
+    $('.headermyacc').click(function(){
+       console.log('myAccountClicked')
+       Moengage.track_event("myAccountClicked", {
+        "My Account Clicked":"My Account Clicked",
+      });
+    });
+  
+    $('.submenu li').each(function(index, element) {
+      $(this).click(function(){
+        var link_click=$(this).text();
+        {% if customer %}
+        if(link_click=="MY ACCOUNT"){
+           Moengage.track_event("UsermyAccountClicked", {
+             "UsermyAccountClicked":"UsermyAccountClicked",
+           }); 
+        }
+        else if(link_click=="WISHLIST"){
+          Moengage.track_event("UserwishlistClicked", {
+            "UserwishlistClicked":"UserwishlistClicked",
+          }); 
+        }else if(link_click=="ORDERS"){
+            Moengage.track_event("UserordersClicked", {
+               "UserordersClicked":"UserordersClicked",
+            }); 
+        }else if(link_click=="LOGOUT"){
+            Moengage.track_event("UserlogoutClicked", {
+               "UserlogoutClicked":"UserlogoutClicked",
+            }); 
+        }
+      {% else %}
+          $('.head-icons a.cart-user img').click(function(){
+             Moengage.track_event("signUpClicked", {
+               "signUpClicked":"signUpClicked",
+            }); 
+          });
+       if(link_click=="LOGIN/ SIGN UP"){
+            Moengage.track_event("signUpClicked", {
+               "signUpClicked":"signUpClicked",
+            }); 
+        }
+         else if(link_click=="WISHLIST"){
+            Moengage.track_event("wishlistIconClicked", {
+               "wishlistIconClicked":"wishlistIconClicked",
+            }); 
+        }
+    {% endif %}
+  });
+}); 
+  
+   //********************** new address
+    $('.add_form_address').click(function(){
+       default_address="no"
+       var address_first_name_new=$("#address_first_name_new").val();
+       var address_last_name_new=$("#address_last_name_new").val();
+       var address_company_new=$("#address_company_new").val();
+       var address_address1_new=$("#address_address1_new").val();
+       var address_address2_new=$("#address_address2_new").val();
+       var address_city_new=$("#address_city_new").val();
+       var address_country_new=$("#address_country_new").val();
+       var address_province_new=$("#address_province_new").val();
+       var address_zip_new=$("#address_zip_new").val();
+       var address_phone_new=$("#address_phone_new").val();   
+       var address_default_address_new=$("#address_default_address_new").val();
+       if(address_default_address_new=="1")
+       {
+          default_address="yes";
+       }
+      Moengage.track_event("newAddressAdd", {
+        "First Name":address_first_name_new,
+        "Last Name ":address_last_name_new,
+        "Company":address_company_new,
+        "Address1":address_address1_new,
+        "Address2":address_address2_new,
+        "City":address_city_new,
+        "Country":address_country_new,
+        "Provience":address_province_new,
+        "Zip":address_zip_new,
+        "Phone Number":address_phone_new,
+        "Deafult Adress ":default_address,
+      }); 
+    });
+
+   // my account page Edit New Address
+   $('.address-edit-toggle').click(function(){
+     var edit_btn_id = $(this).attr('data-form-id');
+     var edit_first_name = $("#address_first_name_"+edit_btn_id).val();
+     var edit_last_name = $("#address_last_name_"+edit_btn_id).val();
+     var edit_address_company = $("#address_company_"+edit_btn_id).val();
+     var edit_address1 = $("#address_address1_"+edit_btn_id).val();
+     var edit_address2 = $("#address_address2_"+edit_btn_id).val();
+     var edit_city = $("#address_city_"+edit_btn_id).val();
+     var edit_country = $("#address_country_"+edit_btn_id).val();
+     var edit_province = $("#address_province_"+edit_btn_id).val();
+     var edit_zip = $("#address_zip_"+edit_btn_id).val();
+     var edit_phone = $("#address_phone_"+edit_btn_id).val();
+     var default_add = $("#view_address_"+edit_btn_id + " .address_title .default_address").text();
+     console.log(default_add);
+     if(default_add == '(Default)'){
+       var default_address = "yes";
+     }
+     else{
+       var default_address = "No";
+     }
+       Moengage.track_event("editAddressAdd", {
+        "addressID":edit_btn_id,
+         "First Name":edit_first_name,
+         "Last Name":edit_last_name,
+         "Company":edit_address_company,
+         "Address1":edit_address1,
+         "Address2":edit_address2,
+         "City":edit_city,
+         "Country":edit_country,
+         "Provience":edit_province,
+         "Zip":edit_zip,
+         "Phone":edit_phone,
+         "Deafult address":default_address,
+      });
+   
+   });
+   $('.edit_form_address').click(function(){ 
+       var form_id = $(this).attr("data-id");
+       var address_first_name = $("#address_first_name_"+form_id).val();
+       var address_last_name = $("#address_last_name_"+form_id).val();
+       var address_company = $("#address_company_"+form_id).val();
+       var address_address1 = $("#address_address1_"+form_id).val();
+       var address_address2 = $("#address_address2_"+form_id).val();
+       var address_city = $("#address_city_"+form_id).val();
+       var address_country = $("#address_country_"+form_id).val();
+       var address_province = $("#address_province_"+form_id).val();
+       var address_zip = $("#address_zip_"+form_id).val();
+       var address_phone = $("#address_phone_"+form_id).val();   
+       var default_add = $("#view_address_"+form_id + " .address_title .default_address").text();
+       var updateDefault_Add = $('#address_default_address_' +form_id);
+       if(default_add == '(Default)'){
+         var default_address = "yes";
+          $(updateDefault_Add).change(function(){
+            $(this).prop('checked', true);
+            if($(this).prop('checked')){
+              var default_address = "yes";
+            }
+          });
+       }
+       else{
+         $('#address_default_address_' +form_id).change(function(){
+            $(this).prop('checked', true);
+            if($(this).prop('checked')){
+              var default_address = "yes";
+            }
+             else{
+                 var default_address = "No";
+             }
+           console.log(default_address);
+          });
+       }
+        Moengage.track_event("UpdateEditAddressAdd", {
+         "addressID":form_id,
+         "First Name":address_first_name,
+         "Last NAme":address_last_name,
+         "Company":address_company,
+         "Address1":address_address1,
+         "Address2":address_address2,
+         "City":address_city,
+         "Country":address_country,
+         "Provience":address_province,
+         "Zip":address_zip,
+         "Phone":address_phone,
+         "Deafult Address":default_address,
+        }); 
+     });
+   // delete  address
+   $('.address-delete').click(function(e){
+     url=$(this).attr("data-target");
+     var parts = url.split('/account/addresses/');
+     var parts = parts[1];
+     var addressId = parts;
+     console.log('addressId : '+addressId);
+      Moengage.track_event("deleteAddress", {
+        "Address ID":addressId,
+      });
+    });
+  //  returnToOrdersClicked
+    $('a.return_orders , .action_return a').click(function(){
+      Moengage.track_event("returnToOrdersClicked", {
+          "Return To Orders Clicked":"returnToOrdersClicked",
+        });
+    });
+  
+  // my account page order tab and profile 
+    $('.my_acc_container a').on('click', function() {   
+      var link_click=$(this).text();
+      // console.log(link_click);
+       if(link_click == "My Profile")
+       {
+        
+       }
+       else if(link_click=="Purchase And Orders")  {
+          Moengage.track_event("ordersTabSelected", {
+            "ordersTabSelected":"ordersTabSelected",
+          }); 
+         
+         // order ID
+          $('.order_text a').click(function(){
+             var orderNumber = $(this).text();
+             Moengage.track_event("ordersTabSelected", {
+              "Order ID":orderNumber,
+            }); 
+          });
+       }
+       else if(link_click=='Logout'){
+        Moengage.track_event("UserlogoutClicked", {
+               "UserlogoutClicked":"UserlogoutClicked",
+        }); 
+       }
+    });
+
+  // ***************************** myOrdersPageViewed 
+      console.log(current_url)
+ 
+     var oderDeatils =  current_url.split('https://gocolors.com/account/orders/');
+     if (oderDeatils != undefined ){
+      var number = oderDeatils[1];
+      var oderDeatils_url = current_url.split(number);
+      var orderNumber = $('.feature-header').text();
+      var orderNumber = orderNumber.split('Order')[1];
+       
+      if((oderDeatils_url == 'https://gocolors.com/account/orders/') || current_url.includes('https://gocolors.com/account/orders/')){
+        Moengage.track_event("myOrdersPageViewed", {
+              "User Id":customer_id,
+              "Order Number":orderNumber,
+          
+         });
+
+        // orderCancellationRequested
+        
+        $(".cancel_order_line_item").on('click', function() {
+           var qty=$(this).parent().parent().children(".modal-header").children("#cancelled_qty").val();
+           var order_id=$(this).parent().parent().children(".modal-header").children("#shopify_order_id").val();
+           var order=$(this).parent().parent().children(".modal-header").children("#order_number").val();
+           var sku=$(this).parent().parent().children(".modal-header").children("#line_sku").val();
+            Moengage.track_event("orderCancellationRequested", {
+              "order Id":order_id,
+              "Order Number":"#"+order,
+              "Sku":sku,
+              "Quantity":qty,
+            });
+           });
+      
+       // orderReturnRequested
+        {% if  order.gateway contains "Cash on Delivery (COD)" %}
+          
+         $(".return_order_line_item").on('click', function() {
+           var cust_acc_name = $("#cust_acc_name").val();
+           var acc_no = $("#acc_no").val();
+           var ifsc_code = $("#ifsc_code").val();
+           var item_final_awb = $("#item_final_awb").val();
+           var phone=$("#phone").val();
+           var order_number_return=$("#order_number_return").val();
+          
+            Moengage.track_event("orderReturnRequested", {
+                    "Customer Account Name":cust_acc_name,
+                    "Account Number":acc_no,
+                    "IFSC Code":ifsc_code,
+                    "Item AWB":item_final_awb,
+                    "Phone Number":phone,
+                    "Order Number":"#"+order_number_return
+            });
+         });
+         {% else %}
+          
+        {% endif %}
+        
+      }
+     }    
+    // **********************  carouselNavigated 
+    $( ".main__home__banner .swiper-pagination-bullets" ).each(function( index ) {
+      $(this).click(function(e){
+        var slider_nav = $(this).attr('aria-label');
+        console.log('carouselNavigated' + slider_nav );
+          Moengage.track_event("carouselNavigated", {
+            "carouselNavigated":"carouselNavigated",
+            "Slide":slider_nav,
+          });
+      });
+    });
+  
+    // **********************  carouselBannerShopNowClicked 
+    $(".main__home__banner .p-collec-link").click(function(e){
+      var img_src = $(this).children().attr('src');
+      //console.log(img_src);
+      console.log('carouselBannerShopNowClicked  ' + img_src );
+      Moengage.track_event("carouselBannerShopNowClicked", {
+        "carouselBannerShopNowClicked":"carouselBannerShopNowClicked",
+        "Banner Is":img_src,
+      });
+    });
+   
+    // ********************** trendingCategoryClicked
+
+    $('.collectionTabLabel .swiper-slide a').click(function(e) {
+      var cat=$(this).text();
+      console.log('cat '+ cat);
+      Moengage.track_event("trendingCategoryClicked", {
+      "Category Name":cat,
+      }); 
+    });
+  
+    // ********************** mustHaveCarouselClicked
+  
+    // $(".musthave").click(function(e){
+    //  Moengage.track_event("mustHaveCarouselClicked", {
+    //       "Shop Now":"ShopNowclicked",
+    //       });
+    // });
+
+    // ********************** .trendyColorsClicked
+  
+    // $(".product-list--carousel  .slick-slide").each(function( index ) {
+    //        $(this).click(function(e) {
+    //             var trendy_color=$(this).find("a").attr("aria-label");
+    //             console.log(trendy_color)
+    //             Moengage.track_event("trendyColorsClicked", {
+    //             "Color Name":trendy_color,
+    //             });
+    //        });
+    //   });
+
+    // ********************** goEditsCategoryClicked 
+
+    // $(".product-list--rows").find(".product-block__inner").each(function( index ) {
+    //  $(this).click(function() {
+    //        var val=$(this).find(".caption a").text();
+    //     Moengage.track_event("goEditsCategoryClicked", {
+    //       "Category Name":val,
+    //       }); 
+    //   });
+    // });
+
+    // **********************  onTheGramPostClicked
+  
+    setTimeout(function () {
+      $('#instafeed .glide__slide a').click(function(event){
+        var src = $(this).children().attr('src');
+        // console.log(src, "instafeed");
+        Moengage.track_event("onTheGramPostClicked", {
+          "Post Id":src, // thr is no post id so added src of post
+        });
+        even.preventDefault();
+      });
+    },10000); 
+    // ********************** emailsubscribeButtonClicked
+  
+    $('.cst_subscribe_btn').click(function(e){
+      var email=$(".signup-form__email").val();
+      Moengage.track_event("emailsubscribeButtonClicked", {
+        "Email":email,
+      });  
+    });
+
+    // ********************** shopSectionCategoryClicked **********************
+
+    $('.f_bottom__links a').each(function(index, element) {
+      $(this).click(function() {
+        var val= $(this).text();
+        Moengage.track_event("shopSectionCategoryClicked", {
+          "Category Name":val,
+        });
+      });
+    });
+
+  //  ********************** FOOTER **********************
+  
+   $('.footer-block__details-content li').click(function(e) { 
+       var value=$.trim($(this).text());
+       console.log(value);
+       if(value=="About us"){
+          Moengage.track_event("aboutUsClicked", {
+           "About Us ":"About Us Clicked",
+          });
+       }
+       else if(value=="Careers"){
+          Moengage.track_event("careersClicked", {
+            "Careers ":"careersClicked",
+          });
+        }
+       else if(value=="Investor Relations"){
+          Moengage.track_event("InvestorRelationsClicked", {
+             "Investor Relations":"Investor Relations Clicked",
+          });
+        }
+       else if(value=="ODR Portal"){
+          Moengage.track_event("odrPortalClicked", {
+            "ODR Portal ":"ODR Portal Clicked",
+          });
+        }
+       else if(value=="Store Locator"){
+          Moengage.track_event("storeLocatorClicked", {
+            "Store Locator ":"Store Locator Clicked",
+          });
+       }
+       else if(value=="Track Order"){
+          Moengage.track_event("trackOrderClicked", {
+            "Track Order":"Track Order Clicked",
+          });
+       }
+       else if(value=="My Account"){
+          Moengage.track_event("footerMyAccountClicked", {
+            "Footer MyAccount":"Footer MyAccount Clicked",
+          });
+       }
+       else if(value=="Get in Touch"){
+          Moengage.track_event("getInTouchClicked", {
+            "Get In Touch ":"Get In Touch Clicked",
+          });
+       }
+       else if(value=="Blogs"){
+          Moengage.track_event("blogsClicked", {
+            "Blogs":"Blogs Clicked",
+          });
+        }
+   });
+  
+   //  ********************** Social Links footer   **********************
+  
+   $('.footer__list-social li a').click(function(e) { 
+   var value=$(this).data("icon");
+     Moengage.track_event("followUsIconClicked", {
+      "Social Media Platform":value,
+     });
+  });
+
+  // footer store loactor
+
+    if( current_url == 'https://gocolors.com/apps/s/storelocators'){
+      console.log('storeLocatorPageViewed');
+        //moengage_event="storeLocatorPageViewed";
+          Moengage.track_event("storeLocatorPageViewed", {
+          "store Locator PageViewed":"storeLocatorPageViewed",
+       });
+       // strore locator state selected      
+    }
+      $('#store_state').on('change', function() {
+        Moengage.track_event("stateSelected", {
+          "State ":$(this).val(),
+        }); 
+      });
+       // citySelected
+      $('#store_city').on('change', function() {
+        Moengage.track_event("citySelected", {
+          "City":$(this).val(),
+        }); 
+      });
+
+       var baseUrl = "https://gocolors.com/apps/s/storelocators/";
+       if (current_url.includes(baseUrl)) {
+        var remainingUrl = current_url.replace(baseUrl, '');
+        var parts = remainingUrl.split('/');
+        var state = parts[0]; // Maharashtra
+        var city = parts[1];  // Pune
+        var storeNamePart = parts[2];
+        var storeName = decodeURIComponent(storeNamePart).replace(/%20/g, ' ');
+         console.log("State: " + state);
+         console.log("City: " + city);
+         console.log("Store Name: " + storeName);
+         
+        Moengage.track_event("storeDetailsViewed", {
+            "State":state,
+            "City":city,
+           "Store Name":storeName,
+          });
+
+       }
+      
+
+  // ********************** getinTouchPageViewed **********************
+    if(current_url == 'https://gocolors.com/pages/contact'){
+       Moengage.track_event("getinTouchPageViewed", {
+          "Get In Touch PageViewed":"Get In Touch Page Viewed",
+       });
+    }
+  
+  // **********************  templates seperate events **********************
+  
+   switch(template_name) {
+       
+   // ********************** collection template ********************** 
+       
+    case "collection":
+       
+      var url_split = current_url.split('https://gocolors.com/collections/');
+      if(url_split[1].includes('?')){
+        url_split = url_split[1].split('?');
+        url_split = url_split[0];
+      }
+      else{
+        url_split = url_split[1];
+      }
+      url_split = url_split.replace(/-/g, ' ');
+      var plp_Category = "{{ collection.metafields.custom.category }}";
+      var plp_sub_Category = "{{ collection.metafields.custom.sub_category }}";
+      if(plp_sub_Category == " "){
+        plp_sub_Category = url_split;
+      }
+       
+      Moengage.track_event("CollectionPageViewed", {
+        "Catgeory":plp_Category,
+        "Sub Catgeory":plp_sub_Category,
+      }); 
+
+    // ************************** plpViewAsChanged ***************************
+       
+      // $(document).on('click','.boost-pfs-filter-display-grid',function(){
+      //   Moengage.track_event("plpViewAsChanged", {
+      //     "view Type":"Grid",
+      //     });
+      // });
+
+      // $(document).on('click','.boost-pfs-filter-display-list',function(){
+      //   Moengage.track_event("plpViewAsChanged", {
+      //     "view Type":"List",
+      //   });
+      // });
+       
+    // **************************  plpSortByChanged ***************************
+       
+      $(document).on('click','.boost-sd__sorting-list',function(){
+            let searchParams = new URLSearchParams(window.location.search)
+              let param = searchParams.get('sort')
+              var sort_name = "";
+              if(param == 'relevance'){
+                sort_name = 'Relevance';
+              }
+              else if(param == 'best-selling'){
+                sort_name = 'Best selling';
+              }
+              else if(param == 'title-ascending'){
+                sort_name = 'Alphabetically, A-Z';
+              }
+              else if(param == 'title-descending'){
+                sort_name = 'Alphabetically, Z-A';
+              }
+              else if(param == 'price-descending'){
+                sort_name = 'Price, high to low';
+              }
+              else if(param == 'price-ascending'){
+                sort_name = 'Price, low to high';
+              }
+              else if(param == 'created-ascending'){
+                sort_name = 'Created Ascending';
+              }  
+              Moengage.track_event("plpSortByChanged", {
+                "sort By":$.trim(sort_name),
+              });
+          });
+
+    // **************************  plpProductTypeFilterSelected ***************************
+
+      var filterObj = {}; 
+       setTimeout(function(){
+         var maxValue = $('.noUi-handle-upper').attr('aria-valuemax');
+         var minvalue = $('.noUi-handle-upper').attr('aria-valuemin');
+         var changeMaxValue = $('.noUi-handle-upper').attr('aria-valuenow');
+         console.log("maxValue :" + maxValue + " minvalue : " + minvalue + " changeMaxValue " +changeMaxValue);
+         var priceRange = [ minvalue , changeMaxValue ];
+               Moengage.track_event("plpPriceFilterSelected", {
+               "Price Range": priceRange,
+            });
+         
+         var handleUpper = document.querySelector('.noUi-handle-upper');
+
+        // Function to handle the attribute change
+        function handleAttributeChange(mutations) {
+            mutations.forEach(function(mutation) {
+                if (mutation.type === 'attributes' && mutation.attributeName === 'aria-valuenow') {
+                    // Get the updated values
+                    var maxValue = handleUpper.getAttribute('aria-valuemax');
+                    var minValue = handleUpper.getAttribute('aria-valuemin');
+                    var changeMaxValue = handleUpper.getAttribute('aria-valuenow');
+                     var priceRange = [ minValue ,  changeMaxValue ]
+                      Moengage.track_event("plpPriceFilterSelected", {
+                           "Price Range":priceRange,
+                        });
+                    // Show console.log with updated values
+                   // console.log("maxValue: " + maxValue + " minValue: " + minValue + " changeMaxValue: " + changeMaxValue);
+                }
+            });
+          }
+         var observer = new MutationObserver(handleAttributeChange);
+          observer.observe(handleUpper, {
+              attributes: true // configure it to listen to attribute changes
+          });
+       },4000);
+
+        
+      $(document).on('click','.boost-sd__filter-option-item',function(){
+        if(!($(this).hasClass('selected'))){
+          function containsNumbers(str) {
+            return /[0-9]/.test(str);
+          }
+          var selected_filter_name = $(this).find('.boost-pfs-filter-option-value').text(); 
+          var filter_name = $(this).parent('ul').parent('div.boost-pfs-filter-option-content-inner').parent('div.boost-pfs-filter-option-content').prev().find('button span.boost-pfs-filter-option-title-text').text();
+        
+          //start
+          var filterName = $(this).closest('.boost-sd__filter-option-itemwrapper').prev().find('.boost-sd__filter-option-title').text().replace(/\d+/g, '').trim();
+          var filterValue = $(this).find('.boost-sd__filter-option-item-label').text().trim();
+          console.log("Filter Name " + filterName + " Filter Value " + filterValue);
+
+           
+         var filterLabel = filterName.replace(/ /g,"_");;
+          // if (!(filterName in filterObj)) {
+          //   filterObj[filterName] = [];
+          // }
+          // filterObj[filterName].push(filterValue);
+          
+          if (filterName == 'Color'){
+             Moengage.track_event("plpColorFilterSelected", {
+               "Color":filterValue,
+            });
+          }
+          else if (filterName == 'Product Type'){
+            Moengage.track_event("plpProductTypeFilterSelected", {
+               "Product Type":filterValue,
+            });
+          }
+           else if (filterName == 'SIZE'){
+               Moengage.track_event("plpSizeFilterSelected", {
+               "Size":filterValue,
+            });
+           }
+           else if (filterName == 'Percent Sale'){
+               Moengage.track_event("plpPercentSaleFilterSelected", {
+               "Percent Sale":filterValue,
+            });
+           }
+          
+          else{
+            Moengage.track_event("plp" + filterLabel + "Filter Selected", {
+               filterLabel:filterValue,
+            });
+          }
+       }
+      
+      });
+       
+          
+    
+    // ********************************  QuickView  Event  ***************************
+
+      setTimeout(function(){
+       $('.boost-sd__button--quick-view').click(function() {
+         // var plp_sku = $('.boost-pfs-filter-product-item-inner').attr('data-line_sku');
+         // console.log(plp_sku);
+         Moengage.track_event("plpQuickView", {
+                    "Quick View":'plp Quick View',
+                     //"plpQuickView.sku":plp_sku,
+          });
+          setTimeout(function(){
+              var modal = $('.boost-sd__modal');
+              if (modal.length) {
+                var display = modal.css('display');
+                console.log('Modal display property:', display);
+                if (display === 'flex') {
+                 console.log('Modal is open');
+                  var productData =  modal.attr('data-product'); 
+                  var productDataJson = JSON.parse(productData);
+                  var SKU = productDataJson.variants[0].sku;
+                  console.log( "SKU", SKU);
+                 // ************************ quickViewOpened  ************************
+          
+                  Moengage.track_event("quickViewOpened", {
+                      "Quick View Opened":'Quick View Opened',
+                       "Sku":SKU,
+                  });
+                  
+                 // ************************ quickViewNavigated  navigationDirection ************************
+                 
+                 $('.boost-sd__thumbs-container-prev-button, .boost-sd__thumbs-container-next-button').click(function() {
+                      function handleNavigation(direction, SKU) {
+                          console.log(`${direction} boost-pfs-quickview-slider-${direction}`);
+                          Moengage.track_event("navigationDirection", {
+                            "Navigation Direction": direction,
+                            "Sku": SKU,
+                          });
+                        }
+                     console.log(" quickViewNavigated");
+                        const direction = $(this).hasClass('boost-sd__thumbs-container-prev-button') ? 'prev' : 'next';
+                        handleNavigation(direction, SKU);
+                   });
+                  
+                 // $('.boost-pfs-quickview-slider-dots').click(function() {
+                 //     console.log(" quickViewNavigated boost-pfs-quickview-slider-dot");
+                 //    Moengage.track_event("quickViewNavigated", {
+                 //      "Quick View Navigated":'Quick View Navigated',
+                 //       "sku":SKU,
+                 //    });
+                 // });
+                  
+                  // ************************ sizeSelected ************************
+                
+                 if($('.boost-sd__radio-input').prop('checked')){
+                    var size = $('.boost-sd__radio-input').val();
+                    console.log( " sizeSelected --" + size + " size");
+                    Moengage.track_event("sizeSelected", {
+                     "Size Selected":'Size Selected',
+                     "Size":size,
+                     "Sku":SKU,
+                    });
+                  }
+                  
+                  $('.boost-sd__product-swatch-options label').on('click', function (){
+                    console.log($(this).text());
+                    var updatedSize = $(this).text();
+                      console.log( " sizeSelected --" + updatedSize + " size");
+                      Moengage.track_event("sizeSelected", {
+                       "Size Selected":'Size Selected',
+                       "Size":updatedSize,
+                       "Sku":SKU,
+                    });
+                  
+                  });
+    
+                 // ************************ fullDetailsViewed ************************
+                  $('a.boost-sd__quick-view-details-link').click(function(){
+                   console.log( SKU + " fullDetailsViewed ");
+                    Moengage.track_event("fullDetailsViewed", {
+                      "Full Details Viewed":'Full Details Viewed',
+                       "Sku":SKU,
+                    });
+                })
+                } 
+                else{
+                   console.log('Modal display none');
+                }
+              } 
+            
+            },1000);
+          });
+       },1500); 
+   
+      break;
+  
+  // ********************** Product template ********************** 
+     
+      case "product":
+
+      var quantity= gsf_conversion_data.data.product_data[0].quantity;
+      var product_id= gsf_conversion_data.data.product_data[0].product_id;
+      var variant_id= gsf_conversion_data.data.product_data[0].variant_id;
+      var size= gsf_conversion_data.data.product_data[0].variant;
+      console.log(gsf_conversion_data.data);
+      if(quantity >= 1){
+        availability = 'Available';
+      }
+      // ********************************* selectedcolor *********************************
+        $('ul.palatte-slider-desktop li').each(function(index, element) {
+          if($(this).hasClass("active_palatte")){
+            selectedcolor=$.trim($(this).text());
+            // console.log(selectedcolor);
+          }
+        });
+        setTimeout(function(){
+          Moengage.track_event("selectedcolor", {
+          "Selected Color":selectedcolor,
+          "Sku":product_sku,
+          });
+        },1500);
+       
+      // ********************************* selectedpalatte *********************************
+       
+        setTimeout(function () {
+          $('ul.filter li').each(function(index, element) {
+            if($(this).hasClass("active")){
+              selectedpalatte=$.trim($(this).text());
+            }
+          });
+        },1000);
+       
+        setTimeout(function(){
+          Moengage.track_event("selectedpalatte", {
+            "Selected Palatte":selectedpalatte,
+          });
+        },1500);
+       
+   // ********************************* pdp_page_view ********************************* 
+       
+      Moengage.track_event("pdp_page_view", {
+        "Name":"product_details",
+        "Country":"IN",
+        "Language":"en",
+        "Template":"product",
+        "Currency":"INR",
+        "Section":"",
+        "Filters":"",
+     });
+       
+    // *********************************   product ********************************* 
+       
+    setTimeout(function () {
+      Moengage.track_event("product", {
+        "Category1":meta_pdp_category,
+        "Category2":meta_pdp_sub_category,
+        "Sku":product_sku,
+        "Price":price,
+        "SellingPrice":sellingPrice,
+        "Availability":availability,
+        "Title":product_name,
+        "Product ID":product_id,
+        "Variant ID":variant_id,
+        "Product Name":product_name,
+        "Selected Color":selectedcolor,
+        "Selected Size":size,
+        "Selected Palatte":selectedpalatte,
+      });
+    },2000);
+
+   // ********************************* size &&  sizeGuideimg *********************************
+      
+      var activeValueSize = $('.clickyboxes a.active').text();
+      console.log('Initial active value: ' + activeValueSize);
+ 
+      function updateActiveValueSize(value) {
+        activeValueSize = value;
+        console.log('Updated active value: ' + activeValueSize);
+        Moengage.track_event("sizeSelected", {
+            "Size": activeValueSize,
+        });
+      }
+      $('.clickyboxes a').click(function(event) {
+        event.preventDefault();
+          $('.clickyboxes a').removeClass('active');
+          $(this).addClass('active');
+          updateActiveValueSize($(this).text());
+      });
+      $(document).on('change', '.clickybox-replaced', function() {
+          updateActiveValueSize($(this).val());
+      });
+       
+     // ********************************* selected Size *********************************
+       
+       $('.size-chart-container a[href="#size-chart-content"]').click(function(){
+         setTimeout(function(){
+           var sizeGuidPop = $('#colorbox');
+           if (sizeGuidPop.length) {
+              var display = sizeGuidPop.css('display');
+              console.log('Modal display property:', display);
+              if (display === 'block') {
+                var sizeGuideimgSrc = ''; 
+                function updateSizeGuideimgSrc() {
+                    if ($(window).width() < 768) {
+                     sizeGuideimgSrc = $('.size_chat_mobile > img').attr('src');
+                    } 
+                    else {
+                     sizeGuideimgSrc = $('.size_chat_desktop > img').attr('src');
+                    }
+                  console.log('sizeGuideimg ' + sizeGuideimgSrc); 
+                    Moengage.track_event("sizeSelected", {
+                      "Size": activeValueSize,
+                      "Size Guide": sizeGuideimgSrc,
+                      
+                    });
+                 }
+                updateSizeGuideimgSrc();
+                $(window).resize(function() {
+                 updateSizeGuideimgSrc();
+                });
+              }
+           }
+         },1000);
+       });
+       
+    // ********************************* serviceabilityCheck *********************************
+
+        $('.pincode_check').click(function(e) { 
+          var value=$(this).text();
+          var pincode_value=$(".pincode_value").val();
+         
+          setTimeout(function(){
+             var serviceability= $(".product_order_text").text();
+             Moengage.track_event("serviceabilityCheck", {
+              "Pincode":pincode_value,
+              "Serviceability":serviceability,
+             });
+          },2500);
+          
+         
+         
+         });
+
+    // ********************************* quantityChanged *********************************  
+       
+      $('.quantity-wrapper a').click(function(e) { 
+        var quantity_type=$(this).attr("data-quantity");
+        var pre_quantity=$("#formqty").val();
+         if(quantity_type=="up"){
+           var new_qty=parseInt(pre_quantity)+1;
+         }
+         else{
+            var new_qty=parseInt(pre_quantity)-1;
+         }
+         Moengage.track_event("quantityChanged", {
+           "Quantity Changed":"quantityChanged",
+          "Previous Quantity":pre_quantity,
+          "Current Quantity":new_qty,
+          "Change Direction":quantity_type,
+         });
+      });
+       
+   // ********************************* AddToCart *********************************  
+
+      $(document).on('click','#addtocartbtn',function(){
+        var pre_quantity=$("#formqty").val();
+        console.log(sellingPrice + " " + pre_quantity);
+        var cartTotal = pre_quantity * sellingPrice ;
+        console.log( cartTotal + " total");
+        
+        Moengage.track_event("addtocartbtn", {
+          "Category1":meta_pdp_category,
+          "Category2":meta_pdp_sub_category,
+          "Sku":product_sku,
+          "Product ID":product_id,
+          "Varinat ID":variant_id,
+          "Product Name":product_name,
+          "Selected Color":selectedcolor,
+          "Selected Size":size,
+          "Selected Palatte":selectedpalatte,
+          "Price":price,
+          "Selling Price":sellingPrice,
+          "Quantity":pre_quantity,
+          "Cart Total":cartTotal,
+          
+         });
+      });
+
+  // ********************************* PDP shareClicked *********************************  
+       
+      const sharePlatformMap = {
+        'social-share--item-facebook': 'facebook',
+        'social-share--item-twitter': 'twitter',
+        'social-share--item-whatapp': 'whatapp',
+        'social-share--item-email': 'email'
+      };
+       
+      $(document).on('click', '.social-share--item-facebook, .social-share--item-twitter, .social-share--item-whatapp, .social-share--item-email', function() {
+        const classList = $(this).attr('class').split(/\s+/);
+        for (const className of classList) {
+          if (sharePlatformMap[className]) {
+            console.log(sharePlatformMap[className]);
+            Moengage.track_event("shareClicked", {
+              "Share Platform": sharePlatformMap[className]
+            });
+           
+          }
+        }
+      });
+
+  // ********************************* viewDetails *********************************
+       
+    $('.specifications_more').click(function(e) { 
+      var value="specifications_more";
+      Moengage.track_event(".viewDetails", {
+        "viewDetails":"viewDetails",
+        "More Details Clicked":"Specifications more clicked",
+      });
+    });
+    $('.specifications_less').click(function(e) { 
+      var value="specifications_less";
+      Moengage.track_event(".viewDetails", {
+         "viewDetails":"viewDetails",
+        "Less Details Clicked":"Specifications less clicked",
+      }); 
+    });
+       
+  //*********************************  imageInteracted ********************************* 
+       
+       $(document).on('click','.image-wrap-sect',function(){
+          Moengage.track_event("imageInteracted", {
+            "type":"zoom",
+          });
+       });
+       $(document).on('click','.item',function(){
+        var index=$(this).attr("data-slick-index");
+          Moengage.track_event("imageInteracted", {
+            "type":"thumb",
+            "index":index,
+          });
+       });   
+       
+     // *********************************  wishlistToggled &&  addToWishlist ********************************* 
+           
+        $('.iwish_product').click(function(e) { 
+          var clickval=$(this).attr("title");
+          var value="";
+         
+          if($(this).hasClass('iwishAdded')){
+             console.log('already added');
+             value= clickval;
+              var pre_quantity=$("#formqty").val();
+            var cartTotal = pre_quantity * sellingPrice ;
+             Moengage.track_event("removeFromWishlist", {
+              "Category1":meta_pdp_category,
+              "Category2":meta_pdp_sub_category,
+              "Sku":product_sku,
+              "Product ID":product_id,
+              "Varinat ID":variant_id,
+              "Product Name":product_name,
+              "Selected Color":selectedcolor,
+              "Selected Size":size,
+              "Selected Palatte":selectedpalatte,
+              "Price":price,
+              "Selling Price":sellingPrice,
+              "Quantity":pre_quantity,
+              "Cart Total":cartTotal,
+           });
+          }
+          else{
+             console.log('onclick added');
+            value="Add to Wishlist";
+            var pre_quantity=$("#formqty").val();
+            var cartTotal = pre_quantity * sellingPrice ;
+            Moengage.track_event("addToWishlist", {
+              "Category1":meta_pdp_category,
+              "Category2":meta_pdp_sub_category,
+              "Sku":product_sku,
+              "Product ID":product_id,
+              "Varinat ID":variant_id,
+              "Product Name":product_name,
+              "Selected Color":selectedcolor,
+              "Selected Size":size,
+              "Selected palatte":selectedpalatte,
+              "Price":price,
+              "Selling Price":sellingPrice,
+              "Quantity":pre_quantity,
+              "Cart Total":cartTotal,
+           });
+          }
+          
+        
+         Moengage.track_event("wishlistToggled", {
+          "Toggled Action":value,
+           "user":customer_id,
+          });
+       }); 
+       
+     // ********************************* productSearch  *********************************   
+            
+        $(document).on('blur','.focus-me',function(){
+               Moengage.track_event("productSearch", {
+                "search Term":$(this).val(),
+               });
+        });
+        $('.search-form').on('submit', function(){
+          var searchVal =  $('.boost-pfs-search-box').val();
+           Moengage.track_event("productSearch", {
+            "Product Search":'productSearch',
+             "Search term":searchVal,
+           });
+          
+         });
+      break;
+       
+       // ********************************* Search 
+       
+      case "search":
+        var searchInput = "{{ search.terms }}";
+          Moengage.track_event("Search", {
+            "Search":'Search',
+             "Search term":searchInput,
+          });
+        break;  
+       
+      // ********************************* Cart 
+       
+     case "cart":
+       // sku , category1 , sub category , price , quantity == on load , on click previous quantity
+       var cart_sku = $('.product-title').attr('data-sku');
+       var category = $('.product-title').attr('data-category');
+        var data_subcategory = $('.product-title').attr('data-subcategory');
+       console.log (" cart_sku " + cart_sku + " category " + category  + " data-subcategory " + data_subcategory );
+       // $(document).on('click','.plus',function(){
+         
+       // });
+
+        break;
+        case "article":
+         var  blogId = "{{ article.id }}";
+         console.log("blog Id : " + blogId);
+         //console.log(current_url);
+       // end switch case
+    }
+
+  //  blog  page event 
+  
+    if(current_url == 'https://gocolors.com/blogs/news'){
+        console.log(current_url);
+      Moengage.track_event("blogsPageViewed", {
+        "blogs Page Viewed":"Blogs Page Viewed",
+      }); 
+      
+      // blog filter applied
+      $('#filter-by').on('change', function() {
+          var selectedText = $("#filter-by option:selected").text();
+           console.log(selectedText);
+           Moengage.track_event("blogFilterApplied", {
+            "Filter Value":selectedText,
+          }); 
+                     
+      });
+      
+      $('.articles a').click(function(){
+       var blogTitle = $(this).closest('article').data('title');
+        var blogId = $(this).closest('article').data('id');
+        console.log("blogTitle : " + blogTitle + " blogId : " + blogId);
+          Moengage.track_event("blogClicked", {
+            "Blog Title":blogTitle,
+            "Blog ID":blogId
+          }); 
+      });
+    }   
+  
+     // strore locator state selected            
+      $('#store_state').on('change', function() {
+        //console.log("shop"+$(this).val());
+         Moengage.track_event("stateSelected", {
+          "State":$(this).val(),
+          }); 
+      });
+      $('#store_city').on('change', function() {
+          Moengage.track_event("stateSelected", {
+          "State":$(this).val(),
+          }); 
+                     
+     });
+
+
+    // shop by colors page events 
+  
+      $(".alt-logo").on('click', function() {
+        Moengage.track_event("shopByColorsPageClicked", {
+          "Shop By Colors Page Clicked":"Shop By Colors Page Clicked",
+         });
+      
+      });
+  
+      $('.multicolors  a').click(function(){
+        var colorPaletteSelected = $(this).attr('href');
+        console.log(colorPaletteSelected + "1");
+        var colorPalatte = colorPaletteSelected.split('https://gocolors.com/collections/')[1];
+        console.log(colorPalatte + "2");
+        var colorPalatte = colorPalatte.split('-');
+        console.log(colorPalatte + "3");
+        var palatte = colorPalatte[0];
+        var color = colorPalatte[1];
+        console.log(palatte + " - palatte - " + color + " - color -" );
+          Moengage.track_event("colorPaletteSelected", {
+            "Color Palette Selected":palatte,
+            "Color":color,
+          });
+      })
+   // end of code on load
+  
+ });
+</script>
+<script>
+  // ********************************* checkou page event ********************************* 
+
+    $(document).on("page:load page:change", function (){
+      var current_url = window.location.href;
+      // var url_split = current_url.split('step=');
+      // var length_var=url_split.length;
+      // var step=url_split[length_var-1];
+      // var step_chk="";
+      console.log(current_url); 
+      var moengage_event=";"
+      console.log(Shopify.Checkout.step);
+       var lineItemsData = [];
+      var skuArray = [];
+      var titleArray = [];
+      var quantityArray = [];
+      var priceArray = [];
+      var total = $.trim($('.payment-due__price').text());
+      var subtotal = $.trim($('.total-line--subtotal .order-summary__emphasis').text());
+     {% for line_item in checkout.line_items %}
+        lineItemsData.push({
+          sku: "{{ line_item.sku | escape }}",
+          title: "{{ line_item.product.title | escape }}",
+          quantity: "{{ line_item.quantity }}",
+          price: "{{ line_item.price | money_without_currency  }}",
+        });
+      {% endfor %}
+
+      $('table.product-table tr.product').each(function(index){
+                var lineItem = lineItemsData[index];
+                if (lineItem) {
+                  var sku = lineItem.sku;
+                  var title = lineItem.title;
+                  var quantity = lineItem.quantity;
+                  var price = lineItem.price;
+                  skuArray.push(sku);
+                  titleArray.push(title);
+                  quantityArray.push(quantity);
+                  priceArray.push(price);
+                }
+       });
+      
+      var bread_crum = $(".breadcrumb__text").text();
+          if (Shopify.Checkout.step === "contact_information"){
+            $('#continue_button').click(function(){
+              var checkout_shipping_address_country = $("#checkout_shipping_address_country").val();
+              var checkout_shipping_address_first_name = $("#checkout_shipping_address_first_name").val();
+              var checkout_shipping_address_last_name = $("#checkout_shipping_address_last_name").val();
+              var checkout_shipping_address_address1 = $("#checkout_shipping_address_address1").val();
+              var checkout_shipping_address_address2 = $("#checkout_shipping_address_address2").val();
+              var checkout_shipping_address_city = $("#checkout_shipping_address_city").val();
+              var checkout_shipping_address_state = $("#checkout_shipping_address_province").val();
+              var checkout_shipping_address_pincode = $("#checkout_shipping_address_zip").val();
+              var checkout_shipping_address_phoneNumber = $("#checkout_shipping_address_phone").val();
+               var checkout_page_phone = $('#checkout_shipping_address_phone').val();
+              
+               Moengage.track_event("proceededToShipping", {
+                  "proceeded To Shipping":"proceededToShipping",
+               });
+               Moengage.track_event("addressInformation", {
+                  "country":checkout_shipping_address_country,
+                  "First Name":checkout_shipping_address_first_name,
+                  "Last Name":checkout_shipping_address_last_name,
+                  "Address1":checkout_shipping_address_address1,
+                  "Address2":checkout_shipping_address_address2,
+                  "City":checkout_shipping_address_city,
+                  "State":checkout_shipping_address_state,
+                  "Pincode":checkout_shipping_address_pincode,
+                  "Phone Number":checkout_shipping_address_phoneNumber,
+               });
+              
+            });
+            var checkout_page_phone = $('#checkout_shipping_address_phone').val();
+            checkout_page_phone.replace('91', "");
+            checkout_page_phone.replace(' ', "");
+            localStorage.setItem("checkout_phone", checkout_page_phone);
+           // ********************************* checkoutOptIn*********************************
+       
+           $("input[name='checkout[buyer_accepts_marketing]']").on('click', function() {
+              if ($(this).is(':checked')) {
+                Moengage.track_event("checkoutOptIn", {
+                  "Status":"checked",
+                });
+              } 
+              else {
+                Moengage.track_event("checkoutOptIn", {
+                  "Status":"Unchecked",
+                });
+              }
+          });
+          
+           // ********************************* SavedAddressSelected  *********************************
+         
+            $("#checkout_shipping_address_id").change(function(){
+              console.log($(this).val());
+               if($(this).val()!=""){
+                  Moengage.track_event("savedAddressSelected", {
+                    "Address Id":$(this).val(),
+                  });
+               }
+            });
+            
+          }
+            
+         else if (Shopify.Checkout.step === 'shipping_method'){
+        
+           // ********************************* couponRedeemed  *********************************
+          
+           $("#ercheckout_red_coupon").click(function(){
+             var couppon_code=$("#ercheckout_coupon_code").val();
+             var cart_discounts = "{{ checkout.discounts_amount }}";
+             console.log(couppon_code);
+             if(couppon_code != ""){
+               Moengage.track_event("couponRedeemed", {
+                  "Coupon Code":couppon_code,
+                 "Discount Amount":cart_discounts,
+                });
+             }
+           });
+  
+           // *********************************  checkoutContinuedToPayment  *********************************
+       
+         }
+         else if (Shopify.Checkout.step === "payment_method") {
+          
+            $('a.link--small').click(function(){
+               Moengage.track_event("contactInformationChanged", {
+                 "contact Information Changed":"contactInformationChanged",
+               });
+            });
+           
+           ///  paymentOptionSelected
+            var checkedInput = $('.section--payment-method input.input-radio:checked');
+            var paymentLabel = $.trim($('label[for="' + checkedInput.attr('id') + '"]').text());
+           
+              $('.section--payment-method input.input-radio').on('change', function() {
+              var checkedInput = $('.section--payment-method input.input-radio:checked');
+              var paymentLabel = $.trim($('label[for="' + checkedInput.attr('id') + '"]').text());
+               Moengage.track_event("paymentOptionSelected", {
+                 "Payment Method": paymentLabel,
+               });
+            });
+              Moengage.track_event("paymentOptionSelected", {
+                 "Payment Method": paymentLabel,
+               });
+              console.log( "payment Label " + paymentLabel);
+
+           //billingAddressConfirmed
+            var BillingAdd = $('.section--billing-address input.input-radio:checked');
+            var BillingAddLabel = $.trim($('label[for="' + BillingAdd.attr('id') + '"]').text());
+           
+           $('.section--billing-address input.input-radio').on('change', function() {
+              var BillingAdd = $('.section--billing-address input.input-radio:checked');
+              var BillingAddLabel = $.trim($('label[for="' + BillingAdd.attr('id') + '"]').text());
+              
+              var paymentLabel = $.trim($('label[for="' + BillingAdd.attr('id') + '"]').text());
+               Moengage.track_event("billingAddressConfirmed", {
+                 "Billing Address Type": BillingAddLabel,
+               });
+            });
+           
+           Moengage.track_event("billingAddressConfirmed", {
+                 "Billing Address Type": BillingAddLabel,
+               });
+
+            $('.continue_button').click(function(){
+               Moengage.track_event("orderCompletionAttempted", {
+                 "Order Completion Attempted": Shopify.Checkout.step,
+               });
+           });
+                
+          var phone = localStorage.getItem("checkout_phone");
+           console.log(phone +"==phone:")
+           
+            Moengage.track_event("checkoutContinuedToPayment", {
+                    "Cart Total": total,
+                    "Subcart Total": subtotal,
+                    "Sku": skuArray,
+                    "Price": priceArray,
+                    "Quantity": quantityArray,
+                    "Title":titleArray,
+          });
+         }
+         else if(Shopify.Checkout.step === 'thank_you'){
+            // var orderNumber = $.trim($('.os-order-number').text());
+            // var orderNumber = orderNumber.split('Order')[1];
+           var orderNumber = $.trim($('.os-order-number').text());
+              var orderNumber = orderNumber.replace(/^[^\s]+\s*/, ''); // Remove everything up to and including the first space
+              console.log(orderNumber);
+             var phone = localStorage.getItem("checkout_phone");
+            console.log("tnk_order_id "+ orderNumber);
+            console.log('phone ' + phone);
+            Moengage.track_event("thankYouPageLoaded", {
+                  "Order Number":orderNumber,
+                });
+            Moengage.track_event("orderPlaced", {
+                 "Order Number":orderNumber,
+                  "Phone Number":phone,
+                  "Cart Total":total,
+                 });
+            Moengage.track_event("itemPurchased", {
+            "Order Number":orderNumber,
+            "Sku":skuArray,
+            "Price":priceArray,
+            "Quantity":quantityArray,
+            "Cart SubTotal":subtotal,
+            "Cart Total":total,
+            "Phone Number":phone,
+          });
+            $('p.step__footer__info a').click(function(){
+                Moengage.track_event("contactUsClicked", {
+                  "contact Us Clicked":"contactUsClicked",
+                });
+            });
+            $('a.step__footer__continue-btn').click(function(){
+              console.log('continue btn clicked !')
+              Moengage.track_event("continueShoppingClicked", {
+            "Continue Shopping Clicked":"continueShoppingClicked",
+            });
+          });
+         }
+         else{
+         $('a.step__footer__continue-btn').click(function(){
+              console.log('continue btn clicked !')
+              Moengage.track_event("continueShoppingClicked", {
+            "Continue Shopping Clicked":"continueShoppingClicked",
+            });
+          });
+         }
+
+    });
+
+</script>

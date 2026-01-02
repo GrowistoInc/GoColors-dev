@@ -1,0 +1,420 @@
+{%- style -%}
+  #shopify-section-{{ section.id }} {padding-block:{{ section.settings.padding_top_mob }}px {{ section.settings.padding_bottom_mob }}px;{%- if section.settings.sec-bg-color != blank -%} background:{{ section.settings.sec-bg-color }};{%- endif-%} }.collection-tabs ul{list-style: none;padding:0; margin:0;display: flex;justify-content: center;gap: 20px;}.collection-tabs ul.collection-grid-list{flex-wrap:wrap; display:none; }.collection-tabs p.sub-item__text{margin:0;}.collection-tabs ul.collection-grid-list.active{display:flex;gap: 10px;justify-content: flex-start;padding-left:15px;}.tab-button{ transition: background 0.22s cubic-bezier(.44,1.34,.38,1.11), color 0.22s cubic-bezier(.44,1.34,.38,1.11), transform 0.23s cubic-bezier(.44,1.34,.38,1.11), box-shadow 0.22s cubic-bezier(.44,1.34,.38,1.11);will-change: transform, box-shadow, background, color;position: relative;background-color: #f6f3f1;color: #000;border-radius: 25px;padding: 3px 15px;font-size: 14px;cursor: pointer;transition: background-color 0.5s ease, color 0.5s ease;white-space: nowrap;}.tab-button.active,.tab-btm-button.active{ background: #fff;color: #df2e84;box-shadow: 0 1px 4px 0 rgba(195, 106, 78, 0.13);}.collection-tabs ul.sub-coll-tab-btn {padding: 1.5rem 0 2.5rem 1.5rem;justify-content: flex-start;overflow-x: scroll;gap: 5px;}.collection-tabs h2 {margin: 0;padding-left: 1.5rem;}.collection-tabs ul.collection-grid-list li{flex: 0 0 calc(34% - 12px);}.collection-tabs ul li img{margin: 0 auto; border-radius: 7px;object-fit: cover;width:80%;height: 100%;margin-bottom:10px;}.collection-tabs ul li a.sub-text_link {display: flex;flex-direction: column;}.collection-tabs p.sub-item__text {margin: 0; font-size: 10px;padding: 0 5px 5px;line-height: normal;}.tab-btm-button{display:none;} .tab-btm-button.active{display:block;width:fit-content;padding:5px 40px;margin:3rem auto 0}li.tab-button.active[data-tab='end-of-season-sale'],li.tab-button[data-tab='end-of-season-sale']:hover  {background-color: red; color: #fff;}
+    @media screen and (min-width: 767px) {.collection-tabs ul.collection-grid-list li{ flex: 0 0 calc(25% - 20px);}.collection-tabs ul.collection-grid-list.active{gap:20px}.collection-tabs h2 , .collection-tabs ul.collection-grid-list {padding-left:25px;}}
+  @media screen and (min-width: 1200px) {.collection-tabs h2{padding-left: 3rem;}#shopify-section-{{ section.id }} {padding-block: {{ section.settings.padding_top }}px  {{ section.settings.padding_bottom }}px;}.tab-button.active{ transform: scale(1.10);}.collection-tabs ul.collection-grid-list li{flex: 0 0 calc(16% - 16px); text-align: center; cursor: pointer; }.tab-button:hover{} .tab-button:hover{ background: #fff8f3;color: #df2e84;transform: scale(1.07) translateY(0px); box-shadow: 0 4px 14px 0 rgba(195, 106, 78, 0.21), 0 1.5px 6px rgba(195, 106, 78, 0.14); outline: none;}.collection-tabs ul li img{ transition: transform 0.21s cubic-bezier(.41,1.51,.37,1.11), box-shadow 0.22s cubic-bezier(.41,1.51,.37,1.11);will-change: transform, box-shadow;max-width: 220px;margin-bottom:16px;}.collection-tabs ul.collection-grid-list.active{gap: 35px 20px;padding-left:3rem;}.collection-tabs  ul li:hover img{transform: scale(1.045) rotateZ(-0.2deg);box-shadow: 0 10px 28px 0 rgba(195, 106, 78, 0.21), 0 2px 8px rgba(195, 106, 78, 0.13);}.collection-tabs p.sub-item__text{font-size:16px;padding: 0;}.collection-tabs ul.sub-coll-tab-btn {padding: 2rem 0 3rem 3rem;gap: 20px;}.tab-btm-button.active{padding:8px 90px;margin:5rem auto 0}}
+{%- endstyle -%}
+{%- if section.settings.sec-heading != blank -%} <h2 class="">{{- section.settings.sec-heading -}}</h2> {%- endif  -%}
+<ul role="list" class="sub-coll-tab-btn">
+  {%- for block in section.blocks -%}
+    {%- if block.settings.tab-title != blank -%}<li class="tab-button {% if forloop.first %}active{% endif %}" data-tab="{{ block.settings.tab-title | handleize }}">{{- block.settings.tab-title -}}</li>{%- endif -%}
+    {%- endfor -%}
+</ul>
+{%- for block in section.blocks -%}
+<ul role="list" class="collection-grid-list {% if forloop.first %}active{% endif %} " id="{{ block.settings.tab-title | handleize }}">
+  {%- assign total_images = 0 -%}
+  {%- for question in (1..20) -%}
+    {%- assign textNum = 'textNumbers' | append: forloop.index -%}
+    {%- assign linkNum = 'linkNumbers' | append: forloop.index -%}
+    {%- assign imageNum = 'imageNumbers' | append: forloop.index -%}
+    {%- if block.settings[imageNum] != blank -%}
+      {%- assign total_images = total_images | plus: 1 -%}
+      <li role="listitem"> 
+       <a href="{{block.settings[linkNum]}}" class="sub-text_link" {{ total_images }}>
+          <img class="sub-ct-img" src="{{ block.settings[imageNum] | img_url: '550x550' }}" width="100%" height="293" alt="{%- if block.settings[imageNum].alt != blank-%}{{- block.settings[imageNum].alt -}}{%- else -%}{{ block.settings[textNum] }} Image {%- endif -%}" />
+            {%- if block.settings[textNum] != blank -%}                       
+              <p class="sub-item__text">{{block.settings[textNum]}}</p>
+            {%- endif -%}
+         </a> 
+      </li>
+    {%- endif -%}
+  {%- endfor -%}     
+</ul>
+{%- endfor -%} 
+
+{% schema %}
+  {
+    "name": "Collection Tabs List",
+    "class": "collection-tabs",
+    "settings": [
+      {
+        "type": "text",
+        "id": "sec-heading",
+        "label": "section title"
+      },
+      {
+        "type": "color",
+        "id": "sec-bg-color",
+        "label": "Background color"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding top",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding bottom",
+        "default": 0
+      }, 
+      {
+        "type": "range",
+        "id": "padding_top_mob",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding top Mobile",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom_mob",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding bottom Mobile",
+        "default": 0
+      }
+    ],
+    "blocks":[
+          {
+      "type": "image",
+      "name": "Image Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab-title",
+          "label": "Tab Title"
+        },
+        {
+          "type": "text",
+          "id": "tab-url-title",
+          "label": "Tab Url Title",
+           "default":"View All"
+        },
+        {
+          "type": "url",
+          "id": "tab-url",
+          "label": "Tab Button Url "
+        },
+        {
+          "type": "image_picker",
+          "id": "imageNumbers1",
+          "label": "Image 1"
+        },
+        {
+          "type": "url",
+          "id": "linkNumbers1",
+          "label": "Link 1"
+        },
+        {
+          "type": "text",
+          "id": "textNumbers1",
+          "label": "Text 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "imageNumbers2",
+          "label": "Image 2"
+        },
+        {
+          "type": "url",
+          "id": "linkNumbers2",
+          "label": "Link 2"
+        },
+        {
+          "type": "text",
+          "id": "textNumbers2",
+          "label": "Text 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "imageNumbers3",
+          "label": "Image 3"
+        },
+        {
+          "type": "url",
+          "id": "linkNumbers3",
+          "label": "Link 3"
+        },
+        {
+          "type": "text",
+          "id": "textNumbers3",
+          "label": "Text 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "imageNumbers4",
+          "label": "Image 4"
+        },
+        {
+          "type": "url",
+          "id": "linkNumbers4",
+          "label": "Link 4"
+        },
+        {
+          "type": "text",
+          "id": "textNumbers4",
+          "label": "Text 4"
+        },
+        {
+          "type": "image_picker",
+          "id": "imageNumbers5",
+          "label": "Image 5"
+        },
+        {
+          "type": "url",
+          "id": "linkNumbers5",
+          "label": "Link 5"
+        },
+        {
+          "type": "text",
+          "id": "textNumbers5",
+          "label": "Text 5"
+        },
+        {
+          "type": "image_picker",
+          "id": "imageNumbers6",
+          "label": "Image 6"
+        },
+        {
+          "type": "url",
+          "id": "linkNumbers6",
+          "label": "Link 6"
+        },
+        {
+          "type": "text",
+          "id": "textNumbers6",
+          "label": "Text 6"
+        },
+        {
+          "type": "image_picker",
+          "id": "imageNumbers7",
+          "label": "Image 7"
+        },
+        {
+          "type": "url",
+          "id": "linkNumbers7",
+          "label": "Link 7"
+        },
+        {
+          "type": "text",
+          "id": "textNumbers7",
+          "label": "Text 7"
+        },
+        {
+          "type": "image_picker",
+          "id": "imageNumbers8",
+          "label": "Image 8"
+        },
+        {
+          "type": "url",
+          "id": "linkNumbers8",
+          "label": "Link 8"
+        },
+        {
+          "type": "text",
+          "id": "textNumbers8",
+          "label": "Text 8"
+        },
+        {
+          "type": "image_picker",
+          "id": "imageNumbers9",
+          "label": "Image 9"
+        },
+        {
+          "type": "url",
+          "id": "linkNumbers9",
+          "label": "Link 9"
+        },
+        {
+          "type": "text",
+          "id": "textNumbers9",
+          "label": "Text 9"
+        },
+        {
+          "type": "image_picker",
+          "id": "imageNumbers10",
+          "label": "Image 10"
+        },
+        {
+          "type": "url",
+          "id": "linkNumbers10",
+          "label": "Link 10"
+        },
+        {
+          "type": "text",
+          "id": "textNumbers10",
+          "label": "Text 10"
+        },
+        {
+          "type": "image_picker",
+          "id": "imageNumbers11",
+          "label": "Image 11"
+        },
+        {
+          "type": "url",
+          "id": "linkNumbers11",
+          "label": "Link 11"
+        },
+        {
+          "type": "text",
+          "id": "textNumbers11",
+          "label": "Text 11"
+        },
+        {
+          "type": "image_picker",
+          "id": "imageNumbers12",
+          "label": "Image 12"
+        },
+        {
+          "type": "url",
+          "id": "linkNumbers12",
+          "label": "Link 12"
+        },
+        {
+          "type": "text",
+          "id": "textNumbers12",
+          "label": "Text 12"
+        },
+        {
+          "type": "image_picker",
+          "id": "imageNumbers13",
+          "label": "Image 13"
+        },
+        {
+          "type": "url",
+          "id": "linkNumbers13",
+          "label": "Link 13"
+        },
+        {
+          "type": "text",
+          "id": "textNumbers13",
+          "label": "Text 13"
+        },
+        {
+          "type": "image_picker",
+          "id": "imageNumbers14",
+          "label": "Image 14"
+        },
+        {
+          "type": "url",
+          "id": "linkNumbers14",
+          "label": "Link 14"
+        },
+        {
+          "type": "text",
+          "id": "textNumbers14",
+          "label": "Text 14"
+        },
+        {
+          "type": "image_picker",
+          "id": "imageNumbers15",
+          "label": "Image 15"
+        },
+        {
+          "type": "url",
+          "id": "linkNumbers15",
+          "label": "Link 15"
+        },
+        {
+          "type": "text",
+          "id": "textNumbers15",
+          "label": "Text 15"
+        },
+        {
+          "type": "image_picker",
+          "id": "imageNumbers16",
+          "label": "Image 16"
+        },
+        {
+          "type": "url",
+          "id": "linkNumbers16",
+          "label": "Link 16"
+        },
+        {
+          "type": "text",
+          "id": "textNumbers16",
+          "label": "Text 16"
+        },
+        {
+          "type": "image_picker",
+          "id": "imageNumbers17",
+          "label": "Image 17"
+        },
+        {
+          "type": "url",
+          "id": "linkNumbers17",
+          "label": "Link 17"
+        },
+        {
+          "type": "text",
+          "id": "textNumbers17",
+          "label": "Text 17"
+        },
+        {
+          "type": "image_picker",
+          "id": "imageNumbers18",
+          "label": "Image 18"
+        },
+        {
+          "type": "url",
+          "id": "linkNumbers18",
+          "label": "Link 18"
+        },
+        {
+          "type": "text",
+          "id": "textNumbers18",
+          "label": "Text 18"
+        },
+        {
+          "type": "image_picker",
+          "id": "imageNumbers19",
+          "label": "Image 19"
+        },
+        {
+          "type": "url",
+          "id": "linkNumbers19",
+          "label": "Link 19"
+        },
+        {
+          "type": "text",
+          "id": "textNumbers19",
+          "label": "Text 19"
+        },
+        {
+          "type": "image_picker",
+          "id": "imageNumbers20",
+          "label": "Image 20"
+        },
+        {
+          "type": "url",
+          "id": "linkNumbers20",
+          "label": "Link 20"
+        },
+        {
+          "type": "text",
+          "id": "textNumbers20",
+          "label": "Text 20"
+        },
+      ],
+     }
+    ],
+    "presets": [
+      {
+        "name": "Collection Tabs List",
+      }
+    ]
+  }
+{% endschema %}

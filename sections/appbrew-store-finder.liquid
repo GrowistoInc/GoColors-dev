@@ -1,0 +1,23 @@
+{% schema %}
+{
+  "name": "appbrew-store-finder",
+  "settings": []
+}
+{% endschema %}
+<style>
+  
+</style>
+
+<div
+  id="product-data"
+  data-id="{{ product.id }}"
+  data-title="{{ product.title | escape }}"
+  data-url="{{ product.url | escape }}"
+  data-type="{{ product.type | escape }}"
+  data-vendor="{{ product.vendor | escape }}"
+  data-tags="{{ product.tags | join: ', ' | escape }}"
+  data-images="{{ product.images | map: 'src' | join: ', ' | escape }}"
+  data-collection-ids="{{ product.collections | map: 'id' | join: ',' }}"
+>
+  
+</div>

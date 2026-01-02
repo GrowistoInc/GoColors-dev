@@ -1,0 +1,150 @@
+<style>
+.color-block a {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+  .color-block p.color-text {
+      font-size: 12px;
+    font-weight:600;
+    text-align: center;    margin-bottom: 0;
+  }
+  .fall-color-container.page-wrapper{
+    padding: 45px 0 30px !important;
+  }
+  .fall-color-container h2{
+    padding-bottom:0;
+    font-size:20px;
+    font-weight:400;
+  }
+  .fall-color-container h2{
+    text-decoration:underline;
+  }
+  .color-block img {
+    width: 40px;
+    margin: auto;
+}
+@media (min-width:750px) {
+  .fall-color-container h2{
+    font-size:30px;
+  }
+   .color-block img{
+   width: 100%;
+   }
+  .color-block {
+ 
+    /*   width: 100%; min-width: 80px; */
+    text-align: center;
+  }
+  .color-block img {
+    height: 75px;
+    width: 75px;
+  }
+   .color-block p.color-text {
+      font-size: 14px;
+   }
+   .fall-color-container.page-wrapper{
+    padding:2rem 0 0 !important;
+  }
+}
+
+</style>
+<div class="fall-color-container page-width">
+  <h2 class="heading center">{{ section.settings.heading }}</h2>
+
+ <div class="swiper colors-container">
+  <div class="swiper-wrapper">
+  {%for block in section.blocks%}
+    <div class="swiper-slide color-block">
+      <a href="{{ block.settings.color_link }}">
+            <img src="{{ block.settings.image | img_url: '' }}">
+            <p class="color-text"> {{ block.settings.text_wrapp }} </p>
+        </a>
+      </div>
+  {%endfor%}
+    </div>
+</div>
+</div>
+<script>
+  $(document).ready(function(){
+      var swiper = new Swiper(".colors-container", {
+        spaceBetween: 10,
+        slidesPerView:4,
+      breakpoints: {
+        200: {          
+            slidesPerView:4,
+         },
+        700: {
+           slidesPerView:6,
+        },
+        1000: {
+           slidesPerView:9,
+        },
+        1200: {
+          slidesPerView:9,
+        },
+              
+      },
+    }); 
+  });
+</script>
+
+{% schema %}
+{
+   "name":"fall-colors",
+   "settings":[
+      { 
+         "type":"text",
+         "id":"heading",
+         "label":"heading",
+         "default":"FALL COLORS"
+      }
+   ],
+   "blocks":[
+      {
+         "type":"colors",
+         "name":"fall-colors",
+         "settings":[
+            {
+               "type":"text",
+               "id":"text_wrapp",
+               "label":"color name"
+               
+            },
+            {
+               "type":"image_picker",
+               "id":"image",
+               "label":"color"
+            },
+           {
+              "type": "url",
+             "id": "color_link",
+             "label": "color link"
+            }
+         ]
+      }
+   ],
+   "presets":[
+      {
+         "name":"fall-colors",
+         "category":"color",
+         "blocks":[
+            {
+               "type":"colors"
+            },
+            {
+               "type":"colors"
+            }
+            
+         ]
+      }
+   ]
+}
+
+{% endschema %}
+
+  

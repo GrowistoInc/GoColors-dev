@@ -1,0 +1,95 @@
+<style>
+.section-{{ section.id }}-padding { padding-block: {{ section.settings.padding_top_mob }}px {{ section.settings.padding_bottom_mob }}px;}
+@media screen and (min-width: 750px) {.section-{{ section.id }}-padding {padding-block: {{ section.settings.padding_top }}px {{ section.settings.padding_bottom }}px;}} 
+</style>
+{%- for block in section.blocks -%}
+  <div class="f_bottom__links_bg section-{{ section.id }}-padding">
+    <div class="page-width">
+      {%- if block.settings.heading != blank -%}<h2 class="footer-site-heading">{{ block.settings.heading }}</h2> {%- endif -%}
+      <div class="f_bottom__links {% if forloop.last %}links-last{% endif %}"> {%- for link in block.settings.menu.links -%} <a href="{{ link.url }}" role="link">{{ link.title | escape }}</a><span class="{% if forloop.last %}last{% endif %}">|</span>{%- endfor -%}</div>
+    </div>
+  </div>
+{% endfor %}  
+{% schema %}
+  {
+  "name": "footer mega link",
+  "class": "section-footer-site-map",
+   "settings": [
+     {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    },
+     {
+      "type": "header",
+      "content": "Mobile padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mob",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mob",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 20
+    }
+   ], 
+  "blocks": [
+    {
+      "type": "link_list",
+      "name": "t:sections.footer.blocks.link_list.name",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "default": "Quick links",
+          "label": "t:sections.footer.blocks.link_list.settings.heading.label"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "default": "footer",
+          "label": "t:sections.footer.blocks.link_list.settings.menu.label",
+          "info": "t:sections.footer.blocks.link_list.settings.menu.info"
+        }
+      ]
+    }
+  ],
+     "presets":[
+      {
+         "name": "footer mega link"
+      }
+    ]
+  }
+{% endschema %}
+

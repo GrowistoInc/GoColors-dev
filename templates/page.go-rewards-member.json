@@ -1,0 +1,172 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "rich_text_pX8heb": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_RVYMxQ": {
+          "type": "heading",
+          "settings": {
+            "heading": "Go Rewards",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "heading_RVYMxQ"
+      ],
+      "disabled": true,
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "scheme-1",
+        "full_width": false,
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "data_inrichment_banner_Dq4ei3": {
+      "type": "data-inrichment-banner",
+      "settings": {
+        "Desktopbanner1": "shopify://shop_images/Go_Rewards_Desktop_banner_1_742443d8-5520-4229-9579-b19d50d54b82.jpg",
+        "Mobilebanner1": "shopify://shop_images/Go_Rewards_Mobile_banner_1.jpg",
+        "url1": "",
+        "url2": "",
+        "padding_top": 20,
+        "padding_bottom": 0,
+        "mob_padding_top": 20,
+        "mob_padding_bottom": 0
+      }
+    },
+    "data_inrichment_banner_GiQtFR": {
+      "type": "data-inrichment-banner",
+      "settings": {
+        "Desktopbanner1": "shopify://shop_images/Go_Rewards_Desktop_Banner_2.jpg",
+        "Mobilebanner1": "shopify://shop_images/Go_Rewards_Mobile_banner_2.jpg",
+        "url1": "",
+        "url2": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "mob_padding_top": 0,
+        "mob_padding_bottom": 0
+      }
+    },
+    "data_inrichment_banner_bemYHr": {
+      "type": "data-inrichment-banner",
+      "disabled": true,
+      "settings": {
+        "Desktopbanner1": "shopify://shop_images/GR_desktop_banner_3_1749x450_3b44503d-6729-458e-8de4-a2798152c7ac.jpg",
+        "Mobilebanner1": "shopify://shop_images/GR_mobile_banner_3_430x385_95765caf-c753-4fad-9a36-09514b9ff131.jpg",
+        "url1": "#signupForm",
+        "url2": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "mob_padding_top": 0,
+        "mob_padding_bottom": 0
+      }
+    },
+    "test_4BYJRj": {
+      "type": "test",
+      "blocks": {
+        "image_wBkK8n": {
+          "type": "image",
+          "settings": {
+            "desktop__image": "shopify://shop_images/Go_Rewards_Desktop_Banner_3.jpg",
+            "mobile__image": "shopify://shop_images/Go_Rewards_Mobile_banner_3.jpg",
+            "collec-link": ""
+          }
+        },
+        "image_TDRPkY": {
+          "type": "image",
+          "settings": {
+            "desktop__image": "shopify://shop_images/Go_Rewards_Desktop_Banner_4.jpg",
+            "mobile__image": "shopify://shop_images/Go_Rewards_Mobile_banner_4.jpg",
+            "collec-link": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_wBkK8n",
+        "image_TDRPkY"
+      ],
+      "disabled": true,
+      "name": "Test",
+      "settings": {
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mob": 0,
+        "padding_bottom_mob": 0,
+        "add-page-width": false
+      }
+    },
+    "available_rewards_Dbj7JG": {
+      "type": "available-rewards",
+      "blocks": {
+        "coupon_image_yjNHW8": {
+          "type": "coupon_image",
+          "settings": {
+            "coupon_image": "shopify://shop_images/Rectangle_9_1.png"
+          }
+        },
+        "coupon_image_VnT9zk": {
+          "type": "coupon_image",
+          "settings": {
+            "coupon_image": "shopify://shop_images/Rectangle_9_4.png"
+          }
+        },
+        "coupon_image_Pq4DFC": {
+          "type": "coupon_image",
+          "disabled": true,
+          "settings": {
+            "coupon_image": "shopify://shop_images/Rectangle_9_5.png"
+          }
+        },
+        "coupon_image_XDcJnT": {
+          "type": "coupon_image",
+          "disabled": true,
+          "settings": {
+            "coupon_image": "shopify://shop_images/Rectangle_9_5.png"
+          }
+        }
+      },
+      "block_order": [
+        "coupon_image_yjNHW8",
+        "coupon_image_VnT9zk",
+        "coupon_image_Pq4DFC",
+        "coupon_image_XDcJnT"
+      ],
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28,
+        "default_coupon_image": "shopify://shop_images/Rectangle_9.png"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_pX8heb",
+    "data_inrichment_banner_Dq4ei3",
+    "data_inrichment_banner_GiQtFR",
+    "data_inrichment_banner_bemYHr",
+    "test_4BYJRj",
+    "available_rewards_Dbj7JG"
+  ]
+}

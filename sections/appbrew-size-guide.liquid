@@ -1,0 +1,55 @@
+{% schema %}
+{
+  "name": "appbrew-size-guide",
+  "settings": []
+}
+{% endschema %}
+
+<style>
+  @media (max-width: 768px) {
+    .size_chat_appbrew {
+      display: block;
+      width: 80%; 
+      text-align: center;
+      margin: 0 auto;
+      margin-top: 20px;
+    }
+
+    .size_chat_appbrew img {
+      width: 100%; 
+      max-width: 350px;
+    }
+
+    .size_chat_desktop {
+      display: none; 
+    }
+  }
+</style>
+
+<div
+  id="product-data"
+  data-id="{{ product.id }}"
+  data-title="{{ product.title | escape }}"
+  data-url="{{ product.url | escape }}"
+  data-type="{{ product.type | escape }}"
+  data-vendor="{{ product.vendor | escape }}"
+  data-tags="{{ product.tags | join: ', ' | escape }}"
+  data-images="{{ product.images | map: 'src' | join: ', ' | escape }}"
+  data-collection-ids="{{ product.collections | map: 'id' | join: ',' }}"
+>
+  <div class="popup-content">
+   
+    <div style="text-align: center;" class="size_chat_desktop">
+      <img
+        src="https://cdn.shopify.com/s/files/1/0598/8158/6848/files/{{ product.type | replace: ' ', '_' }}.jpg?v=16448571131"
+        alt="" width="auto" height="auto"
+      >
+    </div>
+    <div style="text-align: center;" class="size_chat_appbrew">
+      <img
+        src="https://cdn.shopify.com/s/files/1/0598/8158/6848/files/{{ product.type | replace: ' ', '_' }}_mobile.jpg?v=16448571131"
+        alt="" width="auto" height="auto"
+      >
+    </div>
+  </div>
+</div>

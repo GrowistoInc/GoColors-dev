@@ -1,0 +1,187 @@
+<style>
+  .tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  .tab {
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 40px;
+    cursor: pointer;
+    background-color: #fff;
+  }
+  .tab.active {
+    color: #ff4081;
+    border-color: #ff4081;
+  }
+
+  .quarter-section {
+    display: none;
+  }
+  .quarter-section.active {
+    display: block;
+  }
+
+  .report {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1rem;
+    width: 100%;
+  }
+
+  .year {
+    font-weight: bold;
+    min-width: 60px;
+    cursor: pointer;
+  }
+  .year:hover {
+    color: #ff4081;
+  }
+
+  .details {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 0.5rem 0;
+  }
+
+  .actions a {
+    text-decoration: none;
+    margin-left: 10px;
+  }
+
+  /* Make the entire details row span full width */
+  .quarter-section .report {
+    width: 100%;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 600px) {
+    .tabs {
+      gap: 5px;
+    }
+    .tab {
+      padding: 8px 12px;
+      font-size: 0.9rem;
+    }
+    .year {
+      min-width: 40px;
+      font-size: 0.9rem;
+    }
+    .details {
+      font-size: 0.9rem;
+    }
+  }
+</style>
+
+<!-- Tabs -->
+<div class="tabs">
+  {% for block in section.blocks %}
+    <div class="tab" data-quarter="quarter-{{ block.id }}">{{ block.settings.title }}</div>
+  {% endfor %}
+</div>
+
+<!-- Quarter Sections -->
+{% for block in section.blocks %}
+  <div class="quarter-section" id="quarter-{{ block.id }}">
+    <div class="report">
+      <div class="year">{{ block.settings.year }}</div>
+      <div class="details">
+        <span>{{ block.settings.title }}</span>
+      </div>
+    </div>
+
+    {% assign detail_titles = block.settings.detail_titles | split: '||' %}
+    {% assign detail_urls = block.settings.detail_urls | split: '||' %}
+    {% for i in (0..4) %}
+      {% assign title = detail_titles[i] | default: "" %}
+      {% assign url = detail_urls[i] | default: "" %}
+      {% if title != "" and url != "" %}
+        <div class="report">
+          <div class="year">-</div>
+          <div class="details">
+            <span>{{ title }}</span>
+            <div class="actions">
+              <a href="{{ url }}" target="_blank" title="View">
+                <img src="{{ 'viewg.png' | file_url }}" alt="View">
+              </a>
+              <a href="{{ url }}" target="_blank" title="Download">
+                <img src="{{ 'downg.png' | file_url }}" alt="Download">
+              </a>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+{% endfor %}
+
+<!-- JavaScript for Tab Switching -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const tabs = document.querySelectorAll(".tab");
+    const sections = document.querySelectorAll(".quarter-section");
+
+    function setActive(quarterId) {
+      tabs.forEach(tab => tab.classList.toggle("active", tab.dataset.quarter === quarterId));
+      sections.forEach(section => section.classList.toggle("active", section.id === quarterId));
+    }
+
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => setActive(tab.dataset.quarter));
+    });
+
+    if (tabs.length > 0) {
+      setActive(tabs[0].dataset.quarter);
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Quarterly Details",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "quarter",
+      "name": "Quarter",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Quarter Title",
+          "default": "Q1"
+        },
+        {
+          "type": "text",
+          "id": "year",
+          "label": "Year",
+          "default": "2025"
+        },
+        {
+          "type": "textarea",
+          "id": "detail_titles",
+          "label": "Detail Titles (Separate with ||)",
+          "default": "Report 1||Report 2||Report 3"
+        },
+        {
+          "type": "textarea",
+          "id": "detail_urls",
+          "label": "Detail URLs (Separate with ||)",
+          "default": "https://example.com/report1.pdf||https://example.com/report2.pdf||https://example.com/report3.pdf"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Quarter Reports"
+    }
+  ]
+}
+{% endschema %}

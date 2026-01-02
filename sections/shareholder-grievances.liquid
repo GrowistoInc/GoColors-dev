@@ -1,0 +1,29 @@
+{%- for block in section.blocks -%}
+	{{ block.settings.title }}
+{%- endfor -%}
+{% schema %}
+  {
+    "name": "Shareholder Grievances",
+    "blocks": [
+      {
+        "type": "textarea",
+        "name": "tabs",
+        "settings": [
+          {
+            "type": "textarea",
+            "id": "title",
+            "label": "Heading",
+            "default": "Content"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+
+{% endjavascript %}

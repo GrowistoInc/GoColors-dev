@@ -1,0 +1,16 @@
+<script type="text/javascript" src="{{ 'wizzyCustom.js' | asset_url  }}" ></script>
+
+{% render 'wizzy.search.wrapper' %}
+{% render 'wizzy.search.product' %}
+{% render 'wizzy.autoComplete.product' %}
+
+<script>
+  if (typeof window.wizzyLazyAssets != "undefined") {
+    window.wizzyLazyAssets = window.wizzyLazyAssets ? window.wizzyLazyAssets : [];
+        window.wizzyLazyAssets.push("{{ 'wizzyFrontend.min.js' | asset_url  }}",'scripts');
+  }
+</script>
+
+
+
+

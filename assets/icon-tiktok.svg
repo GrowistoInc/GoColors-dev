@@ -1,0 +1,10 @@
+
+<svg class="icon icon-tiktok" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+  <g id="Group_21071" data-name="Group 21071" transform="translate(-131 -336)">
+    <g id="Ellipse_3176" data-name="Ellipse 3176" transform="translate(131 336)" fill="#fff" stroke="#d4d4d4" stroke-width="1">
+      <circle cx="15" cy="15" r="15" stroke="none"/>
+      <circle cx="15" cy="15" r="14.5" fill="none"/>
+    </g>
+    <path id="_5282542_linkedin_network_social_network_linkedin_logo_icon" data-name="5282542_linkedin_network_social network_linkedin logo_icon" d="M10.7,0A1.49,1.49,0,0,1,12.19,1.489V10.7A1.49,1.49,0,0,1,10.7,12.19H1.489A1.49,1.49,0,0,1,0,10.7V1.489A1.49,1.49,0,0,1,1.489,0H10.7ZM3.82,10.078V4.7H2.034v5.374Zm6.441,0V7c0-1.651-.881-2.419-2.057-2.419a1.774,1.774,0,0,0-1.61.887V4.7H4.809c.024.5,0,5.374,0,5.374H6.6v-3a1.221,1.221,0,0,1,.059-.436.978.978,0,0,1,.917-.653c.646,0,.9.493.9,1.215v2.875ZM2.939,2.112A.931.931,0,1,0,2.916,3.97h.012a.932.932,0,1,0,.012-1.857Z" transform="translate(140 345)" fill="#646464" fill-rule="evenodd"/>
+  </g>
+</svg>

@@ -1,0 +1,222 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement_e4rAXJ": {
+          "type": "announcement",
+          "settings": {
+            "text": "Get ₹200 off on your first order💰 | Use code: GCWELCOME",
+            "link": ""
+          }
+        },
+        "announcement_zWhrUa": {
+          "type": "announcement",
+          "disabled": true,
+          "settings": {
+            "text": "🚀Go Colors EOSS Sale Is Live! Buy 1 & Get 1 Free up to Buy 5 & Get 5 Free",
+            "link": ""
+          }
+        },
+        "announcement_j6GbtB": {
+          "type": "announcement",
+          "disabled": true,
+          "settings": {
+            "text": "💥 Black Friday Sale: FLAT 50% OFF on Select Styles! LIMITED TIME! 🛒",
+            "link": "https://gocolors.com/collections/black-friday-sale"
+          }
+        },
+        "announcement-bar-0": {
+          "type": "announcement",
+          "settings": {
+            "text": "Free Shipping | 30-Day Easy Return | Free COD 🛒",
+            "link": ""
+          }
+        },
+        "announcement_fXb7mn": {
+          "type": "announcement",
+          "disabled": true,
+          "settings": {
+            "text": "Happy Independence Day! Our customer care team is unavailable today. For urgent inquiries, please email us at customercare@gocolors.com. Thank you for your understanding!",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "announcement_e4rAXJ",
+        "announcement_zWhrUa",
+        "announcement_j6GbtB",
+        "announcement-bar-0",
+        "announcement_fXb7mn"
+      ],
+      "custom_css": [],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "show_line_separator": false,
+        "show_social": false,
+        "auto_rotate": true,
+        "change_slides_speed": 4,
+        "enable_country_selector": false,
+        "enable_language_selector": false
+      }
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "image_picker_CfzhmL": {
+          "type": "image_picker",
+          "disabled": true,
+          "settings": {
+            "menuImageTitle": "Ethnic Glam",
+            "menuTitle": "WOMEN",
+            "menuImageUrl": "shopify://collections/ethnic-wear-women"
+          }
+        },
+        "image_picker_Dfw7db": {
+          "type": "image_picker",
+          "disabled": true,
+          "settings": {
+            "menuImageTitle": "The 9-To-5 Edit",
+            "menuTitle": "WOMEN",
+            "menuImageUrl": "https://gocolors.com/collections/formal-pants-for-women"
+          }
+        },
+        "image_picker_BmACbR": {
+          "type": "image_picker",
+          "disabled": true,
+          "settings": {
+            "menuImageTitle": "Off-Duty Looks",
+            "menuTitle": "WOMEN",
+            "menuImageUrl": "https://gocolors.com/collections/casual-wear"
+          }
+        },
+        "image_picker_TPdTzT": {
+          "type": "image_picker",
+          "disabled": true,
+          "settings": {
+            "menuImageTitle": "Hustle More",
+            "menuTitle": "GO PLUS",
+            "menuImageUrl": "https://gocolors.com/collections/active-wear-women?pf_opt_size=2X&pf_opt_size=3X"
+          }
+        },
+        "image_picker_kHw9Nr": {
+          "type": "image_picker",
+          "disabled": true,
+          "settings": {
+            "menuImageTitle": "PARTYWAER",
+            "menuTitle": "PLUS SIZE",
+            "menuImageUrl": ""
+          }
+        },
+        "image_picker_gCiAdA": {
+          "type": "image_picker",
+          "disabled": true,
+          "settings": {
+            "menuImageTitle": "ACTIVEWEAR",
+            "menuTitle": "GIRLS",
+            "menuImageUrl": ""
+          }
+        },
+        "desktop_menu_images_y9anci": {
+          "type": "desktop-menu-images",
+          "disabled": true,
+          "settings": {
+            "menuTitled": "WOMEN",
+            "menuImageUrld": ""
+          }
+        },
+        "desktop_menu_images_YnHUrW": {
+          "type": "desktop-menu-images",
+          "disabled": true,
+          "settings": {
+            "menuTitled": "WOMEN",
+            "menuImageUrld": ""
+          }
+        },
+        "desktop_menu_collection_XteqXK": {
+          "type": "desktop-menu-collection",
+          "disabled": true,
+          "settings": {
+            "collection": "ethnic-wear-2024",
+            "samemenu": "WOMEN"
+          }
+        },
+        "desktop_menu_collection_7ViTzF": {
+          "type": "desktop-menu-collection",
+          "disabled": true,
+          "settings": {
+            "collection": "girls",
+            "samemenu": "GIRLS"
+          }
+        },
+        "link_list_LtkzyW": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Help",
+            "menu": ""
+          }
+        },
+        "link_list_B9FLmW": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Company",
+            "menu": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_picker_CfzhmL",
+        "image_picker_Dfw7db",
+        "image_picker_BmACbR",
+        "image_picker_TPdTzT",
+        "image_picker_kHw9Nr",
+        "image_picker_gCiAdA",
+        "desktop_menu_images_y9anci",
+        "desktop_menu_images_YnHUrW",
+        "desktop_menu_collection_XteqXK",
+        "desktop_menu_collection_7ViTzF",
+        "link_list_LtkzyW",
+        "link_list_B9FLmW"
+      ],
+      "settings": {
+        "logo_position": "middle-left",
+        "menu": "customer-account-main-menu",
+        "menu_type_desktop": "mega",
+        "sticky_header_type": "always",
+        "show_line_separator": false,
+        "color_scheme": "scheme-1",
+        "menu_color_scheme": "scheme-1",
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "enable_customer_avatar": true,
+        "mobile_logo_position": "center",
+        "margin_bottom": 0,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "17503182044f018dee": {
+      "type": "apps",
+      "disabled": true,
+      "settings": {
+        "include_margins": true
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header",
+    "17503182044f018dee"
+  ]
+}

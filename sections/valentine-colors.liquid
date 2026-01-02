@@ -1,0 +1,209 @@
+<style>
+  .valentine-color-block{
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+  .valentine-collection-list {
+    display: flex;    
+    gap: 15px;
+    justify-content: center;
+  }
+  .valentine-color-block h2{
+    padding: {{ section.settings.padd }};
+    text-align: center;
+    margin: 0;
+  }
+  .valentine-collection-item {
+    flex: 1 1 calc(33.33% - 15px);
+    text-align: center;
+  }
+  .mob-color-collection.swiper {
+    display: none;
+  }
+  .color-text {
+    text-align: center;
+  }
+  .color-text h3{
+    margin: 0;
+  }
+  .mob-color-collection img{
+      width: 100%;
+    }
+  .valentine-collection-item h3{
+    margin: 0;
+  }
+  @media (max-width: 749px) {
+    .valentine-color-block{
+      padding-top: {{ section.settings.mob_padding_top }}px;
+      padding-bottom: {{ section.settings.mob_padding_bottom }}px;
+    }
+  }
+  @media (max-width: 929px) {
+    .color-scrollbar{
+      display: none;
+    }
+    .mob-color-collection img{
+      width: 100%;
+    }
+     .color-text h3{
+      font-size: 13px;
+    }
+    .mob-color-collection img{
+      width: 62px;
+    }
+    .valentine-collection-list {
+      display: none;
+    }
+    .mob-color-collection.swiper {
+      display: block;
+    }
+  }
+</style>
+<div class="page-width valentine-color-block">
+  <h2>{{ section.settings.title }}</h2>
+  <div class="valentine-collection-list">  
+    {% for block in section.blocks %}
+      <div class="valentine-collection-item">
+        <a href="{{ block.settings.collection.url }}">
+        {% if block.settings.image %}
+          <img src="{{ block.settings.image | img_url: 'medium' }}" alt="Collection Image">
+        {% endif %}
+        </a>
+        {% if block.settings.collection %}
+          <h3>{{ block.settings.collection.title }}</h3>
+        {% endif %}      
+      </div>
+    {% endfor %}
+  </div>
+   <div class="mob-color-collection swiper mySwiper">
+    <div class="swiper-wrapper">
+      {% for block in section.blocks %}
+        <div class="swiper-slide color-text">
+          <a href="{{ block.settings.collection.url }}">
+            {% if block.settings.image %}
+              <img src="{{ block.settings.image | img_url: 'medium' }}" alt="Collection Image">
+            {% endif %}
+          </a>
+          {% if block.settings.collection %}
+            <h3>{{ block.settings.collection.title }}</h3>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+    <!-- <div class="swiper-pagination"></div> -->
+      <div class="color-scrollbar swiper-scrollbar"></div>
+  </div>
+</div>
+<script>
+  var colors = new Swiper(".mob-color-collection", {
+    // slidesPerView: 3,
+    slidesPerView: "auto",
+    loop: "true",
+     scrollbar: {
+      el: ".color-scrollbar",
+      hide: false,
+      draggable: true,
+    },
+    mousewheel: {
+      forceToAxis: true,
+      sensitivity: 1,
+    },
+    breakpoints: {
+      320: {
+        slidesPerView: 4,
+        spaceBetween: 10,
+      },
+      480: {
+        slidesPerView: 4,
+        spaceBetween: 15,
+      },
+      768: {
+        slidesPerView: 4,
+        spaceBetween: 20,
+      }
+    }
+  });
+</script>
+{% schema %}
+  {
+    "name": "Valentine Colors",
+    "class": "section-collection-list trendy-colors sec-tre-col",
+    "max_blocks": 20,
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Collection list"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "label": "Section Padding Top",
+        "max": 100,
+        "min": 0,
+        "default": 10
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "label": "Section Padding Bottom",
+        "max": 100,
+        "min": 0,
+        "default": 10
+      },
+      {
+        "type": "range",
+        "id": "mob_padding_top",
+        "label": "Mobile Section Padding Top",
+        "max": 100,
+        "min": 0,
+        "default": 10
+      },
+      {
+        "type": "range",
+        "id": "mob_padding_bottom",
+        "label": "Mobile Section Padding Bottom",
+        "max": 100,
+        "min": 0,
+        "default": 10
+      },
+      {
+        "type": "text",
+        "id": "padd",
+        "label": "Heading Padding",
+        "default": "10px"
+      }     
+    ],
+    "blocks": [
+      {
+        "type": "collection",
+        "name": "Collection",
+        "settings": [
+          {
+              "type": "collection",
+              "id": "collection",
+              "label": "Collection"
+          },
+          {
+              "type": "image_picker",
+              "id": "image",
+              "label": "Image"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Valentine Colors",
+        "category": "Collection",
+        "settings": {},
+        "blocks": [
+            { "type": "collection" },
+            { "type": "collection" },
+            { "type": "collection" }
+        ]
+      }
+    ]
+  }
+{% endschema %}

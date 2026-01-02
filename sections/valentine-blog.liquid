@@ -1,0 +1,209 @@
+<style>
+  /* .blog-main{
+    display:grid;
+    grid-template: auto/auto auto;
+    gap: 20px;
+  } */
+  .blog-detail{
+    display: flex;
+    align-items: center;
+    gap: 26px;
+    margin-bottom: 10px;
+  }
+  .blog-detail img{
+    width: 100%;
+  }
+  .valentine-blog-section h2{
+    text-align: {{section.settings.heading_alignment}};
+    margin: 0px 0px 24px 0px;
+  }
+  .blog-detail h3{
+    font-size: {{ section.settings.blog_heading_fontsize }}px;
+    margin: 10px 0px;
+  }
+  .blog-detail p{
+    font-size: {{ section.settings.blog_content_fontsize }}px;
+     margin: 0px 0px 10px 0px;
+  }
+  .blog-detail.row-reverse {
+    flex-direction: row-reverse;
+  }
+  @media screen and (max-width: 749px) {
+    .valentine-blog-section h2{
+      font-size: {{section.settings.mob_heading_fontsize}}px;        
+    }
+     .valentine-blog-section{
+      padding-bottom:{{ section.settings.mob_padding_bottom }}px;
+      padding-top:{{ section.settings.mob_padding_top }}px;
+    }
+    .blog-detail{
+      display: block;
+    }
+  }
+  @media screen and (min-width: 750px) {
+    .valentine-blog-section h2{
+        font-size: {{section.settings.heading_fontsize}}px;
+    }
+    .valentine-blog-section{
+      padding-bottom:{{ section.settings.padding_bottom }}px;
+      padding-top:{{ section.settings.padding_top }}px;
+    }
+  }
+</style>
+<div class="valentine-blog-section page-width">
+  <h2>{{ section.settings.blog_heading }}</h2>
+  <div class="blog-main">
+  {% for block in section.blocks %}
+    <div class="blog-detail {% if block.settings.reverse_layout %}row-reverse{% endif %}">
+      {% if block.settings.blog_image %}
+        <a href="{{ block.settings.blog_url }}">
+        <div class="blog-image">
+          <img src="{{ block.settings.blog_image | img_url: 'master' }}" alt="Blog Image">
+        </div>
+        </a>
+      {% endif %}
+      <div class="blog_content">
+      <h3>{{ block.settings.blog_heading }}</h3>
+      <p>{{ block.settings.blog_content }}</p>
+      </div>
+    </div>
+  {% endfor %}
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Valentine Blog",
+  "tag": "section",
+  "class": "section", 
+  "settings": [   
+      {
+        "type": "range",
+        "id":"padding_top",
+        "label": "Padding Top",
+        "max": 100,
+        "min": 0,
+        "default": 20
+      },
+    {
+        "type": "range",
+        "id":"padding_bottom",
+        "label": "Padding Bottom",
+        "max": 100,
+        "min": 0,
+        "default": 20
+      },
+    {
+        "type": "range",
+        "id":"mob_padding_top",
+        "label": "Mobile Padding Top",
+        "max": 100,
+        "min": 0,
+        "default": 20
+      },
+    {
+        "type": "range",
+        "id":"mob_padding_bottom",
+        "label": "Mobile Padding Bottom",
+        "max": 100,
+        "min": 0,
+        "default": 20
+      },
+      {
+        "type": "text",
+        "id": "blog_heading",
+        "label": "Heading"
+      },
+    {
+      "type": "range",
+      "id": "heading_fontsize",
+      "label": "Desktop Heading Fontsize",
+      "max": 50,
+      "min": 10,
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "mob_heading_fontsize",
+      "label": "Mobile Heading Fontsize",
+      "max": 50,
+      "min": 10,
+      "default": 15
+    },
+      {
+      "type": "range",
+      "id": "blog_heading_fontsize",
+      "label": "Blog Heading Fontsize",
+      "max": 50,
+      "min": 5,
+      "default": 15
+    },
+         {
+      "type": "range",
+      "id": "blog_content_fontsize",
+      "label": "Blog Content Fontsize",
+      "max": 50,
+      "min": 5,
+      "default": 15
+    },    
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "label": "Set Alignment",
+      "options": [
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "Left",
+            "label": "Left"
+          },
+          {
+            "value": "Right",
+            "label": "Right"
+          }
+        ],
+      "default": "center"
+    }
+  ],
+  "blocks": [
+      {
+        "type": "Text",
+        "name": "Blog Detail",
+        "settings": [
+    {
+      "type": "image_picker",
+      "id": "blog_image",
+      "label": "Desktop Image"
+    }, 
+    {
+      "type": "text",
+      "id": "blog_heading",
+      "label": "Blog Heading"
+    },    
+    {
+      "type": "url",
+      "id": "blog_url",
+      "label": "Blog Url"
+    },
+    {
+      "type": "text",
+      "id": "blog_content",
+      "label": "Blog Content"
+    },  
+          {
+          "type": "checkbox",
+          "id": "reverse_layout",
+          "label": "Reverse Layout",
+          "default": false
+        }
+    ]
+  }
+  ],
+  "presets": [
+    {
+      "name": "Valentine Blog",  
+    }
+  ]
+}
+{% endschema %}

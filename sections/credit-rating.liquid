@@ -1,0 +1,36 @@
+<ul>
+  {%- for block in section.blocks -%}
+  <li><span>{{ block.settings.title }}</span> <a href="{{ block.settings.tab_url }}" target="_blank" class="icon-download">Download</a> <a href="{{block.settings.tab_url}}" target="_blank" class="icon-view">View</a></li>
+  {%- endfor -%}
+</ul>
+{% schema %}
+  {
+    "name": "Credit Rating",
+    "blocks": [
+      {
+        "type": "textarea",
+        "name": "tabs",
+        "settings": [
+          {
+            "type": "textarea",
+            "id": "title",
+            "label": "Heading",
+            "default": "Content"
+          },
+          {
+              "type": "url",
+              "id": "tab_url",
+              "label": "PDF Url"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+
+{% endjavascript %}

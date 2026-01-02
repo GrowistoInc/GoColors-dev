@@ -1,0 +1,316 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "investor_left_block_Pg3rgi": {
+      "type": "Investor-left-block",
+      "blocks": {
+        "image_block_RaNHwj": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g3660.svg",
+            "title": "Our Business",
+            "url": "https://gocolors.com/pages/our-business"
+          }
+        },
+        "image_block_xJjz46": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Vector_011e1c53-c3cc-4177-8696-dad1f349b037.svg",
+            "title": "Board of Directors",
+            "url": "https://gocolors.com/pages/board-of-directors"
+          }
+        },
+        "image_block_KynhWV": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Component_1.svg",
+            "title": "Corporate Governance",
+            "url": "https://gocolors.com/pages/corporate-governance"
+          }
+        },
+        "image_block_dyNkYQ": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g3725.svg",
+            "title": "Annual reports",
+            "url": ""
+          }
+        },
+        "image_block_eCbWFU": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_1.svg",
+            "title": "Earning Call  Transcripts",
+            "url": "https://gocolors.com/pages/earning-call-transcripts"
+          }
+        },
+        "image_block_ygY8Ep": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Vector_1_e879eb32-0411-4431-bf21-69107ea6f385.svg",
+            "title": "Quarterly  Financial Results",
+            "url": "https://gocolors.com/pages/quarterly-financial-results"
+          }
+        },
+        "image_block_Hw33zr": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_17.svg",
+            "title": "Investor Presentation",
+            "url": "https://gocolors.com/pages/investor-presentation"
+          }
+        },
+        "image_block_W9rQJ3": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_18.svg",
+            "title": "Press Releases",
+            "url": "https://gocolors.com/pages/press-releases"
+          }
+        },
+        "image_block_Vqyw9N": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Vector_2.svg",
+            "title": "Credit Rating",
+            "url": "https://gocolors.com/pages/credit-rating"
+          }
+        },
+        "image_block_t7PYac": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_19.svg",
+            "title": "Corporate Announcements",
+            "url": "https://gocolors.com/pages/corporate-announcements"
+          }
+        },
+        "image_block_C6YJwJ": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_13.svg",
+            "title": "Shareholding Pattern",
+            "url": "https://gocolors.com/pages/shareholding-pattern"
+          }
+        },
+        "image_block_NT76nR": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g788.svg",
+            "title": "Shareholder Grievances",
+            "url": "https://gocolors.com/pages/shareholder-grievances-1"
+          }
+        },
+        "image_block_zGk8iM": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/x31_650_x2C__Employee_x2C__group_x2C__management_x2C__organization_x2C__team.svg",
+            "title": "KMP Details",
+            "url": "https://gocolors.com/pages/kmp"
+          }
+        },
+        "image_block_XRCDeJ": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_14.svg",
+            "title": "MOA AOA/  Directors Profile",
+            "url": "https://gocolors.com/pages/moa-aoa"
+          }
+        },
+        "image_block_iEqcCL": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Component_1_1.svg",
+            "title": "Policies",
+            "url": "https://gocolors.com/pages/investor-policies"
+          }
+        },
+        "image_block_9bdHwT": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g2733.svg",
+            "title": "Archivals",
+            "url": "https://gocolors.com/pages/archivals"
+          }
+        }
+      },
+      "block_order": [
+        "image_block_RaNHwj",
+        "image_block_xJjz46",
+        "image_block_KynhWV",
+        "image_block_dyNkYQ",
+        "image_block_eCbWFU",
+        "image_block_ygY8Ep",
+        "image_block_Hw33zr",
+        "image_block_W9rQJ3",
+        "image_block_Vqyw9N",
+        "image_block_t7PYac",
+        "image_block_C6YJwJ",
+        "image_block_NT76nR",
+        "image_block_zGk8iM",
+        "image_block_XRCDeJ",
+        "image_block_iEqcCL",
+        "image_block_9bdHwT"
+      ],
+      "name": "Investor Left Blocks",
+      "settings": {}
+    },
+    "corporate_governance_right_DaRrUx": {
+      "type": "corporate-governance-right",
+      "blocks": {
+        "document_wtimiV": {
+          "type": "document",
+          "settings": {
+            "title": "CHAIRMAN SPEECH FY25",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/CHAIRMAN_SPEECH_FY25.pdf?v=1757063745"
+          }
+        },
+        "document_4HeaPY": {
+          "type": "document",
+          "settings": {
+            "title": "CEO SPEECH FY25",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/CEO_SPEECH_FY25.pdf?v=1757063744"
+          }
+        },
+        "document_6zWmXH": {
+          "type": "document",
+          "settings": {
+            "title": "Business Responsibility and Sustainability Report",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/BRS.pdf?v=1754987538"
+          }
+        },
+        "document_HdfChG": {
+          "type": "document",
+          "settings": {
+            "title": "ANNUAL REPORT 2024-25",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/ANNUAL_REPORT_2024-25.pdf?v=1754925716"
+          }
+        },
+        "document_zhny9q": {
+          "type": "document",
+          "settings": {
+            "title": "CEO SPEECH FY24",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/CEO_SPEECH_AT_AGM_FY24.pdf?v=1723027152"
+          }
+        },
+        "document_NWhqmW": {
+          "type": "document",
+          "settings": {
+            "title": "CHAIRMAN SPEECH FY24",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/CHAIRMAN_SPEECH_AT_AGM_FY24.pdf?v=1723027152"
+          }
+        },
+        "document_JJRcci": {
+          "type": "document",
+          "settings": {
+            "title": "ANNUAL REPORT 2023-24",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/ANNUAL_REPORT_-_2023-24.pdf?v=1722501112"
+          }
+        },
+        "document_qTUtUT": {
+          "type": "document",
+          "settings": {
+            "title": "CHAIRMAN SPEECH FY23",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/CHAIRMAN_SPEECH_AT_AGM_FY23.pdf?v=1693909321"
+          }
+        },
+        "document_TJtYm7": {
+          "type": "document",
+          "settings": {
+            "title": "CEO SPEECH FY23",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/CEO_SPEECH_AT_AGM_FY23.pdf?v=1693909320"
+          }
+        },
+        "document_fpdKyL": {
+          "type": "document",
+          "settings": {
+            "title": "ANNUAL REPORT 2022-23",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Go_Fashion_Annual_Report_2022-23_1.pdf?v=1691996131"
+          }
+        },
+        "document_JLLH9U": {
+          "type": "document",
+          "settings": {
+            "title": "CEO SPEECH FY22",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Go_Fashion_CEO_Speech_FY22_FINAL.pdf?v=1663063344"
+          }
+        },
+        "document_hYWHnh": {
+          "type": "document",
+          "settings": {
+            "title": "CHAIRMAN SPEECH FY22",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Go_Fashion_Chairman_Speech_FY22.pdf?v=1663063339"
+          }
+        },
+        "document_HhVwR9": {
+          "type": "document",
+          "settings": {
+            "title": "ANNUAL REPORT 2021-22",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/ANNUAL_REPORT_-_2021-22.pdf?v=1660635911"
+          }
+        },
+        "document_TeyLAQ": {
+          "type": "document",
+          "settings": {
+            "title": "ANNUAL REPORT 2020-21",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Annual-Report-2020-21.pdf?v=1645782703"
+          }
+        },
+        "document_TCcPee": {
+          "type": "document",
+          "settings": {
+            "title": "ANNUAL REPORT 2019-20",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Annual-Report-2019-20.pdf?v=1645782676"
+          }
+        },
+        "document_6JJyUi": {
+          "type": "document",
+          "settings": {
+            "title": "ANNUAL REPORT 2018-19",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Annual-Report-2018-19.pdf?v=1645782657"
+          }
+        }
+      },
+      "block_order": [
+        "document_wtimiV",
+        "document_4HeaPY",
+        "document_6zWmXH",
+        "document_HdfChG",
+        "document_zhny9q",
+        "document_NWhqmW",
+        "document_JJRcci",
+        "document_qTUtUT",
+        "document_TJtYm7",
+        "document_fpdKyL",
+        "document_JLLH9U",
+        "document_hYWHnh",
+        "document_HhVwR9",
+        "document_TeyLAQ",
+        "document_TCcPee",
+        "document_6JJyUi"
+      ],
+      "name": "corporate governance ",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "investor_left_block_Pg3rgi",
+    "corporate_governance_right_DaRrUx"
+  ]
+}

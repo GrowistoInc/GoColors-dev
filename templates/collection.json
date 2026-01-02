@@ -1,0 +1,92 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "disabled": true,
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": false,
+        "color_scheme": "scheme-1"
+      }
+    },
+    "collection_sub_categories_QmV3AX": {
+      "type": "collection-sub-categories",
+      "settings": {
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mob": 0,
+        "padding_bottom_mob": 0
+      }
+    },
+    "1759139783699fce0d": {
+      "type": "apps",
+      "disabled": true,
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "17482519100b00961b": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "product-grid": {
+      "type": "wizzy-main-collection-product-grid",
+      "settings": {
+        "products_per_page": 16,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_mrp_label": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "enable_filtering": true,
+        "filter_type": "horizontal",
+        "enable_sorting": true,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "1733463032898bc1e4": {
+      "type": "apps",
+      "disabled": true,
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "plp_banner_bootom_section_metafeild_mXNJtk": {
+      "type": "plp-banner-bootom-section-metafeild",
+      "name": "PLP Bottom Banner",
+      "settings": {
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mob": 0,
+        "padding_bottom_mob": 0,
+        "add-page-width": false
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "collection_sub_categories_QmV3AX",
+    "1759139783699fce0d",
+    "17482519100b00961b",
+    "product-grid",
+    "1733463032898bc1e4",
+    "plp_banner_bootom_section_metafeild_mXNJtk"
+  ]
+}

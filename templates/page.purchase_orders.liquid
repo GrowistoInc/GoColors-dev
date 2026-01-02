@@ -1,0 +1,309 @@
+<style>
+  body.purchase-orders .feature-header {
+    /* font-size: 32px; */
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 0 20px;
+  }
+  body.purchase-orders .central.content {
+    padding-top:14px;
+    padding-bottom:62px;
+  }
+
+  nav.my_acc_container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+  }
+  nav.my_acc_container a.active {
+    color: #000;
+    border: 1px solid;
+    opacity: 1;
+  }
+  nav.my_acc_container a {
+    font-size: 16px;
+    border: 1px solid #ccc;
+    padding: 11px 53px;
+    color: #818181;
+    text-decoration
+  }
+  .myprofile  {
+    max-width: 945px;
+    margin: 0 auto;
+  }
+  .myprofile  h3 {
+    font-size: 20px;
+    margin: 15px 0;
+  }
+  .myprofile  span p {
+    width: 20%;
+    font-size: 14px;
+  }
+  .myprofile  span {
+    display: flex;
+    gap: 25px;
+  }
+  .myprofile  span p:last-child {
+    display: flex;
+    gap: 15px;
+  }
+  nav.my_acc_container a.active:hover,
+  nav.my_acc_container a:hover {
+    border: 1px solid;
+  }
+  .customer_data {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+  }
+  ul.purchase_tabs {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    border: 1px solid;
+    width: fit-content;
+    margin: 0 auto;
+    padding-left: 0;
+  }
+  ul.purchase_tabs li {
+    padding: 5px 10px;
+    cursor:pointer;
+  }
+  ul.purchase_tabs li.active {
+    background-color: #E6E6E6;
+  }
+  table.online_orde_header td {
+    border-left: none;
+  }
+  table.online_orde_header,
+  table.order_data {
+    table-layout: auto;
+    width: 100%;
+  }
+  .online_orde_header thead tr {
+    display: flex;
+    justify-content: space-between;
+  }
+  table.order_data tr td {
+    border: none;
+      height: 100%;
+    font-size: 14px;
+  }
+  table.order_data {
+    margin-bottom: 26px;
+    text-align: center;
+    border: 1px solid #ccc;
+  }
+/*   p.order_text a {
+    border-bottom: none !important;
+  } */
+  .place_order span {
+    display: inline-block;
+}
+#offline{
+  display: none;
+}
+.view-pagination {
+    text-align: center;
+}
+ul.pagination {
+  text-align: center;
+  display: inline-flex !important;
+  align-items:center;
+  cursor:pointer;
+  list-style:none;
+}
+.pagination li {
+    font-size: 15px;
+    margin: 10px;
+    color: #8b7f7f;
+}
+.pagination li.active {
+    color: #000;
+  font-weight:600;
+/*     border-bottom: 1px solid; */
+}
+  a.prev , a.next{
+    height: 15px;
+    display: flex;
+    align-items: center;
+}
+.pagination li a svg,
+.pagination li a{
+  border-bottom: 0;
+  }
+.pagination .prev {
+    margin-right: 0em;
+}
+ul.pagination svg {
+    width: 15px;
+}
+  @media screen and (max-width:1200px) {
+    nav.my_acc_container {
+      flex-direction: column;
+      text-align: center;
+      padding: 0 20px;
+      gap: 10px;
+    }
+     .myprofile  {
+      padding: 0 ;
+    }
+    div#online, div#offline {
+    padding: 20px 0;
+    }
+    ul.purchase_tabs{
+      width: 100%;
+    }
+    ul.purchase_tabs li{
+      width: 100%;
+      text-align: center;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+    }
+   .online_orde_header thead tr {
+  flex-direction: column;
+  } 
+     p.order_text, p.place_order {
+    padding-bottom: 0px;
+   }
+    .order_data tbody {  
+    display: flex;
+     }
+    .order_data tr{
+      display: flex;
+     flex-direction: column;
+        width: 50%;
+        border-top: none;
+            padding: 15px 0;
+        text-align: left;
+  }
+    .order_data tr:last-child td{
+          padding-left: 1.5rem;
+    }
+    table.online_orde_header {
+        margin-bottom: 10px;
+    }
+    .online_orde_header td{
+      padding: 0;
+    }
+    .myprofile {
+      padding: 1.5rem;
+    }
+  }
+  .purchase_orders .breadcrumb a{
+    font-size: 10px;
+  }
+  .purchase_orders .breadcrumb span{
+    font-size: 16px;
+    font-weight: bold;
+  }
+</style>
+{% if customer %}
+<div class="central content page-width purchase_orders">
+{% include 'breadcrumbs' %}
+  <h1 class="feature-header" data-cc-animate>MY ACCOUNT</h1>
+  <div class="rte" data-cc-animate data-cc-animate-delay="0.2s">
+    <nav class="my_acc_container">
+      <a id="nav1" href="https://gocolors.com/pages/my-account">My Profile</a>
+      <a id="nav2" class="active" href="#">Purchase And Orders</a>
+     <!-- <a id="nav3" href="https://gocolors.com/pages/loyality-points">Loyalty Points</a>-->
+      <a id="nav4" href="https://gocolors.com/account/logout">Logout</a>
+    </nav>
+    <div class="myprofile">
+      <ul class="purchase_tabs">
+        <li class="tb active" onclick="openCity(event, 'online')">ONLINE PURCHASE</li>
+        <li class="tb" onclick="openCity(event, 'offline')">OFFLINE PURCHASE</li>
+      </ul>
+        
+      <div class="tabcontent" id="online">  
+           {% paginate customer.orders by 10 %}
+            {% if customer.orders.size != 0 %}
+              <div class="">
+               {% for order in customer.orders %}
+               <table class="online_orde_header">
+                <thead>
+                  <tr>
+                    <td>
+                      <p class="order_text">{{ 'customer.orders.order_number' | t }}: {{ order.name | link_to: order.customer_url }}</p>
+                    </td>
+                    <td>
+                      <p class="place_order">
+                       <span>DATE : &nbsp</span>{{ order.created_at |  date | date: "%Y-%m-%d"  }}</p>
+                    </td>
+                  </tr>
+                </thead>
+            <table class="order_data">
+              <tbody>
+                <tr style="background-color:#F8F8F8 ;">
+                  <td>ORDER NUMBER</td>
+                  <td>PURCHASE CHANNEL</td>
+                  <td>ORDER TOTAL</td>
+                 <!-- <td>YOU EARNED</td> -->
+                </tr>
+                <tr>
+                  <td>
+                    {{ order.name }}
+                  </td>
+                  <td>Online</td>
+                  <td style="font-family: var(--bs-font-sans-serif);"> {{  order.total_price | money }}
+                    {% comment %}
+               {% assign order_total = '' %}
+                {% for order_t in order.transactions %}
+                  {% if order_t.gateway contains 'gift_card' and order_t.kind contains 'sale' %}
+                  {% assign order_total = order_t.amount %}
+                  {% endif %}
+                {% endfor %}
+                {% assign order_final_total = order.total_price | | minus: order_total %}
+                  {{ order_final_total | money }}
+                 {% endcomment %}
+               
+                 </td>
+                 
+               <!--   <td> {% assign my_integer = 10000 %}         
+                    {{  order_final_total  | times: 1.0 | divided_by: my_integer | round }}
+                   </td>       -->
+                </tr>
+              </tbody>
+            </table>
+                   </table>
+               {% endfor %}
+               </div>
+               <div class="view-pagination">{% render 'pagination', paginate: paginate %}</div>
+               {% else %}
+          <p>{{ 'customer.orders.none' | t }}</p>
+            {% endif %}
+          {% endpaginate %}
+      </div>
+      <div class="tabcontent" id="offline"></div>
+  </div>
+</div>
+ <script>
+  /*tabbing javascript*/
+  function openCity(evt, cityName) {
+    var i,
+      tabcontent,
+      tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tb");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+ // document.getElementById("defaultOpen").click();
+
+
+  
+</script>
+{% include 'purchase_order_script' %}
+  {% else %}
+  <script>
+    // window.location.href = '/pages/member';  // Replace '/login' with the URL of your login page
+  </script>
+  {% endif %}

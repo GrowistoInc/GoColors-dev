@@ -1,0 +1,9 @@
+.related-products {
+  display: block; 
+}
+
+.related-products__heading {
+  margin: 0 0 20px 0; 
+  font-size: 30px; 
+  /* text-align:center; */
+}

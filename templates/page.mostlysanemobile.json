@@ -1,0 +1,726 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "layout": "theme.appbrew",
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 0
+      }
+    },
+    "data_inrichment_banner_nncGFV": {
+      "type": "data-inrichment-banner",
+      "name": "Data Inrichment Banner",
+      "settings": {
+        "Desktopbanner1": "shopify://shop_images/GenZ_collection_page_banner-01.jpg",
+        "Mobilebanner1": "shopify://shop_images/GenZ_collection_page_banner-02.jpg",
+        "url1": "",
+        "url2": "",
+        "padding_top": 0,
+        "padding_bottom": 30,
+        "mob_padding_top": 20,
+        "mob_padding_bottom": 20
+      }
+    },
+    "mostlly_sane_form_eDLtzz": {
+      "type": "mostlly-sane-form",
+      "disabled": true,
+      "name": "Mostly Sane Form",
+      "settings": {
+        "heading": "Be the first to get an update on what's coming",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "padding_top_mob": 60,
+        "padding_bottom_mob": 60,
+        "checkboxtext": "I’d love to stay in the loop with updates on collections and deals"
+      }
+    },
+    "homepage_tab_collections_dLPVxA": {
+      "type": "Homepage-tab-collections",
+      "blocks": {
+        "image_hmLPtq": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "tab-title": "Bottoms",
+            "tab-url-title": "",
+            "tab-url": "",
+            "imageNumbers1": "shopify://shop_images/Website_image_resizes_5a32abb2-bdf4-47c8-b103-e899c5773f8d.jpg",
+            "linkNumbers1": "https://gocolors.com/collections/end-of-season-sale_25?",
+            "textNumbers1": "End Of Season Sale",
+            "imageNumbers2": "shopify://shop_images/Image_Leggings_and_Churidar.jpg",
+            "linkNumbers2": "https://gocolors.com/collections/leggings-churidar",
+            "textNumbers2": "Leggings & Churidar",
+            "imageNumbers3": "shopify://shop_images/Kurti_pants_88de4aa3-913d-4e68-844d-86c5e3061a17.jpg",
+            "linkNumbers3": "https://gocolors.com/collections/kurti-pants",
+            "textNumbers3": "Kurti Pants",
+            "imageNumbers4": "shopify://shop_images/Image_Palazzos.jpg",
+            "linkNumbers4": "https://gocolors.com/collections/palazzos-pants-for-women",
+            "textNumbers4": "Palazzos",
+            "imageNumbers5": "shopify://shop_images/Image_Chino_Pants.jpg",
+            "linkNumbers5": "https://gocolors.com/collections/chino-pants",
+            "textNumbers5": "Chino Pants",
+            "imageNumbers6": "shopify://shop_images/Image_Jeggings.jpg",
+            "linkNumbers6": "https://gocolors.com/collections/jeggings-collection",
+            "textNumbers6": "Jeggings",
+            "imageNumbers7": "shopify://shop_images/Image_Flares_and_bell_bottoms.jpg",
+            "linkNumbers7": "https://gocolors.com/collections/flares",
+            "textNumbers7": "Flares & Bell Bottoms",
+            "imageNumbers8": "shopify://shop_images/Image_Harem_and_Salwar.jpg",
+            "linkNumbers8": "https://gocolors.com/collections/harems-salwars",
+            "textNumbers8": "Harem & Salwars",
+            "imageNumbers9": "shopify://shop_images/Wide_leg_pants_callout.jpg",
+            "linkNumbers9": "https://gocolors.com/collections/wide-pants",
+            "textNumbers9": "Wide Pants",
+            "imageNumbers10": "shopify://shop_images/Image_Straight_and_tapered.jpg",
+            "linkNumbers10": "https://gocolors.com/collections/straight-tapered-pants",
+            "textNumbers10": "Straight & Tapered Pants",
+            "linkNumbers11": "",
+            "textNumbers11": "",
+            "linkNumbers12": "",
+            "textNumbers12": "",
+            "linkNumbers13": "",
+            "textNumbers13": "",
+            "linkNumbers14": "",
+            "textNumbers14": "",
+            "linkNumbers15": "",
+            "textNumbers15": "",
+            "linkNumbers16": "",
+            "textNumbers16": "",
+            "linkNumbers17": "",
+            "textNumbers17": "",
+            "linkNumbers18": "",
+            "textNumbers18": "",
+            "linkNumbers19": "",
+            "textNumbers19": "",
+            "linkNumbers20": "",
+            "textNumbers20": ""
+          }
+        },
+        "image_zRr7Gp": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "tab-title": "Bottoms",
+            "tab-url-title": "",
+            "tab-url": "",
+            "imageNumbers1": "shopify://shop_images/Website_image_resizes_5a32abb2-bdf4-47c8-b103-e899c5773f8d.jpg",
+            "linkNumbers1": "https://gocolors.com/collections/end-of-season-sale_25?",
+            "textNumbers1": "End Of Season Sale",
+            "imageNumbers2": "shopify://shop_images/Wide_leg_pants_callout.jpg",
+            "linkNumbers2": "https://gocolors.com/collections/wide-pants",
+            "textNumbers2": "Wide Pants",
+            "imageNumbers3": "shopify://shop_images/Image_Leggings_and_Churidar.jpg",
+            "linkNumbers3": "https://gocolors.com/collections/leggings-churidar",
+            "textNumbers3": "Leggings & Churidar",
+            "imageNumbers4": "shopify://shop_images/Kurti_pants_88de4aa3-913d-4e68-844d-86c5e3061a17.jpg",
+            "linkNumbers4": "https://gocolors.com/collections/kurti-pants",
+            "textNumbers4": "Kurti Pants",
+            "imageNumbers5": "shopify://shop_images/Image_Palazzos.jpg",
+            "linkNumbers5": "https://gocolors.com/collections/palazzos-pants-for-women",
+            "textNumbers5": "Palazzos",
+            "imageNumbers6": "shopify://shop_images/Image_Jeggings.jpg",
+            "linkNumbers6": "https://gocolors.com/collections/jeggings-collection",
+            "textNumbers6": "Jeggings",
+            "imageNumbers7": "shopify://shop_images/Image_Flares_and_bell_bottoms.jpg",
+            "linkNumbers7": "https://gocolors.com/collections/flares",
+            "textNumbers7": "Flares & Bell Bottoms",
+            "imageNumbers8": "shopify://shop_images/Image_Harem_and_Salwar.jpg",
+            "linkNumbers8": "https://gocolors.com/collections/harems-salwars",
+            "textNumbers8": "Harem & Salwars",
+            "imageNumbers9": "shopify://shop_images/Image_Chino_Pants.jpg",
+            "linkNumbers9": "https://gocolors.com/collections/chino-pants",
+            "textNumbers9": "Chino Pants",
+            "imageNumbers10": "shopify://shop_images/Image_Straight_and_tapered.jpg",
+            "linkNumbers10": "https://gocolors.com/collections/straight-tapered-pants",
+            "textNumbers10": "Straight & Tapered Pants",
+            "linkNumbers11": "",
+            "textNumbers11": "",
+            "linkNumbers12": "",
+            "textNumbers12": "",
+            "linkNumbers13": "",
+            "textNumbers13": "",
+            "linkNumbers14": "",
+            "textNumbers14": "",
+            "linkNumbers15": "",
+            "textNumbers15": "",
+            "linkNumbers16": "",
+            "textNumbers16": "",
+            "linkNumbers17": "",
+            "textNumbers17": "",
+            "linkNumbers18": "",
+            "textNumbers18": "",
+            "linkNumbers19": "",
+            "textNumbers19": "",
+            "linkNumbers20": "",
+            "textNumbers20": ""
+          }
+        },
+        "image_YLLPRA": {
+          "type": "image",
+          "settings": {
+            "tab-title": "",
+            "tab-url-title": "",
+            "tab-url": "",
+            "imageNumbers1": "shopify://shop_images/GenZ_collection_tile-01.jpg",
+            "linkNumbers1": "https://gocolors.com/products/dark-olive-cargo-pants",
+            "textNumbers1": "Cargo Pants",
+            "imageNumbers2": "shopify://shop_images/GenZ_collection_tile-05.jpg",
+            "linkNumbers2": "https://gocolors.com/products/baby-pink-cargo-sweatpants",
+            "textNumbers2": "Cargo Sweatpants",
+            "imageNumbers3": "shopify://shop_images/GenZ_collection_tile-03.jpg",
+            "linkNumbers3": "https://gocolors.com/products/cream-parachute-pants",
+            "textNumbers3": "Parachute Pants",
+            "imageNumbers4": "shopify://shop_images/GenZ_collection_tile-02.jpg",
+            "linkNumbers4": "https://gocolors.com/products/blue-denim-skirt",
+            "textNumbers4": "Denim Skirts",
+            "imageNumbers5": "shopify://shop_images/GenZ_collection_tile-04.jpg",
+            "linkNumbers5": "https://gocolors.com/products/medium-blue-mid-rise-denim-cargo-pants",
+            "textNumbers5": "Denim Cargo Pants",
+            "imageNumbers6": "shopify://shop_images/GenZ_collection_tile_wide_leg.jpg",
+            "linkNumbers6": "https://gocolors.com/products/women-solid-blue-high-rise-wide-jeans",
+            "textNumbers6": "Wide Jeans",
+            "linkNumbers7": "",
+            "textNumbers7": "",
+            "linkNumbers8": "",
+            "textNumbers8": "",
+            "linkNumbers9": "",
+            "textNumbers9": "",
+            "linkNumbers10": "",
+            "textNumbers10": "",
+            "linkNumbers11": "",
+            "textNumbers11": "",
+            "linkNumbers12": "",
+            "textNumbers12": "",
+            "linkNumbers13": "",
+            "textNumbers13": "",
+            "linkNumbers14": "",
+            "textNumbers14": "",
+            "linkNumbers15": "",
+            "textNumbers15": "",
+            "linkNumbers16": "",
+            "textNumbers16": "",
+            "linkNumbers17": "",
+            "textNumbers17": "",
+            "linkNumbers18": "",
+            "textNumbers18": "",
+            "linkNumbers19": "",
+            "textNumbers19": "",
+            "linkNumbers20": "",
+            "textNumbers20": ""
+          }
+        },
+        "image_mUKRGB": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "tab-title": "Bottoms",
+            "tab-url-title": "",
+            "tab-url": "#",
+            "imageNumbers1": "shopify://shop_images/Bottoms_LeggingsandChuridar.jpg",
+            "linkNumbers1": "https://gocolors.com/collections/leggings-churidar",
+            "textNumbers1": "Leggings & Churidar",
+            "imageNumbers2": "shopify://shop_images/Bottoms_Jeggings.jpg",
+            "linkNumbers2": "https://gocolors.com/collections/jeggings-collection",
+            "textNumbers2": "Jeggings",
+            "imageNumbers3": "shopify://shop_images/Bottoms_CottonPants.jpg",
+            "linkNumbers3": "shopify://collections/cotton-pants",
+            "textNumbers3": "Cotton Pants",
+            "imageNumbers4": "shopify://shop_images/Bottoms_Palazzos.jpg",
+            "linkNumbers4": "shopify://collections/palazzos-1",
+            "textNumbers4": "Palazzos",
+            "imageNumbers5": "shopify://shop_images/Bottoms_WidePants.jpg",
+            "linkNumbers5": "https://gocolors.com/collections/wide-pants",
+            "textNumbers5": "Wide Pants",
+            "imageNumbers6": "shopify://shop_images/Image_Flares_and_bell_bottoms.jpg",
+            "linkNumbers6": "https://gocolors.com/collections/flares",
+            "textNumbers6": "Flares & Bell Bottoms",
+            "imageNumbers7": "shopify://shop_images/Bottoms_JoggersandTrackPants.jpg",
+            "linkNumbers7": "shopify://collections/casual-joggers",
+            "textNumbers7": "Joggers & Track Pants",
+            "linkNumbers8": "",
+            "textNumbers8": "",
+            "linkNumbers9": "",
+            "textNumbers9": "",
+            "linkNumbers10": "",
+            "textNumbers10": "",
+            "linkNumbers11": "",
+            "textNumbers11": "",
+            "linkNumbers12": "",
+            "textNumbers12": "",
+            "linkNumbers13": "",
+            "textNumbers13": "",
+            "linkNumbers14": "",
+            "textNumbers14": "",
+            "linkNumbers15": "",
+            "textNumbers15": "",
+            "linkNumbers16": "",
+            "textNumbers16": "",
+            "linkNumbers17": "",
+            "textNumbers17": "",
+            "linkNumbers18": "",
+            "textNumbers18": "",
+            "linkNumbers19": "",
+            "textNumbers19": "",
+            "linkNumbers20": "",
+            "textNumbers20": ""
+          }
+        },
+        "image_4mFD48": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "tab-title": "New Arrival",
+            "tab-url-title": "",
+            "tab-url": "",
+            "imageNumbers1": "shopify://shop_images/7_4b9cfa4c-6082-425a-9e47-c3b1e98c8da2.jpg",
+            "linkNumbers1": "https://gocolors.com/products/beige-cotton-hakoba-palazzo",
+            "textNumbers1": "Hakoba Palazzo",
+            "imageNumbers2": "shopify://shop_images/1_24f121c7-3b08-4ec1-8c0c-5702d9caaa19.jpg",
+            "linkNumbers2": "https://gocolors.com/products/black-denim-boot-cut-jeans?variant=52631375904928",
+            "textNumbers2": "Mom Jeans",
+            "imageNumbers3": "shopify://shop_images/1_b26ef279-bc6c-4106-ae15-c9f587672155.jpg",
+            "linkNumbers3": "https://gocolors.com/products/women-solid-light-beige-high-rise-twill-shorts",
+            "textNumbers3": "Twill Wide Shorts",
+            "imageNumbers4": "shopify://shop_images/1_78235354-5ad9-43c9-9280-4141be5a7321.jpg",
+            "linkNumbers4": "https://gocolors.com/products/black-denim-boot-cut-jeans?variant=52631375904928",
+            "textNumbers4": "Boot Cut Jeans",
+            "linkNumbers5": "",
+            "textNumbers5": "",
+            "linkNumbers6": "",
+            "textNumbers6": "",
+            "linkNumbers7": "",
+            "textNumbers7": "",
+            "linkNumbers8": "",
+            "textNumbers8": "",
+            "linkNumbers9": "",
+            "textNumbers9": "",
+            "linkNumbers10": "",
+            "textNumbers10": "",
+            "linkNumbers11": "",
+            "textNumbers11": "",
+            "linkNumbers12": "",
+            "textNumbers12": "",
+            "linkNumbers13": "",
+            "textNumbers13": "",
+            "linkNumbers14": "",
+            "textNumbers14": "",
+            "linkNumbers15": "",
+            "textNumbers15": "",
+            "linkNumbers16": "",
+            "textNumbers16": "",
+            "linkNumbers17": "",
+            "textNumbers17": "",
+            "linkNumbers18": "",
+            "textNumbers18": "",
+            "linkNumbers19": "",
+            "textNumbers19": "",
+            "linkNumbers20": "",
+            "textNumbers20": ""
+          }
+        },
+        "image_HMnad3": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "tab-title": "Best Sellers",
+            "tab-url-title": "#",
+            "tab-url": "#",
+            "imageNumbers1": "shopify://shop_images/LL-YGFUXIA29_3.jpg",
+            "linkNumbers1": "https://gocolors.com/products/women-solid-black-ankle-length-leggings",
+            "textNumbers1": "Ankle Length Leggings",
+            "imageNumbers2": "shopify://shop_images/LC-CORAL35_3.jpg",
+            "linkNumbers2": "https://gocolors.com/products/women-white-cotton-churidar-leggings",
+            "textNumbers2": "Churidar",
+            "imageNumbers3": "shopify://shop_images/LPT1-DKROSE27_4.jpg",
+            "linkNumbers3": "https://gocolors.com/products/women-solid-cream-cotton-mid-rise-kurti-pants?variant=41732111007904",
+            "textNumbers3": "Kurti Pants",
+            "imageNumbers4": "shopify://shop_images/LLC-DKPURPL19_3.jpg",
+            "linkNumbers4": "https://gocolors.com/products/women-solid-black-cotton-cropped-leggings",
+            "textNumbers4": "Cropped Leggings",
+            "imageNumbers5": "shopify://shop_images/LPZ7-TURQBLU68_3.jpg",
+            "linkNumbers5": "https://gocolors.com/products/women-solid-white-woven-viscose-mid-rise-basic-palazzos?variant=44531205931168",
+            "textNumbers5": "Basic Palazzos",
+            "imageNumbers6": "shopify://shop_images/GoColors-ECommerceMay_247774.jpg",
+            "linkNumbers6": "https://gocolors.com/collections/jeggings-women",
+            "textNumbers6": "Super Stretch Jeggings",
+            "linkNumbers7": "",
+            "textNumbers7": "",
+            "linkNumbers8": "",
+            "textNumbers8": "",
+            "linkNumbers9": "",
+            "textNumbers9": "Casual Joggers",
+            "linkNumbers10": "",
+            "textNumbers10": "",
+            "linkNumbers11": "",
+            "textNumbers11": "",
+            "linkNumbers12": "",
+            "textNumbers12": "",
+            "linkNumbers13": "",
+            "textNumbers13": "",
+            "linkNumbers14": "",
+            "textNumbers14": "",
+            "linkNumbers15": "",
+            "textNumbers15": "",
+            "linkNumbers16": "",
+            "textNumbers16": "",
+            "linkNumbers17": "",
+            "textNumbers17": "",
+            "linkNumbers18": "",
+            "textNumbers18": "",
+            "linkNumbers19": "",
+            "textNumbers19": "",
+            "linkNumbers20": "",
+            "textNumbers20": ""
+          }
+        },
+        "image_Gam7He": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "tab-title": "Trending",
+            "tab-url-title": "View All",
+            "tab-url": "#",
+            "imageNumbers1": "shopify://shop_images/Image_Ponte_bell_bottoms.jpg",
+            "linkNumbers1": "https://gocolors.com/products/women-solid-dark-brown-high-rise-ponte-bell-bottoms?variant=42568724021408",
+            "textNumbers1": "Ponte Bell Bottoms",
+            "imageNumbers2": "shopify://shop_images/Image_Salwar.jpg",
+            "linkNumbers2": "https://gocolors.com/products/women-solid-navy-cotton-salwar?variant=41732169040032",
+            "textNumbers2": "Salwar",
+            "imageNumbers3": "shopify://shop_images/Image_Linen_cargo_Pants.jpg",
+            "linkNumbers3": "https://gocolors.com/products/women-olive-green-linen-cargo-pant?variant=41732131225760",
+            "textNumbers3": "Linen Cargo Pants",
+            "imageNumbers4": "shopify://shop_images/Image_Casual_pants.jpg",
+            "linkNumbers4": "https://gocolors.com/products/women-solid-white-mid-rise-casual-pants?variant=47069589962912",
+            "textNumbers4": "Casual Pants",
+            "imageNumbers5": "shopify://shop_images/Image_Cotton_pencil_pants.jpg",
+            "linkNumbers5": "https://gocolors.com/products/women-solid-black-cotton-pencil-pant?variant=42557383999648",
+            "textNumbers5": "Cootton Pencil Pants",
+            "imageNumbers6": "shopify://shop_images/Image_Cycling_shorts.jpg",
+            "linkNumbers6": "https://gocolors.com/products/women-solid-silver-grey-cycling-shorts",
+            "textNumbers6": "Cycling Shorts",
+            "linkNumbers7": "",
+            "textNumbers7": "",
+            "linkNumbers8": "",
+            "textNumbers8": "",
+            "linkNumbers9": "",
+            "textNumbers9": "Pencil Pants",
+            "linkNumbers10": "",
+            "textNumbers10": "",
+            "linkNumbers11": "",
+            "textNumbers11": "",
+            "linkNumbers12": "",
+            "textNumbers12": "",
+            "linkNumbers13": "",
+            "textNumbers13": "",
+            "linkNumbers14": "",
+            "textNumbers14": "",
+            "linkNumbers15": "",
+            "textNumbers15": "",
+            "linkNumbers16": "",
+            "textNumbers16": "",
+            "linkNumbers17": "",
+            "textNumbers17": "",
+            "linkNumbers18": "",
+            "textNumbers18": "",
+            "linkNumbers19": "",
+            "textNumbers19": "",
+            "linkNumbers20": "",
+            "textNumbers20": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_hmLPtq",
+        "image_zRr7Gp",
+        "image_YLLPRA",
+        "image_mUKRGB",
+        "image_4mFD48",
+        "image_HMnad3",
+        "image_Gam7He"
+      ],
+      "name": "Collection Tabs List",
+      "settings": {
+        "sec-heading": "",
+        "sec-bg-color": "#f6f3f1",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "padding_top_mob": 26,
+        "padding_bottom_mob": 26
+      }
+    },
+    "featured_collection_Na9DRw": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "title": "Trending Styles",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "mostlysane-collection",
+        "products_to_show": 50,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_mrp_label": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 0
+      }
+    },
+    "rich_text_33fxYL": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_W3fC8m": {
+          "type": "heading",
+          "settings": {
+            "heading": "MOSTLYSANE COLLECTION",
+            "heading_size": "h2"
+          }
+        }
+      },
+      "block_order": [
+        "heading_W3fC8m"
+      ],
+      "disabled": true,
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-2",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "page_video_bg8GUU": {
+      "type": "page-video",
+      "name": "image-video",
+      "settings": {
+        "button_link": "",
+        "video__type": "youtube",
+        "youtube_iframe": "tOwoS_ZNSuw",
+        "mobile_youtube_iframe": "oZ81SAfmoSw",
+        "videoWidth": "500",
+        "videoHeight": "500",
+        "video_source": "",
+        "richtext_contents": "",
+        "text_alignment": "center"
+      }
+    },
+    "go_active_slider_video_JJYNWU": {
+      "type": "Go_active_slider_video",
+      "blocks": {
+        "image_banner_XyUUJX": {
+          "type": "Image_banner",
+          "settings": {
+            "video-link": "https://cdn.shopify.com/videos/c/o/v/d56d757fafc543ce8a1e6d63b461d036.mp4",
+            "youtube_iframe": "",
+            "text_wrapp": "",
+            "product-url": "#"
+          }
+        },
+        "image_banner_WrjTXV": {
+          "type": "Image_banner",
+          "settings": {
+            "video-link": "https://cdn.shopify.com/videos/c/o/v/edb4cd8994524e26b131c111f1d5dd06.mov",
+            "youtube_iframe": "",
+            "text_wrapp": "",
+            "product-url": "#"
+          }
+        },
+        "image_banner_Vkaczz": {
+          "type": "Image_banner",
+          "settings": {
+            "video-link": "https://cdn.shopify.com/videos/c/o/v/23eb4b61c5fd4e889d963f04fd36de84.mp4",
+            "youtube_iframe": "",
+            "text_wrapp": "",
+            "product-url": "#"
+          }
+        },
+        "image_banner_dBwdnJ": {
+          "type": "Image_banner",
+          "settings": {
+            "video-link": "https://cdn.shopify.com/videos/c/o/v/e29bdb6b52094c9e8d9282383e51c3b9.mp4",
+            "youtube_iframe": "",
+            "text_wrapp": "",
+            "product-url": "#"
+          }
+        },
+        "image_banner_DKUMwB": {
+          "type": "Image_banner",
+          "settings": {
+            "video-link": "https://cdn.shopify.com/videos/c/o/v/acd6c45b072f490ca73b8e2bac002dfc.mp4",
+            "youtube_iframe": "",
+            "text_wrapp": "",
+            "product-url": "#"
+          }
+        },
+        "image_banner_UkLwhM": {
+          "type": "Image_banner",
+          "settings": {
+            "video-link": "https://cdn.shopify.com/videos/c/o/v/1cbedd0602574c0ea1fa0cd784870382.mp4",
+            "youtube_iframe": "",
+            "text_wrapp": "",
+            "product-url": "#"
+          }
+        },
+        "image_banner_RALhdf": {
+          "type": "Image_banner",
+          "settings": {
+            "video-link": "https://cdn.shopify.com/videos/c/o/v/51c51b0c1c4b4391a0e21dfecd4e1847.mp4",
+            "youtube_iframe": "",
+            "text_wrapp": "text3",
+            "product-url": "#"
+          }
+        },
+        "image_banner_c6WrLz": {
+          "type": "Image_banner",
+          "settings": {
+            "video-link": "https://cdn.shopify.com/videos/c/o/v/51c51b0c1c4b4391a0e21dfecd4e1847.mp4",
+            "youtube_iframe": "",
+            "text_wrapp": "text3",
+            "product-url": "#"
+          }
+        }
+      },
+      "block_order": [
+        "image_banner_XyUUJX",
+        "image_banner_WrjTXV",
+        "image_banner_Vkaczz",
+        "image_banner_dBwdnJ",
+        "image_banner_DKUMwB",
+        "image_banner_UkLwhM",
+        "image_banner_RALhdf",
+        "image_banner_c6WrLz"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "TAKE A LOOK AND SHOP",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "mob_padding_top": 50,
+        "mob_padding_bottom": 50,
+        "dekstop_view": 6
+      }
+    },
+    "blog_alternate_layout_yFYhx": {
+      "type": "blog_alternate_layout",
+      "blocks": {
+        "blogs_data_cj3tXN": {
+          "type": "blogs_data",
+          "settings": {
+            "article": "news/how-to-style-palazzo-pants-for-the-festive-season",
+            "blog_heading": "How to Style Palazzo Pants for the Festive Season",
+            "blog_description": "<p>The festive season is here! And it’s all about celebrating traditions, spending time with loved ones, and of course, looking fabulous while doing it! And what better way to do so than by adding a pinch of palazzo pants to your festive lookbook?</p>"
+          }
+        },
+        "blogs_data_Qxh6Wc": {
+          "type": "blogs_data",
+          "settings": {
+            "article": "news/wide-leg-wonders-a-festive-wardrobe-must-have",
+            "blog_heading": "Wide-Leg Wonders: A Festive Wardrobe Must-Have",
+            "blog_description": "<p>The vibrant beats, the shimmering lights, and the grandeur are right around the corner! Festive season is coming! But how many times will you just stick to sarees or lehengas? Sometimes we want to freshen up our festival outfit mood board by reaching for outfits inspired by street style instead of ethnic past. Embracing high fashion inspiration is one surefire way to ensure you'll stand out from the crowd, no matter how people are flocking to festivals this year.</p>"
+          }
+        },
+        "blogs_data_YUigYg": {
+          "type": "blogs_data",
+          "settings": {
+            "article": "news/shimmer-and-go-colors-your-gateway-to-festive-glamour-and-sparkle",
+            "blog_heading": "Shimmer and Go Colors: Your Gateway to Festive Glamour and Sparkle!",
+            "blog_description": "<p>Whether you're gearing up for Diwali, Navratri, or Durga Puja, you need ethnic wear that not only makes you look fabulous but also feel comfortable.<br/>Get ready to be dazzled as we dive headfirst into the world of sparkly and shimmery ethnic bottomwear collection. Let’s explore the features of each beauty and, most importantly, show you how to style them to create jaw-dropping festive looks that will have all eyes on you.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "blogs_data_cj3tXN",
+        "blogs_data_Qxh6Wc",
+        "blogs_data_YUigYg"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "BLOGS",
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "mob_padding_top": 20,
+        "mob_padding_bottom": 20
+      }
+    },
+    "rich_text_4n7Ryn": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_kmYHiP": {
+          "type": "heading",
+          "settings": {
+            "heading": "THE MOSTLYSANE COLLECTION FT. PRAJAKTA KOLI - Available In Exclusive Stores",
+            "heading_size": "h2"
+          }
+        },
+        "text_KVwjLV": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Loved by Prajakta, made for YOU.<br/>This exclusive collection is available at selected stores.<br/>Hit the button below to discover where you can find it!</p>"
+          }
+        },
+        "button_twGXQz": {
+          "type": "button",
+          "settings": {
+            "button_label": "Click Here",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_kmYHiP",
+        "text_KVwjLV",
+        "button_twGXQz"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "main",
+    "data_inrichment_banner_nncGFV",
+    "mostlly_sane_form_eDLtzz",
+    "homepage_tab_collections_dLPVxA",
+    "featured_collection_Na9DRw",
+    "rich_text_33fxYL",
+    "page_video_bg8GUU",
+    "go_active_slider_video_JJYNWU",
+    "blog_alternate_layout_yFYhx",
+    "rich_text_4n7Ryn"
+  ]
+}

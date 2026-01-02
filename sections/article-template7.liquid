@@ -1,0 +1,754 @@
+{% comment %}
+  Custom Blog Article Template: article.custom.liquid with internal CSS
+{% endcomment %}
+
+<style>
+  .blog7 .blog-article-wrapper {
+    display:flex;
+  }
+
+  .blog7 .blog-main {
+    flex: 3;
+    padding-right: 4rem;
+    width:66.66%;
+  }
+
+  .blog7 .blog-main h1 {
+   text-align: center;
+    text-transform: none;
+    line-height: 62px;
+    letter-spacing: 0px;
+    font-weight: 400;
+    font-style: normal;
+    color: #000000;
+    font-size: 50px;
+    margin-top:55px;
+    margin-bottom:15px;
+  }
+
+  .blog7 .blog-subtitle {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 1.5rem;
+  }
+
+  .blog7 .blog-meta {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  .related-article-title-date .blog-meta{
+     margin-bottom: 0px;
+     font-size: 10px;
+     color:878787;
+  }
+.blog7 .blog-content-wrapper {
+    display: flex;
+    align-items: baseline;
+   
+}
+  .blog7 .blog-content {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    max-width: 88%;
+    margin-left: auto;
+  }
+
+  .blog7 .blog-content p {
+    margin-bottom: 1rem;
+  }
+
+  .blog7 .blog-sidebar {
+    flex: 1;
+    width: 33.33%;
+  }
+
+  .blog7 .featured-posts {
+    margin-bottom: 2rem;
+  }
+
+  .blog7 .featured-heading-block h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+  }
+  .blog7 .featured-heading-block{
+    display: flex;
+    align-items: center;
+    column-gap: 15px;
+    margin-bottom: 20px;
+  }
+.blog7 .featured-heading-block div{
+ height: 1px;
+    align-items: center;
+    flex-grow: 1;
+    background-color: #ebebeb;
+}
+  .blog7 .featured-item {
+    display: flex;
+    align-items: center;
+    padding-bottom: 3rem;
+  }
+
+ .blog7 .featured-item img {
+    width: 81px;
+    height:61px;
+    margin-right: 10px;
+  }
+
+  .blog7 .featured-item a {
+    font-weight: normal;
+    color: #222222;
+    font-size:12px;
+    text-decoration: none;
+
+  }
+
+  .blog7 .featured-item a:hover {
+    text-decoration: underline;
+  }
+
+.blog7 .butter-yellow .section-title {
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+}
+
+.blog7 .butter-yellow .custom-product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px 15px;
+  text-align: center;
+  margin-bottom:30px;
+}
+
+.blog7 .butter-yellow .product-card img {
+  max-width: 100%;
+  height: auto;
+}
+.blog7 .butter-yellow .product-card {
+}
+.blog7 .butter-yellow .vendor {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 14px;
+  margin: 5px 0 0;
+}
+
+.blog7 .butter-yellow .title {
+  font-size: 12px;
+  color: #000;
+  margin: 2px 0 0;
+}
+
+.blog7 p.product-vandor {
+    font-size: 14px;
+    margin: 0;
+}
+
+.blog7 p.yellow-product-title {
+    margin: 0;
+    font-size: 10px;
+    margin-top: 5px;
+    overflow: hidden;
+    white-space: normal;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    /* padding: 0 5px; */
+    line-height: normal;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+}
+.blog7 .related-articles {
+  padding: 40px 20px;
+  padding-bottom:0;
+}
+
+{% comment %} .blog7 .related-article-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+} {% endcomment %}
+
+.blog7 .article-card {
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.blog7 .article-card:hover {
+  transform: translateY(-5px);
+}
+
+.blog7 .article-card img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+.blog7 .article-title {
+  bottom: 0;
+  left: 0;
+  color: #000;
+  text-align:center;
+  font-size: 16px;
+  font-weight: normal;
+  width: 100%;
+  box-sizing: border-box;
+   margin:0;
+   letter-spacing: 0px;
+   line-height:22px;
+   margin:10px 0;
+}
+.blog7 .related-article-title-date{
+  padding:20px;
+  text-align:center;
+}
+    color: #878787;
+    font-size: 10px;
+
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+  .blog7 .related-articles .custom-product-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .blog7 .related-articles .yellow-product-title {
+    font-size: 14px;
+  }
+}
+
+{% comment %} comment  {% endcomment %}
+ .blog7 .comments-section {
+  margin-top: 2rem;
+  font-family: Arial, sans-serif;
+}
+
+.blog7 .comments-section h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.5rem;
+}
+
+.blog7 .comment {
+  display: flex;
+  margin-bottom: 1.5rem;
+}
+
+.blog7 .comment-avatar img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.blog7 .comment-body {
+  margin-left: 1rem;
+  flex: 1;
+}
+
+.blog7 .comment-header {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.blog7 .comment-time {
+  color: #777;
+  font-size: 0.85rem;
+  margin-left: 0.5rem;
+}
+
+.blog7 .comment-text {
+  margin: 0.3rem 0;
+}
+
+.blog7 .comment-actions {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.blog7 .comment-actions .comment-reply {
+  margin-left: 0.8rem;
+  color: #0073e6;
+  text-decoration: none;
+}
+.blog7 .comment-actions .comment-reply:hover {
+  text-decoration: underline;
+}
+.blog7 .comment-form .form .wide-action{
+  margin: 15px 0;
+}
+.blog7 .comment-form .form .input-row {
+    margin: 15px 0;
+}
+.blog7 .comment-form h3#add-comment-title{
+      padding-top: 0;
+}
+.blog7 .share-button__button{
+    flex-direction:column;
+}
+.blog7 .list-social{
+    flex-direction:column;
+}
+.blog7 .recent_div h3 {
+    border-bottom: 1px solid #e4dfdf;
+    padding: 14px 0;
+}
+.blog7 .recent_div ul {
+    padding-left: 0;
+    list-style: none;
+}
+.blog7 .recent_div ul li:first-child {
+    border-top: 0;
+    padding-top: 0;
+}
+.blog7 .recent_div ul li{
+  border-top: 1px solid #e4dfdf;
+    padding: 10px 0;
+    font-size: 14px;
+}
+.blog7 .recent_div ul li a{
+       display: -webkit-box;
+  -webkit-line-clamp: 2; /* show only 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.blog7 .follow-us-sec .list-social {
+    flex-direction: row;
+}
+.blog7 .follow-us-sec h3{
+  border-bottom: 1px solid #e4dfdf;
+  padding-bottom:14px;
+  margin-bottom:0;
+}
+.blog7 .follow-us-sec .list-social__item .icon{
+  height: 4rem;
+    width: 4rem;
+}
+.blog7 .follow-us-sec .list-social__item .svg-wrapper{
+    width: 40px;
+    height: 40px;
+}
+
+.about-us-card {
+  background: #fff;
+  padding: 30px;
+  text-align: center;
+  margin: 0 auto;
+  margin-left:15px;
+}
+
+.about-us-card__image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.about-us-card__content h3 {
+   font-size: 20px;
+    margin: 30px 0 15px;
+    font-weight: 600;
+    text-align: inherit;
+    text-transform: none;
+    line-height: normal;
+    letter-spacing: 0px;
+    font-weight: 400;
+    font-style: normal;
+    color: #000000;
+}
+
+.about-us-card__content p {
+     font-size: 14px;
+    color: #333;
+    line-height: 24px;
+    letter-spacing: normal;
+    margin: 0;
+}
+
+.about-us-card__button {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 8px 20px;
+  background: #000;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.about-us-card__button:hover {
+  background: #333;
+}
+.blog7 ol,.blog7 ul  {
+    padding: 0;
+    font-size:14px;
+}
+.blog7 .related-posts h3{
+  font-weight:600;
+}
+
+.blog7 .nav-links {
+    display: flex;
+    justify-content: space-between;
+    gap:30px;
+}
+
+.blog7 .next-article {
+    text-align: right;
+}
+.blog7 .nav-links a{
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  } 
+  .blog7 .nav-links a:hover{
+    color: #c5b8a5;
+  }
+  .blog7 span.nav-label {
+    color: #999999;
+    font-size: 14px;
+    margin-bottom: 0px;
+    font-style: italic;
+}
+.blog7 .nav-label-title{
+      line-height: 16px;
+    font-size: 14px;
+}
+.blog-content ol, .blog-content ul {
+    padding-left: 15px;
+}
+  @media screen and (max-width: 768px) {
+    .blog7 .blog-article-wrapper {
+      flex-direction: column;
+    }
+
+    .blog7 .blog-main {
+      padding-right: 0;
+      width:100%;
+    }
+    .blog7 .blog-main h1{
+              font-size: calc(2rem + 2.75vmin) !important;
+        line-height: 1.35 !important;
+        letter-spacing: 0px !important;
+        margin-top: 40px;
+    }
+
+    .blog7 .blog-sidebar {
+      width:100%;
+      margin-top: 2rem;
+    }
+    .about-us-card{
+         margin-left: 15px;
+    }
+    .blog7 .blog-content{
+      max-width:100%;
+    }
+    .blog7 .blog-content-wrapper{
+      flex-direction:column-reverse;
+    }
+    .blog7 .related-posts h3 {
+    font-weight: 600;
+    font-size: 26.85px;
+    font-weight: 700;
+    margin: 0;
+    padding: 0 0 5px;
+    text-transform: capitalize;
+}
+.related-posts{
+  margin-top:2rem;
+  margin-bottom:1rem;
+}
+.blog7 .share-button__button{
+  display:none;
+}
+.blog7 .related-articles{
+  padding: 40px 0;
+}
+  }
+</style>
+<div class="page-width blog7" style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;">
+     
+    <div class="blog-article-wrapper">
+  <!-- LEFT: Main Content -->
+  <div class="blog-main">
+ <!-- Title -->
+
+    <h1>{{ article.title }}</h1>
+    <!-- Subtitle from metafield -->
+      <!-- Author, date, comments -->
+    <div class="blog-meta">
+      {% comment %} {{ article.author }} &nbsp;|&nbsp;
+      {{ article.comments_count }} Comments &nbsp;|&nbsp; {% endcomment %}
+      {{ article.published_at | date: "%b %d, %Y" }}
+    </div>
+
+    {% if article.metafields.custom.subtitle %}
+      <p class="blog-subtitle">{{ article.metafields.custom.subtitle }}</p>
+    {% endif %}
+
+    <!-- Featured image -->
+    {% if article.image %}
+      <img src="{{ article.image | img_url: '800x' }}" alt="{{ article.title }}" style="width: 100%; margin-bottom: 1rem;">
+    {% endif %}
+
+  
+    <!-- Content -->
+    <div class="blog-content-wrapper">
+        <button id="nativeShareBtn" class="share-button__button">
+          Share
+          {%- render 'social-icons', class: 'footer__list-social' -%}
+        </button>
+        <div class="blog-content">
+        {{ article.content }}
+
+        <!-- Related post based on category) -->
+{% assign current_article = article %}
+
+{% comment %} <div class="related-posts">
+  <h3>Related Posts</h3>
+  <ol>
+    {% for related in blogs[blog.handle].articles limit:5 %}
+      {% unless related.id == current_article.id %}
+        <li>
+          <a href="{{ related.url }}" class="related-title">
+            {{ related.title }}
+          </a>
+        </li>
+      {% endunless %}
+    {% endfor %}
+  </ol>
+</div> {% endcomment %}
+
+        </div>
+    </div>
+<!-- next and previous-->
+{% assign current_index = nil %}
+
+{% for a in blog.articles %}
+  {% if a.handle == article.handle %}
+    {% assign current_index = forloop.index0 %}
+  {% endif %}
+{% endfor %}
+
+{% assign last_index = blog.articles.size | minus: 1 %}
+
+<div class="article-navigation">
+  <div class="nav-links">
+    {% if current_index > 0 %}
+      {% assign prev_index = current_index | minus: 1 %}
+      {% assign prev_article = blog.articles[prev_index] %}
+      <div class="prev-article">
+        <a href="{{ prev_article.url }}">
+          <span class="nav-label">&lt; previously</span><br>
+          <span class="nav-label-title">{{ prev_article.title }}</span>
+        </a>
+      </div>
+    {% endif %}
+
+    {% if current_index < last_index %}
+      {% assign next_index = current_index | plus: 1 %}
+      {% assign next_article = blog.articles[next_index] %}
+      <div class="next-article">
+        <a href="{{ next_article.url }}">
+          <span class="nav-label">up next &gt;</span><br>
+          <span class="nav-label-title">{{ next_article.title }}</span>
+        </a>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+<!-- end next and previous-->
+
+  
+    <!--related Article -->
+
+<div class="related-articles">
+  <div class="featured-heading-block">
+    <div> &nbsp;</div>
+    <h3>You Might Also Like</h3>
+    <div> &nbsp;</div>
+  </div>
+
+  <div class="swiper related-article-wrapper">
+    <div class="swiper-wrapper">
+    {% assign related_articles = article.metafields.custom.you_may_also_like.value %}
+    {% for item in related_articles %}
+      <a href="{{ item.article_link }}" class="article-card swiper-slide">
+        {% if item.banner %}
+          <img src="{{ item.banner | image_url: width: 800 }}" alt="{{ item.title }}">
+        {% endif %}
+        <div class="related-article-title-date">
+        <p class="article-title">{{ item.title }}</p>
+        <div class="blog-meta"> {{ article.published_at | date: "%b %d, %Y" }}</div>
+        </div>
+      </a>
+    {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% form article %}
+  
+  <h3 id="add-comment-title">What do you think?</h3>
+  {% if form.errors %}
+    <div class="feedback error">
+      {{ form.errors | default_errors }}
+    </div>
+  {% endif %}
+
+  <div class="form">
+    <div class="input-row">
+      <input aria-label="{{ 'blogs.comments.name' | t }}" placeholder="{{ 'blogs.comments.name' | t }}" required type="text" name="comment[author]" id="comment-author" value="{{ form.author }}" />
+    </div>
+
+    <div class="input-row">
+      <input aria-label="{{ 'blogs.comments.email' | t }}" placeholder="{{ 'blogs.comments.email' | t }}" required type="email" name="comment[email]" id="comment-email" value="{{ form.email }}" />
+    </div>
+
+    <div class="input-row">
+      <textarea aria-label="{{ 'blogs.comments.message' | t }}" placeholder="{{ 'blogs.comments.message' | t }}" required name="comment[body]" id="comment-body">{{ form.body }}</textarea>
+    </div>
+
+    <div class="wide-action">
+      <input type="submit" value="{{ 'blogs.comments.post' | t }}" />
+    </div>
+  </div>
+{% endform %}
+
+  </div>
+  <!-- RIGHT: Sidebar -->
+  <div class="blog-sidebar">
+    <!-- Featured Posts -->
+ {% assign featured_articles = article.metafields.custom.about_us_details.value %}
+{% if featured_articles != blank %}
+{% for item in featured_articles %}
+  <div class="about-us-card">
+    {% if item.image %}
+      <div class="about-us-card__image">
+        <img src="{{ item.image | image_url: width: 500 }}" alt="{{ item.title }}">
+      </div>
+    {% endif %}
+
+    <div class="about-us-card__content">
+      {% if item.title != blank %}
+        <h3>{{ item.title }}</h3>
+      {% endif %}
+
+      {% if item.description != blank %}
+        <p>{{ item.description }}</p>
+      {% endif %}
+
+      {% if item.link != blank %}
+        <a href="{{ item.link }}" class="about-us-card__button">Read more</a>
+      {% endif %}
+    </div>
+  </div>
+  {% endfor %}
+{% endif %}
+
+<!-- Follow Links--> 
+<div class="follow-us-sec">
+<h3>Follow me</h3>
+{%- render 'social-icons' -%}   
+</div>
+<!-- Recents posts-->
+<div class="recent_div">
+  <h3>Recent Posts</h3>
+
+  <ul>
+    {% assign count = 0 %}
+    {% for article_item in blog.articles %}
+      {% if article_item.id != article.id %}
+        {% if article_item.title != blank %}
+          <li class="line-1">
+            <a data-cc-animate-click href="{{ article_item.url }}">{{ article_item.title }}</a>
+          </li>
+          {% assign count = count | plus: 1 %}
+        {% endif %}
+      {% endif %}
+      {% if count == 5 %}
+        {% break %}
+      {% endif %}
+    {% endfor %}
+  </ul>
+</div>
+  </div>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    var swiper = new Swiper(".related-article-wrapper", {
+      slidesPerView: 1,
+      spaceBetween: 10,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      breakpoints: {
+        640: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 20,
+        },
+      },
+    });
+  </script>
+{% schema %}
+{
+  "name": "blog 7",
+  "settings": [
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 100,
+      "default": 40,
+      "step": 5,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 100,
+      "default": 40,
+      "step": 5,
+      "unit": "px"
+    },
+  ],
+  "presets": [
+    {
+      "name": "blog 7",
+      
+    }
+  ]
+}
+{% endschema %}

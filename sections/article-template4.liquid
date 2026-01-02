@@ -1,0 +1,314 @@
+<style>
+  .blog3-container{
+    margin: 0 auto;
+  }
+  .blog-container img {
+    width: 100%;
+}
+</style>
+<script>
+  $(document).ready(function() {
+    // Add a click event handler to the share-button__button
+    $('.share-button__button').click(function() {    
+    // Toggle the display property of the share-list element
+      $('.share-list').toggle();
+       $('.share-list').toggleClass('active');
+    });
+    $(document).on('click', function(event) {
+     if (!$(event.target).closest('.share-button__button, .share-list').length) {
+        // Hide the share-list element
+        $('.share-list').hide();
+    }
+    });  
+        });
+</script>
+{% paginate article.comments by 50 %}
+     <div class="blog3-container page-width">
+<div class="blog-detail-banner" style="background-image: url('{{ article.image | img_url: " " }}')"></div>
+<!-- <div class="full-width-images"{% if article.image and section.settings.featured_image == "wide" %}wide-image{% endif %}>
+</div> -->
+<div class="blog-detail-content">
+    <div class="blog-container">
+      <div class="blogHeader">
+      <div class="blog-content">
+        <h2 class="blog-content__title">{{ article.title }}</h2>  
+       {%- if section.settings.blog_show_date -%}
+         <span>
+          {{ article.created_at | date : '%B %d, %Y' }}
+         </span>
+       {%- endif -%}
+    </div>
+      <div class="blog-detail-share">      
+       <span class="share-button__button" >
+        <img class="share_img" src="https://cdn.shopify.com/s/files/1/0598/8158/6848/files/icon-share_1.svg?v=1696919415" alt="">  
+        </span>
+       <div class="share-list">
+                  <ul>
+                    <li>
+                      <a role="link" href="//www.facebook.com/sharer.php?u={{ shop.url | append: share_permalink }}">
+                         <img src="https://cdn.shopify.com/s/files/1/0598/8158/6848/files/icons8-facebook.svg?v=1701759492"
+                            style="display: inline; width: 24px; height: 24px; margin: 0; padding: 0; border: none; box-shadow: none;"
+                            height="24" width="24" class="synved-share-image synved-social-image synved-social-image-share"
+                            title="Share on Facebook" alt="Facebook">
+                      </a>
+                    </li>
+                    <li>
+                      <a role="link" href="//twitter.com/share?text={{ share_title | url_param_escape }}&amp;url={{ shop.url | append: share_permalink }}">
+                       <img src="https://cdn.shopify.com/s/files/1/0598/8158/6848/files/icons8-twitter.svg?v=1701759492"
+                        style="display: inline; width: 24px; height: 24px; margin: 0; padding: 0; border: none; box-shadow: none;"
+                        height="24" width="24" class="synved-share-image synved-social-image synved-social-image-share"
+                        title="Share on twitter" alt="twitter">
+                      </a>
+                    </li>
+                    <li>
+                      <a role="link" href="https://www.instagram.com/gocolors/?hl=en">
+                        <img src="https://cdn.shopify.com/s/files/1/0598/8158/6848/files/icons8-instagram.svg?v=1701759492"
+                            style="display: inline; width: 24px; height: 24px; margin: 0; padding: 0; border: none; box-shadow: none;"
+                            height="24" width="24" class="synved-share-image synved-social-image synved-social-image-share"
+                            title="Share on instagram" alt="instagram">
+                        </a>
+                    </li>
+                    <li>
+                      <a role="link"href="//pinterest.com/pin/create/button/?url={{ shop.url | append: share_permalink }}&amp;media={{ share_image | img_url: '1024x1024' }}&amp;description={{ share_title | url_param_escape }}">
+                        <img src="https://cdn.shopify.com/s/files/1/0598/8158/6848/files/icons8-pinterest.svg?v=1701779015"
+                            style="display: inline; width: 24px; height: 24px; margin: 0; padding: 0; border: none; box-shadow: none;"
+                            height="24" width="24" class="synved-share-image synved-social-image synved-social-image-share"
+                            title="Share on pinterest" alt="pinterest">
+                      </a>
+                    </li>
+                  </ul>
+      </div>
+   </div> 
+        </div>
+     {%- if article.article.image -%}
+        <img src="{{ article.article.image.src | img_url: '1024x1024' }}" alt="{{ article.article.image.alt | escape }}">
+      {%- endif -%} 
+        {%- if article.content -%}
+        <p>{{ article.content }}</p>
+      {%- endif -%}
+  
+    </div>
+    </div>
+   {% if section.settings.blog_show_social %}
+      <div data-cc-animate data-cc-animate-delay=".5s">
+        {% render 'social-sharing', share_title: article.title, share_permalink: article.url, share_image: article.image %}
+      </div>
+      {% endif %}    
+    <div data-cc-animate data-cc-animate-delay=".5s">
+        {% form article %}
+        <hr>
+        <h3 id="add-comment-title">{{ 'blogs.comments.form_title' | t }}</h3>
+
+        {% if form.errors %}
+        <div class="feedback error">
+          {{ form.errors | default_errors }}
+        </div>
+        {% endif %}
+           <div class="form">
+          <div class="input-row">
+            <input aria-label="{{ 'blogs.comments.name' | t }}" placeholder="{{ 'blogs.comments.name' | t }}" required{% if form.errors contains "author" %} class="error"{% endif %} type="text" name="comment[author]" id="comment-author" value="{{ form.author }}" />
+          </div>
+
+          <div class="input-row">
+            <input aria-label="{{ 'blogs.comments.email' | t }}" placeholder="{{ 'blogs.comments.email' | t }}" required{% if form.errors contains "email" %} class="error"{% endif %} type="email" name="comment[email]" id="comment-email" value="{{ form.email }}" />
+          </div>
+
+          <div class="input-row">
+            <textarea aria-label="{{ 'blogs.comments.message' | t }}" placeholder="{{ 'blogs.comments.message' | t }}" required{% if form.errors contains "body" %} class="error"{% endif %} name="comment[body]" id="comment-body">{{ form.body }}</textarea>
+          </div>
+
+          <div class="wide-action">
+            <input type="submit" value="{{ 'blogs.comments.post' | t }}" />
+          </div>
+        </div>
+        {% endform %}
+    {% if blog.next_article or blog.previous_article %}
+    <div class="other-products other-products--articles" data-cc-animate data-cc-animate-delay=".5s">
+      <div class="other-products__label">
+        <a data-cc-animate-click href="{{ blog.url }}">{{ 'blogs.article.back_to_blog_html' | t: blog: blog.title }}</a>
+      </div>
+      <div class="other-products__products">
+        {% if blog.previous_article %}
+        <span class="other-products__product previous">
+          <a data-cc-animate-click href="{{ blog.previous_article }}">
+            <div class="other-products__product__arrow"><span class="arr">{% render 'svg-chevron-left' %}</span></div>
+            <div class="other-products__product__title h5">{{ 'blogs.article.older_post' | t }}</div>
+          </a>
+        </span>
+        {% endif %}
+        {% if blog.next_article %}
+        <span class="other-products__product next">
+          <a data-cc-animate-click href="{{ blog.next_article }}" >
+            <div class="other-products__product__title h5">{{ 'blogs.article.newer_post' | t }}</div>
+            <div class="other-products__product__arrow"><span class="arr">{% render 'svg-chevron-right' %}</span></div>
+          </a>
+        </span>
+        {% endif %}
+      </div>
+    </div>
+    {% endif %}
+      </div>
+     </div>
+  {% endpaginate %}
+  
+<style>
+    .blog-detail-banner {
+    background-position: center;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 0;
+    padding-bottom: 36.5%;
+    position: relative;
+          display: block !important;
+}
+   .blog-detail-banner::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: .2;
+    left: 0;
+    top: 0;
+  }
+  .blog-container p img{
+    width: 100%;
+  }
+ .blog-detail-content .blog-container h3{
+            font-size: 30px;
+        text-align: center;
+        font-weight: 700;
+  }
+   .blog-detail-content .blog-container p{
+    color: #353a50;
+    font-size: 18px;
+    line-height: 1.56;
+  }
+  
+   /* .blog-detail-share {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    height: 35px;
+    width: 35px;
+  } */
+  .blog-detail-content .blog-content__title {
+    font-size: 24px;
+    width: 95%;
+    text-align: left;
+  }
+  .blog-container {
+    padding: 30px 0;
+  }
+  .blog-content {
+    position: relative;
+  }
+  .sharing.social-links {
+    text-align: center;
+  }
+  .sharing .sharing-label {
+     display: block; 
+  }
+  .share-list {
+    display: none;
+    position: absolute;
+     right: 1px;
+   bottom: -34%;
+    padding: 0;
+    box-shadow: 1px 0 4px #0002;
+  }
+  .blog-detail-share {
+    position: relative;
+    height: auto;
+    width: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+  .share-list ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding:3px;
+}
+  .blogHeader{
+    display:flex;
+    /* align-items:center; */
+    justify-content:space-between;
+  }
+@media (min-width: 1024px) {  
+    div#shopify-section-article-template4 h3 {
+      margin: 10px 0;
+      }
+    .blog-detail-content .blog-content__title {
+        color: #353a50;
+        font-size: 38px;
+        line-height: 1.25;
+        font-weight: 700;
+        margin-bottom: 20px;
+        width: 90%;
+        text-align:left;
+        }
+  
+    .blog-detail-content {
+        width: calc(100% - 50px);
+        max-width: 1380px;
+        background-color: #f9f9f9;
+        padding: 80px 0 60px;
+        -webkit-border-radius: 8px 8px 0 0;
+        border-radius: 8px 8px 0 0;
+        margin: -85px auto 0;
+        position: relative;
+        overflow: hidden;
+      }
+  
+    .blog-detail-content .blog-container {
+       width: 80%;
+       padding-right: 15px;
+       padding-left: 15px;
+       margin-right: auto;
+       margin-left: auto;
+       position: relative;    
+    }
+    .share-list {
+      display: none;
+      position: absolute;
+      right: 1px;
+      bottom: -29%;
+      background: #fff;
+      padding: 0.3rem;
+      border-radius: 5px;
+    }
+ 
+ }
+
+ </style>
+   
+{% schema %}
+{
+  "name": "Posts",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "blog_show_author",
+      "label": "Show author",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "blog_show_date",
+      "label": "Show date",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "blog_show_social",
+      "label": "Show social icons",
+      "default": true
+}
+  ]
+}
+{% endschema %}

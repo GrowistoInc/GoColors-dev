@@ -1,0 +1,35 @@
+{%- if request.path contains 'return_prime' -%}
+  <script>
+
+(function () {
+  const params = new URLSearchParams(window.location.search);
+  const isFromApp = params.get('source') === 'app';
+  if (!isFromApp) return;
+
+  //Add style
+  const style = document.createElement('style');
+  style.innerHTML = `
+    header, footer,
+    .f_bottom__links_bg,
+    .announcement-bar-slider,
+    .announcement-bar,
+    #hi-eu-opt-in,
+    .gs-footer-btns,
+    .header-wrapper,
+    .shopify-section-group-footer-group,
+    .section-footer-site-map,
+    #hi-cookie-box,
+    #appbrew-download-banner-desktop-root {
+      display: none !important;
+    }
+    #MainContent {
+      background-color: #fff !important;
+    }
+  `;
+  document.head.appendChild(style);
+
+
+})();
+
+  </script>
+{%- endif -%}

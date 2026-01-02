@@ -1,0 +1,37 @@
+{% layout none %}
+<div class="custom-data">
+  {% assign palette_solids = product.metafields.custom.similar_product_.value %}
+  {%- liquid 
+      assign has1product = false
+      assign availableCount = 0
+     assign totalproducts = 0
+      if palette_solids
+        for prod in palette_solids
+         assign totalproducts = totalproducts | plus: 1
+          if prod.available == true
+            assign has1product = true
+            assign availableCount = availableCount | plus: 1
+          endif
+        endfor
+      endif
+  -%}
+
+  {% if palette_solids %}
+    
+    {%- for solid_product in palette_solids limit: 5 -%}
+      <a href="{{ solid_product.url }}">
+        {% if solid_product.featured_media %}
+        <img class="related-product__image mobile-image {% if forloop.first %}first-image{% endif %}"
+             src="{{ solid_product.featured_media | img_url: '30x' }}"
+             alt="{{ solid_product.title }}">
+        {% endif %}
+      </a>
+    {% endfor %}
+
+    {% if totalproducts > 5 %}
+      <a class="number-data" href="{{ product.url }}">
+        + {{ totalproducts }}
+      </a>
+    {% endif %}
+  {% endif %}
+</div>

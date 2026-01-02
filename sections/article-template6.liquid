@@ -1,0 +1,515 @@
+{% comment %}
+  Custom Blog Article Template: article.custom.liquid with internal CSS
+{% endcomment %}
+
+<style>
+  .blog-article-wrapper {
+    display:flex;
+  }
+
+  .blog-main {
+    flex: 3;
+    padding-right: 4rem;
+    width:66.66%;
+  }
+
+  .blog-main h1 {
+    font-size: 32px;
+    margin-bottom: 0.5rem;
+  }
+
+  .blog-subtitle {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 1.5rem;
+  }
+
+  .blog-meta {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 1rem;
+    text-align:center;
+  }
+
+  .blog-content {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+  }
+
+  .blog-content p {
+    margin-bottom: 1rem;
+  }
+
+  .blog-sidebar {
+    flex: 1;
+    width: 33.33%;
+  }
+
+  .featured-posts {
+    margin-bottom: 2rem;
+  }
+
+  .featured-heading-block h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+  }
+  .featured-heading-block{
+    display: flex;
+    align-items: center;
+    column-gap: 15px;
+    margin-bottom: 5px;
+  }
+.featured-heading-block div{
+ height: 1px;
+    align-items: center;
+    flex-grow: 1;
+    background-color: #ebebeb;
+}
+  .featured-item {
+    display: flex;
+    align-items: center;
+    padding-bottom: 3rem;
+  }
+
+  .featured-item img {
+    width: 81px;
+    height:61px;
+    margin-right: 10px;
+  }
+
+  .featured-item a {
+    font-weight: normal;
+    color: #222222;
+    font-size:12px;
+    text-decoration: none;
+
+  }
+
+  .featured-item a:hover {
+    text-decoration: underline;
+  }
+
+.butter-yellow .section-title {
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+}
+
+.butter-yellow .custom-product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px 15px;
+  text-align: center;
+  margin-bottom:30px;
+}
+
+.butter-yellow .product-card img {
+  max-width: 100%;
+  height: auto;
+}
+.butter-yellow .product-card {
+}
+.butter-yellow .vendor {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 14px;
+  margin: 5px 0 0;
+}
+
+.butter-yellow .title {
+  font-size: 12px;
+  color: #000;
+  margin: 2px 0 0;
+}
+
+p.product-vandor {
+    font-size: 14px;
+    margin: 0;
+}
+
+p.yellow-product-title {
+    margin: 0;
+    font-size: 10px;
+    margin-top: 5px;
+    overflow: hidden;
+    white-space: normal;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    /* padding: 0 5px; */
+    line-height: normal;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+}
+.related-articles {
+  padding: 40px 20px;
+}
+
+.related-article-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.article-card {
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.article-card:hover {
+  transform: translateY(-5px);
+}
+
+.article-card img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+.article-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 16px;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0));
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  width: 100%;
+  box-sizing: border-box;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+   margin:0;
+}
+
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+  .related-articles .custom-product-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .related-articles .yellow-product-title {
+    font-size: 14px;
+  }
+}
+
+{% comment %} comment  {% endcomment %}
+ .comments-section {
+  margin-top: 2rem;
+  font-family: Arial, sans-serif;
+}
+
+.comments-section h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.5rem;
+}
+
+.comment {
+  display: flex;
+  margin-bottom: 1.5rem;
+}
+
+.comment-avatar img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.comment-body {
+  margin-left: 1rem;
+  flex: 1;
+}
+
+.comment-header {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.comment-time {
+  color: #777;
+  font-size: 0.85rem;
+  margin-left: 0.5rem;
+}
+
+.comment-text {
+  margin: 0.3rem 0;
+}
+
+.comment-actions {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.comment-actions .comment-reply {
+  margin-left: 0.8rem;
+  color: #0073e6;
+  text-decoration: none;
+}
+.comment-actions .comment-reply:hover {
+  text-decoration: underline;
+}
+.blog6 .comment-form .form .wide-action{
+  margin: 15px 0;
+}
+.blog6 .comment-form .form .input-row {
+    margin: 15px 0;
+}
+.blog6 .comment-form h3#add-comment-title{
+      padding-top: 0;
+}
+
+  @media screen and (max-width: 768px) {
+    .blog-article-wrapper {
+      flex-direction: column;
+    }
+
+    .blog6 .blog-main {
+      padding-right: 0;
+      width:100%;
+    }
+
+    .blog-sidebar {
+      margin-top: 2rem;
+    }
+    .related-article-wrapper {
+  grid-template-columns:unset;
+  row-gap:10px;
+
+}
+.related-articles{
+  padding:0;
+}
+.blog-sidebar{
+  width:100%;
+}
+.blog6 .featured-item{
+  flex-direction: row-reverse;
+  padding-bottom:2rem;
+}
+.featured-item img{
+  margin-right: 0;
+   width: 129px;
+    height: 97px;
+    padding-left:10px;
+}
+.featured-posts {
+    margin-bottom: 0;
+}
+  }
+</style>
+<div class="page-width blog6" style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;">
+      <!-- Title -->
+    <h1>{{ article.title }}</h1>
+    <div class="blog-article-wrapper">
+  <!-- LEFT: Main Content -->
+  <div class="blog-main">
+
+    <!-- Subtitle from metafield -->
+    {% if article.metafields.custom.subtitle %}
+      <p class="blog-subtitle">{{ article.metafields.custom.subtitle }}</p>
+    {% endif %}
+
+    <!-- Featured image -->
+    {% if article.image %}
+      <img src="{{ article.image | img_url: '800x' }}" alt="{{ article.title }}" style="width: 100%; margin-bottom: 1rem;">
+    {% endif %}
+
+    <!-- Author, date, comments -->
+    <div class="blog-meta">
+      {{ article.comments_count }} Comments &nbsp;|&nbsp;
+      {{ article.published_at | date: "%b %d, %Y" }}
+    </div>
+
+    <!-- Content -->
+    <div class="blog-content page-width">
+      {{ article.content }}
+    </div>
+     {% comment %} {% render 'blog-newsletter' %} {% endcomment %}
+
+{% form article %}
+  
+  <h3 id="add-comment-title">{{ 'blogs.comments.form_title' | t }}</h3>
+
+  {% if form.errors %}
+    <div class="feedback error">
+      {{ form.errors | default_errors }}
+    </div>
+  {% endif %}
+
+  <div class="form">
+    <div class="input-row">
+      <input aria-label="{{ 'blogs.comments.name' | t }}" placeholder="{{ 'blogs.comments.name' | t }}" required type="text" name="comment[author]" id="comment-author" value="{{ form.author }}" />
+    </div>
+
+    <div class="input-row">
+      <input aria-label="{{ 'blogs.comments.email' | t }}" placeholder="{{ 'blogs.comments.email' | t }}" required type="email" name="comment[email]" id="comment-email" value="{{ form.email }}" />
+    </div>
+
+    <div class="input-row">
+      <textarea aria-label="{{ 'blogs.comments.message' | t }}" placeholder="{{ 'blogs.comments.message' | t }}" required name="comment[body]" id="comment-body">{{ form.body }}</textarea>
+    </div>
+
+    <div class="wide-action">
+      <input type="submit" value="{{ 'blogs.comments.post' | t }}" />
+    </div>
+  </div>
+{% endform %}
+<!-- Comment form -->
+        <!-- Show approved comments -->
+{% if article.comments_count > 0 %}
+  <div class="comments-section">
+    <h3>{{ article.comments_count }} Comments</h3>
+
+    {% for comment in article.comments %}
+      <div class="comment">
+        <div class="comment-avatar">
+          <img src="{{ 'https://cdn.shopify.com/s/files/1/0598/8158/6848/files/guest-comment.png?v=1754894628' }}" alt="Avatar">
+        </div>
+        <div class="comment-body">
+          <div class="comment-header">
+            <strong class="comment-author">{{ comment.author }}</strong>
+            {% assign now = 'now' | date: '%s' %}
+{% assign comment_time = comment.created_at | date: '%s' %}
+{% assign diff_seconds = now | minus: comment_time %}
+{% assign diff_minutes = diff_seconds | divided_by: 60 %}
+{% assign diff_hours = diff_minutes | divided_by: 60 %}
+{% assign diff_days = diff_hours | divided_by: 24 %}
+{% assign diff_months = diff_days | divided_by: 30 %}
+{% assign diff_years = diff_days | divided_by: 365 %}
+
+<span class="comment-time">
+  {% if diff_minutes < 60 %}
+    {{ diff_minutes }} minute{% if diff_minutes != 1 %}s{% endif %} ago
+  {% elsif diff_hours < 24 %}
+    {{ diff_hours }} hour{% if diff_hours != 1 %}s{% endif %} ago
+  {% elsif diff_days < 30 %}
+    {{ diff_days }} day{% if diff_days != 1 %}s{% endif %} ago
+  {% elsif diff_months < 12 %}
+    {{ diff_months }} month{% if diff_months != 1 %}s{% endif %} ago
+  {% else %}
+    {{ diff_years }} year{% if diff_years != 1 %}s{% endif %} ago
+  {% endif %}
+</span>
+
+          </div>
+          <p class="comment-text">{{ comment.content }}</p>
+  
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}
+  
+    <!--related Article -->
+
+<div class="related-articles">
+  <div class="featured-heading-block">
+    <h3>You May Also Like</h3>
+    <div> &nbsp;</div>
+  </div>
+
+  <div class="related-article-wrapper">
+    {% assign related_articles = article.metafields.custom.you_may_also_like.value %}
+    {% for item in related_articles %}
+      <a href="{{ item.article_link }}" class="article-card">
+        {% if item.banner %}
+          <img src="{{ item.banner | image_url: width: 800 }}" alt="{{ item.title }}">
+        {% endif %}
+        <p class="article-title">{{ item.title }}</p>
+      </a>
+    {% endfor %}
+  </div>
+</div>
+  </div>
+  <!-- RIGHT: Sidebar -->
+  <div class="blog-sidebar">
+    <!-- Featured Posts -->
+    <div class="featured-posts">
+      <div class="featured-heading-block">
+      <h3>FEATURED</h3>
+      <div>&nbsp; </div>
+      </div>
+      {% assign featured_articles = article.metafields.custom.featured_blog.value %}
+      {% for item in featured_articles %}
+        <div class="featured-item">
+          {% if item.banner %}
+            <img src="{{ item.banner | img_url: '150x' }}" alt="{{ featured.title }}">
+          {% endif %}
+          <a href="{{ item.article_link }}">{{ item.title }}</a>
+        </div>
+      {% endfor %}
+    </div>
+
+    <!-- Butter Yellow Product (from metafield) -->
+{% assign butter_products = article.metafields.custom.product.value %}
+
+{% if butter_products %}
+  <div class="butter-yellow">
+     <div class="featured-heading-block">
+      <h3>BUTTER YELLOW</h3>
+      <div> &nbsp;</div>
+      </div>
+    <div class="custom-product-grid">
+      {% for product in butter_products %}
+        {% if product != blank %}
+          <a href="{{ product.url }}" class="product-card">
+            <img src="{{ product.featured_image | img_url: '300x' }}" alt="{{ product.title }}">
+            <p class="product-vandor">{{ product.vendor }}</p>
+            <p class="yellow-product-title">{{ product.title }}</p>
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}
+  </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "blog 6",
+  "settings": [
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 100,
+      "default": 40,
+      "step": 5,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 100,
+      "default": 40,
+      "step": 5,
+      "unit": "px"
+    },
+  ],
+  "presets": [
+    {
+      "name": "blog 6",
+      
+    }
+  ]
+}
+{% endschema %}

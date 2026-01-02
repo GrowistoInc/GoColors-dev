@@ -1,0 +1,307 @@
+<style>
+  .go_active_coll {
+      display: flex;
+      flex-wrap: wrap;
+      column-gap: 14px;
+      row-gap:20px
+  }
+  .goActive_card {
+    flex: 47%;
+    max-width:47%;
+    width:47%;
+  }
+  .coll_btn {
+    width: 140px;
+    height: 45px;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin: 40px auto 0;
+    border-radius: 0 !important;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   }
+  span.variants-cart.not-avil {
+    color: #B1B1B1;
+   }
+   .page-wrapper.section-{{ section.id }}-padding h2{
+    font-weight: 600;text-transform: uppercase;
+    
+    width: fit-content;
+    border-bottom: 2px solid #000;
+    margin: 0 auto 30px;
+    text-transform: uppercase;
+    padding-bottom: 0;
+    font-size: 20px;
+  }
+  .page-wrapper.section-{{ section.id }}-padding{
+    padding:{{ section.settings.mob_padding_top }}px 0 {{ section.settings.mob_padding_bottom }}px;
+  }
+  .collectin-slide {
+    text-align: center;
+  }
+  .collectin-slide div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+     font-size:14px;
+  }
+  a.btn.recomprobtn.add-product {
+    padding: 5px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    margin: 0 auto;
+    font-weight: 400;
+  }
+  a.btn.recomprobtn.add-product:hover {
+    color: #000 !important;
+    background-color: #fff;
+  }
+  p.product-price {
+    font-size: 14px;
+    padding: 5px 0;
+    /* min-height: 64px; */
+    display: flex;
+    align-items: center;
+        flex-wrap: wrap;
+    justify-content: center;
+    /* flex-direction: column; */
+    column-gap: 7px;
+  } 
+  span.was-price {
+    font-size: 12px;
+  }
+   .mob_title{
+    display:block;
+  }
+  .desk_title{
+    display:none;
+  }
+  p.product-title {
+    padding: 20px 0 5px;
+    line-height: 20px;
+ }
+@media screen and (min-width: 700px) and (max-width: 1200px) {
+  .goActive_card {
+      flex: 31%;
+      width: 31%;
+      max-width: 32%;
+  }
+}
+@media screen and (min-width: 1200px) { 
+  .page-wrapper.section-{{ section.id }}-padding h2{
+    font-size: 30px;
+  }
+  .go_active_coll {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px 27px;
+  }
+   span.was-price {
+    font-size: 16px;
+  }
+   a.btn.recomprobtn.add-product {
+    padding: 5px 50px;
+   }
+  .goActive_card {
+      flex: 23%;
+      width: 23%;
+      max-width: 23%;
+  }
+  .collectin-slide div{
+    font-size:14px;
+  }
+  .page-wrapper.section-{{ section.id }}-padding{
+    padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+  }
+  p.product-price {
+    padding:0 0 5px;;
+    font-size: 20px;
+    min-height:10px;
+  }
+  a.btn.recomprobtn.add-product {
+    font-size: 14px !important;    
+ }
+  .mob_title{
+    display:none;
+  }
+  .desk_title{
+    display:block;
+  }
+}
+
+</style>
+<section class="page-wrapper section-{{ section.id }}-padding ">
+  <h2>{{ section.settings.heading }}</h2>
+  <div class="go_active_coll">
+      {% assign collection = collections[section.settings.collection] %}
+         {% for product in collection.products %}
+           <div class="goActive_card">
+            {% assign animate_delay = forloop.index | times: 0.4 %}
+               <div class="collectin-slide">
+                   <a href="{{  product.url }}">
+                   <img src="{{ product.featured_image | img_url:" " }}" alt="{{ product.featured_image.alt }}"></a>
+                   <a href="{{  product.url }}">
+                     <p class="product-title desk_title">{{ product.title  }}</p>
+                     <p class="product-title mob_title">{{ product.title | strip_html | truncate : 27 }}</p>
+                   </a>
+                   <div>
+                     {% for variant in product.variants %}
+                        {% for option in variant.options %}
+                       <span class="variants-cart  {% if variant.available %}avil{% else %}not-avil {% endif %}">{{ option }} </span> 
+                        {% endfor %}
+                      {% endfor %}        
+                   </div>
+                   <p class="product-price">
+                    <span class="theme-money"> {{ product.price_min | money }}</span>
+                     {% if  product.compare_at_price > product.price %}  
+                     <span class="was-price">MRP: {{ product.compare_at_price | money }}</span>{% endif %}</p>
+                    <a data-cc-animate-click href="{{ product.url }}" class="btn recomprobtn add-product ">Add To Cart</a>                
+               </div>
+           </div>
+        {% endfor %}
+  </div>
+ {% if section.settings.show_btn  %}<button id="viewMore_btn" class="coll_btn btn" >View More</button>
+ <button  class="viewLess_btn coll_btn btn" style="display:none">View Less</button>
+  {% endif %}
+  
+</section>
+ {% if section.settings.show_btn  %}
+  <script>
+ $(document).ready(function() {
+    var desktop_Card = parseInt("{{ section.settings.desktop_rows }}", 10); // Convert to integer
+    var newWindowWidth = $(window).width();
+    var totalCards = $('.goActive_card').length; // Total number of product cards
+    var visibleLimit, card, hide_card;
+
+    // Determine how many cards to show based on window width
+    if (newWindowWidth < 600) {
+        visibleLimit = 6;
+        card = $('.goActive_card:lt(6)');
+        hide_card = $('.goActive_card:gt(5)');
+    } else if (newWindowWidth < 1000) {
+        visibleLimit = 9;
+        card = $('.goActive_card:lt(9)');
+        hide_card = $('.goActive_card:gt(8)');
+    } else {
+        visibleLimit = desktop_Card; // Dynamic value for desktop
+        card = $('.goActive_card:lt(' + desktop_Card + ')');
+        hide_card = $('.goActive_card:gt(' + (desktop_Card - 1) + ')');
+    }
+
+    // Show initial cards and hide the rest
+    $(card).show();
+    $(hide_card).hide();
+
+    // Check if total number of products is less than or equal to visible limit
+    if (totalCards <= visibleLimit) {
+        // Hide View More and View Less buttons if total cards are less than the limit
+        $('#viewMore_btn').hide();
+        $('.viewLess_btn').hide();
+    } else {
+        // Show the View More button if there are more cards than the limit
+        $('#viewMore_btn').show();
+        $('.viewLess_btn').hide(); // Initially hide View Less button
+    }
+
+    // View More Button Click Event
+    $('#viewMore_btn').on('click', function() {
+        $('.goActive_card').show();  // Show all cards
+        $('#viewMore_btn').hide();   // Hide View More button
+        $('.viewLess_btn').show();   // Show View Less button
+    });
+
+    // View Less Button Click Event
+    $('.viewLess_btn').on('click', function() {
+        $(hide_card).hide();         // Hide the cards after the visible ones
+        $('#viewMore_btn').show();   // Show View More button again
+        $('.viewLess_btn').hide();   // Hide View Less button
+        $('html,body').animate({
+            scrollTop: $("#viewMore_btn").offset().top - 200
+        }, 'slow');
+    });
+});
+
+</script>
+{% endif %}
+{% schema %}
+  {
+    "name": "Go Active Collection",
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading",
+        "label":"Heading"
+      },
+      {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 50
+    },
+      {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 50
+    },
+      {
+      "type": "range",
+      "id": "mob_padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Padding top",
+      "default": 20
+    },
+      {
+      "type": "range",
+      "id": "mob_padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Padding bottom",
+      "default": 50
+    },
+      {
+      "type": "checkbox",
+        "id": "show_btn",
+        "label": "Show more button",
+        "default":true
+      },
+      {
+        "type": "range",
+        "step": 1,
+        "min": 0,
+        "max": 100,
+        "default":12,
+        "id": "desktop_rows",
+        "label": "Desktop Card number"
+      },
+      {
+        "type": "collection",
+        "id":"collection",
+        "label": "collection"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Go Active Collection"
+      }
+    ]
+  }
+{% endschema %}

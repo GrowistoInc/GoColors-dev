@@ -1,0 +1,106 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "getintouch_xnh6Tw": {
+      "type": "getintouch",
+      "blocks": {
+        "contact_amiTma": {
+          "type": "contact",
+          "settings": {
+            "title": "Corporate Office",
+            "username": "",
+            "icon2": "shopify://shop_images/location.svg",
+            "address": "#43/20, Nungambakkam High Road, Chennai - 600034. Tamil Nadu, India",
+            "icon3": "shopify://shop_images/email.svg",
+            "email": "customercare@gocolors.com",
+            "icon4": "shopify://shop_images/phone.svg",
+            "number": "1800-123-9953",
+            "wnumber": "",
+            "show_enquire": false,
+            "btn-url": ""
+          }
+        },
+        "contact_WPUTLp": {
+          "type": "contact",
+          "settings": {
+            "title": "Grievance Officer",
+            "icon1": "shopify://shop_images/user.svg",
+            "username": "Ms. Gayathri Kethar,Company Secretary & Compliance Officer",
+            "icon2": "shopify://shop_images/location.svg",
+            "address": "#43/20, Nungambakkam High Road, Chennai - 600034. Tamil Nadu, India",
+            "icon3": "shopify://shop_images/email.svg",
+            "email": "investor.relations@gocolors.com",
+            "icon4": "shopify://shop_images/phone.svg",
+            "number": "044-42 111 777",
+            "wnumber": "",
+            "show_enquire": false,
+            "btn-url": ""
+          }
+        },
+        "contact_eRDRwG": {
+          "type": "contact",
+          "name": "Franchise & Trade Enquiries",
+          "settings": {
+            "title": "For Franchise & Trade Enquiries",
+            "username": "",
+            "icon2": "shopify://shop_images/location.svg",
+            "address": "#43/20, Nungambakkam High Road, Chennai - 600034. Tamil Nadu, India",
+            "icon3": "shopify://shop_images/email.svg",
+            "email": "businessenquiries@gocolors.com",
+            "number": "",
+            "wnumber": "",
+            "show_enquire": true,
+            "btn-url": "https://gocolors.com/pages/franchise-enquiry"
+          }
+        },
+        "contact_QVYgh9": {
+          "type": "contact",
+          "name": "Customer Enquiries",
+          "settings": {
+            "title": "Customer Enquiries",
+            "username": "",
+            "address": "",
+            "icon3": "shopify://shop_images/email.svg",
+            "email": "customercare@gocolors.com",
+            "icon4": "shopify://shop_images/phone.svg",
+            "number": "1800-123-9953 (Mon - Fri 10 AM to 6 PM)",
+            "icon5": "shopify://shop_images/whatsaap.svg",
+            "wnumber": "730-5959-422",
+            "show_enquire": true,
+            "btn-url": "https://gocolors.zohodesk.in/portal/en/newticket"
+          }
+        }
+      },
+      "block_order": [
+        "contact_amiTma",
+        "contact_WPUTLp",
+        "contact_eRDRwG",
+        "contact_QVYgh9"
+      ],
+      "name": "GET In Touch",
+      "settings": {
+        "heading": "Get In Touch"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "getintouch_xnh6Tw"
+  ]
+}

@@ -1,0 +1,476 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "investor_left_block_ywcTWk": {
+      "type": "Investor-left-block",
+      "blocks": {
+        "image_block_XaLhqj": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g3660.svg",
+            "title": "Our Business",
+            "url": "https://gocolors.com/pages/our-business"
+          }
+        },
+        "image_block_V3A6gW": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Vector_011e1c53-c3cc-4177-8696-dad1f349b037.svg",
+            "title": "Board of Directors",
+            "url": "https://gocolors.com/pages/board-of-directors"
+          }
+        },
+        "image_block_zEBAFe": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Component_1.svg",
+            "title": "Corporate Governance",
+            "url": "https://gocolors.com/pages/corporate-governance"
+          }
+        },
+        "image_block_WYTFg9": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g3725.svg",
+            "title": "Annual reports",
+            "url": "https://gocolors.com/pages/annual-reports"
+          }
+        },
+        "image_block_CycwTV": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_1.svg",
+            "title": "Earning Call  Transcripts",
+            "url": ""
+          }
+        },
+        "image_block_g44Uwk": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Vector_1_e879eb32-0411-4431-bf21-69107ea6f385.svg",
+            "title": "Quarterly  Financial Results",
+            "url": "https://gocolors.com/pages/quarterly-financial-results"
+          }
+        },
+        "image_block_JwYwbB": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_17.svg",
+            "title": "Investor Presentation",
+            "url": "https://gocolors.com/pages/investor-presentation"
+          }
+        },
+        "image_block_mjtdTr": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_18.svg",
+            "title": "Press Releases",
+            "url": "https://gocolors.com/pages/press-releases"
+          }
+        },
+        "image_block_8XYnQ4": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Vector_2.svg",
+            "title": "Credit Rating",
+            "url": "https://gocolors.com/pages/credit-rating"
+          }
+        },
+        "image_block_mtqfPz": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_19.svg",
+            "title": "Corporate Announcements",
+            "url": "https://gocolors.com/pages/corporate-announcements"
+          }
+        },
+        "image_block_pnN3Wy": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_13.svg",
+            "title": "Shareholding Pattern",
+            "url": "https://gocolors.com/pages/shareholding-pattern"
+          }
+        },
+        "image_block_xknqP9": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g788.svg",
+            "title": "Shareholder Grievances",
+            "url": "https://gocolors.com/pages/shareholder-grievances-1"
+          }
+        },
+        "image_block_TgecEB": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/x31_650_x2C__Employee_x2C__group_x2C__management_x2C__organization_x2C__team.svg",
+            "title": "KMP Details",
+            "url": "https://gocolors.com/pages/kmp"
+          }
+        },
+        "image_block_faXmi8": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Group_14.svg",
+            "title": "MOA AOA/  Directors Profile",
+            "url": "https://gocolors.com/pages/moa-aoa"
+          }
+        },
+        "image_block_jGmFzi": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/Component_1_1.svg",
+            "title": "Policies",
+            "url": "https://gocolors.com/pages/investor-policies"
+          }
+        },
+        "image_block_ghNEG6": {
+          "type": "image_block",
+          "settings": {
+            "img_block": "shopify://shop_images/g2733.svg",
+            "title": "Archivals",
+            "url": "https://gocolors.com/pages/archivals"
+          }
+        }
+      },
+      "block_order": [
+        "image_block_XaLhqj",
+        "image_block_V3A6gW",
+        "image_block_zEBAFe",
+        "image_block_WYTFg9",
+        "image_block_CycwTV",
+        "image_block_g44Uwk",
+        "image_block_JwYwbB",
+        "image_block_mjtdTr",
+        "image_block_8XYnQ4",
+        "image_block_mtqfPz",
+        "image_block_pnN3Wy",
+        "image_block_xknqP9",
+        "image_block_TgecEB",
+        "image_block_faXmi8",
+        "image_block_jGmFzi",
+        "image_block_ghNEG6"
+      ],
+      "name": "Investor Left Blocks",
+      "settings": {}
+    },
+    "corporate_governance_right_NJ9k6Y": {
+      "type": "corporate-governance-right",
+      "blocks": {
+        "document_mFe3Dt": {
+          "type": "document",
+          "settings": {
+            "title": "AGM FY24-25 VIDEO RECORDINGS",
+            "tab_url": "https://youtu.be/NAo2D9ewluI"
+          }
+        },
+        "document_HgQT6x": {
+          "type": "document",
+          "settings": {
+            "title": "EARNINGS CALL TRANSCRIPT Q1 FY26",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/EARNINGS_CALL_TRANSCRIPT_Q1_FY26.pdf?v=1754547736"
+          }
+        },
+        "document_AJjHr3": {
+          "type": "document",
+          "settings": {
+            "title": "EARNINGS CALL AUDIO Q1 FY26",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/EARNINGS_CALL_AUDIO_Q1_FY26.mp3?v=1754061001"
+          }
+        },
+        "document_LNHdkP": {
+          "type": "document",
+          "settings": {
+            "title": "EARNINGS CALL TRANSCRIPT Q4 FY25",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/EARNINGS_CALL_TRANSCRIPT_Q4_FY25.pdf?v=1746530436"
+          }
+        },
+        "document_k8VhLW": {
+          "type": "document",
+          "settings": {
+            "title": "EARNINGS CALL AUDIO Q4 FY25",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/10031232.mp3?v=1746025170"
+          }
+        },
+        "document_crypT8": {
+          "type": "document",
+          "settings": {
+            "title": "EARNINGS CALL TRANSCRIPT Q3 FY25",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/EARNINGS_CALL_TRANSCRIPT_Q3_FY25.pdf?v=1738643193"
+          }
+        },
+        "document_Xka9GF": {
+          "type": "document",
+          "settings": {
+            "title": "EARNINGS CALL TRANSCRIPT Q2 FY25",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/AGM_FY_24-25_TRANSCRIPT_Q2.pdf?v=1730283040"
+          }
+        },
+        "document_D8aA49": {
+          "type": "document",
+          "settings": {
+            "title": "EARNINGS CALL AUDIO Q3 FY25",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/10028885.mp3?v=1737957210"
+          }
+        },
+        "document_W3BkG6": {
+          "type": "document",
+          "settings": {
+            "title": "EARNINGS CALL AUDIO Q2 FY25",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/SGQ2620241025155654.mp3?v=1729869127"
+          }
+        },
+        "document_xcLfJp": {
+          "type": "document",
+          "settings": {
+            "title": "AGM FY23-24 VIDEO RECORDINGS",
+            "tab_url": "https://www.youtube.com/watch?v=qepDfesrtvA&feature=youtu.be"
+          }
+        },
+        "document_i9eMxE": {
+          "type": "document",
+          "settings": {
+            "title": "AGM FY 23-24 TRANSCRIPT",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/AGM_FY_23-24_TRANSCRIPT.pdf?v=1724211751"
+          }
+        },
+        "document_YgQqWt": {
+          "type": "document",
+          "settings": {
+            "title": "EARNINGS CALL TRANSCRIPT Q1 FY25",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/EARNINGS_CALL_TRANSCRIPT_Q1_FY25.pdf?v=1722407609"
+          }
+        },
+        "document_UBXnww": {
+          "type": "document",
+          "settings": {
+            "title": "EARNINGS CALL AUDIO Q1 FY25",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/SGQ2620240724154188.mp3?v=1721834107"
+          }
+        },
+        "document_gNkBw7": {
+          "type": "document",
+          "settings": {
+            "title": "EARNINGS CALL TRANSCRIPT Q4 FY24",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/EARNINGS_CALL_TRANSCRIPT_Q4_FY24.pdf?v=1715151510"
+          }
+        },
+        "document_DLBYPT": {
+          "type": "document",
+          "settings": {
+            "title": "EARNINGS CALL Q4 FY-24",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/SGQ2620240503152446.mp3?v=1714743806"
+          }
+        },
+        "document_EF9BKX": {
+          "type": "document",
+          "settings": {
+            "title": "EARNINGS CALL TRANSCRIPT Q3 FY24",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/EARNINGS_CALL_TRANSCRIPT_Q3_FY24.pdf?v=1707725888"
+          }
+        },
+        "document_kP9QTz": {
+          "type": "document",
+          "settings": {
+            "title": "EARNINGS CALL AUDIO Q3 FY24",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/EARNINGS_CALL_Q3_FY-24.mp3?v=1707294813"
+          }
+        },
+        "document_WNgrgf": {
+          "type": "document",
+          "settings": {
+            "title": "EARNINGS CALL TRANSCRIPT Q2 FY24",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/EARNINGS_CALL_TRANSCRIPT_Q2_FY24.pdf?v=1699246840"
+          }
+        },
+        "document_Vnj9a9": {
+          "type": "document",
+          "settings": {
+            "title": "EARNINGS CALL AUDIO Q2 FY24",
+            "tab_url": "https://drive.google.com/file/d/1mR5LJA5tWOy-bdTOD6kePfoYFYqCSqdi/view"
+          }
+        },
+        "document_Dii8La": {
+          "type": "document",
+          "settings": {
+            "title": "AGM EARNINGS CALL TRANSCRIPT Q1 FY24",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/AGM_FY_22-23_TRANSCRIPT.pdf?v=1695099543"
+          }
+        },
+        "document_yWnbC3": {
+          "type": "document",
+          "settings": {
+            "title": "AGM VIDEO RECORDINGS  FY22-23",
+            "tab_url": "https://drive.google.com/file/d/1Lt6mbx0mHVoa_Lvu9VVeMunrP4RDygna/view"
+          }
+        },
+        "document_4kFXnq": {
+          "type": "document",
+          "settings": {
+            "title": "EARNINGS CALL TRANSCRIPT Q1 FY24",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/EARNINGS_CALL_TRANSCRIPT_Q1_FY24.pdf?v=1691394117"
+          }
+        },
+        "document_A9nfBH": {
+          "type": "document",
+          "settings": {
+            "title": "EARNINGS CALL AUDIO Q1 FY24",
+            "tab_url": "https://drive.google.com/file/d/1uV0W5oHe323T7Mb6jaqFCvws5Ap5olWe/view?pli=1"
+          }
+        },
+        "document_PCypHi": {
+          "type": "document",
+          "settings": {
+            "title": "EARNINGS CALL TRANSCRIPT Q4 FY23",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/EARNINGS_CALL_TRANSCRIPT_Q4_FY23.pdf?v=1684208789"
+          }
+        },
+        "document_LgRETm": {
+          "type": "document",
+          "settings": {
+            "title": "EARNINGS CALL AUDIO Q4 FY23",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Earnings_Call_Audio_Recording_Q4_FY23.mp3?v=1683348583"
+          }
+        },
+        "document_MyFx9C": {
+          "type": "document",
+          "settings": {
+            "title": "EARNINGS CALL TRANSCRIPT Q3 FY23",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Earnings_Call_Transcript_Q3_FY23.pdf?v=1675399972"
+          }
+        },
+        "document_KrN6Re": {
+          "type": "document",
+          "settings": {
+            "title": "EARNINGS CALL AUDIO Q3 FY23",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Earnings_Call_-_Audio_Q3_FY23.pdf?v=1674803811"
+          }
+        },
+        "document_9cLehM": {
+          "type": "document",
+          "settings": {
+            "title": "EARNINGS CALL TRANSCRIPT Q2 FY23",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Earnings_Call_Transcript_Q2_FY22-23.pdf?v=1668058947"
+          }
+        },
+        "document_Etf3hB": {
+          "type": "document",
+          "settings": {
+            "title": "EARNINGS CALL AUDIO Q2 FY23",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Earnings_Call_-_Audio_Q2_FY22-23.pdf?v=1667799023"
+          }
+        },
+        "document_QKjAy8": {
+          "type": "document",
+          "settings": {
+            "title": "AGM FY 21-22 Transcript",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/AGM_FY_21-22_Transcript.pdf?v=1663839313"
+          }
+        },
+        "document_tFdhNe": {
+          "type": "document",
+          "settings": {
+            "title": "AGM FY21-22 Video Recordings",
+            "tab_url": "https://drive.google.com/file/d/1vt7nDE6Sd7m1dyHwhE2nUvF9YwzkMvSH/view"
+          }
+        },
+        "document_x4T7R6": {
+          "type": "document",
+          "settings": {
+            "title": "EARNINGS CALL AUDIO Q1 FY23",
+            "tab_url": "https://drive.google.com/file/d/1WBxJYYe47pSa1qEXi81Tc7oggZ_cJTWH/view"
+          }
+        },
+        "document_bdtkmM": {
+          "type": "document",
+          "settings": {
+            "title": "EARNINGS CALL TRANSCRIPT Q1 FY23",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/EARNINGS_CALL_TRANSCRIPT_-_Q1_-_FY23.pdf?v=1661152206"
+          }
+        },
+        "document_aKeLp4": {
+          "type": "document",
+          "settings": {
+            "title": "EARNINGS CALL TRANSCRIPT Q4 FY22",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Earnings_Call_Transcript_Q4_FY22.pdf?v=1652677371"
+          }
+        },
+        "document_LNANUP": {
+          "type": "document",
+          "settings": {
+            "title": "EARNINGS CALL AUDIO Q4 FY22",
+            "tab_url": "https://drive.google.com/file/d/1OsBOoDeUG1jMmA1qXaTA3CnDJhGbc8ni/view"
+          }
+        },
+        "document_WAXhnk": {
+          "type": "document",
+          "settings": {
+            "title": "EARNINGS CALL TRANSCRIPT Q3 FY22",
+            "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Go_Fashion_-_Earnings_Call_Transcript_-_Q3FY22_-_Final.pdf?v=1647324871"
+          }
+        }
+      },
+      "block_order": [
+        "document_mFe3Dt",
+        "document_HgQT6x",
+        "document_AJjHr3",
+        "document_LNHdkP",
+        "document_k8VhLW",
+        "document_crypT8",
+        "document_Xka9GF",
+        "document_D8aA49",
+        "document_W3BkG6",
+        "document_xcLfJp",
+        "document_i9eMxE",
+        "document_YgQqWt",
+        "document_UBXnww",
+        "document_gNkBw7",
+        "document_DLBYPT",
+        "document_EF9BKX",
+        "document_kP9QTz",
+        "document_WNgrgf",
+        "document_Vnj9a9",
+        "document_Dii8La",
+        "document_yWnbC3",
+        "document_4kFXnq",
+        "document_A9nfBH",
+        "document_PCypHi",
+        "document_LgRETm",
+        "document_MyFx9C",
+        "document_KrN6Re",
+        "document_9cLehM",
+        "document_Etf3hB",
+        "document_QKjAy8",
+        "document_tFdhNe",
+        "document_x4T7R6",
+        "document_bdtkmM",
+        "document_aKeLp4",
+        "document_LNANUP",
+        "document_WAXhnk"
+      ],
+      "name": "corporate governance ",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "investor_left_block_ywcTWk",
+    "corporate_governance_right_NJ9k6Y"
+  ]
+}

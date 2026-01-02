@@ -1,0 +1,316 @@
+<style>
+.order-card { 
+  border-radius: 16px; 
+  background: #fff; 
+  padding: 20px; 
+  margin-bottom: 24px; 
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05); 
+}
+.cancel-button { 
+  padding: 6px 16px; 
+  border: 1px solid #ccc; 
+  border-radius: 20px; 
+  background: #fff; 
+  cursor: pointer; 
+}
+.cancel-button:hover { 
+  background: #f44336; 
+  color: white; 
+  border-color: #f44336; 
+}
+.invoice-button { 
+  text-align: center;
+}
+.invoice-button button { 
+  padding: 4px 28px; 
+  border-radius: 30px; 
+  border: 1px solid #000; 
+  background: white;
+  font-size:1.6rem;
+  color:#000;
+  cursor: pointer; 
+}
+.order-container{
+  padding-top:50px;
+  padding-bottom:50px;
+}
+.order-card .order-header { 
+  display: flex; 
+  justify-content: space-between; 
+  font-weight: 600; 
+  margin-bottom: 28px; 
+}
+.order-header span.order-id, .order-header span.order-date{
+  font-size:2.1rem;
+  color:#000;
+}
+.order-card .product-info { 
+  display: flex; 
+  gap: 21px;
+  margin-bottom:45px;
+}
+.product-image img { 
+  border-radius: 12px; 
+  width: 132px; 
+  height: auto; 
+}
+.product-details h4{
+  margin:0 0 5px;
+  font-size:2.1rem;
+  font-weight:600;
+}
+.product-details p.sku{
+  margin:0 0 5px;
+  font-size:1.6rem;
+}
+.product-details .qty-size-block{
+  display:flex;
+  gap:45px;
+  align-items:center;
+}
+.product-details .qty-size-block p{
+  font-size:2.1rem;
+  margin:0;
+  color:#000;
+}
+.address-info, .payment-info { 
+  background: #fff; 
+  padding: 16px; 
+  border-radius: 12px; 
+  margin-top: 16px; 
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05); 
+}
+.address-info h4, .payment-info h4{
+  font-size:1.6rem;
+  font-weight:600;
+  margin:0 0 21px;
+  color:#000;
+}
+.address-info p.pro-name-num{
+  font-size:1.6rem;
+  font-weight:600;
+  margin:0;
+  color:#000;
+  text-transform: capitalize;
+}
+.address-info p { 
+  font-size: 1.6rem; 
+  margin: 11px 0 0; 
+  color:#000;
+}
+.payment-info p, .payment-info span{
+  font-size:1.6rem;
+  margin:0;
+  color:#000;
+}
+.payment-info .pay-details-item, .payment-info .re-price-discount{
+  border-bottom:1px solid #000000;
+  padding:10px 0;
+}
+.payment-info .re-price-discount{
+  padding-top:0;
+}
+.payment-info .pay-details-item:last-child{
+  border:none;
+  margin-bottom:0;
+}
+.payment-info .pro-name-price, .pay-details-item, .discount-price{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.payment-info .pro-name-price p, .payment-info .pro-name-price span{
+  font-size:1.6rem;
+  margin:0;
+  color:#000;
+}
+div#return_to_store{
+  display:none;
+}
+@media screen and (max-width: 768px) {
+  .order-container{
+    padding-top:30px;
+    padding-bottom:30px;
+  }
+  div#return_to_store{
+    display:block;
+    margin-bottom:20px;
+  }
+  .order-card{
+    padding:15px 10px;
+  }
+  .order-card .order-header{
+    margin-bottom:19px;
+  }
+  .order-card .product-info{
+    margin-bottom:35px;
+  }
+  .order-card nav.navslider{
+    padding:0 0 10px;
+  }
+  .product-image img{
+    width:91px;
+  }
+  .product-details h4, .order-header span.order-id, .order-header span.order-date{
+    font-size:1.4rem;
+  }
+  .product-details .qty-size-block p{
+    font-size:1.4rem;
+  }
+  .product-details p.sku{
+    font-size:1.2rem;
+  }
+  .address-info h4, .payment-info h4{
+    font-size:1.4rem;
+    margin:0 0 14px;
+  }
+  .payment-info .pro-name-price span, .payment-info span{
+    font-size:1.4rem;
+  }
+  .payment-info span.price, .payment-info span.discount, .payment-info span.total{
+    white-space:nowrap;
+  }
+}
+</style>
+<div class="order-container page-width">
+ <div
+      class="action_link action_return note"
+      id='return_to_store'
+      data-cc-animate>
+      <a class="return_order" data-cc-animate-click href="/account">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+        <circle cx="12.5" cy="12.5" r="11.8421" stroke="black" stroke-width="1.31579"/><
+        <path d="M15.2236 5.22363L7.83595 12.6113L15.2236 19.999" stroke="black" stroke-width="1.31579"/>
+        </svg>
+      </a>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function(){
+  const urlParams = new URLSearchParams(window.location.search);
+  const orderNumber = urlParams.get('order');
+
+  if(orderNumber){
+    $.ajax({
+      url: 'https://admin3157.gocolors.com/new_go_colors_india/public/api/purchase_order',
+      type: 'POST',
+      data: { mobile_no: mobile_no },
+      success: function(resp) {
+        const order = resp.order_details.find(o => o.order_number === orderNumber);
+        if(order){
+          // Render HTML with order details
+        }
+      }
+    });
+  }
+});
+
+</script>
+<script>
+$(document).ready(function () {
+  var order_name_url = window.location.pathname.split("/").pop();
+  var mobile_no = "{{ customer.phone }}";
+  mobile_no = mobile_no.replace('+91', '');
+
+  $.ajax({
+    url: 'https://admin3157.gocolors.com/new_go_colors_india/public/api/purchase_order',
+    type: 'POST',
+    dataType: 'json',
+    data: {
+      mobile_no: mobile_no,
+    },
+    success: function (resp) {
+      if (!resp.success || !resp.order_details) return;
+
+      var matchedOrder = resp.order_details.find(
+        (o) => o.order_number === order_name_url
+      );
+
+      if (!matchedOrder) return;
+
+      var orderHtml = '';
+
+      matchedOrder.orderLineItem.forEach(function (item) {
+        for (let i = 0; i < parseInt(item.qty); i++) {
+          orderHtml += `
+            <div class="order-card">
+              <div class="order-header">
+                <span class="order-id">Order no: ${matchedOrder.order_number}</span>
+                <span class="order-date">${formatDate(matchedOrder.final_date)}</span>
+              </div>
+              <div class="product-info">
+                <div class="product-details">
+                  <h4>${item.sku}</h4>
+                  <p class="sku">SKU: ${item.sku}</p>
+                  <div class="qty-size-block">
+                    <p>Qty: ${item.qty}</p>
+                  </div>
+                </div>
+              </div>
+            </div>`;
+        }
+      });
+      
+      // Payment Info Section
+      orderHtml += `
+        <div class="payment-info">
+          <h4>Payment Information:</h4>
+          <div class="re-price-discount">
+          ${matchedOrder.orderLineItem
+            .map(
+              (item) => `
+              <div class="pro-name-price">
+                <span>${item.sku}</span>
+                <span class="price">₹ ${parseFloat(item.price).toFixed(2)}</span>
+              </div>`
+            )
+            .join('')}
+        
+          ${
+            matchedOrder.orderLineItem.some((item) => parseFloat(item.discount) >= 0)
+              ? `
+              <div class="discount-price">
+                <span>Discount</span>
+                <span class="discount">
+                  <s class="price-item price-item--regular">
+                    -₹ ${matchedOrder.orderLineItem
+                      .reduce(
+                        (total, item) => total + parseFloat(item.discount || 0),
+                        0
+                      )
+                      .toFixed(2)}
+                  </s>
+                </span>
+              </div>`
+              : ''
+          }
+        </div>
+
+          <div class="pay-details-item total-discount-price">
+            <span>Discounted Price</span>
+            <span class="discounted">₹ ${parseFloat(
+              matchedOrder.total_bill_amount
+            ).toFixed(2)}</span>
+          </div>
+          <div class="pay-details-item pro-total-price">
+            <span>Total Paid</span>
+            <span class="total">₹ ${parseFloat(
+              matchedOrder.total_bill_amount
+            ).toFixed(2)}</span>
+          </div>
+        </div>`;
+
+      $('.order-container').append(orderHtml);
+    },
+  });
+
+  function formatDate(dateString) {
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    const dateObj = new Date(dateString);
+    return dateObj.toLocaleDateString('en-IN', options);
+  }
+});
+
+
+</script>

@@ -1,0 +1,296 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "page_redirect_content_6dcpHH": {
+      "type": "page-redirect-content",
+      "blocks": {
+        "text_96Jw8t": {
+          "type": "text",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "text_96Jw8t"
+      ],
+      "disabled": true,
+      "settings": {
+        "menu": "page-redirect",
+        "padding_top": 40,
+        "padding_bottom": 52,
+        "padding-top-mob": 40,
+        "padding-bottom-mob": 40
+      }
+    },
+    "page_video_fDjmyr": {
+      "type": "page-video",
+      "settings": {
+        "button_link": "",
+        "video__type": "youtube",
+        "youtube_iframe": "d2KB9ApIB5E",
+        "mobile_youtube_iframe": "Lcq0Q9HQngc",
+        "videoWidth": "1500",
+        "videoHeight": "540",
+        "video_source": ""
+      }
+    },
+    "5ad52ffa-8e4f-422a-ba09-45de05a67421": {
+      "type": "festive_colors",
+      "blocks": {
+        "b1da766b-ea37-4e28-b536-0690656a8a12": {
+          "type": "colors",
+          "settings": {
+            "text_wrapp": "WINE",
+            "image": "shopify://shop_images/Wine_Red.png",
+            "color_link": "https://gocolors.com/collections/wine1"
+          }
+        },
+        "af21f8b4-30f3-4049-afb7-5044bb29ead9": {
+          "type": "colors",
+          "settings": {
+            "text_wrapp": "RED",
+            "image": "shopify://shop_images/Red_402696f2-0903-4cb8-8cdf-fc66bc573f92.png",
+            "color_link": "https://gocolors.com/collections/red"
+          }
+        },
+        "template--16198272123040__5ad52ffa-8e4f-422a-ba09-45de05a67421-colors-1": {
+          "type": "colors",
+          "settings": {
+            "text_wrapp": "BEIGE",
+            "image": "shopify://shop_images/Beige_20e65123-801c-4738-8793-50272dc629ea.png",
+            "color_link": "https://gocolors.com/collections/beige"
+          }
+        },
+        "a8c59d7e-4e28-4593-87a0-346e96b0d3d5": {
+          "type": "colors",
+          "settings": {
+            "text_wrapp": "MUSTARD",
+            "image": "shopify://shop_images/Mustard_bae5076d-d95e-4d05-a6b7-a973341bea25.png",
+            "color_link": "https://gocolors.com/collections/mustard"
+          }
+        },
+        "fcca49bb-b9d3-4c5a-bde2-eb7045d4f541": {
+          "type": "colors",
+          "disabled": true,
+          "settings": {
+            "text_wrapp": "BLACK",
+            "image": "shopify://shop_images/Black_27d511e4-a3cd-4104-b9c8-788c231ccf63.png",
+            "color_link": "https://gocolors.com/collections/black"
+          }
+        },
+        "68c28d4d-41da-473e-b881-a974e25e7100": {
+          "type": "colors",
+          "settings": {
+            "text_wrapp": "GREEN",
+            "image": "shopify://shop_images/Green.png",
+            "color_link": "https://gocolors.com/collections/green"
+          }
+        },
+        "4076d359-5328-4772-8a0a-418612932c3f": {
+          "type": "colors",
+          "settings": {
+            "text_wrapp": "GREY",
+            "image": "shopify://shop_images/Grey_108cd8b1-4238-49fd-883c-91b82a9d2a66.png",
+            "color_link": "https://gocolors.com/collections/grey"
+          }
+        },
+        "01f6d258-c3c6-499d-b394-c452fe454aaa": {
+          "type": "colors",
+          "settings": {
+            "text_wrapp": "NAVY",
+            "image": "shopify://shop_images/Navy_be9850a1-98fa-4735-b199-f59dffcdd076.png",
+            "color_link": "https://gocolors.com/collections/navy"
+          }
+        },
+        "colors_pKeydh": {
+          "type": "colors",
+          "settings": {
+            "text_wrapp": "OLIVE GREEN",
+            "image": "shopify://shop_images/Olive_Green_6e1a3745-3677-4212-be99-d5a492b61d2e.png",
+            "color_link": "https://gocolors.com/collections/olive-green"
+          }
+        },
+        "colors_WHr6AE": {
+          "type": "colors",
+          "settings": {
+            "text_wrapp": "MUSTARD",
+            "image": "shopify://shop_images/Mustard_bae5076d-d95e-4d05-a6b7-a973341bea25.png",
+            "color_link": "https://gocolors.com/collections/mustard"
+          }
+        },
+        "cf0591bd-3f73-40d8-8d54-3ae151ec706d": {
+          "type": "colors",
+          "settings": {
+            "text_wrapp": "White",
+            "image": "shopify://shop_images/Colours-10.png",
+            "color_link": "shopify://collections/whites-solid"
+          }
+        },
+        "colors_VDJWDD": {
+          "type": "colors",
+          "disabled": true,
+          "settings": {
+            "text_wrapp": "WINE",
+            "image": "shopify://shop_images/Wine_Red.png",
+            "color_link": "https://gocolors.com/collections/wine1"
+          }
+        },
+        "colors_pFiLHC": {
+          "type": "colors",
+          "disabled": true,
+          "settings": {
+            "text_wrapp": "GREY",
+            "image": "shopify://shop_images/Grey_108cd8b1-4238-49fd-883c-91b82a9d2a66.png",
+            "color_link": "https://gocolors.com/collections/grey"
+          }
+        },
+        "colors_bKfMbi": {
+          "type": "colors",
+          "disabled": true,
+          "settings": {
+            "text_wrapp": "BEIGE",
+            "image": "shopify://shop_images/Beige_20e65123-801c-4738-8793-50272dc629ea.png",
+            "color_link": "https://gocolors.com/collections/beige"
+          }
+        },
+        "colors_PTATtY": {
+          "type": "colors",
+          "disabled": true,
+          "settings": {
+            "text_wrapp": "",
+            "color_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "b1da766b-ea37-4e28-b536-0690656a8a12",
+        "af21f8b4-30f3-4049-afb7-5044bb29ead9",
+        "template--16198272123040__5ad52ffa-8e4f-422a-ba09-45de05a67421-colors-1",
+        "a8c59d7e-4e28-4593-87a0-346e96b0d3d5",
+        "fcca49bb-b9d3-4c5a-bde2-eb7045d4f541",
+        "68c28d4d-41da-473e-b881-a974e25e7100",
+        "4076d359-5328-4772-8a0a-418612932c3f",
+        "01f6d258-c3c6-499d-b394-c452fe454aaa",
+        "colors_pKeydh",
+        "colors_WHr6AE",
+        "cf0591bd-3f73-40d8-8d54-3ae151ec706d",
+        "colors_VDJWDD",
+        "colors_pFiLHC",
+        "colors_bKfMbi",
+        "colors_PTATtY"
+      ],
+      "settings": {
+        "heading": "Hues Of Holi"
+      }
+    },
+    "featured_collection_nxMqL6": {
+      "type": "featured-collection",
+      "custom_css": [
+        ".collection__title h2 {text-align: center; font-size: 24px; font-weight: bold;}"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "holi",
+        "products_to_show": 24,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_mrp_label": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "valentine_blog_V4PLDK": {
+      "type": "valentine-blog",
+      "blocks": {
+        "text_yMggAQ": {
+          "type": "Text",
+          "settings": {
+            "blog_image": "shopify://shop_images/Blog-Holi-1.jpg",
+            "blog_heading": "Go Colors this Holi: Pants That Keep Up with Your Holi Party",
+            "blog_url": "https://gocolors.com/blogs/news/go-colors-this-holi-pants-that-keep-up-with-your-holi-party",
+            "blog_content": "Ready, set, splash! Holi is all about bursting with colours, water fights, and dance-offs. This Holi, dump the dull and splash into style. Whether you're spinning in a colour cloud, dodging water balloons like a pro, or serving Holi looks for the 'Gram, Go Colors has stylish pants for Holi that keep up with every move (and groove).",
+            "reverse_layout": true
+          }
+        },
+        "text_AXj6MF": {
+          "type": "Text",
+          "disabled": true,
+          "settings": {
+            "blog_image": "shopify://shop_images/Valentine_s-Day-Blog_1.jpg",
+            "blog_heading": "Everything Striped by Go Colors: Stride in Style!",
+            "blog_url": "https://gocolors.com/blogs/news/everything-striped-by-go-colors-stride-in-style",
+            "blog_content": "Today we’ll talk about a canvas of style, comfort, and chic vibes through our extensive collection of striped pants. Whether you're drawn to the breezy charm of Linen Pants or the sporty appeal of Joggers, we've got your fashion desires sorted. Fasten your seatbelts, ladies!",
+            "reverse_layout": false
+          }
+        },
+        "text_ByUz6t": {
+          "type": "Text",
+          "disabled": true,
+          "settings": {
+            "blog_image": "shopify://shop_images/Valentine_s-Day-Blog_1.jpg",
+            "blog_heading": "Everything Striped by Go Colors: Stride in Style!",
+            "blog_url": "https://gocolors.com/blogs/news/everything-striped-by-go-colors-stride-in-style",
+            "blog_content": "Today we’ll talk about a canvas of style, comfort, and chic vibes through our extensive collection of striped pants. Whether you're drawn to the breezy charm of Linen Pants or the sporty appeal of Joggers, we've got your fashion desires sorted. Fasten your seatbelts, ladies!",
+            "reverse_layout": true
+          }
+        }
+      },
+      "block_order": [
+        "text_yMggAQ",
+        "text_AXj6MF",
+        "text_ByUz6t"
+      ],
+      "settings": {
+        "padding_top": 20,
+        "padding_bottom": 50,
+        "mob_padding_top": 20,
+        "mob_padding_bottom": 20,
+        "blog_heading": "Blogs",
+        "heading_fontsize": 25,
+        "mob_heading_fontsize": 20,
+        "blog_heading_fontsize": 20,
+        "blog_content_fontsize": 15,
+        "heading_alignment": "center"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "page_redirect_content_6dcpHH",
+    "page_video_fDjmyr",
+    "5ad52ffa-8e4f-422a-ba09-45de05a67421",
+    "featured_collection_nxMqL6",
+    "valentine_blog_V4PLDK"
+  ]
+}

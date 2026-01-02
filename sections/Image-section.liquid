@@ -1,0 +1,136 @@
+<style>
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top_mob }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mob }}px;
+    background: {{ section.settings.bg_color }};   
+  } 
+  .fw-img-bnr .main__home__banner{
+    width:100%;
+    height:auto;
+    position:relative;
+  }
+  .fw-vertical__space-remove {
+    display: block;
+    line-height: 0;
+    margin: 0;
+    padding: 0;
+  }
+  .fw-vertical__space-remove img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+  .fw-relative-bnr {
+    width: 100%;
+  }
+@media(min-width:768px){
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+}
+  </style>
+<div class="main__home__banner section-{{ section.id }}-padding">
+  <div class="page-main-bnr">
+  {%- for block in section.blocks -%}
+      <div class="fw-relative-bnr">
+        <a class="p-collec-link" href="{{ block.settings.collec-link }}">          
+          <picture class="fw-vertical__space-remove">
+            {% if block.settings.mobile__image != blank %}
+              <source srcset="{{ block.settings.mobile__image | img_url: '' }}" media="(max-width: 768px)" width="414" height="600" />
+            {% else %}
+              <source srcset="{{ block.settings.desktop__image | img_url: 'master' }}" media="(max-width: 768px)" width="414" height="600" />
+            {% endif %}          
+            {% if block.settings.desktop__image != blank %}
+              <source srcset="{{ block.settings.desktop__image | img_url: 'master' }}" media="(min-width: 768px)" width="100%" height="550" />              
+            {% endif %}          
+            <img src="https://cdn.shopify.com/s/files/1/0613/4851/1914/files/placeholder-svg.svg?v=1731331716" width="100%" height="550" alt="{{ shop.name }}" />
+          </picture> 
+        </a>
+      </div>  
+  {%- endfor -%}      
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Image Section",
+    "class": "fw-img-bnr",
+    "settings": [
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding top",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding bottom",
+        "default": 0
+      }, 
+      {
+        "type": "range",
+        "id": "padding_top_mob",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding top Mobile",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom_mob",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding bottom Mobile",
+        "default": 0
+      },
+      {
+        "type": "text",
+        "id": "section-position",
+        "label": "Section position On home page",
+      }
+    ],
+    "blocks":[
+          {
+      "type": "image",
+      "name": "Image Block",
+      "settings": [
+        {
+        "type": "image_picker",
+        "id": "desktop__image",
+        "label": "Desktop Image"
+        },
+        {
+        "type": "image_picker",
+        "id": "mobile__image",
+        "label": "Mobile Image"
+        },
+        {
+        "type": "url",
+        "id": "collec-link",
+        "label": "Banner Link"
+        }
+      ],
+     }
+    ],
+    "presets": [
+      {
+      "name": "Image Section"
+      }
+    ]
+  }
+{% endschema %}
+

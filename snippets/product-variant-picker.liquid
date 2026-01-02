@@ -1,0 +1,214 @@
+{% comment %}
+  Renders product variant-picker
+
+  Accepts:
+  - product: {Object} product object.
+  - block: {Object} passing the block information.
+  - product_form_id: {String} Id of the product form to which the variant picker is associated.
+  Usage:
+  {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
+{% endcomment %}
+ 
+{% comment %}------------------------------ Added by imersive (17/12/2025) - START ---------------------------------------{% endcomment %}
+ {% assign target_gender_values = product.metafields.shopify.target-gender.value | default: "" %}
+{% assign target_gender_string = '' %}
+{% for value in target_gender_values %}
+{% if forloop.last %}
+{% assign target_gender_string = target_gender_string | append: value.label %}
+{% else %}
+{% assign target_gender_string = target_gender_string | append: value.label | append: ',' %}
+{% endif %}
+{% endfor %}
+
+{% assign available_sizes = product.variants | map: 'option1' | uniq %}
+{% assign aisizing_enable = product.metafields.custom.aisizing_enable.value | default: true %}
+{% assign tryon_enable = product.metafields.custom.tryon_enable.value | default: false %}
+{% assign preferred_tryon_image = product.metafields.custom.preferred_tryon_image | file_url %}
+{% assign cart_token = cart.token | default: '' %}
+{% assign shop_currency = cart.currency.iso_code | default: shop.currency %}
+
+<script src="https://staging.truesize.ai/Common/external/v4.5/fms.js" defer></script>
+{% comment %} <script src="http://127.0.0.1:5501/Common/external/v4.5/fms.js" defer></script> {% endcomment %}
+
+<style>
+  .highlight {
+    border: 2px solid #df2e84;
+    box-shadow: 0 0 10px #df2e84;
+    background-color: rgb(var(--color-foreground)) !important;
+    color: rgb(var(--color-background)) !important;
+  }
+
+  @font-face {
+    font-family: "HelveticaNeue";
+    src: url("https://staging.truesize.ai/Common/external/font/helvetica-neue/HelveticaNeueBlack.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  sizeme-integ {
+    font-family: "HelveticaNeue", Arial, sans-serif;
+  }
+</style>
+
+
+<script>
+  function Highlight_Size(size) {
+    const sizeRadios = document.querySelectorAll('input[name*="SIZE-1"]');
+    sizeRadios.forEach((radio) => {
+      const label = document.querySelector(`label[for="${radio.id}"]`);
+      if (radio.value.trim() === size) {
+        // radio.checked = true;
+        // radio.dispatchEvent(new Event("change"));
+        radio.click();
+        label.classList.add("highlight");
+        label.title = "Your recommended size";
+      } else {
+        label.classList.remove("highlight");
+      }
+    });
+  }
+
+</script>
+
+{% comment %}------------------------------ Added by imersive (17/12/2025) - END ---------------------------------------{% endcomment %}
+
+{%- unless product.has_only_default_variant -%}
+  <variant-selects
+    id="variant-selects-{{ section.id }}"
+    data-section="{{ section.id }}"
+    {{ block.shopify_attributes }}
+  >
+    {%- for option in product.options_with_values -%}
+      {%- liquid
+        assign swatch_count = option.values | map: 'swatch' | compact | size
+        assign picker_type = block.settings.picker_type
+
+        if swatch_count > 0 and block.settings.swatch_shape != 'none'
+          if block.settings.picker_type == 'dropdown'
+            assign picker_type = 'swatch_dropdown'
+          else
+            assign picker_type = 'swatch'
+          endif
+        endif
+      -%}
+      {%- if picker_type == 'swatch' -%}
+        <fieldset class="js product-form__input product-form__input--swatch">
+          <legend class="form__label">
+            {{ option.name }}:
+            <span data-selected-value>
+              {{- option.selected_value -}}
+            </span>
+          </legend>
+          {% render 'product-variant-options',
+            product: product,
+            option: option,
+            block: block,
+            picker_type: picker_type
+          %}
+        </fieldset>
+      {%- elsif picker_type == 'button' -%}
+        <fieldset class="js product-form__input product-form__input--pill">
+          <div class="size-selector">
+           {% comment %} <legend class="form__label">Select {{ option.name }}
+              <span class="product-variant__error-message"></span>
+            </legend>{% endcomment %}
+            <legend class="form__label">Select Size
+              <span class="product-variant__error-message"></span>
+            </legend>
+          <span class="size-guide-text" onclick="openPopup()">Size guide
+          <!-- <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#DF2E84" height="8px" width="8px" version="1.1" id="Layer_1" viewBox="0 0 330 330" xml:space="preserve">
+        <path id="XMLID_222_" d="M250.606,154.389l-150-149.996c-5.857-5.858-15.355-5.858-21.213,0.001  c-5.857,5.858-5.857,15.355,0.001,21.213l139.393,139.39L79.393,304.394c-5.857,5.858-5.857,15.355,0.001,21.213  C82.322,328.536,86.161,330,90,330s7.678-1.464,10.607-4.394l149.999-150.004c2.814-2.813,4.394-6.628,4.394-10.606  C255,161.018,253.42,157.202,250.606,154.389z"/>
+        </svg>  -->
+            <svg class="w-[8px] h-[8px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 24 24">
+  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="m9 5 7 7-7 7"/>
+</svg>
+
+          </span>
+        <div id="popup" class="size_guide_popup popup">
+          <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <h2>Size Guide</h2>
+             <div style="text-align: center;" class="size_chat_desktop"><img src="https://cdn.shopify.com/s/files/1/0598/8158/6848/files/{{ product.type | replace: ' ', '_' }}.jpg?v=16448571131" alt="" /></div>
+             <div style="text-align: center;" class="size_chat_mobile"><img src="https://cdn.shopify.com/s/files/1/0598/8158/6848/files/{{ product.type | replace: ' ', '_' }}_mobile.jpg?v=16448571131" alt="" /></div>
+          </div>
+        </div>
+          </div>
+          {% render 'product-variant-options',
+            product: product,
+            option: option,
+            block: block,
+            picker_type: picker_type
+          %}
+        </fieldset>
+      {%- else -%}
+        <div class="product-form__input product-form__input--dropdown">
+          <label class="form__label" for="Option-{{ section.id }}-{{ forloop.index0 }}">
+            {{ option.name }}
+          </label>
+          <div class="select">
+            {%- if picker_type == 'swatch_dropdown' -%}
+              <span
+                data-selected-value
+                class="dropdown-swatch"
+              >
+                {% render 'swatch', swatch: option.selected_value.swatch, shape: block.settings.swatch_shape %}
+              </span>
+            {%- endif -%}
+            <select
+              id="Option-{{ section.id }}-{{ forloop.index0 }}"
+              class="select__select"
+              name="options[{{ option.name | escape }}]"
+              form="{{ product_form_id }}"
+            >
+              {% render 'product-variant-options',
+                product: product,
+                option: option,
+                block: block,
+                picker_type: picker_type
+              %}
+            </select>
+            <span class="svg-wrapper">
+              {{- 'icon-caret.svg' | inline_asset_content -}}
+            </span>
+          </div>
+        </div>
+      {%- endif -%}
+      <div>
+            <find-my-size clientid="9298069968234136" apiKey="16LaFbsOmQwDFDHoSPpd" brand="gocolorsV2test"
+              email="{{ customer.email | default: '' }}" product="{{ product.title | default: '' }}"
+              category="{{ product.type | default: '' }}" gender="female" productid="{{ product.id | default: '' }}"
+              domain="{{ shop.domain | default: '' }}" enabled="{{ aisizing_enable | default: true }}"
+              available_sizes="{{ available_sizes | join: ',' }}" highlight_event="Highlight_Size" target="modal"
+              enabletryon="{{ tryon_enable | default: false }}" product_img_url="{{ preferred_tryon_image }}"
+              measurement-names="height, waist circumference, hip circumference, inseam length"
+              brandlogoUrl="https://gocolors.com/cdn/shop/files/Untitled-51.png" sizeguide_by_category="true" isEditEnable="true"
+              controlmeasurementvalidation="false" product-fit="{{ product.metafields.fit.fit }}"
+              usebrandsizingforallfitprefernce="true" fit-option-labels="Snug, Relaxed, Wide"
+              sessiontoken=""
+              fit-preferences-mapping='{"Fit and Flare":"Snug", "Baggy Fit":"Relaxed","Bodycon fit":"Snug","Standard Fit": "Standard", "Relaxed Fit": "Relaxed", "Fit & Flare": "Snug", "Slim Fit": "Snug", "Tapered Fit": "Relaxed", "Regular Fit": "Relaxed", "Bootcut Fit": "Snug", "Mom&#39;s Fit": "Relaxed", "Jogger Fit": "Snug", "Wide Fit": "Relaxed", "Smart fit": "Wide", "Straight Fit": "Relaxed", "Flared Fit": "Snug", "Loose Fit": "Wide", "Skinny Fit": "Snug", "Regular": "Relaxed"}'
+              >
+            </find-my-size>
+          </div>
+    {%- endfor -%}
+
+    <script type="application/json" data-selected-variant>
+      {{ product.selected_or_first_available_variant | json }}
+    </script>
+  </variant-selects>
+{%- endunless -%}
+
+<script>
+  function openPopup() {
+  document.getElementById('popup').style.display = 'block';
+}
+
+function closePopup() {
+  document.getElementById('popup').style.display = 'none';
+}
+window.onclick = function(event) {
+  var popup = document.getElementById('popup');
+  if (event.target === popup) {
+    closePopup();
+  }
+}
+</script>

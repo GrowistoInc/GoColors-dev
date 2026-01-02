@@ -1,0 +1,66 @@
+<style>
+.tabs { display: flex; gap: 10px; margin-bottom: 20px;}.tab {padding: 10px 20px; border: 1px solid #ccc; border-radius: 40px; cursor: pointer;}.tab.active { color: #ff4081; border-color: #ff4081;}.report { display: flex; gap: 2rem; align-items: center; margin-bottom: 1rem;}.year {font-weight: bold; min-width: 60px;cursor: pointer;}.year:hover {color: #ff4081;}.details {display: flex;justify-content: space-between; align-items: center;border-bottom: 1px solid #ddd;font-weight: 400; flex: 1;}.actions a { text-decoration: none;margin-left: 10px;}.details span{width:80%;}
+</style>
+<!-- Tabs -->
+<div class="tabs">
+  {%- assign quarters = "Q1,Q2,Q3,Q4" | split: "," -%}
+  {%- for q in quarters -%}<div class="tab" data-quarter="{{ q }}">{{ q }}</div>{%- endfor -%}
+</div>
+<!-- Reports -->
+{%- for block in section.blocks -%}
+  <div class="report hidden" data-quarter="{{ block.settings.quarter }}">
+    <div class="year">{{ block.settings.year }}</div>
+    <div class="details">
+      <span>{{ block.settings.title }}</span>
+      <div class="actions">
+        <a href="{{ block.settings.tab_url }}" target="_blank" title="View"><img src="{{ 'viewg.png' | file_url }}" alt="View" width="18px" height="13px"></a>
+        <a href="{{ block.settings.tab_url }}" target="_blank" title="Download"><img src="{{ 'downg.png' | file_url }}" alt="Download" width="18px" height="18px"></a>
+      </div>
+    </div>
+  </div>
+{%- endfor -%}
+<!-- Tabs Script -->
+ <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const tabs = document.querySelectorAll(".tab");
+    const reports = document.querySelectorAll(".report");
+    const setActive = quarter => {
+      tabs.forEach(tab => tab.classList.toggle("active", tab.dataset.quarter === quarter));
+      reports.forEach(report => report.classList.toggle("hidden", report.dataset.quarter !== quarter));
+    };
+    tabs.forEach(tab => { tab.addEventListener("click", () => setActive(tab.dataset.quarter)); });
+    setActive("Q1");
+  });
+</script> 
+{% schema %}
+{
+  "name": "Investor quarterly Report",
+  "class": "Investor_text_feild Investor_right_part",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "report",
+      "name": "Report",
+      "settings": [
+        { "type": "text", "id": "year", "label": "Year" },
+        { "type": "text", "id": "title", "label": "Document Title", "default": "New Document" },
+        { "type": "url", "id": "tab_url", "label": "PDF URL" },
+        {
+          "type": "select",
+          "id": "quarter",
+          "label": "Quarter",
+          "options": [
+            { "value": "Q1", "label": "Q1" },
+            { "value": "Q2", "label": "Q2" },
+            { "value": "Q3", "label": "Q3" },
+            { "value": "Q4", "label": "Q4" }
+          ]
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {  "name": "Investor quarterly Report", }
+  ]
+}
+{% endschema %}

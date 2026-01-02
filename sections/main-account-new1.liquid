@@ -1,0 +1,507 @@
+{{ 'customer.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+  
+#go-rewards-thankyou-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+#go-rewards-thankyou-popup .popup-inner {
+  background: white;
+  padding: 20px 30px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+  animation: fadeIn 0.3s ease-in-out;
+}
+#go-rewards-thankyou-popup .popup-inner p{
+  margin:0;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+.pageloader { 
+  border: 8px solid #f3f3f3; /* Light grey background */
+  border-top: 8px solid #3498db; /* Blue spinner color */
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+  margin: 50px auto; /* Center horizontally */
+}
+
+/* Spin animation */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+{%- endstyle -%}
+
+<div class="customer account section-{{ section.id }}-padding">
+  <div class="acc-info">
+        <div class="order-details-section" id="#orders-block">
+           <ul class="order-tab">
+              <li class="order-tab-item"> <a href="#online-order">Online Orders</a> </li>
+              <li class="order-tab-item"><a href="#offline-order">Offline Orders</a> </li>
+           </ul>
+           <div class="pageloader ">&nbsp;</div>
+          <div class="tab-content hidden">
+            <div id="online-order" class="order-details-block">
+               {% if customer.orders_count > 0 %}
+                <ul class="order-list">
+                {% for order in customer.orders %}
+                {% for line_item in order.line_items %}
+                <li class="order-pro-item">
+                    <a onclick="storeOrderNumber(event, this)" href="/pages/order-details-mobile" class="order-pro-link"
+                    data-orde-id="{{  order.name }}"  >
+                        <div class="pro-img">
+                            {% if line_item.product.featured_image %}
+                            {{ line_item.product.featured_image | product_img_url: '112X150' | img_tag }}
+                            {% else %}
+                            No Image Available
+                            {% endif %}
+                        </div>
+                        <div class="pro-details" data-line-item-id="{{ line_item.id }}">
+                            <div class="pro-id-status">
+                                <p><span>Order no:</span>{{ order.name }}</p>
+                                <div class="pro-status-details" data-label="">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
+                                    <circle cx="6.36729" cy="6.60972" r="5.7689" fill="#ffffff"/></circle>
+                                    </svg>
+                                    <p class="pro-status"></p>
+                                </div>
+                            </div>
+                            <div class="pro-title"> <span>{{ line_item.product.title }}</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="17" viewBox="0 0 10 17" fill="none">
+                                <path d="M1.52979 15.6025L8.91402 8.21831L1.52978 0.834075" stroke="black" stroke-width="1.47684" stroke-linecap="round"/>
+                                </path>
+                                </svg>
+                            </div>
+                            <div class="pro-date-qty-size">
+                                {% for option in line_item.variant.options %}
+                                    <span class="product-size">Size: {{ option }}</span>
+                                {% endfor %}
+                                <div class="pro-qty">
+                                    <span class="product-info ">Qty : {{ line_item.quantity }}</span>
+                                </div>  
+                                <span class="pro-ord-date">{{ order.created_at | time_tag: format: 'date' }}</span>
+                            </div>
+                        </div>
+                    </a>
+                     <script>
+
+                       function storeOrderNumber(event, element) {
+                          const orderId = element.getAttribute('data-orde-id');
+                          localStorage.setItem('orderId', orderId); 
+                        }
+                      </script>
+                     
+                </li>
+                {%- endfor -%}
+                {%- endfor -%}
+                </ul>
+                <a href="javascript:void(0);" class="pro-view-all" id="toggle-view-btn" data-target="#online-order" style="display: none;">View all</a>
+                {% else %}
+                <p class="no-orders-msg">No online orders found.</p>
+                {% endif %}
+            </div> 
+            <div id="offline-order" class="order-details-block offline-order-details">
+              <p class="no-offline-order" style="display: none;">No offline orders found.</p>
+              <ul id="offline-orders" class="order-list">
+              </ul>
+              <a href="javascript:void(0);" class="pro-view-all" id="tog-off-view-btn" data-target="#offline-order" style="display: none;">View all</a>
+            </div>
+          </div>
+        </div>
+    <div>
+</div>
+{% comment %} <script>
+  document.addEventListener("DOMContentLoaded", function () {
+  const url = new URL(window.location.href);
+  const paramPhone = url.searchParams.get("customerphone");
+  const match = paramPhone.match(/(\d{10})$/);
+  const phone = match ? match[1] : null;
+  console.log('url ',url.href);
+ if(phone){
+    $.ajax({
+        url: `https://admin3157.gocolors.com/new_go_colors_india/public/api/my-account-mobile?customerPhone=${phone}&URL=https%3A%2F%2Fgocolors.com%2Fpages%2Fmy-account-mobile`,
+        type: 'get',
+        dataType: 'json',
+        success: function (response) {
+          console.log('response Url ',response.redirectUrl);
+          window.location.href= response.redirectUrl;
+        }
+      });
+  } 
+});
+</script> {% endcomment %}
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+  // check if sessionStorage flag exists
+  if (!sessionStorage.getItem("myPageSession")) {
+    console.log("No session found for this page. Redirecting to logout page...");
+  } else {
+    console.log("Page-specific session is active");
+  }
+  const url = new URL(window.location.href);
+  const paramPhone = url.searchParams.get("customerphone");
+  const match = paramPhone ? paramPhone.match(/(\d{10})$/) : null;
+  const phone = match ? match[1] : null;
+  console.log('url ', url.href);
+  if (phone) {
+    $.ajax({
+      url: `https://admin3157.gocolors.com/new_go_colors_india/public/api/my-account-mobile?customerPhone=${phone}&URL=https%3A%2F%2Fgocolors.com%2Fpages%2Fmy-account-mobile`,
+      type: 'get',
+      dataType: 'json',
+      success: function (response) {
+        console.log('response Url ', response.redirectUrl);
+        window.location.href = response.redirectUrl;
+        sessionStorage.setItem("myPageSession", "active");
+        // Hide loader after 2 seconds even if AJAX is slow
+        setTimeout(function() {
+          $('.pageloader').addClass('hidden'); // fadeOut looks smoother
+            $('.tab-content').removeClass('hidden');
+        }, 2000);
+      }
+    });
+  }
+  else{
+   setTimeout(function() {
+          $('.pageloader').addClass('hidden'); // fadeOut looks smoother
+            $('.tab-content').removeClass('hidden');
+        }, 2000);}
+});
+</script>
+
+
+<!-- order status js -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" defer></script>
+<script defer>
+// product status 
+{% for order in customer.orders %}
+  {% for line_item in order.line_items %}
+    {% if line_item.quantity == 1 %}
+      var shopify_order_id = "{{ order.id }}";
+      var customer_email = "{{ customer.email }}";
+      var shopify_item_id = "{{ line_item.id }}";
+
+      console.log({
+        shopify_order_id: "{{ order.id }}",
+        customer_email: "{{ customer.email }}",
+        shopify_item_id: "{{ line_item.id }}"
+      });
+
+      $.ajax({
+        url: 'https://admin3157.gocolors.com/new_go_colors_india/public/api/checkStatus_merge',
+        type: 'post',
+        dataType: 'json',
+        data: {
+          'shopify_order_id': shopify_order_id,
+          'shopify_item_id': shopify_item_id
+        },
+        success: function (response) {
+          console.log("API Response:", JSON.stringify(response, null, 2));
+
+          if (response.qty_sku_wise) {
+            $.each(response.qty_sku_wise, function (sku_key, itemData) {
+              if (sku_key == "{{ line_item.id }}") {
+                const orderStatusArr = itemData["order-status"];
+                if (orderStatusArr && orderStatusArr.length > 0) {
+
+                  let matchedStatus = orderStatusArr.find(status =>
+                    status.shopify_item_id == "{{ line_item.id }}" &&
+                    status.shopify_order_id == "{{ order.id }}"
+                  );
+
+                  if (matchedStatus) {
+                    const keysToCheck = [
+                      'is_delivered',
+                      'is_dispatched',
+                      'is_cancelled',
+                      'is_refunded',
+                      'is_returned'
+                    ];
+
+                    let finalStatus = null;
+
+                    for (let key of keysToCheck) {
+                      if (matchedStatus[key] == 1) {
+                        finalStatus = key.replace('is_', '');
+                        break;
+                      }
+                    }
+
+                    if (!finalStatus) {
+                      finalStatus = matchedStatus.logistic_status;
+                    }
+
+                    const productContainer = $(".pro-details[data-line-item-id='{{ line_item.id }}']");
+                    const proStatusDetails = productContainer.find(".pro-status-details");
+
+                    proStatusDetails.attr("data-label", finalStatus);
+                    proStatusDetails.find(".pro-status").text(finalStatus);
+                    proStatusDetails.addClass(finalStatus.toLowerCase());
+                  }
+                }
+              }
+            });
+          }
+        },
+        error: function (xhr, status, error) {
+          console.error("API Error:", xhr.responseText || error);
+        }
+      });
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+</script>
+
+
+<!-- offline order js -->
+<script defer>
+  // offline order
+    var order_name_url = "{{ order_name_url }}";
+var mobile_no = "{{ customer.phone }}";
+mobile_no = mobile_no.replace('+91', "");
+
+$.ajax({
+    url: 'https://admin3157.gocolors.com/new_go_colors_india/public/api/purchase_order',
+    type: 'get',
+    dataType: 'json',
+    data: {
+        'mobile_no': mobile_no,
+    },
+    success: function(resp) {
+        if (resp.success) {
+            var order_html = '';
+            $.each(resp.order_details, function(k, v) {
+                var order_number = v.order_number;
+                var final_date = v.final_date;
+                var final_date = new Date(v.final_date).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+              });
+                var status = v.delivery_status.toLowerCase();
+                $.each(v.orderLineItem, function(index, item) {
+                    var title = item.title || item.sku || 'Product Title';
+                    var qty = item.qty || 1;
+                    order_html += `
+                            <li class="order-pro-item">
+                              <a href="/pages/offline-order-details/${order_number}" class="order-pro-link">
+                                <div class="pro-details">
+                                  <div class="pro-id-status">
+                                    <p><span>Order no:</span> ${order_number}</p>
+                                    <div class="pro-status-details ${status}" data-label="${status}">
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
+                                        <circle cx="6.36729" cy="6.60972" r="5.7689" fill="#FF6E6E"/>
+                                      </svg>
+                                      <p class="pro-status">${status}</p>
+                                     </div>
+                                   </div>
+                                  <div class="pro-title">
+                                    <span>${title}</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="17" viewBox="0 0 10 17" fill="none">
+                                      <path d="M1.52979 15.6025L8.91402 8.21831L1.52978 0.834075" stroke="black" stroke-width="1.47684" stroke-linecap="round"/>
+                                    </svg>
+                                   </div>
+                                  <div class="pro-date-qty-size">
+                                    <div class="pro-qty">
+                                      <span class="product-info">Qty : ${qty}</span>
+                                     </div>
+                                    <span class="pro-ord-date">${final_date}</span>
+                                   </div>
+                                </div>
+                              </a>
+                            </li>`;
+                });
+            });
+
+            $('#offline-orders').html(order_html);
+        }
+      applyInitialView('#offline-order');
+    }
+}); 
+</script>
+
+<!-- view-all-btn-js -->
+<script defer>
+  function applyInitialView(containerSelector, isExpanded = false) {
+    const container = document.querySelector(containerSelector);
+    if (!container) return;
+
+    const listItems = container.querySelectorAll('.order-list .order-pro-item');
+    const toggleButton = container.querySelector('.pro-view-all');
+    const noOrderMessage = container.querySelector('.no-offline-order');
+    
+    // Remove all first
+    listItems.forEach(item => item.classList.remove('visible'));
+
+    if (listItems.length === 0) {
+      toggleButton.style.display = 'none';
+      if (noOrderMessage) noOrderMessage.style.display = 'block';
+    } 
+    else if (listItems.length > 4) {
+      toggleButton.style.display = 'inline-block';
+      listItems.forEach((item, index) => {
+        if (isExpanded || index < 4) item.classList.add('visible');
+      });
+      toggleButton.textContent = isExpanded ? 'View less' : 'View all';
+    } else {
+      listItems.forEach(item => item.classList.add('visible'));
+      toggleButton.style.display = 'none';
+    }
+  }
+
+  function setupToggleButtons() {
+    const buttons = document.querySelectorAll('.pro-view-all');
+
+    buttons.forEach(button => {
+      let isExpanded = false;
+
+      button.addEventListener('click', function () {
+        const containerSelector = button.getAttribute('data-target');
+        isExpanded = !isExpanded;
+        applyInitialView(containerSelector, isExpanded);
+
+        if (!isExpanded) {
+          document.querySelector(containerSelector).scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    applyInitialView('#online-order');
+    setupToggleButtons();
+
+    // Delay to wait for API-loaded offline content
+    const waitForOfflineOrders = setInterval(() => {
+      const offlineItems = document.querySelectorAll('#offline-order .order-pro-item');
+      if (offlineItems.length > 0) {
+        applyInitialView('#offline-order');
+        clearInterval(waitForOfflineOrders);
+      }
+    }, 300); // check every 300ms until orders are loaded
+  });
+</script>
+
+  
+<script defer>
+  // on click scroll
+  document.querySelectorAll('.account-bar a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        const offset = window.innerWidth <= 991 ? 140 : 81;
+        if (!targetElement) return;
+        // Always force scroll to exact offset from top
+        const scrollTargetY = targetElement.getBoundingClientRect().top + window.scrollY - offset;
+
+        // Use requestAnimationFrame to force scroll even if element is in view
+        requestAnimationFrame(() => {
+        window.scrollTo({
+            top: scrollTargetY,
+            behavior: 'smooth'
+        });
+        });
+     });
+  });
+  // order tab 
+document.querySelectorAll(".order-tab-item a").forEach(tab => {
+  tab.addEventListener("click", e => {
+    e.preventDefault();
+    const id = tab.getAttribute("href").substring(1);
+
+    document.querySelectorAll(".tab-content > div").forEach(div =>
+      div.style.display = div.id === id ? "block" : "none"
+    );
+
+    document.querySelectorAll(".order-tab-item").forEach(li =>
+      li.classList.toggle("active", li.contains(tab))
+    );
+  });
+});
+
+// Show first tab by default
+document.querySelector(".order-tab-item a").click();
+
+</script> 
+  
+{% schema %}
+{
+  "name": "Main account new",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    },
+    {
+      "type": "image_picker",
+      "id": "default_coupon_image",
+      "label": "Default Coupon Image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "coupon_image",
+      "name": "Coupon Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "coupon_image",
+          "label": "Coupon Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+    "name":"Main account new"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,786 @@
+<style>
+  .first-box {
+    display: flex;
+    flex-direction: column;
+    /* gap: 1rem; */
+    margin-top: 10px;
+}
+  svg.spinner {
+    stroke: #fff;
+}
+  .total_price_div {
+    /* display: flex; */
+    align-items: center;
+    flex-wrap: wrap;   
+    font-size: 1.6rem;
+    font-weight: 600;
+    letter-spacing: 0px;
+    color: #262626;
+    margin-top: 10px;
+}
+  .total_price_div .total-price-details{
+    display:flex;
+    justify-content: center;
+    padding: 10px 0;
+  }
+  .bought_together_container.page-width {
+    width: 100%;
+    background: white;
+    border: 1px solid #DBDBDB;
+    padding: 2rem;
+    border-radius: 10px;
+}
+.bought_together_container .chk_container .checkmark:after {
+    left: 7px;
+    top: 4px;
+    width: 6px;
+    height: 10px;
+    border: solid #ffffff;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+  .bought_together_container .chk_container input:after {
+    display: block;
+  } 
+  .bought_together_container .chk_container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  input[type=checkbox] {
+    display: inline-block;
+    width: auto;
+    margin-right: 0.5rem;
+  }
+  input[type="checkbox"][readonly] {
+    pointer-events: none;
+  }
+  /* .bought_together_container .chk_container input,
+  .bought_together_container .chk_container:hover input~.checkmark {
+    background-color: #fff;
+  } */
+  .bought_together_container .checkmark {
+    height: 20px;
+    width: 20px;
+    display: block;
+    background: #F5F5F5;
+    border: 1px solid #9A9DA1;
+    border-radius: 2px;
+}
+  span.image_check_div {
+    position: absolute;
+    top: 10px;
+  }
+  .bought_together_container span.product__tax.caption.rte {
+    color: #777777;
+    font-size: 10px;
+    font-weight: normal;
+    position: relative;
+    right: 55px;
+  }
+  .bought_together_container span.price-item.price-item--sale.price-item--last {
+    font-size: 20px;
+  }
+  .bought_together_container .chk_container input:checked~.checkmark:after {
+    display: block;
+  }  
+  .bought_together_container .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }  
+  span.image_container.main_tick_mobile {
+    display: flex;
+    column-gap: 2rem;
+    /* flex-direction: column; */
+    /* align-items: center; */
+    justify-content: center;
+    row-gap: 0.5rem;
+  }
+  span.added_product.check_tick {
+    display: flex;    
+    flex-wrap: nowrap;
+    flex-direction: column;
+    width: 100%;
+    border: 1px solid #F1F1F1;
+    box-shadow: #0000000d 3px 3px 10px 0px;
+    column-gap:2rem;
+    position: relative;
+  }
+
+  p.add_symbol {
+    font-size: 2.2rem;   
+    line-height: 52px;
+    color: #422b29;
+    position: relative;
+    z-index: 1;
+    top:118px;
+  }
+  p.add_symbol::after{
+    position: absolute;
+    content: '';
+    background: #ffffff;
+    height: 24px;
+    width: 24px;
+    line-height: 0;
+    right: -5px;
+    top: 14px;
+    z-index: -1;
+    border: 1px solid #000000;
+    border-radius: 50px;
+  }
+  .discount-label{
+    color:red;
+    font-size: 1.2rem;
+  }
+  p#but_it_with {
+    text-align: center;
+    background-color: #000;
+    color: #fff;
+    border-radius: 0;
+    padding: 1rem;
+    cursor: pointer;
+    min-width: 260px;
+    margin: 0;
+    font-weight: normal;
+    font-size: 1.2rem;
+    min-height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position:relative;
+    border-radius: 50px;
+    font-weight: 600;
+  }
+  p#but_it_with:hover {
+    background-color: #ff0c13;
+  }
+  span.added_product.check_tick p, span.added_product.check_tick p a {
+    margin: 0;
+    font-size: 1.2rem;
+    letter-spacing: 0px;
+    line-height: 2rem;
+    text-decoration: none;
+    color: #000;
+}
+span.currant_price {
+    font-size: 1.2rem;
+    letter-spacing: 0px;
+  color: #000;
+}
+  .fbt-compare-price {
+    font-size: 1.2rem;
+    color: #818181; 
+  }
+
+  span#cust_price {
+    font-size: 1.6rem;
+    font-weight: 600;
+    letter-spacing: 0px;
+    color: #fff;
+    white-space: nowrap;
+}
+  span.right-box-bottom {
+    display: flex;
+    align-items: center;
+    gap: 2rem; 
+    /* border-top: 1px solid #D8D8D8; */
+  }  
+  .price-section {   
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-top: 3px;
+  }
+  span.right-box.price_container.main-check.main_tick {
+    display: block;
+  }
+  span.right-box-bottom{
+    /* border: 1px solid #ECECEC; */
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+  span.right-box-bottom >span {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    /* align-items: center; */
+    gap: 5px;
+    padding-bottom: 1.3rem;
+  }
+
+   p.total_price_div{
+    font-size:1.6rem;
+    font-weight:600;
+  }
+
+  p.total_price_div {
+    padding: 3.3rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+ }
+ span.bought_together_main.bought_main_price.comman_price_format {
+    padding-top: 2.5rem;
+     display: flex;
+    flex-direction: column;
+ }
+  .desk-equal{
+    display:flex;
+    justify-content: center;
+    font-size: 3.5rem;
+  }
+  .variant-dropdown-section .product-form__input .select {
+    max-width: 200px;
+    margin-top: 1rem;
+  }
+  .variant-dropdown-section .select .select__select {
+    border: 1px solid #E2E2E2;
+    padding: 0 1rem;
+    height:40px;
+    text-transform: uppercase;
+  }
+  span.right-box-bottom >span.error_msg{
+    width: 100%;
+    font-size: 1.4rem;
+    color: red;
+    font-weight: normal;
+    border-bottom: 0;
+    align-items: flex-start;
+    margin-top: 5px;
+    padding-bottom: 0;
+  }
+  .bought_together_container .collection__title.title-wrapper{
+    padding-left:0;
+  }
+  .bought_together_container .title-wrapper--no-top-margin>.title{
+    text-align: left;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 0.28px;
+    color: #111111;
+    display: flex;
+    gap: 1rem;
+    width: 100%;    
+        font-weight: 600;
+   margin-bottom: 15px;
+  }
+  .bought_together_container.cst_together_section .collection__title.title-wrapper{
+    margin-bottom: 0;
+  }
+  .bought_together_container .variant-dropdown-section .select .select__select {
+    padding: 0 1rem;
+    height: 40px;
+    text-transform: uppercase;
+    border: 1px solid #E0E0E0;
+    border-radius: 5px;
+    background: transparent;
+}
+.added_product img{
+  width: 80px;
+  height: fit-content;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+.variant-dropdown-section .icon.icon-caret {
+	position: absolute;
+	right: 10px;
+	width: 13px;
+	top: 50%;
+	transform: translateY(-50%);
+}
+ 
+  @media only screen and (min-width: 991px) {
+    /* .bought_together_container.page-width {
+      padding:1rem 5rem 0;
+    } */
+    section.metafield-section.page-width ul.tab-list li a{
+      font-size:1.4rem;
+      font-weight:500;
+    }
+    h2.title-new {
+      text-transform: capitalize;
+    }
+   span.bought_together_main.bought_main_price.comman_price_format {
+      flex-direction: column;   
+      align-items: flex-start;
+      padding: 0;
+      
+    }
+    .check_tick {
+    flex-wrap: nowrap;
+    display: flex;
+    flex-direction: column;
+}
+    .bought_together_container .chk_container{
+      flex: 0;
+    }   
+    span.image_container.main_tick_mobile {
+      /* flex-direction: column;     */
+      /* align-items: flex-start; */
+      flex-basis: 0;
+    }
+    span.added_product.check_tick{
+        box-shadow: none;     
+        /* gap: 2.5rem;  */
+        border: 1px solid #E2E2E2;
+        border-radius: 10px;
+        padding: 10px;
+    }
+    span.image_check_div{
+       width: 100%;
+      display:flex;
+    }
+    .desk-equal{
+      display: block;
+      font-size: 3.5rem;
+      line-height: 52px;
+      color: #000;
+      padding: 13rem 4rem 0 4rem;
+    }
+    span.right-box.price_container.main-check.main_tick{
+      background-color:transparent;
+      width: 100%;
+    }
+
+    p.add_symbol{ padding-top: 0;        margin: 0;}   
+    /* .right-box-bottom span.image_container.main_tick_mobile {
+      flex-direction: column;
+  } */
+  .right-box .image_container.main_tick_mobile .added_product:last-child .checkmark {
+    bottom: 280px;
+    left: 24px;
+  }
+  }
+  @media only screen and (max-width: 991px) {
+    p.add_symbol{
+      position: absolute;
+    }
+    span.added_product.check_tick p{
+          margin-top: 7px;
+    }
+    span.added_product.check_tick {
+      box-shadow: unset;
+      /* display: block; */
+      padding: 10px;
+      border-radius: 10px;
+    }
+    
+    .desk-equal{
+      display:none;
+    }
+    span.added_product p.custom_title.small-hide{
+      display:none;
+    }
+    .total_price_div{
+      justify-content: space-between;
+    }
+    span.added_product.check_tick img {
+      max-width: 100%;
+      width: 100px;
+      height: max-content;
+      height: 134px;
+      /* margin-left: 35px; */
+      border-radius: 5px;
+    }
+    .add_symbol {
+      align-self: flex-start;
+      margin: 0;
+      /* margin-left: 40px; */
+    }
+
+    p#but_it_with{
+      min-width: 190px;
+    }
+    span.bought_together_main {
+      position: relative;
+      padding-top: 0 !important;
+    }
+    .right-box .image_container.main_tick_mobile .checkmark {
+      left: 0;
+      /* background: #fff; */
+    }
+    
+  }
+   @media only screen and (max-width: 749px) {
+       p.add_symbol {
+        padding: 0;
+    }
+
+     .bought_together_container .checkmark{
+       top:0;
+       position: relative;
+     }
+   }
+  .chk_container input[checked] + .checkmark{
+    background: #000;
+  }
+</style>
+{% if product.metafields.custom.bought_together != blank %}
+  {% assign product_data = product.metafields.custom.bought_together.value %}
+  <div class="bought_together_container cst_together_section page-width" id="pit-section">
+    <div class="collection__title title-wrapper title-wrapper--no-top-margin">
+        <h2 class="title inline-richtext h1" style="text-align: left;">Frequently bought together</h2>
+    </div>
+    <span class="bought_together_main bought_main_price comman_price_format">
+      <span class="image_container main_tick_mobile">
+      </span>
+      <!-- <span class="desk-equal small-hide"> = </span> -->
+      <span class="right-box price_container main-check main_tick">       
+        <span class="right-box-bottom ">
+          <span class="image_container main_tick_mobile">
+        <span class="added_product check_tick main-product">
+          
+          <img
+              width=""
+              src="{{product.images[0].src | product_img_url: '200x'}}"
+              data-src="{{product.images[0].src | product_img_url: '200x'}}"
+              data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+              data-aspectratio="{{ product.featured_image.aspect_ratio }}"
+              data-sizes="auto"
+              tabindex="-1"
+              alt="{{ product.featured_image.alt }}"
+              class="lazyload">
+        <div class="first-box">
+          <span class="image_check_div">
+            <label class="chk_container">
+            <input onclick="this.toggleAttribute('checked', this.checked)"
+              type="checkbox"
+              class="custIn hidden"
+              id="product-{{ count }}"
+              name="product-{{ count }}"
+              v_id="{{ product.selected_or_first_available_variant.id }}"
+              prop="{{product.selected_or_first_available_variant.price}}"
+              checked
+              readonly>
+            <span class="checkmark hidden" role="presentation"></span>
+          </label>
+          </span>
+              
+        {% assign discount_price = product.selected_or_first_available_variant.compare_at_price | minus: product.selected_or_first_available_variant.price | times: 100.0 | divided_by: product.selected_or_first_available_variant.compare_at_price | money_without_currency | times: 100 | remove: '.0' %}
+
+        <div
+        class="no-js-hidden  check_tick"
+        id="price-{{ section.id }}"
+        role="status">          
+        <p class="custom_title"><b>This Item:</b> {{ product.title }}
+        </p>
+      </div>
+          {% assign discount_price = product.selected_or_first_available_variant.compare_at_price | minus: product.selected_or_first_available_variant.price | times: 100.0 | divided_by: product.selected_or_first_available_variant.compare_at_price | money_without_currency | times: 100 | remove: '.0' %}
+
+          <div
+          class="no-js-hidden  check_tick"
+          id="price-{{ section.id }}"
+          role="status">          
+          <!-- <p class="custom_title small-hide">{{ product.title }}
+          </p> -->
+          <span> {% if product.metafields.custom.product_sub_title != blank %}
+                      {{ product.metafields.custom.product_sub_title }}
+                   {% endif %}</span>
+          <div class="price-section">
+            <span class="currant_price">{{ product.selected_or_first_available_variant.price | money | remove: '.00' }}</span>
+          {% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}
+            <span class="fbt-compare-price">
+              M.R.P:
+              <s class="price-item price-item--regular">
+              {{ product.selected_or_first_available_variant.compare_at_price | money | remove: '.00' }}
+              </s>
+            </span>
+            <span class="discount-label">{{ discount_price }}%
+              <small>OFF</small>
+            </span>
+          {% endif %}
+          </div>
+          <div class="variant-dropdown-section">
+            {% render 'product-variant-custom', product: product %}
+          </div>
+        </div>
+        </div>
+        </span>
+        <p class="add_symbol">+</p>
+        {% for product_id in product_data %}
+         {%- if product_id.available  -%}
+          <span class="added_product check_tick">
+            <img
+                width=""
+                src="{{product_id.images[0].src | product_img_url: '200x'}}"
+                data-src="{{product_id.images[0].src | product_img_url: '200x'}}"
+                data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                data-aspectratio="{{ product_id.featured_image.aspect_ratio }}"
+                data-sizes="auto"
+                tabindex="-1"
+                alt="{{ product_id.featured_image.alt }}"
+                class="lazyload">
+
+               <div class="first-box">   
+                {% assign count = count | plus: 1 %}  
+                  <span class="image_check_div">
+                     <label class="chk_container ">
+                    <input
+                      onclick="this.toggleAttribute('checked', this.checked)"
+                      type="checkbox"
+                      class="custIn"
+                      id="product-{{ count }}"
+                      name="product-{{ count }}"
+                      v_id="{{ product_id.selected_or_first_available_variant.id }}"
+                      comp_price="{{product_id.compare_at_price}}"
+                      prop="{{product_id.price}}"
+                      checked
+                      >
+                    <span class="checkmark"></span>
+                  </label>
+                  </span>  
+          {% assign discount_price = product_id.compare_at_price | minus: product_id.price | times: 100.0 | divided_by: product_id.compare_at_price | money_without_currency | times: 100 | remove: '.0' %}
+          {% assign count = 0 %}
+          <div
+            class="no-js-hidden  main-check check_tick"
+            id="price-{{ section.id }}"
+            role="status">
+            <p class="custom_title"><a role="link" href="{{ product_id.url }}">{{ product_id.title }}</a>
+            </p>
+          </div>             
+          {% assign discount_price = product_id.compare_at_price | minus: product_id.price | times: 100.0 | divided_by: product_id.compare_at_price | money_without_currency | times: 100 | remove: '.0' %}
+
+          {% assign count = 0 %}
+          <div
+            class="no-js-hidden  main-check check_tick"
+            id="price-{{ section.id }}"
+            role="status"
+            {{ block.shopify_attributes }}>
+            <!-- <p class="custom_title small-hide"><a role="link" href="{{ product_id.url }}">{{ product_id.title }}</a>
+            </p> -->
+            <span>
+             {% if product_id.metafields.custom.product_sub_title != blank %}
+              {{ product_id.metafields.custom.product_sub_title }}
+            {% endif %}
+            </span>
+            <div class="price-section">
+            <span class="currant_price"> {{ product_id.selected_or_first_available_variant.price | money | remove: '.00' }}</span>
+            {% if product_id.selected_or_first_available_variant.compare_at_price > product_id.selected_or_first_available_variant.price %}
+              <span class="fbt-compare-price">
+                M.R.P: 
+                <s class="price-item price-item--regular">
+                {{ product_id.selected_or_first_available_variant.compare_at_price | money | remove: '.00' }}
+                </s>
+              </span>
+              <span class="discount-label">{{ discount_price }}%
+                <small>OFF</small>
+              </span>
+            {% endif %}
+            </div>
+            <div class="variant-dropdown-section">
+              {% render 'product-variant-custom', product: product_id %}
+            </div>
+          </div>
+          {% assign count = count | plus: 1 %}
+            </div>
+          </span>
+           {% endif %}
+        {% endfor %}
+      </span>
+          <span class="error_msg"></span>
+           <div class="total_price_div">
+             {% comment %}<div class="total-price-details">
+              Total:<span id="cust_price"></span>
+             </div>{% endcomment %}
+            <p class="blue-btn" id="but_it_with">
+              <span class="add-text">ADD BOTH TO CART :<span id="cust_price"></span></span>
+               <span class="loading__spinner hidden">
+                  <svg aria-hidden="true" focusable="false" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+                    <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+                  </svg>
+               </span>
+            </p>
+          </div>
+        </span>
+      </span>
+    </span>
+  </div>
+{%- endif -%}
+
+<script>
+  const currentVar = {{ product.selected_or_first_available_variant.id }};
+  const currentVarTitle = '{{ product.selected_or_first_available_variant.title }}';
+  function getcurVar(id, title) {  
+    $('.main-product').find('#product-1').attr('v_id', id);
+    var dropdown = $('.main-product').find('.fbt-options');   
+    dropdown.val(title).change();
+  }
+  var pageUrl = window.location.href;
+  if (pageUrl.indexOf('?variant=') != -1) { 
+    getcurVar(currentVar, currentVarTitle);
+  }
+
+  $(document).ready(function() {    
+    $(document).on('change', '.added_product .fbt-options', function() {
+      var selectedValue = $(this).val();
+      var price = $(this).data('price');
+      var cprice = $(this).data('cprice');
+      if(price > cprice){
+        alert("if");
+      }else{
+        alert("else");
+      }
+      var parent = $(this).closest('.added_product');
+      var noscriptContent = $(this).closest('.added_product').find('noscript').html();        
+      var match = $(noscriptContent).find('option[v-title="' + selectedValue + '"]');
+      var variantId = null;
+      if (match.length > 0) {
+        variantId = match.attr('value');
+        parent.find('input.custIn').attr('v_id', variantId);  
+      }
+      else {       
+        parent.find('input[name="variant_id"]').val('');
+       }
+       var checkBox = parent.find('.custIn');
+       if (checkBox.is(':checked') && $(this).val() !== "") {     
+        $('.error_msg').text('');
+       }
+       parent.find('.fbt-options').each(function() {
+          var optionValue = $(this).val();
+          if (optionValue === "" && $(this).is(":visible")) {
+              console.log("Please select a size");
+          }
+       });     
+  });
+    var toAdd = new Array();
+    function productArray() {    
+      var checkedCheckboxes = $('.custIn:checked');
+      if (checkedCheckboxes.length === 0) {
+        $('.error_msg').text("Please select at least one product before adding to cart.");
+        return;
+      }
+      $('.custIn').each(function() {
+        var checkBox = $(this);
+        var sizeDropdown = checkBox.closest('.added_product').find('.fbt-options');
+        if (checkBox.is(':checked')) {        
+          if (sizeDropdown.val() === "" || (sizeDropdown.val() !== null && sizeDropdown.val().includes("Unavailable"))) {
+            $('.error_msg').text("Please select a size.");
+            toAdd = [];
+            return false;
+          }        
+          checkBox.addClass('selected');
+          $value = checkBox.attr('v_id');         
+          toAdd.push({variant_id: $value, quantity_id: 1});
+        }         
+      });     
+    }
+    function moveAlong() { 
+      if (toAdd.length > 0) {
+        console.log(toAdd);
+        var request = toAdd.shift();
+        var tempId = request.variant_id;
+        var tempQty = request.quantity_id;
+        $.ajax({
+          type: 'POST',
+          url: '/cart/add.js',
+          data: 'quantity=' + tempQty + '&id=' + tempId,
+          dataType: 'json',
+          success: function(line_item) {
+           moveAlong();               
+          },
+          error: function() {
+            {% comment %} moveAlong(); {% endcomment %}
+          }
+        });
+      }
+       else {
+        setTimeout(() => location.reload(), 800);
+      }
+    };
+
+$("#but_it_with").click(function() {
+    $(this).css('background-color', '#ff0c13');
+     $('.loading__spinner').removeClass('hidden');
+    $('#but_it_with .add-text').hide();
+      setTimeout(function (){
+         $('.loading__spinner').addClass('hidden');
+          $('#but_it_with .add-text').show();
+         $('#but_it_with').css('background-color', '#000000');
+      }, 2000);
+    productArray();       
+    moveAlong();     
+});
+// $(document).ready(function() {
+//   if (localStorage.getItem('openCartDrawer') === 'true') {
+//     // Open the cart drawer
+//     $('#cart-icon-bubble')[0].click();
+//     $('#CartDrawer-Overlay').on('click', () => {
+//       $('cart-drawer').removeClass('active');
+//       $('body').removeClass('overflow-hidden');
+//     });
+
+//     // Add event listeners for remove buttons
+//     $('.cart-remove-button').on('click', function() {
+//       const lineItemId = $(this).data('line-item-id');
+//       removeCartItem(lineItemId);
+//     });
+
+//     // Clear the flag
+//     localStorage.removeItem('openCartDrawer');
+//   }
+// });
+// function removeCartItem(lineItemId) {
+//   const statusElement = $('#CartDrawer-LineItemStatus');
+//   statusElement.attr('aria-hidden', 'false').text('Removing item...');
+
+//   $.ajax({
+//     type: 'POST',
+//     url: '/cart/change.js',
+//     dataType: 'json',
+//     data: {
+//       id: lineItemId,
+//       quantity: 0
+//     },
+//     success: function(cart) {
+//       updateCartDrawer(cart);
+//       statusElement.text('Item removed.').delay(2000).queue(function() {
+//         $(this).attr('aria-hidden', 'true').text('Loading...').dequeue();
+//       });
+//     },
+//     error: function(xhr, status, error) {
+//       console.warn('Error removing item from cart:', error);
+//       statusElement.text('Error removing item.').delay(2000).queue(function() {
+//         $(this).attr('aria-hidden', 'true').text('Loading...').dequeue();
+//       });
+//     }
+//   });
+// }
+});
+</script>
+<script>
+  $(document).ready(function() {
+    function updateTotalPrice() {
+      var totalPrice = 0;
+      var anyCheckboxSelected = false;
+      $('.custIn:checked').each(function() {
+        $('.error_msg').text('');
+        var o = $(this).attr("v_id");
+        var data = 'id=' + o + '&quantity=1'
+        var price = parseFloat($(this)
+          .closest('.check_tick')
+          .find('.currant_price')
+          .text()
+          .replace(/[^0-9]/g, ''));        
+        if (!isNaN(price)) {
+          totalPrice += price;
+            }anyCheckboxSelected = true;
+      });
+      $('#cust_price').text(' ₹ ' + totalPrice);
+      $('#but_it_with').attr('disabled', ! anyCheckboxSelected);
+    }
+    updateTotalPrice();
+
+   // Calculate and update total price when a checkbox is clicked
+    $('.custIn').on('change', function() {   
+      updateTotalPrice();
+    });
+  });
+</script>

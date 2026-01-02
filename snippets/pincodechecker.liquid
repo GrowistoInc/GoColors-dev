@@ -1,0 +1,273 @@
+<style>
+  .pincode_check, .pincode_change, .pincode_verify {
+    color: #DF2E84;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 14px;
+  }
+  .product-detail__form .chexk-pincode input[disabled] {
+    color: #000 !important;
+  }
+  .pincode_change, .pincode_verify{
+    display: none;
+  }
+  a.pincode_verify {
+      width: fit-content;
+      white-space: nowrap;
+  }
+  .pincode_checkbox #PostalCode{
+    border: 0;
+  }
+  .pincode_box{
+    border: 1px solid #DBDBDB;
+    border-radius: 10px;
+    padding: 12px 27px 15px 21px;
+   background: #fff;
+  }
+  .pincode_box h3{
+    font-size: 14px;
+    margin: 0px 0px 12px 0px;
+    font-weight: 600;
+  }
+  .pincode_checkbox{
+    border: 1px solid #1A1A1A;
+    border-radius: 50px;
+    justify-content: space-between;
+    padding: 13px 21px 12px 15px;
+    height: 43px;
+  }
+  .check_delivery_line{
+    font-size: 12px;
+    color:red;
+    /* text-align: center; */
+    margin: 3px 0 0 ;
+  }
+  @media (max-width: 749px){
+    .check_delivery_line{font-size: 10px; }
+    .pincode_box{padding: 12px 16px 15px 15px; }
+    .pincode_checkbox #PostalCode{max-width:100px;}
+  }
+</style>
+{%- assign current_variant = product.selected_or_first_available_variant -%}
+<div class="pincode_box">
+  {% comment %}
+  Start of Cash on Delivery postal code checker snippet
+  Instructions:
+  1.Customize title, available, unavailable and placeholder messages below.
+  2.Customize success and failure colors.
+  3.Adjust the pixel spacing value (default 20) to best match the surroundings of the snippet.
+  This will adjust spacing above and below the snippet.
+  {% endcomment %}
+  {% assign title                   = 'Check Delivery' %}
+  {% assign cod_available_message   = 'Hurray!! Delivery is available!' %}
+  {% assign cod_unavailable_message = 'Service is not available to this postal code.' %}
+  {% assign placeholder_message     = 'Enter pincode' %}
+  {% assign check_button_text       = 'Check' %}
+  {% assign success_color           = '#468847' %}
+  {% assign failure_color           = '#FF0000' %}
+  {% assign spacing_in_pixels       = 4 %}
+  
+  
+  {% assign prosku = product.selected_or_first_available_variant.sku %}
+  
+  {% assign textsku = product.sku %}
+  <!--   <h3 style='margin: {{ spacing_in_pixels | append: 'px' }} 0'>{{ title | escape }}</h3> -->
+  <h3>{{ title | escape }}</h3>
+  <div class="pincode_checkbox" style='display: flex;'>
+    <input type='text'  id='PostalCode'  maxlength="6" maxlength="6"  name='PostalCode' class="pincode_value" value="{{cart.attributes.pincode}}" placeholder='{{ placeholder_message | escape }}'  onkeypress="return isNumberKey(event)" />
+    <a  class='pincode_verify'>Verifying ...</a>
+    <a  class='pincode_check'>Check</a>
+    <a  class='pincode_change'>Change</a>
+  </div>
+  <!-- <p class="product_order_text" style="padding-bottom:0px;"></p> -->
+  <p class="check_delivery_line" >Please enter pin code to proceed</p>
+</div>
+<script>
+     function isNumberKey(evt) {
+  var charCode = (evt.which) ? evt.which : event.keyCode;
+  // Check if the key pressed is a number (ASCII values for numbers: 48-57)
+  if (charCode >= 48 && charCode <= 57) {
+    return true;
+  } else {
+    return false;
+  }
+}
+// Optimized pincode verification and UI handling script
+$(document).ready(function () {
+  const isMobile = window.innerWidth <= 768;
+  let AllChecked = true;
+  let InsidePopup = true;
+
+  const pincodeInput = $(".pincode_value");
+  const pincode = pincodeInput.val();
+  const pincodeLength = pincode.length;
+  const sku = "{{ prosku }}";
+  const email = "{{ customer.email }}";
+  const phone = "{{ customer.phone }}";
+
+  if (pincode && pincodeLength === 6) {
+    setPincodeUIState(true);
+    validatePincode(pincode);
+  } else {
+    setPincodeUIState(false);
+    HideAddToCart();
+  }
+
+  // Event: Change pincode
+  $(".pincode_change").click(() => {
+    pincodeInput.prop("disabled", false).focus();
+    $(".checkpincodebtn").addClass("disabled");
+    $(".check_delivery_line").text("Please enter pin code to proceed").css("color", "red");
+    setPincodeUIState(false);
+    HideAddToCart();
+  });
+
+  // Event: Check pincode
+  $(".pincode_check").click(function () {
+    const pin = pincodeInput.val();
+    console.log('Pin', pin);
+    if (!pin || pin.length < 6) {
+      $(".check_delivery_line").text("Invalid Pincode").css("color", "red");
+      HideAddToCart();
+      return;
+    }
+
+    $(this).hide();
+    $(".pincode_verify").show();
+    pincodeInput.prop("disabled", true);
+    validatePincode(pin);
+  });
+
+  // Function: Validate Pincode API
+  function validatePincode(pin) {
+    $.ajax({
+      type: 'GET',
+      url: 'https://admin3157.gocolors.com/new_go_colors_india/public/api/pincode-check-shiproket',
+      data: { pincode: pin, sku, email, phone },
+      dataType: 'json',
+      success: function (res) {
+        if (res.status) {
+          $(".check_delivery_line").text(res.message).css("color", "green");
+          localStorage.setItem('pincode_val', pin);
+          addPincodeToCart(pin);
+          ShowAddToCart();
+          setPincodeUIState(true);
+        } else {
+          $(".check_delivery_line").text(res.message).css("color", "red");
+          HideAddToCart();
+          pincodeInput.prop("disabled", false).focus();
+          setPincodeUIState(false);
+        }
+        $(".pincode_verify").hide();
+      }
+    });
+  }
+
+  // UI state toggling
+  function setPincodeUIState(valid) {
+    $(".pincode_check").toggle(!valid);
+    $(".pincode_change").toggle(valid);
+  }
+
+  function ShowAddToCart() {
+    $(".checkpincodebtn").hide();
+    //$('.bagBtn').removeClass('hidden');
+    $(".addtocartbtn, .addtocartbtnDiv").show().prop("disabled", false);
+    AllChecked = true;
+  }
+
+  function HideAddToCart() {
+    $(".checkpincodebtn").show();
+    //$('.bagBtn').addClass('hidden');
+    $(".addtocartbtn, .addtocartbtnDiv").hide().prop("disabled", true);
+    AllChecked = false;
+  }
+
+  function addPincodeToCart(pin) {
+    $.post('/cart/update.js', { attributes: { pincode: pin } });
+  }
+
+  // Variant Preselect
+  (function selectVariantFromURL() {
+    const variantId = new URLSearchParams(window.location.search).get("variant");
+    const selectedVariant = document.querySelector('[data-selected-variant]');
+    if (selectedVariant) {
+      const variantData = JSON.parse(selectedVariant.innerText);
+      if (!variantData.available) {
+        $(".addtocartbtn").prop("disabled", true);
+        return;
+      }
+      if (variantData.id == variantId) {
+        $(`input[value='${variantData.option1}']`).prop("checked", true).trigger("change");
+        $(".product-variant-id").val(variantId);
+        AllChecked = true;
+      }
+    }
+  })();
+
+  // Mobile specific scroll/UX logic
+  if (isMobile) {
+    // $(".checkpincodebtn").click(() => scrollToSection($('.check_delivery_line')));
+    $(".addtocartbtn").click(function (event) {
+      if (!AllChecked) {
+        show_pop_bg();
+        event.preventDefault();
+        $('.addBtn').addClass('hidden-check');
+        $('.stickyShowData').removeClass('hidden');
+        $(".qtyAndBuyBtn").prop("disabled", true);
+      } else {
+        $(".qtyAndBuyBtn").prop("disabled", false);
+        setTimeout(() => $('.closeStcikyPop').trigger('click'), 500);
+      }
+    });
+    $(".closeStcikyPop").click(() => {
+      $('.stickyShowData').addClass('hidden');
+      $('.addBtn').removeClass('hidden-check');
+      hide_pop_bg();
+    });
+
+    // Scroll visibility handler
+    let scrollTimeout;
+    document.addEventListener('scroll', () => {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        const productInfo = document.querySelector('.pdp-main-container');
+        const fixedFooter = document.querySelector('.footer-button-links');
+        const buffer = 30;
+        const isVisible = productInfo.getBoundingClientRect().bottom < window.innerHeight;
+        const nextVisible = productInfo.nextElementSibling?.getBoundingClientRect().top < window.innerHeight - buffer;
+
+        if (isVisible && nextVisible) {
+          fixedFooter.classList.remove('show');
+          $('.addBtn').css({ transform: 'translateY(0)', position: 'sticky' });
+        } else {
+          fixedFooter.classList.remove('show');
+          $('.addBtn').css({ transform: 'translateY(0px)', position: 'fixed' });
+        }
+      }, 50);
+    });
+  }
+
+  // Scroll to section helper
+   function scrollToSection(section) {
+    const rootStyles = getComputedStyle(document.documentElement);
+    const headerHeight = parseInt(rootStyles.getPropertyValue('--header-height')) || 0;
+    const top = section.offset().top - headerHeight - 120;
+  
+    window.scrollTo({ top, behavior: 'smooth' });
+  
+    $(".pincode_box").addClass("size-button");
+    setTimeout(function () {
+      $(".pincode_box").removeClass("size-button");
+    }, 500);
+  }
+
+  $(".checkpincodebtn").click(function () {
+      const section = $('.check_delivery_line');
+      if (section.length) scrollToSection(section);
+    });
+
+});
+
+</script>

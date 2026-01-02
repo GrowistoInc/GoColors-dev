@@ -1,0 +1,446 @@
+<style>
+  body.my-account .feature-header {
+    /* font-size: 32px; */
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 0 20px;
+  }
+  body.my-account .central.content {
+    padding-top:14px;
+    padding-bottom:62px;
+  }
+  nav.my_acc_container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+  }
+  nav.my_acc_container a.active {
+    color: #000;
+    border: 1px solid;
+    opacity: 1;
+  }
+  nav.my_acc_container a {
+    font-size: 16px;
+    border: 1px solid #ccc;
+    padding: 11px 53px;
+    color: #818181;
+    text-decoration
+  }
+  .myprofile {
+    max-width: 945px;
+    margin: 0 auto;
+  }
+  .myprofile h3 {
+    font-size: 20px;
+    margin: 15px 0;
+  }
+  .myprofile .custm_info {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    padding-bottom: 15px;
+  }
+  .custm_info p:first-child {
+    width: 20%;
+    color: #000;
+  }
+  .custm_info p {
+    color: #616161;
+    font-size: 14px;
+    padding-bottom: 0;
+    margin:0;
+  }
+  nav.my_acc_container a.active:hover,
+  nav.my_acc_container a:hover {
+    border: 1px solid;
+  }
+  .customer_data {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+  }
+  .add_btn a.btn,
+  .add_btn a.btn:hover,
+  .action_bottom.address .btn,
+  input.btn,
+  input.btn:hover {
+    text-decoration: none;
+    border-bottom: none;
+    width: 100px;
+    height: 30px;
+    color: #fff !important;
+    background: #000 !important;
+    font-size: 14px !important;
+    text-align: center;
+    border-radius: 5px !important;
+    text-transform: uppercase;
+    padding: 4px 0;
+    line-height: 20px;
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+  .other_address {
+    display: flex;
+    padding: 20px 0;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .other_add {
+    width: 100%;
+   overflow: hidden;
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+row-gap: 40px;
+  }
+.add_box {
+  width: 48%;
+  border: 1px solid #BEBEBE;
+  padding: 15px 20px;
+  color: #616161;
+}
+  .addlist {
+  font-size: 14px;
+}
+  .addlist span{
+    color:#000;
+    font-size:16px;s
+  }
+  .other_address span{
+    display: flex;
+    gap: 15px;
+  }
+  .myprofile a.new_addr {
+    text-decoration: none;
+    border-bottom: none;
+    padding: 10px 15px;
+    border: 1px solid #A4A4A4;
+    /*border-radius: 10px;*/
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+  a.new_addr:hover {
+    border: 1px solid;
+  }
+  .grid_add {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 35px;
+    grid-row-gap: 35px;*/
+  }
+  .other_add p {
+    padding-bottom: 5px;
+  }
+  .grid_add .add_box {
+    padding: 0 15px 15px;
+    border-bottom: 1px solid #BEBEBE;*/
+  }
+  .grid_add .add_box:last-child {
+    border-bottom: none;
+  }
+  .add_btn {
+    display: flex;
+    margin: 25px 0 0;
+    gap: 25px;
+  }
+  .other_add .customer_address {
+    margin: 0;
+  }
+  .other_add .customer_address h4 {
+    text-align: left;
+  }
+  .customer_address_table td,
+  .customer_address_table tr {
+    border: none;
+  }
+  .other_add .customer_address_table .value input:not([type="checkbox"]),
+  .pretty-select {
+    width: 100%;
+    border-radius: 10px;
+    height: 45px;
+  }
+  .action_bottom.address {
+    display: flex;
+  }
+  .grid_add .add_box .addlist {
+    min-height: 56px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+  input.btn {
+    min-height: 30px !important;
+    height: 30px !important;
+  }
+  span.text {
+    padding: 5px 50px 10px 0;
+  }
+  .default_address{
+    font-weight: 600;
+    text-transform: uppercase;
+    display: block;
+  }
+ 
+  @media screen and (max-width:1200px) {
+    nav.my_acc_container {
+      flex-direction: column;
+      text-align: center;
+      padding: 0 20px;
+      gap: 10px;
+    }
+    .myprofile {
+      padding: 0 20px;
+    }
+    .myprofile span p {
+      width: 50%;
+    }
+    .other_address {
+      flex-direction: column;
+    }
+    .other_add {
+      padding: 20px;
+    }
+    a.new_addr {
+      font-size: 14px;
+    }
+    .myprofile .custm_info{
+    gap: 15px;
+    }
+    .custm_info p:first-child{
+          width: 30%;
+     }
+    .grid_add{
+    grid-template-columns: 1fr;
+    grid-column-gap: 30px;
+    grid-row-gap: 30px;
+    }
+    .other_address span{
+     gap:5px;
+    }
+    .myprofile a.new_addr{
+    padding:10px;
+    }
+  }
+   @media screen and (max-width:767px) {
+    .add_box{
+   width:100%;
+    }
+     .other_add{
+       row-gap:30px;
+     }
+  }
+  .account_page .breadcrumb a{
+    font-size: 10px;
+  }
+  .account_page .breadcrumb span{
+    font-size: 16px;
+    font-weight: bold;
+  }
+</style>
+
+<div class="central content page-width account_page">
+{% include 'breadcrumbs' %}
+  
+  <h1 class="feature-header" data-cc-animate>MY ACCOUNT</h1>
+
+  <div
+    class="rte"
+    data-cc-animate
+    data-cc-animate-delay="0.2s">
+    <nav class="my_acc_container">
+      <a
+        id="nav1"
+        class="active"
+        href="https://gocolors.com/pages/my-account">My Profile</a>
+      <a id="nav2" href="https://gocolors.com/pages/purchase-orders">Purchase And Orders</a>
+ <!--     <a id="nav3" href="https://gocolors.com/pages/loyality-points">Loyalty Points</a>-->
+      <a id="nav4" href="https://gocolors.com/account/logout">Logout</a>
+    </nav>
+    <div class="myprofile">
+      <div class="customer_data">
+        <h3>CONTACT DETAIL</h3>
+        <div class="custm_info">
+            <p>EMAIL</p>: 
+            <p id="email"> 
+               {% if customer %}
+                 {{ customer.email }}{% endif %}
+             </p>
+        </div>
+
+        <div class="custm_info">
+            <p>MOBILE NUMBER</p>:
+             <p id="mobile_no">
+                {% if customer %}
+                {{ customer.phone }}{% endif %}
+                </p>
+        </div>
+      </div>
+      <div class="customer_data">
+        <h3>PERSONAL DATA</h3>
+        <div class="custm_info">
+            <p>NAME</p>:
+            <p id="name">
+                {% if customer %}
+                {{ customer.first_name }} {{ customer.last_name }}{% endif %}
+            </p>
+        </div>
+        <div class="custm_info">
+            <p>DATE OF BIRTH</p>:
+            <p id="dob">
+                {% if customer %}
+                {{ customer.DateOfBirth | strftime('%B') }}{% endif %}
+<!--         {{ customer }} -->
+              {% if customer %}
+                {{ customer.DateOfBirth |strftime('%B')  }}{% endif %}
+            </p>
+        </div>
+      </div>
+    <!--  <div class="customer_data">
+        <h3>LOYALTY POINTS</h3>
+          <div class="custm_info">
+             <p>POINTS AVAILABLE</p>:
+             <p id="point"></p>
+           </div>
+      </div> -->
+      <div class="other_address ">
+        <h3>OTHER ADDRESS</h3>
+        <span>
+          <a class="new_addr add_address" href="/account/addresses">Add a New Address</a>
+          <a class="new_addr edit_address" href="/account/addresses">Edit Addresses</a>
+        </span>
+
+      </div>
+      {% if customer.addresses != blank %}
+        <div class="other_add">          
+            {%- for address in customer.addresses -%}
+              {% if address == customer.default_address %}              
+              <div class="add_box">
+                <div class="addlist"> <span class="default_address note">HOME ADDRESS</span>
+                
+                {{ address.street }}, {{ address.city }} ,{{ address.zip }} {{ address.country }}.</div>
+              </div>
+                  {% endif %}
+             {% endfor %}
+           {%- for address in customer.addresses -%}
+          {% if form.work_address == true %}
+              <div class="add_box">
+                <div class="addlist"><span class="default_address note">WORK ADDRESS</span>                
+                {{ address.street }}, {{ address.city }} ,{{ address.zip }} {{ address.country }}.</div>
+              </div>
+               {% endif %}
+          {% endfor %}
+           {%- for address in customer.addresses -%}
+          {% if address != customer.default_address and address != address.work_address %} 
+              <div class="add_box">
+                <div class="addlist"><span class="default_address note">OTHER ADDRESS</span>
+                
+            {{ address.street }}, {{ address.city }} ,{{ address.zip }} {{ address.country }}.</div>
+              </div>
+             {% endif %}
+          {% endfor %}
+        
+        </div>
+      {% endif %}
+      </div>
+      </div>
+
+  </div>
+</div>
+<script src="{{ 'shopify_common.js' | shopify_asset_url }}"></script>
+<script lang="javascript">
+window.onload = function() {
+  
+    if(!localStorage.loaded) {
+      console.log('localStorage.loaded in');
+        localStorage.setItem('loaded', 'yes')
+        window.location.reload();    
+    }
+  //alert($('#dob').text());
+} 
+</script>
+<script type="text/javascript" charset="utf-8">
+  
+  document.addEventListener("DOMContentLoaded", function(event) {
+    
+  $('.address-delete').on('click', function(evt) {
+   evt.preventDefault();
+   var $el = $(this);
+   var target = $el.data('target');
+   var confirmMessage = $el.data('confirm-message');
+   if (
+   confirm(confirmMessage || 'Are you sure you wish to delete this address?')
+   ) {
+   Shopify.postLink(target, {
+   parameters: { _method: 'delete' }
+   });
+    }
+    });
+    $('.address-edit-toggle').on('click', function(evt) {
+      evt.preventDefault();
+       var formId = $(this).data('form-id');
+      var $editButton = $(this);
+      var $editAddress = $('#edit_address_' + formId);
+      var isExpanded = $editButton.attr('aria-expanded') === 'true';
+      $editAddress.toggle();
+      $editButton.attr('aria-expanded', !isExpanded).focus();
+      });
+      });
+        // initialize observers on address selectors
+     new Shopify.CountryProvinceSelector('address_country_new', 'address_province_new', {hideElement: 'address_province_container_new'});{% for address in customer.addresses %}
+    new Shopify.CountryProvinceSelector('address_country_{{ address.id }}', 'address_province_{{ address.id }}', {hideElement: 'address_province_container_{{ address.id }}'});
+  {% endfor %}
+
+    $(document).ready(function(){
+      
+      var mobile_no = "{{customer.phone}}";
+    var email = "{{ customer.email }}";
+    
+    mobile_no = mobile_no.replace('+91',"");
+    var data = JSON.stringify({
+      "EasyId": mobile_no,
+      "EmailId" : email,
+      "MobileNo" : mobile_no,
+      "StoreName": "go-colors-india.myshopify.com",
+      "CountryCode": "91"
+    });
+    
+    var settings = {
+      "url": "https://gocolors.com/apps/ez/api/CustomerProfile",
+      "method": "POST",
+      "timeout": 0,
+      "headers": {
+        "Content-Type": "application/json",
+        "Cookie": "_s=172a00c3-7b9d-41fd-8141-77b2f2d953fb; _shopify_s=172a00c3-7b9d-41fd-8141-77b2f2d953fb; _shopify_y=b597e3f8-b033-4c84-909a-90f26c2532d6; _y=b597e3f8-b033-4c84-909a-90f26c2532d6; secure_customer_sig="
+      },
+      "data": data,
+  };
+
+  $.ajax(settings).done(function (response) {
+    console.log(response,'ds');
+    console.log('hellobinary',response)
+    if(response.ReturnCode == 0){
+      $('#email').html(response.Email)
+      if(response.Email == ""){
+        $('#email').html('{{customer.email}}');
+      }
+      $('#mobile_no').html(response.Mobile)
+      if(response.Mobile == ""){
+        
+        $('#mobile_no').html('{{ customer.phone }}')
+      }
+      $('#name').html(response.FirstName+'  '+response.LastName)
+      if(response.FirstName == "" && response.LastName == ""){
+        $('#name').html('{{ customer.first_name }}'+ "  "+'{{ customer.last_name }}')
+      }
+      $('#dob').html(response.DateOfBirth)
+      $('#point').html(response.AvailablePoints)
+      
+    }
+    
+  });
+      
+});
+</script>
+{% include "easy_rewards_my_accont_script" %}

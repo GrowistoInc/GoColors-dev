@@ -1,0 +1,255 @@
+  
+  <style>
+    .invite-only-rewards {
+      text-align: center;
+      background-color: {{section.settings.section_color}};
+      /* padding: 50px 20px; */
+    }
+    .invite-only-rewards h2.invite-rewards-title {
+      font-size: 24px;
+      margin-bottom: 20px;
+      line-height:normal;
+      font-weight: 400;
+      justify-self: center;
+      width: 49%;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 25px;
+    }
+    /* .register-button {
+      display: inline-block;
+      background-color:{{section.settings.button_color}};
+      color: {{section.settings.button_font_color}};
+      padding: 10px 20px;
+      margin-bottom: 30px;
+      text-decoration: none;
+      border-radius: 5px;
+      line-height:normal;
+      text-transform: capitalize;
+    } */
+    .benefits-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .benefit {
+      /* width: 150px;
+      text-align: center; */
+      /* width: calc(20% - 20px);
+      text-align: center; */
+
+    }
+    .gradient.go-rewards-member .rich-text__wrapper--left {
+      margin: 0;
+    }
+    .benefit {
+        width: calc(20% - 20px);
+        text-align: center;
+    }
+    .benefit img {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 10px;
+    }
+    .benefit p {
+      font-size: 18px;
+      color: #333;
+      position: relative;
+      line-height:normal;
+      margin:0;
+    }
+    /* .benefit p:before {
+    position: absolute;
+    width: 1px;
+    height: 50px;
+    content: '';
+    background-color: #ddd;
+    /* bottom: 0; */
+    /* right: -13px; */
+    right: -10px;
+  } */
+    .benefit:last-child p:before{
+      display:none;
+    }
+    
+    @media screen and (max-width:767px){
+      .benefit {
+        width:130px;
+      }
+      .benefits-grid{
+        gap:10px;
+        /* gap:4px; */
+        /* justify-content: space-around; */
+        justify-content: center
+      }
+      .benefit img{
+        margin:0;
+      }
+      .invite-only-rewards h2.invite-rewards-title {
+        font-size: 16px;
+        padding-bottom: 0;
+        width: 100%;        
+        margin-bottom: 25px;
+      }
+      .benefit p {
+        /* font-size: 16px; */
+        font-size: 11px;
+      }
+      .benefit img{
+        width:50px;
+        height:50px;
+      }
+    }
+  </style>
+  {% style %}
+    .invite-only-rewards-section{
+      padding-top:{{ section.settings.mob_padding_top }}px;
+      padding-bottom:{{ section.settings.mob_padding_bottom }}px;
+    }
+    @media screen and (min-width:768px){
+      .invite-only-rewards-section{
+      padding-top:{{ section.settings.padding_top}}px;
+      padding-bottom:{{ section.settings.padding_bottom }}px;
+    }
+  }
+  {% endstyle %}
+<section class="page-width invite-only-rewards-section">
+  <!-- <div class="container"> -->
+  <div class="invite-only-rewards">
+    {% if section.settings.heading %}
+      <h2 class="invite-rewards-title">{{ section.settings.heading }}</h2>
+    {% endif %}
+    {% if section.settings.register_link or section.settings.register_text %}
+      {% if section.settings.register_link  %}
+        <a href="{{ section.settings.register_link }}" class="register-button"> 
+      {% else %}
+        <div  class="register-button">
+      {% endif %}
+        {{ section.settings.register_text }}
+      {% if section.settings.register_link  %}
+        </a>
+      {% else %}
+        </div>
+      {% endif %}
+    {% endif %}
+    <div class="benefits-grid">
+      {% for block in section.blocks %}
+        {% if block.settings.icon or block.settings.title %}
+        <div class="benefit">
+          <img src="{{ block.settings.icon | image_url }}" alt="{{ block.settings.title }}">
+          <p>{{ block.settings.title }}</p>
+        </div>
+          {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Invite Only Rewards",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The most exciting invite-only shopping rewards program for our top tier customers"
+    },
+    {
+      "type": "text",
+      "id": "register_text",
+      "label": "Register Button Text",
+      "default": "Register now to avail amazing benefits"
+    },
+    {
+      "type": "url",
+      "id": "register_link",
+      "label": "Register Button Link",
+      "default": "/"
+    },
+    {
+      "type": "color",
+      "id": "section_color",
+      "label": "Background Color",
+      "default":"#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Button Background Color",
+      "default":"#ff5ba5"
+    },
+    {
+      "type": "color",
+      "id": "button_font_color",
+      "label": "Button Font Color",
+      "default":"#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 20,
+    },
+      {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 20
+    },
+      {
+      "type": "range",
+      "id": "mob_padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Padding top",
+      "default": 20
+    },
+      {
+      "type": "range",
+      "id": "mob_padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Padding bottom",
+      "default": 20
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Benefit Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Benefit Title",
+          "default": "Exclusive Discounts"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Invite Only Rewards",
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,98 @@
+<style>
+  .hidden { display: none;}
+.tab-active { font-weight: bold;}
+.collection-list-tab{display:flex;}
+</style>
+
+{%- for block in section.blocks -%}
+{%- if block.settings.menu != blank -%}
+  <ul class="collection-list-tab list-unstyled">
+  {%- for link in block.settings.menu.links -%}
+    <li>
+      <a
+        href="{{ link.url }}"
+        class="link link--text list-menu__item list-menu__item--link {% if forloop.first %}tab-active{% endif %}"
+        data-tab-id="{{ link.handle }}"
+      >
+        {{ link.title | escape }}
+      </a>
+       <div class="tab-content{% unless forloop.first %} hidden{% endunless %}" id="tab-{{ link.handle }}">
+      {%- for childlink in link.links -%}
+        <a
+          id="HeaderDrawer-{{ link.handle }}-{{ childlink.handle }}"
+          href="{{ childlink.url }}"
+          class="tab-list"
+          {% if childlink.current %}
+            aria-current="page"
+          {% endif %}
+        >
+          {{ childlink.title | escape }}
+        </a>
+      {%- endfor -%}
+    </div>
+    </li>
+   
+  {%- endfor -%}
+</ul>
+
+{%- endif -%}
+{%- endfor -%}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+  const tabs = document.querySelectorAll('.list-menu__item--link');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', function (e) {
+      e.preventDefault();
+      
+      // Remove active class from all tabs and hide their content
+      tabs.forEach(t => {
+        t.classList.remove('tab-active');
+        const tabContent = document.querySelector(`#tab-${t.dataset.tabId}`);
+        if (tabContent) {
+          tabContent.classList.add('hidden');
+        }
+      });
+
+      // Add active class to clicked tab and show its content
+      this.classList.add('tab-active');
+      const activeTabContent = document.querySelector(`#tab-${this.dataset.tabId}`);
+      if (activeTabContent) {
+        activeTabContent.classList.remove('hidden');
+      }
+    });
+  });
+});
+
+
+</script>
+
+{% schema %}
+  {
+    "name": "collection list tab",
+    "settings": [
+      
+    ],
+    "blocks": [
+    {
+      "type": "link_list",
+      "name": "t:sections.footer.blocks.link_list.name",
+      "settings": [
+        {
+          "type": "link_list",
+          "id": "menu",
+          "default": "footer",
+          "label": "t:sections.footer.blocks.link_list.settings.menu.label",
+          "info": "t:sections.footer.blocks.link_list.settings.menu.info"
+        }
+      ]
+    },
+  ],
+    "presets": [
+      {
+      "name": "collection list tab"
+      }
+    ]
+  }
+{% endschema %}

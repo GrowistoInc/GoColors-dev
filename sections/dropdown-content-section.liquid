@@ -1,0 +1,196 @@
+<style>
+  .benefitPage > h2 {
+    text-align: center;
+  }
+  .select-dropdown { 
+    position: relative;
+    display: block;
+    width: 300px;
+    margin: 0 auto;
+  }
+  .select-dropdown__button {
+    font-size: 16px;
+    padding: 10px 35px 10px 15px;
+    background-color: #fff;
+    border: 1px solid #cecece;
+    border-radius: 3px;
+    cursor: pointer;
+    width: 300px;
+    border-radius: 5px;
+    text-align: left;
+    position: relative;
+  }
+  .select-dropdown__button:focus {
+    outline: none;
+  }
+  .select-dropdown__button svg {
+    position: absolute;
+    right: 10px;
+    top: 12px;
+    color: black;
+    width: 16px;
+    height: 14px;
+  }
+  .select-dropdown__list {
+    position: absolute;
+    display: block;
+    left: 0;
+    right: 0;
+    max-height: 300px;
+    overflow: auto;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    opacity: 0;
+    pointer-events: none;
+    transform-origin: top left;
+    transform: scale(1, 0);
+    transition: all ease-in-out 0.3s;
+    z-index: 2;
+  }
+  .select-dropdown__list.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1, 1);
+  }
+  .select-dropdown__list-item {
+    display: block;
+    padding: 10px 15px;
+    background: #fff;
+    border-top: 1px solid #e6e6e6;
+    font-size: 14px;
+    cursor: pointer;
+    color: #616161;
+    transition: all ease-in-out 0.3s;
+  }
+  .selectData {
+    display: none;
+    transition: all ease-in-out 0.3s;
+  }
+  .selectedDescription {
+    display: block;
+    transition: all ease-in-out 0.3s;
+  }
+   .selectData ul{  padding: 0 0 0 2rem;}
+</style>
+
+<h2>{{ page.title }}</h2>
+
+{%- if section.blocks.size > 0 -%}
+  {% assign selected_block = '' %}
+  {%- for block in section.blocks -%}
+    {%- if forloop.last -%}
+    {% assign selected_block = block.settings.label %}
+    {%- endif -%}
+    {%- endfor -%}
+<div class="select-dropdown">
+  <button role="button" data-value="" class="select-dropdown__button"><span>{{ selected_block }}</span>{{ 'icon-caret.svg' | inline_asset_content }}</button>
+  <ul class="select-dropdown__list">
+    {%- for block in section.blocks -%}
+      <li data-value="{{ forloop.index }}" class="select-dropdown__list-item {% if forloop.last %}selected{% endif %}">
+        {{ block.settings.label }}
+      </li>
+    {%- endfor -%}
+  </ul>
+</div>
+{%- for block in section.blocks -%}
+  {%- if block.settings.description -%}
+    <div data-description="{{ forloop.index }}" class="page-width selectData {% if forloop.last %}selectedDescription{% endif %}">{{ block.settings.description }}</div>
+  {%- endif -%}
+{%- endfor -%}
+{%- endif -%}
+
+<script>
+$(document).ready(function(){
+  var selectedItem = $('.select-dropdown__list-item.selected');
+  var selectedValue = selectedItem.data('value');
+  $('.select-dropdown__button span').text(selectedItem.text()).parent().attr('data-value', selectedValue);
+  $('.select-dropdown__button').on('click', function(){
+    $('.select-dropdown__list').toggleClass('active');
+  });
+
+  $('.select-dropdown__list-item').on('click', function(){
+    var itemValue = $(this).data('value');
+    $('.select-dropdown__list-item').removeClass('selected');
+    $(this).addClass('selected');
+    $('.select-dropdown__button span').text($(this).text()).parent().attr('data-value', itemValue);
+    $('.select-dropdown__list').removeClass('active');
+    $('.selectData').removeClass('selectedDescription');
+    $('.selectData[data-description="' + itemValue + '"]').addClass('selectedDescription');
+  });
+});
+</script>
+
+{% schema %}
+{
+  "name": "Dropdown Content Section",
+  "class": "benefitPage page-width",
+  "max_blocks": 12,
+  "settings": [
+    {
+      "type": "range",
+      "id": "margin_top_desktop",
+      "label": "Margin Top (Desktop)",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_desktop",
+      "label": "Margin Bottom (Desktop)",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "margin_top_mobile",
+      "label": "Margin Top (Mobile)",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "label": "Margin Bottom (Mobile)",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 20
+    }
+  ],
+  "blocks": [
+    {
+      "type": "content_block",
+      "name": "Content Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Dropdown Label"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Content"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Dropdown Content Section",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

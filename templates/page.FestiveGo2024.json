@@ -1,0 +1,361 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "data_inrichment_banner_Dq4ei3": {
+      "type": "data-inrichment-banner",
+      "settings": {
+        "url1": "",
+        "Desktopbanner2": "shopify://shop_images/Main-Banner-Web.jpg",
+        "url2": "",
+        "Mobilebanner2": "shopify://shop_images/Main-Banner-Mobile_f0c40703-6848-493e-b0d2-86ce8031382b.jpg",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "mob_padding_top": 0,
+        "mob_padding_bottom": 30
+      }
+    },
+    "bba8c08b-aa85-4b5f-acd0-5851370b07c2": {
+      "type": "festivel_image-video",
+      "settings": {
+        "button_link": "",
+        "video__type": "mp4",
+        "youtube_iframe": "",
+        "mobile_youtube_iframe": "T2tUMj1hflA",
+        "videoWidth": "560",
+        "videoHeight": "315",
+        "video_source": "https://cdn.shopify.com/videos/c/o/v/6ee067f08d99418182cf0e351a292015.mp4",
+        "video_source_mob": ""
+      }
+    },
+    "go_active_collection_tLJqPU": {
+      "type": "Go_active_collection",
+      "disabled": true,
+      "settings": {
+        "heading": "Best Seller",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "mob_padding_top": 50,
+        "mob_padding_bottom": 50,
+        "show_btn": true,
+        "desktop_rows": 12,
+        "collection": "test"
+      }
+    },
+    "a670f1bf-5bc9-4120-9f9a-0a9d59c5ff74": {
+      "type": "festivel_look-shop",
+      "blocks": {
+        "6d54b49f-3e5e-4880-a1af-095817cef33c": {
+          "type": "Image_banner",
+          "settings": {
+            "video-link": "https://cdn.shopify.com/videos/c/o/v/b280ee5cbd344ce887991bc996478059.mp4",
+            "youtube_iframe": "",
+            "text_wrapp": "Harem Dhoti Pants",
+            "product-url": "https://gocolors.com/products/women-solid-maroon-viscose-harem-dhoti-pants"
+          }
+        },
+        "5182e611-9477-473d-be91-a31598cdbfa0": {
+          "type": "Image_banner",
+          "settings": {
+            "video-link": "https://cdn.shopify.com/videos/c/o/v/a60dfdf0e7d0412792aba8f880de2681.mp4",
+            "youtube_iframe": "",
+            "text_wrapp": "Cropped Salwar",
+            "product-url": "https://gocolors.com/products/women-solid-light-beige-cotton-cropped-salwar"
+          }
+        },
+        "21ecee63-5178-461f-8fc8-efb135590e88": {
+          "type": "Image_banner",
+          "settings": {
+            "video-link": "https://cdn.shopify.com/videos/c/o/v/27062303a76945df89a0139dc626a7ac.mp4",
+            "youtube_iframe": "",
+            "text_wrapp": "Harem",
+            "product-url": "https://gocolors.com/products/women-solid-medium-violet-harem-pants"
+          }
+        },
+        "967d1c64-5c52-4130-b55f-b24ab80f7b89": {
+          "type": "Image_banner",
+          "settings": {
+            "video-link": "https://cdn.shopify.com/videos/c/o/v/c3e1f3d7187b485bb2ebf8d3c9d14a17.mp4",
+            "youtube_iframe": "",
+            "text_wrapp": "Ikat Pencil Pant",
+            "product-url": "https://gocolors.com/products/women-ikat-medium-pink-printed-pencil-pant"
+          }
+        },
+        "6c3ddaec-36c5-478d-adaf-21219ac3956e": {
+          "type": "Image_banner",
+          "settings": {
+            "video-link": "https://cdn.shopify.com/videos/c/o/v/b6b7d3bb405d44249f9ed1efcaeed144.mp4",
+            "youtube_iframe": "",
+            "text_wrapp": "Printed Palazzo",
+            "product-url": "https://gocolors.com/products/women-medium-pink-woven-viscose-mid-rise-printed-palazzo"
+          }
+        },
+        "3e51fa35-e890-4235-9add-dc34bcd2f350": {
+          "type": "Image_banner",
+          "settings": {
+            "video-link": "https://cdn.shopify.com/videos/c/o/v/1d0779353d43488d88dd816515b364d6.mp4",
+            "youtube_iframe": "",
+            "text_wrapp": "Shimmer Leggings",
+            "product-url": "https://gocolors.com/products/women-solid-mustard-slim-fit-shimmer-leggings"
+          }
+        },
+        "ff5557f8-db12-4cd1-8c4c-756d35518501": {
+          "type": "Image_banner",
+          "settings": {
+            "video-link": "https://cdn.shopify.com/videos/c/o/v/89c61befbe534503baeba4ffb5c17719.mp4",
+            "youtube_iframe": "",
+            "text_wrapp": "Linen Wide Pants",
+            "product-url": "https://gocolors.com/products/women-solid-baby-pink-mid-rise-linen-wide-pant"
+          }
+        }
+      },
+      "block_order": [
+        "6d54b49f-3e5e-4880-a1af-095817cef33c",
+        "5182e611-9477-473d-be91-a31598cdbfa0",
+        "21ecee63-5178-461f-8fc8-efb135590e88",
+        "967d1c64-5c52-4130-b55f-b24ab80f7b89",
+        "6c3ddaec-36c5-478d-adaf-21219ac3956e",
+        "3e51fa35-e890-4235-9add-dc34bcd2f350",
+        "ff5557f8-db12-4cd1-8c4c-756d35518501"
+      ],
+      "settings": {
+        "heading": "Festive Glow & Go!",
+        "dekstop_view": 5
+      }
+    },
+    "go_active_collection_ArAmqf": {
+      "type": "Go_active_collection",
+      "settings": {
+        "heading": "Shop Our Festive Collection",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "mob_padding_top": 0,
+        "mob_padding_bottom": 0,
+        "show_btn": true,
+        "desktop_rows": 24,
+        "collection": "festive-stories"
+      }
+    },
+    "5ad52ffa-8e4f-422a-ba09-45de05a67421": {
+      "type": "festivel_colors",
+      "blocks": {
+        "b1da766b-ea37-4e28-b536-0690656a8a12": {
+          "type": "colors",
+          "settings": {
+            "text_wrapp": "WINE",
+            "image": "shopify://shop_images/Wine_Red.png",
+            "color_link": "https://gocolors.com/collections/wine1"
+          }
+        },
+        "template--16198272123040__5ad52ffa-8e4f-422a-ba09-45de05a67421-colors-1": {
+          "type": "colors",
+          "settings": {
+            "text_wrapp": "BEIGE",
+            "image": "shopify://shop_images/Beige_20e65123-801c-4738-8793-50272dc629ea.png",
+            "color_link": "https://gocolors.com/collections/beige"
+          }
+        },
+        "a8c59d7e-4e28-4593-87a0-346e96b0d3d5": {
+          "type": "colors",
+          "settings": {
+            "text_wrapp": "MUSTARD",
+            "image": "shopify://shop_images/Mustard_bae5076d-d95e-4d05-a6b7-a973341bea25.png",
+            "color_link": "https://gocolors.com/collections/mustard"
+          }
+        },
+        "fcca49bb-b9d3-4c5a-bde2-eb7045d4f541": {
+          "type": "colors",
+          "settings": {
+            "text_wrapp": "BLACK",
+            "image": "shopify://shop_images/Black_27d511e4-a3cd-4104-b9c8-788c231ccf63.png",
+            "color_link": "https://gocolors.com/collections/black"
+          }
+        },
+        "68c28d4d-41da-473e-b881-a974e25e7100": {
+          "type": "colors",
+          "settings": {
+            "text_wrapp": "GREEN",
+            "image": "shopify://shop_images/Green.png",
+            "color_link": "https://gocolors.com/collections/green"
+          }
+        },
+        "4076d359-5328-4772-8a0a-418612932c3f": {
+          "type": "colors",
+          "settings": {
+            "text_wrapp": "GREY",
+            "image": "shopify://shop_images/Grey_108cd8b1-4238-49fd-883c-91b82a9d2a66.png",
+            "color_link": "https://gocolors.com/collections/grey"
+          }
+        },
+        "01f6d258-c3c6-499d-b394-c452fe454aaa": {
+          "type": "colors",
+          "settings": {
+            "text_wrapp": "NAVY",
+            "image": "shopify://shop_images/Navy_be9850a1-98fa-4735-b199-f59dffcdd076.png",
+            "color_link": "https://gocolors.com/collections/navy"
+          }
+        },
+        "cf0591bd-3f73-40d8-8d54-3ae151ec706d": {
+          "type": "colors",
+          "settings": {
+            "text_wrapp": "OLIVE GREEN",
+            "image": "shopify://shop_images/Olive_Green_6e1a3745-3677-4212-be99-d5a492b61d2e.png",
+            "color_link": "https://gocolors.com/collections/olive-green"
+          }
+        },
+        "af21f8b4-30f3-4049-afb7-5044bb29ead9": {
+          "type": "colors",
+          "settings": {
+            "text_wrapp": "RED",
+            "image": "shopify://shop_images/Red_402696f2-0903-4cb8-8cdf-fc66bc573f92.png",
+            "color_link": "https://gocolors.com/collections/red"
+          }
+        }
+      },
+      "block_order": [
+        "b1da766b-ea37-4e28-b536-0690656a8a12",
+        "template--16198272123040__5ad52ffa-8e4f-422a-ba09-45de05a67421-colors-1",
+        "a8c59d7e-4e28-4593-87a0-346e96b0d3d5",
+        "fcca49bb-b9d3-4c5a-bde2-eb7045d4f541",
+        "68c28d4d-41da-473e-b881-a974e25e7100",
+        "4076d359-5328-4772-8a0a-418612932c3f",
+        "01f6d258-c3c6-499d-b394-c452fe454aaa",
+        "cf0591bd-3f73-40d8-8d54-3ae151ec706d",
+        "af21f8b4-30f3-4049-afb7-5044bb29ead9"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "Winter Hues"
+      }
+    },
+    "go_active_slider_video_JJYNWU": {
+      "type": "Go_active_slider_video",
+      "blocks": {
+        "image_banner_XyUUJX": {
+          "type": "Image_banner",
+          "settings": {
+            "video-link": "https://cdn.shopify.com/videos/c/o/v/d56d757fafc543ce8a1e6d63b461d036.mp4",
+            "youtube_iframe": "",
+            "text_wrapp": "",
+            "product-url": "#"
+          }
+        },
+        "image_banner_WrjTXV": {
+          "type": "Image_banner",
+          "settings": {
+            "video-link": "https://cdn.shopify.com/videos/c/o/v/edb4cd8994524e26b131c111f1d5dd06.mov",
+            "youtube_iframe": "",
+            "text_wrapp": "",
+            "product-url": "#"
+          }
+        },
+        "image_banner_Vkaczz": {
+          "type": "Image_banner",
+          "settings": {
+            "video-link": "https://cdn.shopify.com/videos/c/o/v/23eb4b61c5fd4e889d963f04fd36de84.mp4",
+            "youtube_iframe": "",
+            "text_wrapp": "",
+            "product-url": "#"
+          }
+        },
+        "image_banner_dBwdnJ": {
+          "type": "Image_banner",
+          "settings": {
+            "video-link": "https://cdn.shopify.com/videos/c/o/v/e29bdb6b52094c9e8d9282383e51c3b9.mp4",
+            "youtube_iframe": "",
+            "text_wrapp": "",
+            "product-url": "#"
+          }
+        },
+        "image_banner_DKUMwB": {
+          "type": "Image_banner",
+          "settings": {
+            "video-link": "https://cdn.shopify.com/videos/c/o/v/acd6c45b072f490ca73b8e2bac002dfc.mp4",
+            "youtube_iframe": "",
+            "text_wrapp": "",
+            "product-url": "#"
+          }
+        },
+        "image_banner_UkLwhM": {
+          "type": "Image_banner",
+          "settings": {
+            "video-link": "https://cdn.shopify.com/videos/c/o/v/1cbedd0602574c0ea1fa0cd784870382.mp4",
+            "youtube_iframe": "",
+            "text_wrapp": "",
+            "product-url": "#"
+          }
+        },
+        "image_banner_RALhdf": {
+          "type": "Image_banner",
+          "disabled": true,
+          "settings": {
+            "video-link": "https://cdn.shopify.com/videos/c/o/v/51c51b0c1c4b4391a0e21dfecd4e1847.mp4",
+            "youtube_iframe": "",
+            "text_wrapp": "text3",
+            "product-url": "#"
+          }
+        },
+        "image_banner_c6WrLz": {
+          "type": "Image_banner",
+          "disabled": true,
+          "settings": {
+            "video-link": "https://cdn.shopify.com/videos/c/o/v/51c51b0c1c4b4391a0e21dfecd4e1847.mp4",
+            "youtube_iframe": "",
+            "text_wrapp": "text3",
+            "product-url": "#"
+          }
+        }
+      },
+      "block_order": [
+        "image_banner_XyUUJX",
+        "image_banner_WrjTXV",
+        "image_banner_Vkaczz",
+        "image_banner_dBwdnJ",
+        "image_banner_DKUMwB",
+        "image_banner_UkLwhM",
+        "image_banner_RALhdf",
+        "image_banner_c6WrLz"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "TAKE A LOOK AND SHOP",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "mob_padding_top": 50,
+        "mob_padding_bottom": 50,
+        "dekstop_view": 4
+      }
+    },
+   
+    "data_inrichment_banner_7Hx8dK": {
+      "type": "data-inrichment-banner",
+      "settings": {
+        "Desktopbanner1": "shopify://shop_images/T_C-Web.jpg",
+        "Mobilebanner1": "shopify://shop_images/T_C-Mobile.jpg",
+        "url1": "",
+        "url2": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "mob_padding_top": 0,
+        "mob_padding_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "data_inrichment_banner_Dq4ei3",
+    "bba8c08b-aa85-4b5f-acd0-5851370b07c2",
+    "go_active_collection_tLJqPU",
+    "a670f1bf-5bc9-4120-9f9a-0a9d59c5ff74",
+    "go_active_collection_ArAmqf",
+    "5ad52ffa-8e4f-422a-ba09-45de05a67421",
+    "go_active_slider_video_JJYNWU",
+    "data_inrichment_banner_7Hx8dK"
+  ]
+}

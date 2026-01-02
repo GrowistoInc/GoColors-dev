@@ -1,0 +1,133 @@
+<script type='text/template' id='wizzy-search-wrapper' wizzy-override>
+    <div class="wizzy-search-wrapper [[#inOnCategoryPage]]wizzy-category-page[[/inOnCategoryPage]] [[#displayTileView]]display-tile-view[[/displayTileView]]
+    [[#hasFacets]]has-facets[[/hasFacets]]
+    [[#hasToDisplayFiltersAtTop]]has-filters-button-at-top[[/hasToDisplayFiltersAtTop]]
+    [[#hasLeftFacets]]has-left-facets[[/hasLeftFacets]]
+    [[#hasTopFacets]]has-top-facets[[/hasTopFacets]]
+    [[#displayFacetsInDrawer]]has-facets-in-drawer facets-drawer-on-[[facetDrawerPosition]][[/displayFacetsInDrawer]]" [[#displayTileView]]wizzy-tile-view-level="[[tileViewLevel]]"[[/displayTileView]]>
+
+        <div class="wizzy-search-summary-wrapper">
+            [[#summary]]
+            [[&summary]]
+            [[/summary]]
+        </div>
+
+        <div class="wizzy-search-results-wrapper">
+            [[#hasFacets]]
+            [[#hasToDisplayFiltersAtTop]]
+            <div class="wizzy-mobile-filter-button" >
+            [[/hasToDisplayFiltersAtTop]]
+                <a href="#" class="wizzy-filters-mobile-entry [[^sort]]only-filters[[/sort]]" [[#hasToDisplayFiltersAtTop]] style="top:[[filtersButtonOffset]]px"[[/hasToDisplayFiltersAtTop]]>Filters <span class="wz-active-filters-mobile-count"></span> </a>
+            [[#hasToDisplayFiltersAtTop]]
+            </div> 
+            [[/hasToDisplayFiltersAtTop]]
+            [[/hasFacets]]
+
+            [[#hasLeftFacets]]
+            <div class="wizzy-search-filters-left [[#layout]]wizzy-[[layout]][[/layout]]">
+
+                <div class="wizzy-filters-bg"></div>
+                <div class="wizzy-filters-close-btn"></div>
+                <div class="wizzy-filters-header">
+                    <p class="header-title">Filters</p>
+                    [[#hasFilters]]
+                    <a href="#" class="wizzy-filters-clear-all">Clear All</a>
+                    [[/hasFilters]]
+                </div>
+
+                <div class="wizzy-search-filters-left-wrapper">
+                    [[#layout]]
+                        <div class="wizzy-facet-list-block">
+                    [[/layout]]
+
+                    [[#leftFacets]]
+                    [[&html]]
+                    [[/leftFacets]]
+
+                    [[#layout]]
+                        </div>
+                    [[/layout]]
+
+                    <div class="wizzy-search-filters-left-mobile-extra">
+                    </div><!-- ending of wizzy-search-filters-left-mobile-extra -->
+
+                    [[#layout]]
+                        <div class="wizzy-mobile-filter-buttons">
+                            <div class="wizzy-filters-close-button-block">
+                                <div class="wizzy-filters-close-button">CLOSE</div>
+                            </div>
+                            <div class="wizzy-mobile-filter-buttons-divider"></div>
+                            <div class="wizzy-apply-all-button-block">
+                                <div class="wizzy-apply-all-button">APPLY</div>
+                            </div>
+                        </div>
+                    [[/layout]]
+
+                </div>
+
+            </div><!-- ending of wizzy-search-filters-->
+            [[/hasLeftFacets]]
+
+            <div class="wizzy-search-results-container">
+
+                <div class="wizzy-search-filters-top">
+  
+                [[#displayFacetsInDrawer]]
+                    <div class="wizzy-search-filters-drawer">
+                        <div class="wizzy-search-filters-drawer-button">
+                            <a href="#" class="wizzy-filters-desktop-entry">
+                                <span class="wizzy-filters-button"></span>
+                                <span>Filters</span>
+                            </a>
+                        </div>
+                    </div>
+                [[/displayFacetsInDrawer]]   
+                    <div class="search-filters-top-wrapper">
+                     <div class="wizzy-selected-filters">
+                        [[&selectedFacets]]
+                    </div><!-- ending of wizzy-selected-filters -->
+                        <div class="wizzy-search-filters-list-top">
+                            [[#topFacets]]
+                            [[&html]]
+                            [[/topFacets]]
+
+                        </div><!-- ending of wizzy-search-filters-list-top -->
+
+                        <div class="wizzy-search-sort-wrapper">
+                            [[#sort]]
+                            [[&sort]]
+                            [[/sort]]
+                        </div><!-- ending of wizzy-search-sort-wrapper -->
+                    </div><!-- ending of search-filters-top-wrapper-->
+
+                    <div class="filters-list-top-values-wrapper">
+
+                    </div><!-- ending of filters-list-top-values-wrapper -->
+
+                   
+
+                </div><!-- ending of wizzy-search-filters-->
+                [[#inOnCategoryPage]]
+                    <div class="wizzy-custom-collection"></div>
+                [[/inOnCategoryPage]]
+                <div class="wizzy-search-results">
+                    [[& products ]]
+                </div><!-- ending of wizzy-search-filters-->
+
+                <div class="wizzy-search-pagination">
+                    [[& pagination ]]
+                </div>
+
+            </div><!-- ending of wizzy-search-results-->
+
+        </div><!-- ending of wizzy-search-results-container -->
+    </div><!-- ending of wizzy-search-wrapper-->
+
+    [[#addMoveToTopWidget]]
+    <div class="wizzy-scroll-to-top-wrapper">
+        <div class="wizzy-scroll-to-top-button">
+
+        </div><!-- ending of wizzy-scroll-to-top-button -->
+    </div><!-- ending of wizzy-scroll-to-top-wrapper -->
+    [[/addMoveToTopWidget]]
+</script>

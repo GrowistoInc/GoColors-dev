@@ -1,0 +1,102 @@
+{%- assign collection = collections[settings.featured_collection] -%}
+{%- assign products_to_display = settings.products_to_show -%}
+{%- assign collection1 = collections[settings.featured_collection1] -%}
+{%- assign products_to_display1 = settings.products_to_show1 -%}
+{% comment %} {<a href="https://gocolors.com/collections/mostlysane-collection" style="color: #df2e84;font-weight: 600; margin: 10px 0 -10px;display: block;padding-bottom: 7px; border-bottom: 1px solid #efefef;"> MostlySane Collections</a> {% endcomment %}
+
+{%- assign collection3 = collections[settings.featured_collection3] -%}
+{%- assign products_to_display3 = settings.products_to_show3 -%}
+{%  if  settings.featured_collection3 != blank %}
+<div class="isolate gradient featured_collection_cart_drawer">
+  <div class="cst_main_related collection collection--full-width" id="collection-{{ section.id }}" data-id="{{ section.id }}">
+    <div class="collection__title title-wrapper title-wrapper--no-top-margin page-width title-wrapper--self-padded-tablet-down collection__title--desktop-slider">
+      <h2 class="title similar_product_title inline-richtext {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+       Black Friday Sale     </h2>
+    </div>
+    <div class="swiper cart-drawer-collection swiperass cst-feature-sliderblock">
+      <ul class="swiper-wrapper product-grid" role="list" aria-label="{{ 'general.slider.name' | t }}">
+        {% assign skip_card_product_styles = true %}
+         {%- for product in collection3.products limit: products_to_display3 -%}
+          <li class="swiper-slide">
+            {% render 'card-product', 
+                card_product: product, 
+                media_aspect_ratio: 'portrait', 
+                image_shape: 'default', 
+                show_secondary_image: false, 
+                show_vendor: false, 
+                show_rating: false, 
+                skip_styles: skip_card_product_styles, 
+                section_id: section.id, 
+                quick_add: 'none' 
+            %}
+          </li>
+        {% endfor %}
+      </ul>
+      <div class="swiper-scrollbar"></div>
+    </div>
+  </div>
+</div>
+{% endif %}
+
+  {%  if  settings.featured_collection1 != blank %}
+<div class="isolate gradient featured_collection_cart_drawer">
+  <div class="cst_main_related collection collection--full-width" id="collection-{{ section.id }}" data-id="{{ section.id }}">
+    <div class="collection__title title-wrapper title-wrapper--no-top-margin page-width title-wrapper--self-padded-tablet-down collection__title--desktop-slider">
+      <h2 class="title similar_product_title inline-richtext {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        MostlySane Collection      </h2>
+    </div>
+    <div class="swiper cart-drawer-collection swiperass cst-feature-sliderblock">
+      <ul class="swiper-wrapper product-grid" role="list" aria-label="{{ 'general.slider.name' | t }}">
+        {% assign skip_card_product_styles = true %}
+         {%- for product in collection1.products limit: products_to_display1 -%}
+          <li class="swiper-slide">
+            {% render 'card-product', 
+                card_product: product, 
+                media_aspect_ratio: 'portrait', 
+                image_shape: 'default', 
+                show_secondary_image: false, 
+                show_vendor: false, 
+                show_rating: false, 
+                skip_styles: skip_card_product_styles, 
+                section_id: section.id, 
+                quick_add: 'none' 
+            %}
+          </li>
+        {% endfor %}
+      </ul>
+      <div class="swiper-scrollbar"></div>
+    </div>
+  </div>
+</div>
+{% endif %}
+<div class="isolate gradient featured_collection_cart_drawer">
+  <div class="cst_main_related collection collection--full-width" id="collection-{{ section.id }}" data-id="{{ section.id }}">
+    <div class="collection__title title-wrapper title-wrapper--no-top-margin page-width title-wrapper--self-padded-tablet-down collection__title--desktop-slider">
+      <h2 class="title similar_product_title inline-richtext {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        {% comment %} You May Also Like {% endcomment %}
+         End Of Season Sale
+      </h2>
+    </div>
+    <div class="swiper cart-drawer-collection swiperass cst-feature-sliderblock">
+      <ul class="swiper-wrapper product-grid" role="list" aria-label="{{ 'general.slider.name' | t }}">
+        {% assign skip_card_product_styles = true %}
+         {%- for product in collection.products limit: products_to_display -%}
+          <li class="swiper-slide">
+            {% render 'card-product', 
+                card_product: product, 
+                media_aspect_ratio: 'portrait', 
+                image_shape: 'default', 
+                show_secondary_image: false, 
+                show_vendor: false, 
+                show_rating: false, 
+                skip_styles: skip_card_product_styles, 
+                section_id: section.id, 
+                quick_add: 'none' 
+            %}
+          </li>
+        {% endfor %}
+      </ul>
+      <div class="swiper-scrollbar"></div>
+    </div>
+  </div>
+</div>

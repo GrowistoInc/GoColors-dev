@@ -1,0 +1,94 @@
+{% assign heart = '<svg viewBox="0 0 256 256" width="23" height="23" class="iwishOutline" xmlns="http://www.w3.org/2000/svg"><rect fill="none" height="256" width="256"></rect><path d="M128,216S28,160,28,92A52,52,0,0,1,128,72h0A52,52,0,0,1,228,92C228,160,128,216,128,216Z" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path></svg>' %}
+{% if linkType == 'wishlist-drawer-link' %}
+  <div class='header__icon header__icon--iw link focus-inset small-hide iw-btn-max'>
+      <a href="#" class="iwishDrawer header_iw_content" id="iw-icon-bubble">
+        <span class="svg-wrapper">  
+          <svg viewBox="0 0 256 256" width="23" height="23" class="iwishOutline" xmlns="http://www.w3.org/2000/svg"><rect fill="none" height="256" width="256"></rect><path d="M128,216S28,160,28,92A52,52,0,0,1,128,72h0A52,52,0,0,1,228,92C228,160,128,216,128,216Z" fill="none" stroke="#1a1a1a" stroke-linecap="round" stroke-linejoin="round" stroke-width="17"></path></svg>
+        </span>
+            <span class="iwish-counter iw-count-show" style="display:none;">0</span>           
+      </a>
+       <span class="iwLabel cst-gap-icon">Wishlist</span>
+    </div>
+{% elsif linkType == 'wishlist-drawer-mob-link' %}
+ <div class="mob-icon-img iw-icn-mob">
+    <a href="#" id="iw-footer-icon-bubble" class="iwishDrawer">   
+      <svg viewBox="0 0 256 256" width="23" height="23" class="iwishOutline" xmlns="http://www.w3.org/2000/svg"><rect fill="none" height="256" width="256"></rect><path d="M128,216S28,160,28,92A52,52,0,0,1,128,72h0A52,52,0,0,1,228,92C228,160,128,216,128,216Z" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path></svg>
+      <span class="iwish-counter iw-count-show" style="display:none;">0</span>
+    </a>     
+  </div>
+{% elsif linkType == 'wishlist-page-link' %}
+  <a
+    class="iwishPage header__icon--account link focus-inset small-hide"
+    href="{% unless routes.root_url == '/' %}{{ routes.root_url }}{% endunless %}/apps/iwish"
+    title="Wishlist Page"
+    style="position:relative;"
+  >
+    {{- heart }}
+    <span class="iwish-counter iw-count-show">0</span></a
+  >
+{% elsif linkType == 'list-product' %}
+  <a
+    class="iWishAddColl iwishcheck"
+    href="#"
+    data-variant="{{ product.variants.first.id }}"
+    data-product="{{ product.id }}"
+    data-pTitle="{{ product.title | escape }}"
+  ></a>
+{% elsif linkType == 'single-product' %}
+  <div class="iwish-app-block-product">
+    <a
+      class="iWishAdd  st-1"
+      href="#"
+      data-variant="{{ product.variants.first.id }}"
+      data-product="{{ product.id }}"
+      data-pTitle="{{ product.title | escape }}"
+    ></a>
+  </div>
+{% elsif linkType == 'app-script' %}
+  <script>
+    function iWishCounter() {
+       try{
+         if (typeof iWish !== 'undefined' ){
+            if(iWish.getCounter() <= 0){
+              document.querySelectorAll(".iw-count-show").forEach((elm) => {
+                elm.style.display = 'none';
+              })
+            }
+            else{
+              document.querySelectorAll(".iw-count-show").forEach((elm) => {
+                elm.style.display = 'inline-flex';
+              })
+            }
+          }
+       }
+       catch(error){
+         //console.log(error);
+       }
+      }
+     function iWishRemoveFn(vId){
+      try{
+        iWishCounter();
+      }
+      catch(error){
+        //console.log(error);
+      }
+     }
+     function iWishAddFn(vId){
+       try{
+        iWishCounter();
+      }
+      catch(error){
+        //console.log(error);
+      }
+     }
+    function iWishinitFn(){
+      try{
+      iWishCounter();
+      }
+      catch(error){
+        //console.log(error);
+      }
+    }
+    
+  </script>
+{% endif %}

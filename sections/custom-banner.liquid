@@ -1,0 +1,129 @@
+<style>
+  .customBanner .mobile{
+    display:block;width:100%;
+  }
+    .customBanner .desktop{
+    display:none;width:100%;
+  }
+  .customBanner{
+    display:flex;
+    flex-direction:column;
+    row-gap:2rem;  
+  }
+  .customBanner img {
+    border-radius: 15px;
+  }
+  .section-{{ section.id }}-padding{
+      padding-block:{{ section.settings.mob_padding_top }}px {{ section.settings.mob_padding_bottom }}px;
+    }
+  @media screen and (min-width:1200px){
+    .customBanner{    
+        row-gap:4rem;
+    }
+    .section-{{ section.id }}-padding{
+      padding-block:{{ section.settings.padding_top}}px {{ section.settings.padding_bottom }}px;
+    }
+    .customBanner .desktop {display: block; height: 100%;margin: 0 auto;width: 100%;}
+  }
+  @media screen and (min-width:768px){
+      .customBanner .mobile{
+        display:none;
+      }
+    .customBanner .desktop{
+      display:block;
+    }
+  }
+</style>
+{% if section.settings.Desktopbanner1 != blank or section.settings.Desktopbanner2 != blank  %}
+<div class="customBanner section-{{ section.id }}-padding " >
+  {% if section.settings.Desktopbanner1 != blank  %}
+  {% if section.settings.url1 != blank  %} <a href="{{ section.settings.url1 }}"> {% endif %} 
+      {% if section.settings.Desktopbanner1 != blank  %}
+      <img class="desktop" src="{{ section.settings.Desktopbanner1 | img_url:" " }}" alt="{{ section.settings.Desktopbanner1.alt }}">
+      {% endif %}
+      {% if section.settings.Mobilebanner1 != blank  %} 
+      <img class="mobile" src="{{ section.settings.Mobilebanner1 | img_url:" " }}" alt="{{ section.settings.Mobilebanner1.alt }}">
+      {% endif %}
+    {% if section.settings.url1 != blank  %} </a> {% endif %} 
+   {% endif %}
+  {% comment %} {% if section.settings.Desktopbanner2 != blank  %}
+   {% if section.settings.url2 != blank  %} <a href="{{ section.settings.url2 }}"> {% endif %} 
+     {% if section.settings.Desktopbanner2 != blank  %}
+    <img class="desktop" src="{{ section.settings.Desktopbanner2 | img_url:" " }}" alt="{{ section.settings.Desktopbanner2.alt }}">
+  {% endif %} 
+  {% if section.settings.Mobilebanner2 != blank  %}
+    <img class="mobile" src="{{ section.settings.Mobilebanner2 | img_url:" " }}" alt="{{ section.settings.Mobilebanner2.alt }}">
+  {% endif %} 
+   {% if section.settings.url2 != blank  %} </a> {% endif %} 
+    {% endif %}  {% endcomment %}
+</div>  {% endif %}
+{% schema %}
+{
+  "name":"Data Inrichment Banner",
+  "settings":[
+    {
+      "type":"image_picker",
+      "label":"Dekstop Banner 1",
+      "id":"Desktopbanner1"
+    },   
+    {
+      "type":"image_picker",
+      "label":"Mobile Banner 1",
+      "id":"Mobilebanner1"
+    },
+    {
+      "type": "url",
+      "id": "url1",
+      "label": "Link to first banner"
+    }
+
+    
+    ,
+     {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 0
+    },
+      {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 0
+    },
+      {
+      "type": "range",
+      "id": "mob_padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Padding top",
+      "default": 0
+    },
+      {
+      "type": "range",
+      "id": "mob_padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Padding bottom",
+      "default": 0
+    }
+  ],
+  "presets":[
+    {
+     "name":"custom banner"
+    }
+  ]
+}
+{% endschema %}

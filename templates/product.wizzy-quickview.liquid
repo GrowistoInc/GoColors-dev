@@ -1,0 +1,460 @@
+{% layout none %}
+<div class="wizzy__quickview__container">
+  <div class="splide splide__container" role="group" aria-label="Wizzy Quick View Slider">
+    <div class="splide__track">
+  		 <ul class="splide__list">
+              {% for image in product.images %}
+                  <li class="splide__slide">
+                    <img src="{{ image.src | img_url: '1946x1946' }}" alt="{{ image.alt | escape }}" />
+                  </li>
+              {% endfor %}
+          </ul>
+    </div>
+  </div>
+  
+  <div class="data__container">
+        <h2 class="wizzy__quickview__title" tabindex="-1">{{ product.title }}</h2>
+
+        {% if product.vendor %}
+        <p class="wizzy__quickview__vendor">{{ product.vendor }}</p>
+        {% endif %}
+
+        {% if product.description %}
+        <div class="wizzy__quickview_description">
+          {{ product.description | strip_html | truncatewords: 30 }}
+        </div>
+        {% endif %}
+
+        <div class="wizzy__quickview__price__container">
+          {% if product.compare_at_price > product.price %}
+           <p class="wizzy__quickview__original__price {% if product.compare_at_price > product.price %} crossed {% endif %}">
+             {% if product.compare_at_price > product.price %}
+              {{ product.compare_at_price | money | strip_html }}
+              {% endif %}
+          </p>
+          {% endif %}
+          <p class="wizzy__quickview__selling__price">
+              {{ product.price | money | strip_html }}
+          </p>
+
+        </div>
+
+        <form id="wizzy__quickview__addtocart__form" action="/cart/add" method="post" enctype="multipart/form-data" class=" product-form">
+          <div id="wizzy__quickview__hidden__data__container" style="display:none">
+            [
+            {% for variant in product.variants %}
+              {
+                "id": {{ variant.id | json }},
+                "option1": {{ variant.option1 | json }},
+                "option2": {{ variant.option2 | json }},
+                "option3": {{ variant.option3 | json }},
+                "available": {{ variant.available | json }},
+                "image": {{ variant | img_url | json }}
+              }{%- if forloop.last != true -%},{%- endif -%}
+            {% endfor %}
+            ]
+          </div>
+
+          <select style="display:none" name="id" id="wizzy__quickview__selectoptions" class="wizzy__quickview__selectoptions">
+            {% for variant in product.variants %}
+              {% if variant.image != blank %}
+                {% assign variant_image = variant.image %}
+              {% else %}
+                {% assign variant_image = featured_image %}
+              {% endif %}
+              <option value="{{ variant.id }}"
+                  data-magnify-src="{{ variant_image | img_url: image_size, scale: image_scale }}"
+                  data-featured-image="{{ variant_image | img_url: image_size }}"
+                  data-variant-id="{{ variant.id }}" data-options="{{ variant.title }}"
+                  data-current-price-without-currency="{{ variant.price | money_without_currency }}"
+                  data-current-price="{{ variant.price | money | strip_html }}"
+                  data-was-price-without-currency="{{ variant.compare_at_price | money_without_currency }}"
+                  data-was-price="{% if variant.compare_at_price > 0 %} {{ variant.compare_at_price | money | strip_html }} {% endif %}"
+                  {% if variant.available %} data-available="true" {% else %} data-available="false" {% endif %}
+                  {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %}>
+                {% if variant == product.selected_or_first_available_variant %}
+                  {%- assign isAvailableFirst = product.selected_or_first_available_variant.available  -%}
+                {% endif %}
+              </option>
+            {% endfor %}
+          </select>
+
+          {% assign variantCount = product.variants | size %}
+          {% if variantCount > 0 and product.variants[0].title != 'Default Title'  %}
+            {%- for option in product.options_with_values -%}
+                {% assign is_color = false %}
+                {% assign option_name = option.name | downcase %}
+                {% assign file_extension = 'png' %}
+                {% assign option_id = 'option' | append: forloop.index %}
+                {% if option_name contains 'color' or option_name contains 'colour' %}
+                  {% assign is_color = true %}
+                {% endif %}
+              <div class=" {% if index == option_size %}last{% endif %} wz-size-wrapper" id="ProductSelect-option-{{ forloop.index0 }}" name="{{ option.name | handleize }}" role="link">
+                <div class="wz-size-lable">
+                  {{ option.name | escape }}
+                </div>
+                {%- for value in option.values -%}
+                  <!-- Check to see if there's a product size option. If there is a size, check to see if there's any availble for purchase. If not, set the variat control in a "disabled" state. -->
+                  {%- assign variant_label_state = true -%}
+
+                  {%- if product.options.size == 1 -%}
+                    {%- unless product.variants[forloop.index0].available -%}
+                      {%- assign variant_label_state = false -%}
+                    {%- endunless -%}
+                  {%- endif -%}
+                  
+                  <div data-value="{{ value | escape }}" class=" {% if is_color %} wizzy__quickview__color {% else %}wizzy__quickview_normal {% endif %}{{ value | handle }} {% if variant.available %}available{% else %}soldout{% endif %}">
+                    <input type="radio"
+                      {% if option.selected_value == value %} checked="checked"{% endif %}
+                      value="{{ value | escape }}"
+                      data-name="{{ option.name | handleize }}"
+                      name="{{ option_id }}"
+                      id="ProductSelect-option-{{ option.name | handleize }}-{{ value | escape }}"
+                      class="wizzy__quickview__select__option">
+                    {% if is_color %}
+                    <label tabindex="0" aria-label="{{ option.name }}: {{ value | escape }}" for="ProductSelect-option-{{ option.name | handleize }}-{{ value | escape }}" style="background-color: {{ value | split: ' ' | last | handle }}; background-image: url({{ value| prepend: 'color-' | handle | append: '.' | append: file_extension | file_url }})">
+                    </label>
+                    {%- else -%}
+                    <label tabindex="0" aria-label="{{ option.name }}: {{ value | escape }}" for="ProductSelect-option-{{ option.name | handleize }}-{{ value | escape }}">
+                      {{ value | escape }}
+                    </label>
+                    {%- endif -%}
+                  </div>
+                {%- endfor -%}
+              </div>
+            {%- endfor -%}
+          {%- endif -%}
+
+
+            <div class="wizzy__quickview__addtocart__container">
+            <label for="wizzy__quickview__quantity"> Quantity </label>
+            <div class="">
+              <div class="">
+                <input role="textbox" type="number" id="wizzy__quickview__quantity__input" name="quantity" value="1" min="1" class="" pattern="[0-9]*" required>
+              </div>
+              <div class="">
+                <input type="submit" name="add" id="" class="wizzy__quickview__addtocart__button" value="{% if isAvailableFirst %} Add To Cart {% else %} Out of Stock {% endif %}" {% if isAvailableFirst %}{% else %}disabled='disabled'{% endif %} /> 
+                <div id=""></div>
+              </div>
+            </div>
+          </div>
+          <div class="wizzy__quickview__wrapper"><a href="{{ product.url | within_collection }}" class="wizzy__quickview__viewfull">View Product Details</a></div>
+        </form>
+  </div>
+</div>
+<script>
+
+  var linkElement = document.createElement('link');
+
+  linkElement.setAttribute('rel', 'stylesheet');
+  linkElement.setAttribute('href', 'https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css');
+  document.head.appendChild(linkElement);
+
+  var scriptElement = document.createElement('script');
+  scriptElement.setAttribute('src', 'https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js');
+  document.body.appendChild(scriptElement);
+
+    var splideTimeOut = setTimeout(function() {
+    if(typeof Splide !== undefined){
+    let splide = new Splide('.splide');
+    splide.mount();
+    clearInterval(splideTimeOut);
+    }
+  }, 500);
+ 
+  var options = document.getElementsByClassName('wizzy__quickview__select__option');
+  var selectOptions = document.querySelectorAll(".wizzy__quickview__selectoptions option")
+  
+  var selectedSwatches = [];
+  var optionValue = null;
+  for(let i = 0; i<options.length; i++){
+    options[i].addEventListener('change', function(){
+      selectedSwatches = []
+       for(let j = 0; j<options.length; j++){
+         if(options[j].getAttribute('name') === options[i].getAttribute('name')){
+           options[j].removeAttribute('checked')
+         }
+         options[i].setAttribute('checked','checked');
+           if(options[j].getAttribute('checked')){
+              selectedSwatches.push(options[j].value);
+              optionValue = selectedSwatches.join(" / ")
+            }
+        }
+
+      for(let j=0; j<selectOptions.length; j++){
+        if(selectOptions[j].getAttribute("data-options") === optionValue){
+          selectOptions[j].setAttribute("selected","selected");
+          let originalPrice = selectOptions[j].getAttribute("data-was-price-without-currency"); 
+          let sellingPrice = selectOptions[j].getAttribute("data-current-price-without-currency");
+          let isAvailable =  selectOptions[j].getAttribute("data-available");
+          setUpdatedVariantPrice(originalPrice,sellingPrice);
+          setUpdatedAddToCart(isAvailable);
+        }
+        else{
+          selectOptions[j].removeAttribute("selected")
+        }
+      }
+
+      
+    })
+  }
+
+  function setUpdatedVariantPrice(updatedOriginalPrice, updatedSellingPrice){
+    let originalPrice = document.getElementsByClassName('wizzy__quickview__original__price')[0];
+    let sellingPrice = document.getElementsByClassName('wizzy__quickview__selling__price')[0];
+    parseInt(updatedOriginalPrice) > parseInt(updatedSellingPrice) ? originalPrice.innerHTML = `₹ ${updatedOriginalPrice}` : originalPrice.innerHTML = ""
+    sellingPrice.innerHTML = `₹ ${updatedSellingPrice}`
+  }
+
+  function setUpdatedAddToCart(isAvailable){
+    let button = document.getElementsByClassName("wizzy__quickview__addtocart__button")[0];
+    
+    if(isAvailable === "true"){
+      button.value = "Add to Cart"
+      button.removeAttribute('disabled')
+    }
+    else{
+      button.value = "Out of Stock"
+      button.setAttribute('disabled', true)
+    }
+  }
+  
+</script>
+
+<style>
+  .wizzy__quickview__container{
+    width:100%;
+    height:100%;
+    display:flex;
+  }
+
+  .splide__container{
+    width:50%;
+    height:680px;
+  }
+
+  .splide__slide{
+    height:100%;
+  }
+
+  .splide__slide img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+
+  .data__container{
+    width:50%;
+    height:640px;
+    overflow-y:scroll;
+    padding:20px;
+    margin-top:40px;
+    padding-top:0px;
+    background-color:white;
+  }
+
+  .data__container h2{
+    margin:0px;
+  }
+
+  .splide__track{
+    height:100%;
+  }
+
+ .wizzy__quickview__select__option{
+    display:none;
+  }
+
+  .wizzy__quickview_normal {
+    display: inline-block;
+  }
+
+ .wizzy__quickview_normal label {
+    border: 1px solid grey;
+    padding: 5px 20px;
+    margin: 5px;
+    border-radius: 25px;
+   cursor:pointer;
+}
+input[type="radio"]:checked + label {
+    background: black;
+    color: white;
+}
+  
+
+  .wizzy__quickview__color{
+    display:inline-block;
+    position:relative;
+    border-radius: 50%;
+  }
+
+  .wizzy__quickview__color:has(input:checked){
+    border: 1px solid black;
+  }
+
+  .wizzy__quickview__color label{
+    width: 25px;
+    height: 25px;
+    border-radius:50%;
+    display:block;
+    margin:5px;
+    padding:5px;
+    cursor:pointer;
+  }
+
+  .wizzy__quickview__color input[type="radio"]:checked + label {
+    border: 1px solid black;
+  }
+
+  .wizzy__quickview__price__container{
+    display:flex;
+  }
+
+  .wizzy__quickview__price__container p{
+    margin-right:30px
+  }
+
+  #wizzy__quickview__quantity__input{
+    padding: 10px 20px;
+    margin: 0 0 40px;
+    width: 50%;
+    background-color: #fff;
+    border: 1px solid #EBEBEB;
+    box-sizing: border-box;
+    border-radius: 50px;
+    line-height: 20px;
+  }
+
+  .crossed{
+    text-decoration:line-through;
+  }
+
+  .wizzy__quickview__addtocart__button{
+    padding: 10px 20px;
+    background: #222222;
+    border: 1px solid #222222;
+    box-sizing: border-box;
+    border-radius: 50px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #fff;
+    min-width: 209px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: inline-block;
+    width: auto;
+    text-decoration: none;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    -moz-transition: all .25s;
+    -ms-transition: all .25s;
+    -o-transition: all .25s;
+    -webkit-transition: all .25s;
+    transition: all .25s;
+    cursor: pointer;
+  }
+.wizzy__quickview__color label:before {
+    content: "";
+    border: 3px solid #fff;
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    -ms-box-shadow: inset 0 0 2px 1px rgba(0,0,0,.05);
+    -webkit-box-shadow: inset 0 0 2px 1px rgba(0,0,0,.05);
+    box-shadow: inset 0 0 2px 1px #0000000d;
+}
+  .wizzy__quickview__addtocart__container{
+    margin: 20px 0px
+  }
+
+  .wizzy__quickview__wrapper>a{
+    color: #f30;
+    position: relative;
+    padding-right: 26px;
+    text-decoration: none;
+  }
+  
+  .wizzy__quickview__wrapper>a:before {
+    top: 50%;
+    margin-top: -2px;
+    right: 0px;
+    position: absolute;
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-right: 1px solid #FF3300;
+    border-bottom: 1px solid #FF3300;
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(-45deg);
+    -moz-transition: all .1s ease-in-out;
+    -o-transition: all .1s ease-in-out;
+    -webkit-transition: all .1s ease-in-out;
+    transition: all .1s ease-in-out;
+}
+
+
+  .wizzy__quickview__wrapper>a:after {
+    content: "";
+    width: 20px;
+    height: 1px;
+    background: #FF3300;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin-top: 1px;
+}
+
+  .wizzy__quickview__addtocart__button[disabled="true"] {
+    background: #7d7d7d !important;
+}
+  
+ @media (min-width: 767px) {
+   .wizzy__quickview__container .splide__container{
+     height:100%;
+   }
+
+   .wizzy-popup-modal-box-content{
+     height:100%;
+   }
+ }
+    
+    
+
+  @media (max-width: 767px) {
+   .wizzy__quickview__container{
+     flex-direction:column;
+   }
+
+  .splide__container {
+    width: 100%;
+    height: 50%;
+    }
+
+  .data__container{
+    width:100%;
+    height:250px
+  }
+
+  .wizzy-popup-modal-close{
+    z-index:9
+  }
+
+    .wizzy__quickview_description{
+      display:none;
+    }
+    
+  }
+
+  
+</style>

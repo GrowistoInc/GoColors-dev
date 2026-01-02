@@ -1,0 +1,121 @@
+<style>
+  .newsletter-card {
+    margin: 0 auto;
+    padding: 20px 25px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: #fff;
+    margin:30px auto;
+    width: 100%;
+    max-width: 630px !important;
+    
+  }
+  .newsletter-card h2 {
+    font-weight: bold;
+    margin: 0;
+    font-size:22px;
+  }
+  .newsletter-card p {
+    font-size:12px;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  .newsletter-card label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 6px;
+  }
+  .custom-input-wrapper {
+    display: flex;
+    gap:20px;
+    width:80%;
+    margin-bottom:15px;
+}
+  .newsletter-card input[type="email"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    min-width: 250px;
+  }
+  .newsletter-card .privacy-text {
+    font-size: 0.8rem;
+    color: #555;
+    margin-top: 8px;
+    line-height: 1.4;
+  }
+  .newsletter-card .privacy-text a {
+    color: #0073e6;
+    text-decoration: none;
+  }
+  .newsletter-card button {
+    display: inline-block;
+    margin-top: 0;
+    background: #0069d9;
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: bold;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    transition: background 0.2s ease-in-out;
+  }
+  .newsletter-card button:hover {
+    background: #0056b3;
+  }
+  @media screen and (min-width: 750px) {
+    .newsletter-card .newsletter-form {
+        margin: unset;
+        max-width: unset;
+    }
+}
+ @media screen and (max-width: 749px) {
+  .custom-input-wrapper{
+    flex-direction:column;
+    gap:0;
+  }
+  .newsletter-form{
+    display:block !important;
+  }
+ }
+
+</style>
+
+<div class="newsletter-card">
+  <h2>Subscribe to our newsletter.</h2>
+  <p>Stay up-to-date in the world of bags, delivered straight to your inbox.</p>
+
+  {%- form 'customer', id: 'ContactNewsletter', class: 'newsletter-form' -%}
+    <div class="custom-input-wrapper">
+    <label for="NewsletterForm--{{ section.id }}">Email address:</label>
+    <input 
+      id="NewsletterForm--{{ section.id }}"
+      type="email"
+      name="contact[email]"
+      value="{% unless form.posted_successfully? %}{{ form.email }}{% endunless %}"
+      placeholder="Your email address"
+      required
+    >
+    </div>
+    <p class="privacy-text">
+      By clicking Subscribe, you acknowledge our 
+      <a href="/policies/privacy-policy">Privacy Policy</a>. 
+      You can unsubscribe anytime via the link in every email.
+    </p>
+    <button type="submit">SUBSCRIBE</button>
+
+    {%- if form.errors -%}
+      <p style="color:red; font-size:0.85rem;">
+        {{ form.errors.messages.email }}
+      </p>
+    {%- endif -%}
+
+    {%- if form.posted_successfully? -%}
+      <p style="color:green; font-size:0.85rem;">
+        Thanks for subscribing!
+      </p>
+    {%- endif -%}
+  {%- endform -%}
+</div>

@@ -1,0 +1,646 @@
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top_mob }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mob }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+<style>
+  .page-wrapper .signup-form-container{
+    padding:0 !important;
+  }
+  .signup-form-container{
+    background:url("{{ section.settings.form_background | image_url: width:auto , height:auto  }}");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    /* width:100%;
+    height:100%;
+    max-width:1200px; */
+
+  }
+  .signup-form-container form{
+    background-color: {{ section.settings.form_background_color }};
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    margin: auto;
+  }
+  .signup-form-container h2 {
+    color: #ffffff;
+    text-align: center;
+    font-size:30px;
+  }
+  .signup-form-container input, .signup-form-container select {
+    width: 100%;  
+    padding: 12px;
+    margin: 5px 0 10px;
+      border: 1px solid #000;
+    /* border-radius:44px; */
+    border-radius: 10px;
+  }
+  .signup-form-container button ,
+  .signup-form-container button:hover
+  {
+    /* width: 100%; */
+    /* padding: 10px !important; */
+    background-color: {{ section.settings.button_color }} !important;
+    color: #fff !important;
+    border: none !important;
+    /* border-radius: 5px !important; */
+    cursor: pointer !important;
+    opacity:1;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .terms {
+    display: flex;
+    /* align-items: center; */
+    align-items: center;
+  }
+  input#terms{
+    width:auto;
+  }
+  /* input#maritalStatus{
+    
+  } */
+  .terms label {
+    /* margin:10px 5px; */
+    margin:5px;
+    /* color: #fff; */
+  }
+  .terms label a{
+    font-weight:600;
+    text-decoration:underline;
+  }
+  .terms label a:hover{
+    color:inherit;
+  }
+  .error{
+    color:red;
+    text-transform: none;
+    display: block;
+  }
+  #signupForm .pretty-select, .pretty-select select {
+    padding-left: 10px !important;
+     width: 100% !important;
+    margin: 10px 0 !important;
+    border: none !important;
+    border-radius: 44px !important;
+  }
+.pretty-select select{
+  margin:0 !important;
+}
+#signupForm input[type="date"] {
+  position: relative;
+  display: grid;
+  justify-content: flex-start;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    height: auto;
+    color: transparent;
+    background: transparent;
+}
+.signup-form-container .field__label1 {
+  margin: 0;
+  text-transform: none;
+  font-size: 14px;
+  padding-top: 6px;
+}
+@media screen and (max-width: 767px) {
+  .signup-form-container h2 {
+    font-size:20px;
+  }
+  .signup-form-container form{
+    width: 300px;
+    /* width: 250px; */
+  }
+  .signup-form-container{
+    background-size:cover;
+  }
+}
+span#message_show_1 {
+  display: flex;
+  font-size: 24px;
+  margin-bottom: 20px;
+  line-height: normal;
+  font-weight: 400;
+  justify-self: center;
+  width: 75%;
+  text-transform: none !important;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+}
+span#message_show_1 .btn {
+  line-height: normal; 
+  margin-top: 7px;
+  background-color: #ff5ba5;
+}
+@media screen and (max-width: 767px) {
+  span#message_show_1 {
+    width: 100%;     
+    font-size: 18px;
+  } 
+}
+  @media screen and (max-width: 1024px) {
+  .signup-form-container select, #signupForm input[type="date"] {
+      height: 45px;
+  }
+  #signupForm input[type='date']:after {
+    color: #3e3e3e;
+    content: 'mm/dd/yyyy';
+    position: absolute;
+    left: 13px;
+    top: 13px;
+  }
+  #signupForm input[type="date"]:focus:after {
+    content: '';
+  }
+  #signupForm input[data-gtm-form-interact-field-id="0"]:after {
+    content: '';
+  }
+  #signupForm input[data-gtm-form-interact-field-id="1"]:after {
+    content: '';
+  }
+  [data-gtm-form-interact-field-id]:after {
+    content: '';
+  }
+  #signupForm input[type="date"].full:after {
+    content: '';
+  }
+}
+</style>
+
+<div class="section-{{ section.id }}-padding">
+   <span id="message_show_1" class="center" style="text-align: center;">    
+   </span>
+  <div class="signup-form-container">
+    <form id="signupForm">
+      <h2>{{ section.settings.form_title }}</h2>
+      <label class="field__label1" for="firstName">First Name*</label>
+      <input
+        type="text"
+        id="firstName"
+        name="firstName"        
+        onkeydown="return /[a-z]/i.test(event.key)"
+      >
+      <label id="firstName-Error" class="error"></label>
+      <label class="field__label1" for="lastName">Last Name*</label>
+      <input
+        type="text"
+        id="lastName"
+        name="lastName"       
+        onkeydown="return /[a-z]/i.test(event.key)"
+      >
+      <label id="lastName-Error" class="error"></label>
+      <label class="field__label1" for="dob">Date of Birth*</label>
+      <input
+        type="date"               
+        id="dob"
+        name="dob"        
+        min="1965-01-01" max="2007-12-31" onkeydown="return false" oninput="checkDateForGoReward()"
+      >       
+      <label id="dob-Error" class="error"></label>
+      <label class="field__label1" for="maritalStatus">Marital Status*</label>
+      <select id="maritalStatus" name="maritalStatus" placeholder="Marital Status" class="noreplace">        
+          <option disabled selected>Marital Status*</option>
+          <option value="Married">Married</option>
+          <option value="UnMarried">Unmarried</option>          
+        </select>       
+      <label id="maritalStatus-Error" class="error"></label>
+      <label class="field__label1" for="anniversary">Date of Anniversary*</label>
+      <input
+        type="date"
+        id="anniversary"
+        name="anniversary"       
+        oninput="checkLable()"
+      >     
+      <label id="anniversary-Error" class="error"></label>
+      <label class="field__label1" for="email">Email ID*</label>
+      <input type="email" id="email" name="email">
+      <label id="email-Error" class="error"></label>
+      <label class="field__label1" for="email">Mobile Number*</label>
+      <input
+        type="tel"
+        id="mobile"
+        name="mobile"        
+        onkeypress="return /[0-9]/i.test(event.key)"
+        size="10"
+        maxlength="10"
+        minlength="10"
+      >
+      <label id="mobile-Error" class="error"></label>
+      {% if section.settings.include_terms_checkbox %}
+        <div class="terms">
+          <input type="checkbox" id="terms" name="terms">
+          <label for="terms">I accept <a href="#terms_and_conditions" class="terms_and_condition_redirect_link">terms and conditions</a></label>
+        </div>
+        <label id="terms-Error" class="error"></label>
+      {% endif %}
+      <button type="submit" class="button--primary button" id="submitButton">{{ section.settings.button_text }}</button>
+      <span id="message_show" style="text-align: center;color: red;">
+      </span>
+    </form>
+  </div>
+</div>
+
+<script>
+ 
+  document.getElementById('signupForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    $('#message_show').text(''); 
+    $('#message_show_1 span').text(''); 
+    const submitButton = document.getElementById('submitButton');
+   // submitButton.disabled = true;
+    function validateEmail(email) {
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailPattern.test(email);
+    }
+    // Basic validation
+    const firstName = document.getElementById('firstName').value;
+    const lastName = document.getElementById('lastName').value;
+    const dob = document.getElementById('dob').value;
+    const maritalStatus = document.getElementById('maritalStatus').value;
+    const anniversary = document.getElementById('anniversary').value;
+    const email = document.getElementById('email').value;
+    const mobile = document.getElementById('mobile').value;
+    const terms = document.getElementById('terms') ? document.getElementById('terms').checked : true;
+
+    // if (!firstName || !lastName || !dob || !email || !mobile || !terms) {
+    //   alert('Please fill out all required fields and accept the terms.');
+    //   return;
+    // }
+    console.log('maritalStatus', maritalStatus);
+    if (firstName == '') {     
+      $("#firstName-Error").text("Please Enter First Name");
+      // return false;
+    }
+    else{
+      $("#firstName-Error").text("");
+    }
+    if (lastName == '') {
+       $("#lastName-Error").text("Please Enter Last Name");
+      // return false;
+    }
+    else{
+      $("#lastName-Error").text("");
+    }
+    if (dob == '') {
+       $("#dob-Error").text("Please Select Date Of Birth");
+      // return false;
+    }
+    else{
+      $("#dob-Error").text("");
+    }
+    if (maritalStatus == '' || maritalStatus === 'Marital Status*') {
+       $("#maritalStatus-Error").text("Please Enter marital status");
+      // return false;
+    }
+    else{
+      $("#maritalStatus-Error").text("");
+    }
+    if(maritalStatus == "Married"){
+      if (anniversary == '') {
+         $("#anniversary-Error").text("Please Select Anniversary Date");
+        // return false;
+      }
+      else{
+        $("#anniversary-Error").text("");
+      }
+      if (dob && anniversary) {
+        const dobDate = new Date(dob);
+        const anniversaryDate = new Date(anniversary);
+
+        if (anniversaryDate < dobDate) {
+          $("#anniversary-Error").text("Anniversary Date cannot be before Date of Birth");
+          return false;
+        }
+      }
+    }
+    else if(maritalStatus == "UnMarried"){
+        $("#anniversary-Error").text("");
+    }
+    if (email == '') {
+       $("#email-Error").text("Please Enter Email");
+      // return false;
+    } 
+    else if (!validateEmail(email)) {
+      $("#email-Error").text("Please enter a valid email id");
+    }
+    else {
+      $("#email-Error").text("");
+    }
+    if (mobile == '') {
+       $("#mobile-Error").text("Please Enter Mobile Number");
+      // return false;
+    }
+    else {
+      $("#mobile-Error").text("");
+    }
+    if(terms == false){
+      $("#terms-Error").text("Please Select terms and conditions");
+    }
+    else{
+      $("#terms-Error").text("");
+    }
+    if (!validateEmail(email)) {
+      return false;
+    }
+    if (!firstName || !lastName || !dob || !maritalStatus || !email || !mobile || !terms) {
+      return false;
+    }
+    else if(maritalStatus == "Married"){
+      console.log("anniversary", anniversary);
+      if(!anniversary){
+        return false;
+      }      
+      else{
+        // ajax to check unique mobile number
+            $.ajax({
+              url: "https://admin3157.gocolors.com/new_go_colors_india/public/api/insert_go_rewards",
+              type: "POST",
+              dataType: "json",
+              crossDomain: true,
+              format: "json",
+              data: {
+                "first_name": firstName,
+                "last_name": lastName,
+                "dob": dob,
+                "marital_status": maritalStatus,
+                "anniversary": anniversary,
+                "email": email,
+                "mobile": mobile,
+               },
+               beforeSend: function() {
+                  submitButton.disabled = true;
+               },
+               success: function(resp) {
+                 $('#signupForm')[0].reset();
+                 console.log(resp);
+                  if(resp.code == 200){
+                    if ($(".register-button").length) {
+                        $('html, body').animate({
+                          scrollTop: $(".register-button").offset().top
+                        }, 1000);
+                      }
+                    
+                    $('#signupForm').hide();
+                    // $('#message_show_1').text(resp.message);
+                    $('#message_show_1').html('<span>'+ resp.message +'</span> <a href="/" class="button btn btn--has-icon-after">Continue Shopping</a>');
+                  } 
+                  else if(resp.code == 409){                
+                     if ($(".register-button").length) {
+                        $('html, body').animate({
+                          scrollTop: $(".register-button").offset().top
+                        }, 1000);
+                      }
+                  $('#signupForm').hide();
+                  // $('#message_show_1').text(resp.message);
+                    $('#message_show_1').html('<span>'+ resp.message +'</span> <a href="/" class="button btn btn--has-icon-after">Continue Shopping</a>');
+                } else {                    
+                    $('#message_show').text(resp.message);
+                  }
+                 
+                 setTimeout(function() {
+                      $('#message_show').fadeOut(300, function() {
+                          $('#message_show').hide(); 
+                      });
+                  }, 10000);
+                },
+                error: function(xhr, status, error) {
+                  console.error("AJAX Error: ", status, error);
+                },
+                complete: function() {
+                  submitButton.disabled = false;
+                }
+            });
+      }
+    }
+    else{
+      console.log("maritalStatus", maritalStatus);
+      console.log("anniversary", anniversary);
+      if(maritalStatus === "Marital Status*") {
+        return false;
+      }
+      if(maritalStatus === "Married") {
+        if(!anniversary){
+          return false;
+        }
+      }
+      // if(!anniversary || maritalStatus !== 'Married'){
+      //   return false;
+      // }  
+      // ajax to check unique mobile number
+          $.ajax({
+            url: "https://admin3157.gocolors.com/new_go_colors_india/public/api/insert_go_rewards",
+            type: "POST",
+            dataType: "json",
+            crossDomain: true,
+            format: "json",
+            data: {
+              "first_name": firstName,
+              "last_name": lastName,
+              "dob": dob,
+              "marital_status": maritalStatus,
+              "anniversary": anniversary,
+              "email": email,
+              "mobile": mobile,
+             },
+             beforeSend: function() {
+                submitButton.disabled = true;
+             },
+             success: function(resp) {
+               $('#signupForm')[0].reset();
+               console.log(resp);
+                if(resp.code == 200){
+                 if ($(".register-button").length) {
+                    $('html, body').animate({
+                      scrollTop: $(".register-button").offset().top
+                    }, 1000);
+                  }
+                  $('#signupForm').hide();
+                  // $('#message_show_1').text(resp.message);
+                  $('#message_show_1').html('<span>'+ resp.message +'</span> <a href="/" class="button btn btn--has-icon-after">Continue Shopping</a>');
+                }
+                else if(resp.code == 409){                
+                 if ($(".register-button").length) {
+                    $('html, body').animate({
+                      scrollTop: $(".register-button").offset().top
+                    }, 1000);
+                  }
+                  $('#signupForm').hide();
+                  // $('#message_show_1').text(resp.message);
+                  $('#message_show_1').html('<span>'+ resp.message +'</span> <a href="/" class="button btn btn--has-icon-after">Continue Shopping</a>');                  
+                }
+                else {                  
+                  $('#message_show').text(resp.message);
+                }
+               
+               setTimeout(function() {
+                    $('#message_show').fadeOut(300, function() {
+                        $('#message_show').hide(); 
+                    });
+                }, 10000);
+              },
+              error: function(xhr, status, error) {
+                console.error("AJAX Error: ", status, error);
+              },
+              complete: function() {
+                submitButton.disabled = false;
+              }
+          });
+    }
+
+    // alert('Form submitted successfully!');
+    // Process the form submission here (e.g., AJAX request or Shopify app integration)
+  });
+  
+  function checkDateForGoReward() {
+    var input = document.getElementById('dob');
+    var inputDate = new Date(document.getElementById("dob").value);
+        var minDate = new Date("1965-01-01");
+        var maxDate = new Date("2007-12-31");        
+      console.log('inputDate', inputDate);
+        if (inputDate) {          
+            input.classList.add("full");
+        }
+        else {           
+            input.classList.remove("full");
+        }
+        if (inputDate < minDate || inputDate > maxDate) {
+            //alert("Please select a date between 1965 and 2015.");
+            // document.getElementById("dob").value = "";            
+            $("#dob-Error").text("Please select a date between 1965 and 2007.");
+            return false;
+        }
+        else {
+           $("#dob-Error").text("");
+        }
+  }
+function checkLable() {
+    var input = document.getElementById('anniversary');
+    var inputDate = new Date(document.getElementById("anniversary").value);       
+        if (inputDate) {          
+            input.classList.add("full");
+        }
+        else {           
+            input.classList.remove("full");
+        }
+  }
+$(function() {
+    $("#maritalStatus").change(function() {      
+      var status_val = $('option:selected', this).val();
+      if (status_val === "UnMarried") {        
+        $('#anniversary').hide();
+        $('label[for="anniversary"]').hide();
+      }
+      else {
+        $('#anniversary').show();
+        $('label[for="anniversary"]').show();
+      }
+    });
+});
+</script>
+{% schema %}
+{
+  "name": "Invite Only Rewards Form",
+  "settings": [
+    {
+      "type": "text",
+      "id": "form_title",
+      "label": "Form Title",
+      "default": "Sign Up Now"
+    },
+    {
+      "type": "image_picker",
+      "id": "form_background",
+      "label": "Form Background Image"
+    },
+    {
+      "type": "color",
+      "id": "form_background_color",
+      "label": "Form Background Color",
+      "default": "#62c462"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Submit"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Button Background Color",
+      "default": "#000000"
+    },
+    {
+      "type": "checkbox",
+      "id": "include_terms_checkbox",
+      "label": "Include 'Terms and Conditions' Checkbox",
+      "default": true
+    },
+          {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding top",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding bottom",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "padding_top_mob",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding top Mobile",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom_mob",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding bottom Mobile",
+        "default": 0
+      }
+  ],
+  "presets": [
+    {
+      "name": "Invite Only Rewards Form",
+    }
+  ]
+}
+{% endschema %}

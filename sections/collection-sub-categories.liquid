@@ -1,0 +1,298 @@
+<style>
+  .breadcrumbs {
+	padding-top: 10px;
+	padding-bottom: 10px;
+  }
+  .breadcrumbs__list {
+	display: flex;
+	list-style: none;
+	padding: 0;
+	gap: 5px;
+    color: #B7B7B7;
+    font-size: 10px;
+    align-items: center;
+  }
+  .breadcrumbs__list a{
+    color: #B7B7B7;
+    font-size: 10px;
+  }
+  .breadcrumbs__list .last {
+	color: #1A1A1A;
+	font-size: 16px;
+	font-weight: bold;
+  }
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top_mob }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mob }}px;
+  }
+  .active.sub-cat {
+    background: #DF2E84;
+    color: #fff;
+}
+  .active.sub-cat svg{
+      margin-left: 15px;
+  }
+  .sub-cat {
+    color: #434340;
+    text-decoration: none;
+    font-size: 12px;
+    padding: 1rem 1.5rem;
+    box-shadow: 0px 1px 5px #0000001A;
+    border-radius: 25px;
+    max-width: fit-content;
+    background: #FAF9F6;
+    line-height: 15px;
+    text-wrap: nowrap;
+}
+  .sub-cat:hover {
+    background: #DF2E84;
+    color: #fff;
+}
+  .col-subcategory.swiper {
+    padding: 5px 0;
+}
+  .col-subcategory .swiper-button-prev, .col-subcategory .swiper-button-next {
+  color: #000;
+  width: 25px;
+  height: 25px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+}
+.col-subcategory .swiper-button-next::after, .col-subcategory .swiper-button-prev::after{
+  display: none;
+}
+/* .col-subcategory .swiper-button-prev:hover, .col-subcategory .swiper-button-next:hover {
+  background: #000;
+  color: #fff;
+} */
+.col-subcategory-prev.swiper-button-prev{
+  position: absolute;
+  right: 48px;
+  left: auto; 
+  border: 1px solid #1A1A1A;
+  height: 35px;
+  width: 35px;
+  border-radius: 10px;
+  background: #F5F5F5;
+  top: 30px;
+}
+.col-subcategory-prev.swiper-button-prev svg, .col-subcategory-next.swiper-button-next svg{
+  width: 12.5px;
+  height: auto;
+  position: relative;
+}
+.col-subcategory-next.swiper-button-next{
+  position: absolute;
+  right: 0;  
+  border: 1px solid #1A1A1A;
+  height: 35px;
+  width: 35px;
+  border-radius: 10px;
+  background: #F5F5F5;
+  top: 30px;
+}
+  .col-subcategory-next.swiper-button-next.swiper-button-disabled, .col-subcategory-prev.swiper-button-prev.swiper-button-disabled{
+    display: none;
+  }
+@media screen and (max-width: 749px) {
+   .col-subcategory .swiper-button-prev, .col-subcategory .swiper-button-next {
+     display: none;
+   }
+   .col-subcategory.swiper{
+     padding:15px 0;
+   }
+   .breadcrumbs{
+     display:none;
+   }
+}
+@media screen and (min-width: 750px) {
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+}  
+</style>
+<div class="page-width">
+  {% assign subcategories = collection.metafields.custom.collection_breadcrumb | split:'||' %}
+  <nav class="breadcrumbs" role="navigation" aria-label="breadcrumbs">
+    <ol class="breadcrumbs__list">
+      <li class="breadcrumbs__item">
+        <a class="breadcrumbs__link" href="/">Home</a>
+      </li>
+       {% assign subcategories_last = '' %}
+      {% for category in subcategories %}
+        <li>|</li>
+        {% assign link_url = category | split:'+' %}
+        <li class="breadcrumbs__item">
+        <a class="breadcrumbs__link" href="/collections/{{ link_url[0] }}">{{ link_url[1] }}</a>
+        {% assign subcategories_last = link_url[0] %}
+        </li>
+      {% endfor %}
+      <li>|</li>
+      <li class="breadcrumbs__item last">
+        {{ collection.title }}
+      </li>
+    </ol>
+  </nav>
+</div>
+<div class="page-width section-{{ section.id }}-padding">
+{% assign subcategories = collection.metafields.custom.collection_sub_categroy | split:'||' %}
+  {% if subcategories != blank %}
+  <div class="col-subcategory swiper">
+    <div class="swiper-wrapper">
+    {% for category in subcategories %}
+      {% assign link_url = category | split:'+' %}
+      <a href="{% if subcategories_last != blank %}{% if forloop.index == 1 %}/collections/{{ subcategories_last }}{% else %}/collections/{{ link_url[0] }}{% endif %}{% else %}/collections/{{ link_url[0] }}{% endif %}" class="swiper-slide sub-cat{% if collection.handle == link_url[0] %} active{% endif %}">
+        {{ link_url[1] }}
+        {% if collection.handle == link_url[0] %}
+        <svg xmlns="http://www.w3.org/2000/svg" width="7.773" height="7.74" viewBox="0 0 7.773 7.74">
+        <g id="Group_20842" data-name="Group 20842" transform="translate(-19.439 -21.439)">
+          <line id="Line_1" data-name="Line 1" x2="5.652" y2="5.619" transform="translate(20.5 22.5)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.5"/>
+          <line id="Line_3" data-name="Line 3" y1="5.619" x2="5.652" transform="translate(20.5 22.5)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.5"/>
+        </g>
+      </svg>{% endif %}
+      </a>
+    {% endfor %}
+    </div>
+    <div class="col-subcategory-prev swiper-button-prev">
+      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="11.583" viewBox="0 0 13 11.583">
+        <g id="Group_19771" data-name="Group 19771" transform="translate(-1479 -302)">
+          <g id="arrow-left" transform="translate(1479 302)">
+            <path id="Path_1" data-name="Path 1" d="M17.909,6.727l-5.171,5.305a.5.5,0,0,0,0,.7l5.171,5.307a.454.454,0,0,0,.651,0,.477.477,0,0,0,0-.667L13.7,12.381l4.863-4.988a.477.477,0,0,0,0-.666.454.454,0,0,0-.651,0Z" transform="translate(-12.595 -6.59)"/>
+          </g>
+          <line id="Line_3755" data-name="Line 3755" x2="12" transform="translate(1479.5 307.792)" fill="none" stroke="#000" stroke-linecap="round" stroke-width="1"/>
+        </g>
+      </svg>
+    </div>
+    <div class="col-subcategory-next swiper-button-next">
+      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="11.583" viewBox="0 0 13 11.583">
+        <g id="Group_19772" data-name="Group 19772" transform="translate(0.5)">
+          <g id="arrow-left" transform="translate(6.4)">
+            <path id="Path_1" data-name="Path 1" d="M13.382,6.727l5.171,5.305a.5.5,0,0,1,0,.7l-5.171,5.307a.454.454,0,0,1-.651,0,.477.477,0,0,1,0-.667l4.863-4.989L12.731,7.393a.477.477,0,0,1,0-.666.454.454,0,0,1,.651,0Z" transform="translate(-12.595 -6.59)"/>
+          </g>
+          <line id="Line_3755" data-name="Line 3755" x1="12" transform="translate(0 5.792)" fill="none" stroke="#000" stroke-linecap="round" stroke-width="1"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+  {% endif %}
+</div>
+
+             <h1 class="collection_heading" style="display: none;">							
+                {% if collection.handle == 'winter-wear-women' %}
+                  Women Winter Wear | Stay Warm & Stylish With Go colors 
+                {% elsif collection.handle == 'leggings-churidar-1' %}
+                  Women Leggings & Churidar | Go Colors Leggings
+              {% elsif collection.handle == 'ethnic-wear-women' %}
+                  Women Ethnic Wear | Go Colors Ethnic Pants
+                  {% elsif collection.handle == 'palazzos-pants-for-women' %}
+                  Palazzos & Pants for Women | Go Colors Bottomwear
+                {% elsif collection.handle == 'jeans-jeggings-women' %}
+                 Jeans & Jeggings for Women | Starts From Rs 699
+                  {% elsif collection.handle == 'casual-wear-women' %}
+                  Casual Wear for Women | Go Colors Pants
+                {% elsif collection.handle == 'formal-pants-for-women' %}
+                  Formal Pants for Women | Go Colors Chino Pants
+                  {% elsif collection.handle == 'active-wear-women' %}
+                  Activewear for Women | Go Colors Yoga Pants
+                  {% elsif collection.handle == 'loungewear-1' %}
+                  Loungewear for Women | Relax in Style & Comfort           
+				{% else %}
+              {{ collection.title }}
+                {% endif %}            
+			</h1>
+
+<script>
+  $(document).ready(function() {
+  var subcategory = new Swiper(".col-subcategory", {
+      slidesPerView: "auto",
+      freeMode: false,
+      rewind: false,
+      spaceBetween: 10,
+       navigation: {
+        nextEl: '.col-subcategory-next',
+        prevEl: '.col-subcategory-prev',
+      },
+      breakpoints: {
+        320: {
+          slidesPerView: "auto",
+          spaceBetween: 10
+        },
+        640: {
+          slidesPerView: "auto",
+          spaceBetween: 10
+        },
+        768: {
+          slidesPerView: "auto",
+          spaceBetween: 10
+        },
+        1024: {
+          slidesPerView: "auto",
+          spaceBetween: 15
+        },
+      },
+    });
+  });
+</script>
+{% schema %}
+  {
+    "name": "collection subcategory",
+    "settings": [
+      {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 40
+    },
+             {
+      "type": "header",
+      "content": "Mobile Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mob",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mob",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 20
+    }
+    ],
+    "presets": [
+      {
+        "name": "collection subcategory"
+
+      }
+    ]
+  }
+{% endschema %}

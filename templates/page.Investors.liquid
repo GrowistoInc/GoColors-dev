@@ -1,0 +1,364 @@
+<div class="central content page-width">
+  <h1 class="feature-header" data-cc-animate>{{ page.title }}</h1>
+
+  <div class="rte" data-cc-animate data-cc-animate-delay="0.2s">
+    {% section 'image-banner' %}
+    <div id="shopify-section-Investors-tab-section" class="shopify-section">
+    <div class="container container--large">
+      <h2 class="h2 align- cc-fade-in-up cc-animate-init -in cc-animate-complete" data-cc-animate="cc-fade-in-up" data-cc-animate-delay="0.2s" style="">
+        Disclosures under SEBI LODR (Reg. 46)
+      </h2>
+    </div>
+<div class="container container--large">  
+  <ul class="tabs">
+    <li class="tab-link current" data-tab="tab-5">Our Business</li>
+    <!-- <li class="tab-link" data-tab="tab-6">Board of Directors</li> -->
+    <li class="tab-link" data-tab="tab-1">Corporate Governance</li>
+    <li class="tab-link" data-tab="tab-2">Financials</li>
+    <li class="tab-link" data-tab="tab-3">Investor Information</li>
+    <li class="tab-link" data-tab="tab-4">Policies</li> 
+  </ul>
+  <div id="tab-5" class="tab-content current">
+    <div id="tab-5-5" class="tab-content1 tab-investor current1">
+    <p>Go Colors is a dedicated women's bottom wear brand, started over a decade ago.</p>
+
+    <p>Today, it oﬀers a vast  variety of 50 styles of bottom wear in over a range of 120+ colors.</p>
+
+    <p>Go Colors has become a core essential, must-have for a lady in her day to day life.</p>
+
+    <p>Our oﬀering straddles the whole journey of a women’s life. From her teens to working lady or home maker to a grandmother we are there for her across the journey of life.
+Go Colors has democratized the bottom wear space to cut across socio-economic strata and made it an essential component of the ladies wardrobe.
+It has given the opportunity to have the perfect bottom wear for every occasion. Daily wear to oﬃce, to festive or denims and loungewear.
+Go Colors with over 500 plus stores across 120 plus cities, in leading malls, high street and large formats has today become the one stop destination for bottom wear.</p>
+    </div>
+  </div>
+
+  <div id="tab-6" class="tab-content">
+     <div id="tab-1-6" class="tab-content6 tab-investor current6">
+    {% section 'directors-page-section' %}
+     </div>
+  </div>
+  <div id="tab-1" class="tab-content">
+    <div id="tab-1-1" class="tab-content1 tab-investor current1">
+    {% section 'corporate-governance' %}
+    </div>
+  </div>
+
+  <div id="tab-2" class="tab-content">
+    <ul class="tabs2 tab-first">
+      <li class="tab-link current2" data-tab="tab-1-2">Annual Reports</li>
+      <li class="tab-link" data-tab="tab-2-2">Earning Call Transcripts</li>
+      <li class="tab-link" data-tab="tab-3-2">Quarterly Financial Results</li>
+      <li class="tab-link" data-tab="tab-4-2">Investor Presentation</li>
+      <li class="tab-link" data-tab="tab-5-2">Press Releases</li>
+      <li class="tab-link" data-tab="tab-6-2">Credit Rating</li>
+    </ul>
+    <div id="tab-1-2" class="tab-content2 tab-investor current2">
+    	{% section 'annual-reports' %}
+    </div>
+    <div id="tab-2-2" class="tab-content2 tab-investor">
+    	{% section 'earning-call-transcripts' %}
+    </div>
+    <div id="tab-3-2" class="tab-content2 tab-investor">
+		{% section 'quarterly-financial-results' %}
+    </div>
+    <div id="tab-4-2" class="tab-content2 tab-investor">
+		{% section 'investor-presentation' %}
+    </div>
+    <div id="tab-5-2" class="tab-content2 tab-investor">
+		{% section 'press-releases' %}
+    </div>
+    <div id="tab-6-2" class="tab-content2 tab-investor">
+		{% section 'credit-rating' %}
+    </div>
+
+  </div>
+  <div id="tab-3" class="tab-content">
+    <ul class="tabs3 tab-first">
+      <li class="tab-link current3" data-tab="tab-1-3">Corporate Announcements</li>
+      <li class="tab-link" data-tab="tab-2-3">Shareholding Pattern</li>
+      <li class="tab-link" data-tab="tab-2-4">Shareholder Grievances</li>
+       <li class="tab-link" data-tab="tab-2-5">KMP details</li>
+      <li class="tab-link" data-tab="tab-2-6"> MOA AOA / DIRECTORS PROFILE</li>
+    </ul>
+    <div id="tab-1-3" class="tab-content3 tab-investor current3">
+		{% section 'corporate-announcements' %}
+    </div>
+    <div id="tab-2-3" class="tab-content3 tab-investor">
+		{% section 'shareholding-pattern' %}
+    </div>
+    <div id="tab-2-4" class="tab-content3 tab-investor">
+		{% section 'shareholder-grievances' %}
+    </div>
+     <div id="tab-2-5" class="tab-content3 tab-investor">
+		 {% section 'KMP_details' %}
+    </div>
+      <div id="tab-2-6" class="tab-content3 tab-investor">
+		 {% section 'moa-aoa-director-profile' %}
+    </div>
+  </div>
+  <div id="tab-4" class="tab-content">
+    <div id="tab-1-4" class="tab-content4 tab-investor current4">
+		{% section 'policies' %}
+    </div>
+  </div>  
+</div>
+</div>
+<script>
+jQuery(document).ready(function(){
+  /***INVESTORS page js**/
+  jQuery('ul.tabs li').click(function(){
+    var tab_id = $(this).attr('data-tab');
+    jQuery('ul.tabs li').removeClass('current');
+    jQuery('.tab-content').removeClass('current');
+    jQuery(this).addClass('current');
+    jQuery("#"+tab_id).addClass('current');
+  });
+  jQuery('ul.tabs1 li').click(function(){
+    var tab_id = $(this).attr('data-tab');
+    jQuery('ul.tabs1 li').removeClass('current1');
+    jQuery('.tab-content1').removeClass('current1');
+    jQuery(this).addClass('current1');
+    jQuery("#"+tab_id).addClass('current1');
+  });
+  jQuery('ul.tabs2 li').click(function(){
+    var tab_id = $(this).attr('data-tab');
+    jQuery('ul.tabs2 li').removeClass('current2');
+    jQuery('.tab-content2').removeClass('current2');
+    jQuery(this).addClass('current2');
+    jQuery("#"+tab_id).addClass('current2');
+  });
+  jQuery('ul.tabs3 li').click(function(){
+    var tab_id = $(this).attr('data-tab');
+    jQuery('ul.tabs3 li').removeClass('current3');
+    jQuery('.tab-content3').removeClass('current3');
+    jQuery(this).addClass('current3');
+    jQuery("#"+tab_id).addClass('current3');
+  });
+  jQuery('ul.tabs4 li').click(function(){
+    var tab_id = $(this).attr('data-tab');
+    jQuery('ul.tabs4 li').removeClass('current4');
+    jQuery('.tab-content4').removeClass('current4');
+    jQuery(this).addClass('current4');
+    jQuery("#"+tab_id).addClass('current4');
+  });
+})
+</script>
+<!-- container -->
+<style>
+.central.content h1.feature-header {
+  text-align: center;
+}
+#shopify-section-Investors-tab-section h2{
+    padding-bottom:0;
+    text-transform:uppercase;
+    text-align:center;
+}
+#shopify-section-Investors-tab-section .tab-content,#shopify-section-Investors-tab-section .tab-investor{
+    padding:0 0 20px;
+    background-color:transparent;
+}
+#shopify-section-Investors-tab-section ul.tabs{
+    font-size:20px;
+    text-align:center;
+    margin-bottom:24px;
+}
+#shopify-section-Investors-tab-section ul.tabs li.tab-link{
+    padding: 10px 20px;
+    color: #1a1a1a;
+    border: 1px solid #1A1A1A;
+    background-color: #fff;
+    cursor: pointer;
+    border-radius: 25px;
+    font-size: 14px;
+    line-height: 18px;
+}
+#shopify-section-Investors-tab-section ul.tabs li.current{
+    position:relative;
+    background-color: #1a1a1a;
+    color: #fff;
+}
+#shopify-section-Investors-tab-section ul.tabs li.current:after{
+    left:50%;
+    width:0;
+    content:'';
+    height:0;
+    bottom:-16px;
+    position:absolute;
+    border-top:10px solid #1a1a1a;
+    transform:translate(-50%,-50%);
+    border-left:10px solid transparent;
+    border-right:10px solid transparent;
+}
+html body #shopify-section-Investors-tab-section ul.tab-first {
+	padding-bottom: 7px;
+	margin-bottom: 30px;
+	border-bottom: 1px solid #1a1a1a;
+}
+html body #shopify-section-Investors-tab-section ul.tab-first li {
+	padding: 0;
+	cursor: pointer;
+}
+#shopify-section-Investors-tab-section ul.tab-first li:not(:last-child) {
+	padding-right: 20px;
+}
+
+#shopify-section-Investors-tab-section ul {
+	width: 100%;
+	color: #616161;
+	list-style: none;
+	text-transform: uppercase;
+}
+
+#shopify-section-Investors-tab-section .tab-investor ul li {
+	padding: 5px 4px 4px 25px;
+	border: 1px solid #1a1a1a;
+	background: url(https://cdn.shopify.com/s/files/1/0598/8158/6848/t/18/assets/icon-pdf.svg?v=1645169630) 10px 5px no-repeat;
+}
+
+#shopify-section-Investors-tab-section .tab-investor ul li .icon-download {
+	float: right;
+	color: #616161;
+	font-weight: 700;
+	padding-right: 21px;
+	border-bottom: none;
+	background: url(https://cdn.shopify.com/s/files/1/0598/8158/6848/t/18/assets/icon-download.svg?v=1645170312) right 6px no-repeat;
+	margin-left: 8px;
+}
+#shopify-section-Investors-tab-section .tab-investor ul li:not(:last-child) {
+	margin-bottom: 10px;
+}
+#shopify-section-Investors-tab-section .tab-investor ul li .icon-view {
+	float: right;
+	color: #616161;
+	font-weight: 700;
+	padding-right: 20px;
+	border-bottom: none;
+	background: url(https://cdn.shopify.com/s/files/1/0598/8158/6848/files/eye_ui_view_vision_icon17.png?v=1645859007) right 4px no-repeat;
+}
+.tabs2 li.tab-link.current2,
+.tabs3 li.tab-link.current3 {
+	color: #1a1a1a;
+    font-weight: 600;
+}
+  ul.tabs{
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+  }
+  ul.tabs li{
+    background: none;
+    color: #222;
+    display: inline-block;
+    padding: 10px 15px;
+    cursor: pointer;
+  }
+
+  ul.tabs li.current{
+    background: #ededed;
+    color: #1a1a1a;
+  }
+
+  .tab-content{
+    display: none;
+    background: #ededed;
+    padding: 15px;
+  }
+
+
+  .tab-content.current{
+    display: inherit;
+  }
+  ul.tabs li.current1{
+    background: #ededed;
+    color: #222;
+  }
+
+  .tab-content1{
+    display: none;
+    background: #ededed;
+    padding: 15px;
+  }
+
+
+  .tab-content1.current1{
+    display: inherit;
+  }
+  ul.tabs1.tab-first li {
+    display: inline-block;
+    padding: 20px;
+  }
+
+
+
+  .tab-content2{
+    display: none;
+    background: #ededed;
+    padding: 15px;
+  }
+
+
+  .tab-content2.current2{
+    display: inherit;
+  }
+  ul.tabs2.tab-first li {
+    display: inline-block;
+    padding: 20px;
+  }
+
+
+  .tab-content3{
+    display: none;
+    background: #ededed;
+    padding: 15px;
+  }
+
+
+  .tab-content3.current3{
+    display: inherit;
+  }
+  ul.tabs3.tab-first li {
+    display: inline-block;
+    padding: 20px;
+  }
+
+  .tab-content4{
+    display: none;
+    background: #ededed;
+    padding: 15px;
+  }
+
+
+  .tab-content4.current4{
+    display: inherit;
+  }
+  ul.tabs4.tab-first li {
+    display: inline-block;
+    padding: 20px;
+  }
+@media (max-width:854px) {
+	#shopify-section-Investors-tab-section ul.tabs {
+		font-size: 18px;
+	}
+	#shopify-section-Investors-tab-section ul.tabs li.tab-link {
+		padding: 5px 10px;
+	}
+}
+@media (max-width:480px) {
+  #shopify-section-Investors-tab-section ul.tabs li.current {
+	color: #fff;
+	background-color: #000;
+  }
+  #shopify-section-Investors-tab-section ul.tabs li.current:after,
+  .acc-logout {
+	display: none;
+  }
+  #shopify-section-Investors-tab-section ul.tabs li.tab-link, .btn-row-acc .btn, .spi-section ul.pro-spi-sec li, table.customer_address_table {
+	width: 100%
+  }
+}
+</style>
+    
+    {{ page.content }}
+  </div>
+</div>

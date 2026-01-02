@@ -1,0 +1,311 @@
+{% comment %} <style>
+  input::placeholder{
+    color:#3e3e3e;
+  }
+  .memeber_login {
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+}
+.form {
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.login_page input {
+  font-weight: var(--font-body-weight);
+  font-family: var(--font-body-family);
+  font-size: 1.6rem;
+  width: 320px;
+  height: 45px;
+  border: 1px solid #707070;
+  padding: 1.5rem;
+  border: 1px solid #3E3E3E;
+  border-radius: 25px;
+  color: #3e3e3e;
+  height: 4rem;
+}
+.otp_btns_div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 320px;
+    gap: 15px;
+    margin: 10px auto;
+}
+.alert-success {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: green;
+    color: #fff;
+    padding:  5px 10px 5px 30px;
+    text-align: center;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+  margin-bottom:2rem;
+}
+  span.close {
+    position: absolute;
+    left: 10px;
+    color: #000;
+    background-color: #fff;
+    border-radius: 50px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    padding-bottom: 2px;
+  }
+  .otp_error{
+    display:none;
+  }
+  .otp_btns_div input {
+    background-color: transparent;
+    color: #000;
+    font-weight: 400;
+    font-size: 14px !important;
+    width: 100%;
+    padding: 0;
+
+  }
+  form.otp_id {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  input#checkValidation {
+    padding: 0;
+    background:black;
+    color:white;
+  }
+  div#signup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 40px auto 20px;
+  }
+ .alert-success span {
+    font-size: 12px;
+  }
+  .login_page {
+    padding-top: 2rem;
+  }
+  .memeber_login h1{
+    font-weight:600;
+    font-size:2.6rem;
+    text-align: center;
+  }
+  @media screen and (min-width:1200px){
+    .alert-success span {
+      font-size: 15px;
+    }
+    span.close{
+      left: 5px;
+    }
+  }
+</style>
+<div class="login_page">
+   <div class="memeber_login">
+    <h1>MEMBER LOGIN / SIGN UP</h1>
+    <div class="form" id="signup">
+      <input  aria-label="customer[note][phonenumber]" name="customer[phone]" placeholder="Phone"  pattern="[0-9]" size="10"  
+         id="phone"  class="large phone"  type="tel" value=""    maxlength="10"  minlength="10" 
+         onkeypress="return /[0-9]/i.test(event.key)">
+         <span class="login_err" style="color:red;"></span>
+        <input type="button" value="Submit" id="checkValidation">
+    </div>
+    <form method="post" class="form otp_id" style="display:none;" >
+      <div class="alert-success" >
+        <span>An OTP has been sent to your registered Mobile</span>
+        <span class="close" data-dismiss="alert">x</span>
+      </div>
+     <input type="text" value="" name="otp" class="otp {% if form.errors contains "otp" %}error{% endif %}" 
+      onkeypress="return /[0-9]/i.test(event.key)" size="6" maxlength="6" minlength="6"  placeholder="Please enter 6 digit OTP" >
+      <span class="otp_error" style="color:red;"></span>
+       <div class="otp_btns_div">
+         <input type="button" data-cc-animate data-cc-animate-delay="0.8s" value="Verify" class="checkOtp acc_btn" >
+         <input type="button" data-cc-animate data-cc-animate-delay="0.8s" value="Resend OTP" class="resendOTP acc_btn" >
+       </div>
+   </form>
+  </div>
+</div>
+<script>
+$(document).ready(function(){
+  var account_page = "{{ shop.url }}/pages/my-account";
+  var register_page = "{{ shop.url }}/pages/member-registration"
+   $('#checkValidation').click(function(e){
+     var mob_no = $('#phone').val();
+     $(".messsage_show").remove(); 
+     if (mob_no.length < 10) {
+      $('#phone').after('<span class="messsage_show">Please enter 10 digit mobile number</span>');
+      e.preventDefault();
+      return false;
+     }
+     else {
+      count = 1;
+      console.log('success form');
+       $(this).prop('disabled', true );
+    }
+     if(count == 1){
+       $.ajax({
+        url: "https://admin3157.gocolors.com/new_go_colors_india/public/api/verify-mobileno",
+        type: "POST",
+        dataType: "json",
+        crossDomain: true,
+        format: "json",
+        data: {
+          "mobile_no": mob_no
+        },
+        success: function(resp) {
+          console.log(resp);
+          if (resp.success == true) {
+            $.ajax({
+              url: "https://admin3157.gocolors.com/new_go_colors_india/public/api/send-otp",
+              type: 'POST',
+              dataType: 'json',
+              data: {
+                "mobile_no": mob_no
+              },
+               success: function(resp) {
+                  if (resp.success == true) {
+                    $('#signup').hide();
+                    $('.memeber_login h1').hide();
+                    $('.otp_id').show();
+                    $('.close').click(function(){
+                      $('.alert-success').hide();
+                    });
+                  }
+                 else{
+                   $('.otp_error').text("Something went wrong");
+                    e.preventDefault();
+                    return false;
+                 }
+               }
+            });
+          }
+          else if (resp.success == false) { 
+              localStorage.setItem('mobile_Number', mob_no);
+              //localStorage.getItem('mobile_Number');
+              window.location.href = register_page ;
+          }
+        }
+      });
+     }
+     else{
+       console.log("enter mobile number");
+     }
+   }); 
+   $('.checkOtp').click(function(){
+     VerifyOtp();
+   });
+   $('.resendOTP').click(function(){
+     ResendOtp();
+   });
+  
+   function VerifyOtp(){
+     var otp = $('.otp').val();
+      var mob_no = $('#phone').val();
+     $.ajax({
+      url: "https://admin3157.gocolors.com/new_go_colors_india/public/api/verify-otp",
+      type: 'POST',
+      dataType: 'json',
+      data: {
+        "mobile_no": mob_no,
+        "otp": otp
+      },
+      success: function(resp) {
+        $(".alert-success").hide();
+        if (resp.success == true) {
+          $.ajax({
+            url: "https://admin3157.gocolors.com/new_go_colors_india/public/api/multipass-login",
+            type: 'POST',
+            dataType: 'json',
+            data: {
+              "mobile_no": mob_no,
+              "url": account_page
+            },
+            success: function(resp) {
+              if (resp.success == true) {
+                 var mobile_no = "{{ customer.phone }}";
+                  var email = "{{ customer.email }}";
+                  var mobile_no = mobile_no.replace('+91', "");
+                  var storage_pincode = localStorage.getItem("pincode_val");
+                  if(storage_pincode != ''){
+                    var data1 = {
+                      'pincode':storage_pincode,
+                      'phone':mobile_no,
+                      'email':email
+                    }
+                    console.log(data1)
+                      $.ajax({
+                        type: 'GET',
+                        dataType: 'json',
+                        async:false,         
+                        url: 'https://admin3157.gocolors.com/new_go_colors_india/public/api/pincode-check-shiproket',
+                        data: data1,
+                        success: function(res){
+                         if(res.status == true){
+                           
+                         }
+                          window.location.href = resp.redirect_url;
+                        }
+                      });
+                  }
+                  window.location.href = resp.redirect_url;
+                  
+              }
+             else{
+                console.log("not success");
+              }
+            }
+          }); 
+        }
+        else {
+          $('.otp_error').text("Invalid OTP");
+          e.preventDefault();
+          return false;
+        }
+      }
+     });
+   }
+   function ResendOtp(){
+      var mob_no = $('#phone').val();
+      $.ajax({
+      url: "https://admin3157.gocolors.com/new_go_colors_india/public/api/send-otp",
+      type: 'POST',
+      dataType: 'json',
+      data: {
+        "mobile_no": mob_no
+      },
+      success: function(resp) {
+        if (resp.success == true) {
+          $('#signup').hide();
+          $('.memeber_login h1').hide();
+          $('.otp_id').show();
+          $('.close').click(function(){
+            $('.alert-success').hide();
+          });
+        }
+        else {
+          $('.otp_error').text("Something went wrong");
+          e.preventDefault();
+          return false;
+        }
+      }
+     });
+    }
+});
+</script> {% endcomment %}

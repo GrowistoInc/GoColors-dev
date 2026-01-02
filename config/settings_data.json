@@ -1,0 +1,3961 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "current": {
+    "logo": "shopify://shop_images/logo_8e9d7325-46c8-416f-9380-c4e7a8d40fee.svg",
+    "logo_width": 170,
+    "favicon": "shopify://shop_images/favicon_1_3.png",
+    "type_header_font": "montserrat_n5",
+    "heading_scale": 100,
+    "type_body_font": "montserrat_n5",
+    "body_scale": 100,
+    "page_width": 1900,
+    "spacing_sections": 0,
+    "spacing_grid_horizontal": 8,
+    "spacing_grid_vertical": 8,
+    "investor_url": "investor-relation-new,our-business,shareholder-grievances-1,moa-aoa,kmp,board-of-directors,corporate-governance, archivals, investor-policies,shareholding-pattern,corporate-announcements,credit-rating,press-releases, investor-presentation,quarterly-financial-results,earning-call-transcripts, annual-reports,",
+    "animations_reveal_on_scroll": false,
+    "animations_hover_elements": "none",
+    "buttons_border_thickness": 1,
+    "buttons_border_opacity": 100,
+    "buttons_radius": 0,
+    "buttons_shadow_opacity": 0,
+    "buttons_shadow_horizontal_offset": 0,
+    "buttons_shadow_vertical_offset": 4,
+    "buttons_shadow_blur": 5,
+    "variant_pills_border_thickness": 1,
+    "variant_pills_border_opacity": 55,
+    "variant_pills_radius": 40,
+    "variant_pills_shadow_opacity": 0,
+    "variant_pills_shadow_horizontal_offset": 0,
+    "variant_pills_shadow_vertical_offset": 4,
+    "variant_pills_shadow_blur": 5,
+    "inputs_border_thickness": 1,
+    "inputs_border_opacity": 55,
+    "inputs_radius": 0,
+    "inputs_shadow_opacity": 0,
+    "inputs_shadow_horizontal_offset": 0,
+    "inputs_shadow_vertical_offset": 4,
+    "inputs_shadow_blur": 5,
+    "card_style": "standard",
+    "card_image_padding": 0,
+    "card_text_alignment": "left",
+    "card_color_scheme": "scheme-2",
+    "card_border_thickness": 0,
+    "card_border_opacity": 10,
+    "card_corner_radius": 10,
+    "card_shadow_opacity": 0,
+    "card_shadow_horizontal_offset": 0,
+    "card_shadow_vertical_offset": 4,
+    "card_shadow_blur": 5,
+    "collection_card_style": "standard",
+    "collection_card_image_padding": 0,
+    "collection_card_text_alignment": "left",
+    "collection_card_color_scheme": "scheme-2",
+    "collection_card_border_thickness": 0,
+    "collection_card_border_opacity": 10,
+    "collection_card_corner_radius": 10,
+    "collection_card_shadow_opacity": 0,
+    "collection_card_shadow_horizontal_offset": 0,
+    "collection_card_shadow_vertical_offset": 4,
+    "collection_card_shadow_blur": 5,
+    "blog_card_style": "standard",
+    "blog_card_image_padding": 0,
+    "blog_card_text_alignment": "left",
+    "blog_card_color_scheme": "scheme-2",
+    "blog_card_border_thickness": 0,
+    "blog_card_border_opacity": 10,
+    "blog_card_corner_radius": 0,
+    "blog_card_shadow_opacity": 0,
+    "blog_card_shadow_horizontal_offset": 0,
+    "blog_card_shadow_vertical_offset": 4,
+    "blog_card_shadow_blur": 5,
+    "text_boxes_border_thickness": 0,
+    "text_boxes_border_opacity": 10,
+    "text_boxes_radius": 0,
+    "text_boxes_shadow_opacity": 0,
+    "text_boxes_shadow_horizontal_offset": 0,
+    "text_boxes_shadow_vertical_offset": 4,
+    "text_boxes_shadow_blur": 5,
+    "media_border_thickness": 1,
+    "media_border_opacity": 5,
+    "media_radius": 0,
+    "media_shadow_opacity": 0,
+    "media_shadow_horizontal_offset": 0,
+    "media_shadow_vertical_offset": 4,
+    "media_shadow_blur": 5,
+    "popup_border_thickness": 1,
+    "popup_border_opacity": 10,
+    "popup_corner_radius": 0,
+    "popup_shadow_opacity": 5,
+    "popup_shadow_horizontal_offset": 0,
+    "popup_shadow_vertical_offset": 4,
+    "popup_shadow_blur": 5,
+    "drawer_border_thickness": 1,
+    "drawer_border_opacity": 10,
+    "drawer_shadow_opacity": 0,
+    "drawer_shadow_horizontal_offset": 0,
+    "drawer_shadow_vertical_offset": 4,
+    "drawer_shadow_blur": 5,
+    "badge_position": "bottom left",
+    "badge_corner_radius": 40,
+    "sale_badge_color_scheme": "scheme-4",
+    "sold_out_badge_color_scheme": "scheme-3",
+    "brand_headline": "",
+    "brand_description": "<p></p>",
+    "brand_image_width": 100,
+    "social_facebook_link": "https://www.facebook.com/GoColorsOfficial/",
+    "social_instagram_link": "https://www.instagram.com/gocolors/?hl=en",
+    "social_youtube_link": "https://www.youtube.com/channel/UCBoCRIMYgPErDLj5PAduCNw",
+    "social_tiktok_link": "https://www.linkedin.com/company/gocolors",
+    "social_twitter_link": "",
+    "social_snapchat_link": "",
+    "social_pinterest_link": "",
+    "social_tumblr_link": "",
+    "social_vimeo_link": "",
+    "predictive_search_enabled": false,
+    "predictive_search_show_vendor": false,
+    "predictive_search_show_price": false,
+    "currency_code_enabled": true,
+    "cart_type": "drawer",
+    "show_vendor": false,
+    "show_cart_note": false,
+    "cart_drawer_collection": "",
+    "cart_color_scheme": "scheme-1",
+    "featured_collection3": "",
+    "products_to_show3": 8,
+    "featured_collection1": "mostlysane-collection",
+    "products_to_show1": 8,
+    "featured_collection": "end-of-season-sale_25",
+    "products_to_show": 8,
+    "mid": "19g6im7d1hki6",
+    "envType": "production",
+    "ga4Gokwik": "G-FNDYX8XZ9Q",
+    "fbpixel": "959851091207553",
+    "priClr": "#000000",
+    "secClr": "#ffffff",
+    "goEnable": true,
+    "main-titile": "Checkout",
+    "buynow-titile": "Buy it Now",
+    "btnBClr": "#000000",
+    "wizzy_is_lazy_init": "true",
+    "wizzy_is_lazy_init_enabled": "true",
+    "wizzy_beta_frontend_js": "",
+    "sections": {
+      "main-password-header": {
+        "type": "main-password-header",
+        "settings": {
+          "color_scheme": "scheme-1"
+        }
+      },
+      "main-password-footer": {
+        "type": "main-password-footer",
+        "settings": {
+          "color_scheme": "scheme-1"
+        }
+      },
+      "investors-banner-section": {
+        "type": "investors-banner-section",
+        "settings": {
+          "image-upload": "shopify://shop_images/Investor_Relations_Banner_1200x300_pix-01.jpg",
+          "desktop_image_position": "center center",
+          "mobile_image_position": "center center",
+          "height": "fixed",
+          "height_desktop": 450,
+          "height_mobile": 250,
+          "subheading": "",
+          "title": "",
+          "title_size": 60,
+          "text": "",
+          "enlarge_text": true,
+          "button_label": "",
+          "image_link": "",
+          "overlay_position": "position--hcenter position--vcenter",
+          "full_width": true,
+          "mobile_overlay_under": false,
+          "overlay_style_tint": true
+        }
+      },
+      "corporate-governance": {
+        "type": "corporate-governance",
+        "blocks": {
+          "textarea_AjjLWE": {
+            "type": "textarea",
+            "settings": {
+              "title": "POSTAL BALLOT NOTICE",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/POSTAL_BALLOT_NOTICE.pdf?v=1763527683"
+            }
+          },
+          "textarea_7DcVXU": {
+            "type": "textarea",
+            "settings": {
+              "title": "OUTCOME OF BOARD MEETING Q2 FY26",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/OUTCOME_OF_BOARD_MEETING_Q2_FY26.pdf?v=1762501210"
+            }
+          },
+          "textarea_aXze6z": {
+            "type": "textarea",
+            "settings": {
+              "title": "FORM MGT-7 FY25-26",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/FORM_MGT-7_FY24-25.pdf?v=1754633547"
+            }
+          },
+          "textarea_fmeTnC": {
+            "type": "textarea",
+            "settings": {
+              "title": "OUTCOME OF BOARD MEETING Q1 FY26",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/OUTCOME_OF_BOARD_MEETING_Q1_FY26.pdf?v=1754040681"
+            }
+          },
+          "textarea_tdJxfJ": {
+            "type": "textarea",
+            "settings": {
+              "title": "FORM MGT-7 FY24-25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/FORM_MGT-7_FY24-25.pdf?v=1763108340"
+            }
+          },
+          "textarea_YgwamJ": {
+            "type": "textarea",
+            "settings": {
+              "title": "CSR PROJECTS FY25-26",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/CSR_PROJECTS_FY25-26.pdf?v=1749272498"
+            }
+          },
+          "textarea_mDtcQp": {
+            "type": "textarea",
+            "settings": {
+              "title": "Familiarization Program for Independent Directors FY 2024-25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Familiarization_Program_for_Independent_Directors_FY_2024-25.pdf?v=1743567256"
+            }
+          },
+          "textarea_DcXm6h": {
+            "type": "textarea",
+            "disabled": true,
+            "settings": {
+              "title": "ANNUAL REPORT FY 2023-24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/GFIL_Annual_Report_2023-24_final_upload.pdf?v=1721046568"
+            }
+          },
+          "textarea_CmUdHP": {
+            "type": "textarea",
+            "settings": {
+              "title": "BRSR REPORT FY23-24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/BRSR_REPORT_FY_23-24.pdf?v=1721043357"
+            }
+          },
+          "textarea_PNPKTH": {
+            "type": "textarea",
+            "settings": {
+              "title": "FORM MGT-7 FY23-24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/FORM_MGT-7_FY23-24.pdf?v=1717240746"
+            }
+          },
+          "textarea_fxtGGP": {
+            "type": "textarea",
+            "settings": {
+              "title": "CSR PROJECTS FY24-25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/CSR_PROJECTS_FY_24-25.pdf?v=1716008162"
+            }
+          },
+          "textarea_XiTwwh": {
+            "type": "textarea",
+            "settings": {
+              "title": "FAMILIARISATION PROGRAMME FOR INDEPENDENT DIRECTORS FY 23-24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/FAMILIARISATION_PROGRAMME_FOR_INDEPENDENT_DIRECTORS_-_FY_23-24_2.pdf?v=1714477520"
+            }
+          },
+          "textarea_J9UpiW": {
+            "type": "textarea",
+            "settings": {
+              "title": "CSR PROJECTS FY23-24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/CSR_PROJECTS_FY_23-24.pdf?v=1683354448"
+            }
+          },
+          "textarea_BCTRme": {
+            "type": "textarea",
+            "settings": {
+              "title": "FORM MGT-7 FY22-23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/FORM_MGT-7_FY22-23_1b87d0cf-1f9b-44f2-8144-3c0e44aa91c8.pdf?v=1698995193"
+            }
+          },
+          "textarea_yJjhTa": {
+            "type": "textarea",
+            "settings": {
+              "title": "BRSR REPORT FY22-23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/BRSR_REPORT_FY22-23.pdf?v=1691993137"
+            }
+          },
+          "textarea_BjfUfn": {
+            "type": "textarea",
+            "settings": {
+              "title": "FAMILIARISATION PROGRAMME FOR INDEPENDENT DIRECTORS FY 22-23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/FAMILIARISATION_PROGRAMME_FOR_INDEPENDENT_DIRECTORS_-_FY_22-23.pdf?v=1686046955"
+            }
+          },
+          "textarea_ptkNDL": {
+            "type": "textarea",
+            "settings": {
+              "title": "CSR Projects FY22-23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/CSR_Projects_FY22-23.pdf?v=1653973684"
+            }
+          },
+          "textarea_dm4LbE": {
+            "type": "textarea",
+            "settings": {
+              "title": "Familiarisation Programme for Independent Directors FY 21-22",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Familiarisation_Programme_for_Independent_Directors_-_FY_21-22.pdf?v=1650280010"
+            }
+          },
+          "textarea_LGe7Be": {
+            "type": "textarea",
+            "settings": {
+              "title": "AUTHORIZED KMP TO DETERMINE MATERIALITY OF EVENTS",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/AUTHORISED_KEY_MANAGERIAL_PERSONNEL_TO_DETERMINE_MATERIALITY_OF_EVENTSINFORMATION_AND_FOR_MAKING_DISCLOSURES_TO_STOCK_EXCHANGES.pdf?v=1690282238"
+            }
+          },
+          "textarea_g9KLMp": {
+            "type": "textarea",
+            "settings": {
+              "title": "CODE OF FAIR DISCLOSURE",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/CODE_OF_FAIR_DISCLOSURE_4b81106c-8c0a-4a99-b4d5-025a8340562e.pdf?v=1657891555"
+            }
+          },
+          "textarea_JUqKzt": {
+            "type": "textarea",
+            "settings": {
+              "title": "FAMILIARISATION PROGRAMME FOR INDEPENDENT DIRECTORS",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/FAMILIARISATION_PROGRAMME_FOR_INDEPENDENT_DIRECTORS_8412e3e5-30c4-47c5-8c01-28dcc7c0d795.pdf?v=1657891554"
+            }
+          },
+          "textarea_NiCbJj": {
+            "type": "textarea",
+            "settings": {
+              "title": "CODE OF CONDUCT FOR DIRECTORS AND SENIOR MANAGEMENT",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Code_of_Conduct_for_Directors_and_Senior_Management.pdf?v=1645782530"
+            }
+          },
+          "textarea_FEwdka": {
+            "type": "textarea",
+            "settings": {
+              "title": "COMPOSITION OF BOARD AND COMMITTEES",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/COMPOSITION_OF_BOARD_AND_COMMITTEES_1.pdf?v=1708949083"
+            }
+          },
+          "textarea_6PaVWn": {
+            "type": "textarea",
+            "disabled": true,
+            "settings": {
+              "title": "COMPOSITION OF BOARD AND COMMITTEES",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/COMPOSITION_OF_BOARD_AND_COMMITTEES_1.pdf?v=1762845891"
+            }
+          },
+          "textarea_HAntBY": {
+            "type": "textarea",
+            "settings": {
+              "title": "FAMILIARISATION PROGRAMME FOR INDEPENDENT DIRECTORS",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Familiarisation_Programme_for_Independent_Directors.pdf?v=1645782596"
+            }
+          },
+          "textarea_diK8tk": {
+            "type": "textarea",
+            "settings": {
+              "title": "LETTER OF APPOINTMENT - INDEPENDENT DIRECTOR",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Letter_of_Appointment_-_Independent_Director.pdf?v=1645782613"
+            }
+          },
+          "textarea_PLpbwG": {
+            "type": "textarea",
+            "settings": {
+              "title": "FORM MGT-7 FY21-22",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Form_MGT_7_21-22.pdf?v=1668594731"
+            }
+          },
+          "textarea_XeYipx": {
+            "type": "textarea",
+            "settings": {
+              "title": "FORM MGT-7 FY20-21",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Form_MGT-7.pdf?v=1657891554"
+            }
+          }
+        },
+        "block_order": [
+          "textarea_AjjLWE",
+          "textarea_7DcVXU",
+          "textarea_aXze6z",
+          "textarea_fmeTnC",
+          "textarea_tdJxfJ",
+          "textarea_YgwamJ",
+          "textarea_mDtcQp",
+          "textarea_DcXm6h",
+          "textarea_CmUdHP",
+          "textarea_PNPKTH",
+          "textarea_fxtGGP",
+          "textarea_XiTwwh",
+          "textarea_J9UpiW",
+          "textarea_BCTRme",
+          "textarea_yJjhTa",
+          "textarea_BjfUfn",
+          "textarea_ptkNDL",
+          "textarea_dm4LbE",
+          "textarea_LGe7Be",
+          "textarea_g9KLMp",
+          "textarea_JUqKzt",
+          "textarea_NiCbJj",
+          "textarea_FEwdka",
+          "textarea_6PaVWn",
+          "textarea_HAntBY",
+          "textarea_diK8tk",
+          "textarea_PLpbwG",
+          "textarea_XeYipx"
+        ],
+        "settings": {}
+      },
+      "shareholding-pattern": {
+        "type": "shareholding-pattern",
+        "blocks": {
+          "textarea_BYPKDF": {
+            "type": "textarea",
+            "settings": {
+              "title": "SHAREHOLDING PATTERN Q2 FY26",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/SHAREHOLDING_PATTERN_Q2_FY26.pdf?v=1760700081"
+            }
+          },
+          "textarea_8jtT6r": {
+            "type": "textarea",
+            "settings": {
+              "title": "SHAREHOLDING PATTERN Q1 FY26",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/SHAREHOLDING_PATTERN_Q1_FY25.pdf?v=1753178805"
+            }
+          },
+          "textarea_jERgMt": {
+            "type": "textarea",
+            "settings": {
+              "title": "SHAREHOLDING PATTERN Q4 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/SHAREHOLDING_PATTERN_Q4_FY25.pdf?v=1744873104"
+            }
+          },
+          "textarea_UTdVnM": {
+            "type": "textarea",
+            "settings": {
+              "title": "SHAREHOLDING PATTERN Q3 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/SHAREHOLDING_PATTERN_Q3_FY24-25.pdf?v=1737118126"
+            }
+          },
+          "textarea_T9G4y6": {
+            "type": "textarea",
+            "settings": {
+              "title": "SHAREHOLDING PATTERN Q2 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/SHAREHOLDING_PATTERN_Q2_FY24-25.pdf?v=1729505177"
+            }
+          },
+          "textarea_UYFAVM": {
+            "type": "textarea",
+            "settings": {
+              "title": "SHAREHOLDING PATTERN Q1 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/SHAREHOLDING_PATTERN_Q1_FY24-25_1.pdf?v=1738385707"
+            }
+          },
+          "textarea_Yi4yJJ": {
+            "type": "textarea",
+            "settings": {
+              "title": "SHARE HOLDING PATTERN Q4 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/SHARE_HOLDING_PATTERN_Q4.pdf?v=1713351648"
+            }
+          },
+          "textarea_FyM8Wx": {
+            "type": "textarea",
+            "settings": {
+              "title": "SHAREHOLDING PATTERN Q3 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/SHAREHOLDING_PATTERN_Q3.pdf?v=1704976817"
+            }
+          },
+          "textarea_PdQDrC": {
+            "type": "textarea",
+            "settings": {
+              "title": "SHAREHOLDING PATTERN Q2 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/SHAREHOLDING_PATTERN_Q2.pdf?v=1697015637"
+            }
+          },
+          "textarea_WB97qn": {
+            "type": "textarea",
+            "settings": {
+              "title": "SHAREHOLDING PATTERN Q1 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/SHAREHOLDING_PATTERN_Q1.pdf?v=1689853799"
+            }
+          },
+          "textarea_Diqkxq": {
+            "type": "textarea",
+            "settings": {
+              "title": "SHAREHOLDING PATTERN Q4 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/SHAREHOLDING_PATTERN_Q4_FY22-23.pdf?v=1683090350"
+            }
+          },
+          "textarea_zm9f6M": {
+            "type": "textarea",
+            "settings": {
+              "title": "SHAREHOLDING PATTERN Q3 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Shareholding_Pattern_Q3_FY22-23.pdf?v=1674551344"
+            }
+          },
+          "textarea_K6TbXW": {
+            "type": "textarea",
+            "settings": {
+              "title": "SHAREHOLDING PATTERN Q2 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Shareholding_Pattern_Q2_FY22-23.html.pdf?v=1667036148"
+            }
+          },
+          "textarea_jkEtfL": {
+            "type": "textarea",
+            "settings": {
+              "title": "SHAREHOLDING PATTERN Q1 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Shareholding_Pattern_Q1_-_FY_22-23.pdf?v=1659599464"
+            }
+          },
+          "textarea_MqWJM4": {
+            "type": "textarea",
+            "settings": {
+              "title": "SHAREHOLDING PATTERN Q4 FY22",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/SHAREHOLDING_PATTERN_-_Q4_-_FY21-22_17a4c8ed-395d-43df-b5b1-e30f7a7cf09d.pdf?v=1651205736"
+            }
+          },
+          "textarea_GCifrw": {
+            "type": "textarea",
+            "settings": {
+              "title": "SHAREHOLDING PATTERN Q3 FY22",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Shareholding_pattern_-_Q3_-_FY21-22.pdf?v=1648470133"
+            }
+          },
+          "textarea_HQTYqz": {
+            "type": "textarea",
+            "disabled": true,
+            "settings": {
+              "title": "SHAREHOLDING-PATTERN-DEC-2021",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Shareholding-Pattern-Dec-2021.Pdf?v=1645782925"
+            }
+          },
+          "textarea_ChRFxG": {
+            "type": "textarea",
+            "settings": {
+              "title": "SHAREHOLDING PATTERN Q2 FY22",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Shareholding-Pattern-Nov-2021.pdf?v=1645782942"
+            }
+          }
+        },
+        "block_order": [
+          "textarea_BYPKDF",
+          "textarea_8jtT6r",
+          "textarea_jERgMt",
+          "textarea_UTdVnM",
+          "textarea_T9G4y6",
+          "textarea_UYFAVM",
+          "textarea_Yi4yJJ",
+          "textarea_FyM8Wx",
+          "textarea_PdQDrC",
+          "textarea_WB97qn",
+          "textarea_Diqkxq",
+          "textarea_zm9f6M",
+          "textarea_K6TbXW",
+          "textarea_jkEtfL",
+          "textarea_MqWJM4",
+          "textarea_GCifrw",
+          "textarea_HQTYqz",
+          "textarea_ChRFxG"
+        ],
+        "settings": {}
+      },
+      "shareholder-grievances": {
+        "type": "shareholder-grievances",
+        "blocks": {
+          "textarea_J6XcQf": {
+            "type": "textarea",
+            "settings": {
+              "title": "<p>In case of any shareholder grievances, please reach out to:</p>\n\n<p>Ms. Gayathri Kethar,\n<br>Company Secretary & Compliance Officer,\n<br>Go Fashion (India) Ltd.,\n<br>No. 43/20, Nungambakkam High Road, Chennai - 600034\n<br>Ph: 044-42 111 777\n<br>E mail id: <a href=\"mailto:investor.relations@gocolors.com\">investor.relations@gocolors.com</a>\n</p>\n\n<p>Registrar and Share Transfer Agents:</p>\n\n<p>Kfin Technologies Limited,\n<br>Selenium Building, Tower-B, Plot No. 31 & 32, \n<br>Financial District, Nanakramguda, Serilingampally, \n<br>Hyderabad, Rangareddi, Telangana - 500032\n<br>Tel No: 040-67162222 \n<br>E mail ID: <a href=\"mailto:einward.ris@kfintech.com\">einward.ris@kfintech.com</a>\n<br>Website: <a href=\"https://www.kfintech.com\">www.kfintech.com</a></p>"
+            }
+          }
+        },
+        "block_order": [
+          "textarea_J6XcQf"
+        ],
+        "settings": {}
+      },
+      "KMP_details": {
+        "type": "KMP_details",
+        "blocks": {
+          "textarea_zJ4Uqi": {
+            "type": "textarea",
+            "settings": {
+              "title": "<p>Contact Details of Key Managerial Personnel:</p>\n\n<p>Ms.Gayathri Kethar,\n<br>Company Secretary & Compliance Officer,\n<br>Go Fashion (India) Ltd.,\n<br>No. 43/20, Nungambakkam High Road, Chennai - 600034\n<br>Ph: 044-42 111 777\n<br>E mail id: <a href=\"mailto:investor.relations@gocolors.com\">investor.relations@gocolors.com</a>\n</p>\n\n\n<p>Mr.R.Mohan,\n<br>Chief Financial Officer,\n<br>Go Fashion (India) Ltd., \n<br>No. 43/20, Nungambakkam High Road, Chennai - 600034\n<br>Tel No: 044-42 111 777 \n<br>E mail id: <a href=\"mailto:investor.relations@gocolors.com\">investor.relations@gocolors.com</a>\n\n</p>"
+            }
+          }
+        },
+        "block_order": [
+          "textarea_zJ4Uqi"
+        ],
+        "custom_css": [],
+        "settings": {}
+      },
+      "annual-reports": {
+        "type": "annual-reports",
+        "blocks": {
+          "textarea_bgEnUx": {
+            "type": "textarea",
+            "settings": {
+              "title": "CHAIRMAN SPEECH FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/CHAIRMAN_SPEECH_FY25.pdf?v=1757063745"
+            }
+          },
+          "textarea_GCbEU6": {
+            "type": "textarea",
+            "settings": {
+              "title": "CEO SPEECH FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/CEO_SPEECH_FY25.pdf?v=1757063744"
+            }
+          },
+          "textarea_8Jp8tT": {
+            "type": "textarea",
+            "settings": {
+              "title": "Business Responsibility and Sustainability Report",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/BRS.pdf?v=1754987538"
+            }
+          },
+          "textarea_C8ffpG": {
+            "type": "textarea",
+            "settings": {
+              "title": "ANNUAL REPORT 2024-25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/ANNUAL_REPORT_2024-25.pdf?v=1754925716"
+            }
+          },
+          "textarea_D6qEdp": {
+            "type": "textarea",
+            "settings": {
+              "title": "CEO SPEECH FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/CEO_SPEECH_AT_AGM_FY24.pdf?v=1723027152"
+            }
+          },
+          "textarea_tjpQdc": {
+            "type": "textarea",
+            "settings": {
+              "title": "CHAIRMAN SPEECH FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/CHAIRMAN_SPEECH_AT_AGM_FY24.pdf?v=1723027152"
+            }
+          },
+          "textarea_8C4d6W": {
+            "type": "textarea",
+            "settings": {
+              "title": "ANNUAL REPORT 2023-24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/ANNUAL_REPORT_-_2023-24.pdf?v=1722501112"
+            }
+          },
+          "textarea_jnndwt": {
+            "type": "textarea",
+            "settings": {
+              "title": "CHAIRMAN SPEECH FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/CHAIRMAN_SPEECH_AT_AGM_FY23.pdf?v=1693909321"
+            }
+          },
+          "textarea_FXHaF9": {
+            "type": "textarea",
+            "settings": {
+              "title": "CEO SPEECH FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/CEO_SPEECH_AT_AGM_FY23.pdf?v=1693909320"
+            }
+          },
+          "textarea_BAQRzm": {
+            "type": "textarea",
+            "settings": {
+              "title": "ANNUAL REPORT 2022-23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Go_Fashion_Annual_Report_2022-23_1.pdf?v=1691996131"
+            }
+          },
+          "textarea_hgcM7j": {
+            "type": "textarea",
+            "settings": {
+              "title": "CEO SPEECH FY22",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Go_Fashion_CEO_Speech_FY22_FINAL.pdf?v=1663063344"
+            }
+          },
+          "textarea_Qp3GUw": {
+            "type": "textarea",
+            "settings": {
+              "title": "CHAIRMAN SPEECH FY22",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Go_Fashion_Chairman_Speech_FY22.pdf?v=1663063339"
+            }
+          },
+          "textarea_Wz7jpW": {
+            "type": "textarea",
+            "settings": {
+              "title": "ANNUAL REPORT 2021-22",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/ANNUAL_REPORT_-_2021-22.pdf?v=1660635911"
+            }
+          },
+          "textarea_8g6WLr": {
+            "type": "textarea",
+            "settings": {
+              "title": "ANNUAL REPORT 2020-21",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Annual-Report-2020-21.pdf?v=1645782703"
+            }
+          },
+          "textarea_a3TQWn": {
+            "type": "textarea",
+            "settings": {
+              "title": "ANNUAL REPORT 2019-20",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Annual-Report-2019-20.pdf?v=1645782676"
+            }
+          },
+          "textarea_7TMcFN": {
+            "type": "textarea",
+            "settings": {
+              "title": "ANNUAL REPORT 2018-19",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Annual-Report-2018-19.pdf?v=1645782657"
+            }
+          }
+        },
+        "block_order": [
+          "textarea_bgEnUx",
+          "textarea_GCbEU6",
+          "textarea_8Jp8tT",
+          "textarea_C8ffpG",
+          "textarea_D6qEdp",
+          "textarea_tjpQdc",
+          "textarea_8C4d6W",
+          "textarea_jnndwt",
+          "textarea_FXHaF9",
+          "textarea_BAQRzm",
+          "textarea_hgcM7j",
+          "textarea_Qp3GUw",
+          "textarea_Wz7jpW",
+          "textarea_8g6WLr",
+          "textarea_a3TQWn",
+          "textarea_7TMcFN"
+        ],
+        "settings": {}
+      },
+      "earning-call-transcripts": {
+        "type": "earning-call-transcripts",
+        "blocks": {
+          "textarea_iCHKin": {
+            "type": "textarea",
+            "settings": {
+              "title": "EARNINGS CALL TRANSCRIPT Q2 FY26",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/EARNINGS_CALL_TRANSCRIPT_Q2_FY26.pdf?v=1763108184"
+            }
+          },
+          "textarea_TaTQVc": {
+            "type": "textarea",
+            "settings": {
+              "title": "EARNINGS CALL AUDIO Q2 FY26",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Q2202510036908.mp3?v=1762517192"
+            }
+          },
+          "textarea_tVUyV3": {
+            "type": "textarea",
+            "settings": {
+              "title": "AGM FY 24-25 TRANSCRIPT",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/AGM_FY_24-25_TRANSCRIPT.pdf?v=1760508353"
+            }
+          },
+          "textarea_NH7JJE": {
+            "type": "textarea",
+            "settings": {
+              "title": "AGM FY24-25 VIDEO RECORDINGS",
+              "tab_url": "https://youtu.be/NAo2D9ewluI"
+            }
+          },
+          "textarea_4EyqmK": {
+            "type": "textarea",
+            "settings": {
+              "title": "EARNINGS CALL TRANSCRIPT Q1 FY26",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/EARNINGS_CALL_TRANSCRIPT_Q1_FY26.pdf?v=1754547736"
+            }
+          },
+          "textarea_trmH94": {
+            "type": "textarea",
+            "settings": {
+              "title": "EARNINGS CALL AUDIO Q1 FY26",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/EARNINGS_CALL_AUDIO_Q1_FY26.mp3?v=1754061001"
+            }
+          },
+          "textarea_EYYKzR": {
+            "type": "textarea",
+            "settings": {
+              "title": "EARNINGS CALL TRANSCRIPT Q4 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/EARNINGS_CALL_TRANSCRIPT_Q4_FY25.pdf?v=1746530436"
+            }
+          },
+          "textarea_DFQJdp": {
+            "type": "textarea",
+            "settings": {
+              "title": "EARNINGS CALL AUDIO Q4 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/10031232.mp3?v=1746025170"
+            }
+          },
+          "textarea_YpXcE3": {
+            "type": "textarea",
+            "settings": {
+              "title": "EARNINGS CALL TRANSCRIPT Q3 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/EARNINGS_CALL_TRANSCRIPT_Q3_FY25.pdf?v=1738643193"
+            }
+          },
+          "textarea_KxETtQ": {
+            "type": "textarea",
+            "settings": {
+              "title": "EARNINGS CALL AUDIO Q3 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/10028885.mp3?v=1737957210"
+            }
+          },
+          "textarea_VfkFUT": {
+            "type": "textarea",
+            "settings": {
+              "title": "EARNINGS CALL TRANSCRIPT Q2 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/AGM_FY_24-25_TRANSCRIPT_Q2.pdf?v=1730283040"
+            }
+          },
+          "textarea_AfW9Tg": {
+            "type": "textarea",
+            "settings": {
+              "title": "EARNINGS CALL AUDIO Q2 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/SGQ2620241025155654.mp3?v=1729869127"
+            }
+          },
+          "textarea_hACKPB": {
+            "type": "textarea",
+            "settings": {
+              "title": "AGM FY23-24 VIDEO RECORDINGS",
+              "tab_url": "https://www.youtube.com/watch?v=qepDfesrtvA&feature=youtu.be"
+            }
+          },
+          "textarea_YDFBrL": {
+            "type": "textarea",
+            "settings": {
+              "title": "AGM FY 23-24 TRANSCRIPT",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/AGM_FY_23-24_TRANSCRIPT.pdf?v=1724211751"
+            }
+          },
+          "textarea_M3g4G7": {
+            "type": "textarea",
+            "settings": {
+              "title": "EARNINGS CALL TRANSCRIPT Q1 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/EARNINGS_CALL_TRANSCRIPT_Q1_FY25.pdf?v=1722407609"
+            }
+          },
+          "textarea_FVxrcr": {
+            "type": "textarea",
+            "settings": {
+              "title": "EARNINGS CALL AUDIO Q1 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/SGQ2620240724154188.mp3?v=1721834107"
+            }
+          },
+          "textarea_ABNUNg": {
+            "type": "textarea",
+            "settings": {
+              "title": "EARNINGS CALL TRANSCRIPT Q4 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/EARNINGS_CALL_TRANSCRIPT_Q4_FY24.pdf?v=1715151510"
+            }
+          },
+          "textarea_8D9jgB": {
+            "type": "textarea",
+            "settings": {
+              "title": "EARNINGS CALL Q4 FY-24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/SGQ2620240503152446.mp3?v=1714743806"
+            }
+          },
+          "textarea_mmNLap": {
+            "type": "textarea",
+            "settings": {
+              "title": "EARNINGS CALL TRANSCRIPT Q3 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/EARNINGS_CALL_TRANSCRIPT_Q3_FY24.pdf?v=1707725888"
+            }
+          },
+          "textarea_6CwCJa": {
+            "type": "textarea",
+            "settings": {
+              "title": "EARNINGS CALL AUDIO Q3 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/EARNINGS_CALL_Q3_FY-24.mp3?v=1707294813"
+            }
+          },
+          "textarea_MqqjN7": {
+            "type": "textarea",
+            "settings": {
+              "title": "EARNINGS CALL TRANSCRIPT Q2 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/EARNINGS_CALL_TRANSCRIPT_Q2_FY24.pdf?v=1699246840"
+            }
+          },
+          "textarea_aNyr63": {
+            "type": "textarea",
+            "settings": {
+              "title": "EARNINGS CALL AUDIO Q2 FY24",
+              "tab_url": "https://drive.google.com/file/d/1mR5LJA5tWOy-bdTOD6kePfoYFYqCSqdi/view"
+            }
+          },
+          "textarea_Wzyix7": {
+            "type": "textarea",
+            "settings": {
+              "title": "AGM EARNINGS CALL TRANSCRIPT Q1 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/AGM_FY_22-23_TRANSCRIPT.pdf?v=1695099543"
+            }
+          },
+          "textarea_YaBMcY": {
+            "type": "textarea",
+            "settings": {
+              "title": "AGM VIDEO RECORDINGS  FY22-23",
+              "tab_url": "https://drive.google.com/file/d/1Lt6mbx0mHVoa_Lvu9VVeMunrP4RDygna/view"
+            }
+          },
+          "textarea_HgVYEq": {
+            "type": "textarea",
+            "settings": {
+              "title": "EARNINGS CALL TRANSCRIPT Q1 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/EARNINGS_CALL_TRANSCRIPT_Q1_FY24.pdf?v=1691394117"
+            }
+          },
+          "textarea_FbV4bR": {
+            "type": "textarea",
+            "settings": {
+              "title": "EARNINGS CALL AUDIO Q1 FY24",
+              "tab_url": "https://drive.google.com/file/d/1uV0W5oHe323T7Mb6jaqFCvws5Ap5olWe/view?pli=1"
+            }
+          },
+          "textarea_mH9nxh": {
+            "type": "textarea",
+            "settings": {
+              "title": "EARNINGS CALL TRANSCRIPT Q4 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/EARNINGS_CALL_TRANSCRIPT_Q4_FY23.pdf?v=1684208789"
+            }
+          },
+          "textarea_MwWNEj": {
+            "type": "textarea",
+            "settings": {
+              "title": "EARNINGS CALL AUDIO Q4 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Earnings_Call_Audio_Recording_Q4_FY23.mp3?v=1683348583"
+            }
+          },
+          "textarea_iYBq9T": {
+            "type": "textarea",
+            "settings": {
+              "title": "EARNINGS CALL TRANSCRIPT Q3 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Earnings_Call_Transcript_Q3_FY23.pdf?v=1675399972"
+            }
+          },
+          "textarea_PqBPzG": {
+            "type": "textarea",
+            "disabled": true,
+            "settings": {
+              "title": "Go Fashion Q3FY23 Earnings Call-Audio",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Go_Fashion_Q3FY23_Earnings_Call-Audio.mp3?v=1675063171"
+            }
+          },
+          "textarea_wUDMTA": {
+            "type": "textarea",
+            "settings": {
+              "title": "EARNINGS CALL AUDIO Q3 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Earnings_Call_-_Audio_Q3_FY23.pdf?v=1674803811"
+            }
+          },
+          "textarea_pD9VHQ": {
+            "type": "textarea",
+            "settings": {
+              "title": "EARNINGS CALL TRANSCRIPT Q2 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Earnings_Call_Transcript_Q2_FY22-23.pdf?v=1668058947"
+            }
+          },
+          "textarea_ppU7BW": {
+            "type": "textarea",
+            "settings": {
+              "title": "EARNINGS CALL AUDIO Q2 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Earnings_Call_-_Audio_Q2_FY22-23.pdf?v=1667799023"
+            }
+          },
+          "textarea_zYpLAL": {
+            "type": "textarea",
+            "settings": {
+              "title": "AGM FY 21-22 Transcript",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/AGM_FY_21-22_Transcript.pdf?v=1663839313"
+            }
+          },
+          "textarea_wjn6FA": {
+            "type": "textarea",
+            "settings": {
+              "title": "AGM FY21-22 Video Recordings",
+              "tab_url": "https://drive.google.com/file/d/1vt7nDE6Sd7m1dyHwhE2nUvF9YwzkMvSH/view"
+            }
+          },
+          "textarea_DrmUjk": {
+            "type": "textarea",
+            "settings": {
+              "title": "EARNINGS CALL AUDIO Q1 FY23",
+              "tab_url": "https://drive.google.com/file/d/1WBxJYYe47pSa1qEXi81Tc7oggZ_cJTWH/view"
+            }
+          },
+          "textarea_Nqy8Uq": {
+            "type": "textarea",
+            "settings": {
+              "title": "EARNINGS CALL TRANSCRIPT Q1 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/EARNINGS_CALL_TRANSCRIPT_-_Q1_-_FY23.pdf?v=1661152206"
+            }
+          },
+          "textarea_G8dk6W": {
+            "type": "textarea",
+            "settings": {
+              "title": "EARNINGS CALL TRANSCRIPT Q4 FY22",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Earnings_Call_Transcript_Q4_FY22.pdf?v=1652677371"
+            }
+          },
+          "textarea_dTEj4c": {
+            "type": "textarea",
+            "settings": {
+              "title": "EARNINGS CALL AUDIO Q4 FY22",
+              "tab_url": "https://drive.google.com/file/d/1OsBOoDeUG1jMmA1qXaTA3CnDJhGbc8ni/view"
+            }
+          },
+          "textarea_xXhFGK": {
+            "type": "textarea",
+            "settings": {
+              "title": "EARNINGS CALL TRANSCRIPT Q3 FY22",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Go_Fashion_-_Earnings_Call_Transcript_-_Q3FY22_-_Final.pdf?v=1647324871"
+            }
+          }
+        },
+        "block_order": [
+          "textarea_iCHKin",
+          "textarea_TaTQVc",
+          "textarea_tVUyV3",
+          "textarea_NH7JJE",
+          "textarea_4EyqmK",
+          "textarea_trmH94",
+          "textarea_EYYKzR",
+          "textarea_DFQJdp",
+          "textarea_YpXcE3",
+          "textarea_KxETtQ",
+          "textarea_VfkFUT",
+          "textarea_AfW9Tg",
+          "textarea_hACKPB",
+          "textarea_YDFBrL",
+          "textarea_M3g4G7",
+          "textarea_FVxrcr",
+          "textarea_ABNUNg",
+          "textarea_8D9jgB",
+          "textarea_mmNLap",
+          "textarea_6CwCJa",
+          "textarea_MqqjN7",
+          "textarea_aNyr63",
+          "textarea_Wzyix7",
+          "textarea_YaBMcY",
+          "textarea_HgVYEq",
+          "textarea_FbV4bR",
+          "textarea_mH9nxh",
+          "textarea_MwWNEj",
+          "textarea_iYBq9T",
+          "textarea_PqBPzG",
+          "textarea_wUDMTA",
+          "textarea_pD9VHQ",
+          "textarea_ppU7BW",
+          "textarea_zYpLAL",
+          "textarea_wjn6FA",
+          "textarea_DrmUjk",
+          "textarea_Nqy8Uq",
+          "textarea_G8dk6W",
+          "textarea_dTEj4c",
+          "textarea_xXhFGK"
+        ],
+        "settings": {}
+      },
+      "quarterly-financial-results": {
+        "type": "quarterly-financial-results",
+        "blocks": {
+          "textarea_zxBzHj": {
+            "type": "textarea",
+            "settings": {
+              "title": "INTEGRATED FILING - FINANCIALS Q2 FY26",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INTEGRATED_FILING_-_FINANCIALS_Q2_FY26.pdf?v=1762766786"
+            }
+          },
+          "textarea_FNJnxm": {
+            "type": "textarea",
+            "settings": {
+              "title": "FINANCIAL RESULTS Q2 FY26",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/FINANCIAL_RESULTS_Q2_FY26.pdf?v=1762501210"
+            }
+          },
+          "textarea_4eFHRT": {
+            "type": "textarea",
+            "settings": {
+              "title": "INTEGRATED FILING - FINANCIALS Q1 FY26",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INTEGRATED_FILING_-_FINANCIALS_Q1_FY26.pdf?v=1757676965"
+            }
+          },
+          "textarea_iPVP98": {
+            "type": "textarea",
+            "settings": {
+              "title": "INTEGRATED FILING - FINANCIALS Q4 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INTEGRATED_FILING_-_FINANCIALS_Q4_FY25.pdf?v=1757676966"
+            }
+          },
+          "textarea_WeRUyY": {
+            "type": "textarea",
+            "settings": {
+              "title": "FINANCIAL RESULTS Q1 FY26",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/FINANCIAL_RESULTS_Q1_FY26.pdf?v=1754040681"
+            }
+          },
+          "textarea_cV6Kgx": {
+            "type": "textarea",
+            "settings": {
+              "title": "FINANCIAL RESULTS Q4 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/FINANCIAL_RESULTS_Q4_FY25.pdf?v=1746002186"
+            }
+          },
+          "textarea_FcLD6j": {
+            "type": "textarea",
+            "settings": {
+              "title": "INTEGRATED FILING - FINANCIALS Q3 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INTEGRATED_FILING_-_FINANCIALS_Q3_FY25.pdf?v=1737796797"
+            }
+          },
+          "textarea_6zRJap": {
+            "type": "textarea",
+            "settings": {
+              "title": "FINANCIAL RESULTS Q3 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/FINANCIAL_RESULTS_Q3_FY25_1.pdf?v=1738566656"
+            }
+          },
+          "textarea_CTkEpb": {
+            "type": "textarea",
+            "settings": {
+              "title": "FINANCIAL RESULTS Q2 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/FINANCIAL_RESULTS_Q2_FY25_1.pdf?v=1738566656"
+            }
+          },
+          "textarea_gNUMUW": {
+            "type": "textarea",
+            "settings": {
+              "title": "FINANCIAL RESULTS Q1 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/FINANCIAL_RESULTS_Q1_FY25_1.pdf?v=1738566655"
+            }
+          },
+          "textarea_JrJwBQ": {
+            "type": "textarea",
+            "settings": {
+              "title": "FINANCIAL RESULTS Q4 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/FINANCIAL_RESULTS_Q4_FY24_1.pdf?v=1738566656"
+            }
+          },
+          "textarea_crFUwN": {
+            "type": "textarea",
+            "settings": {
+              "title": "FINANCIAL RESULTS Q3 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/FINANCIAL_RESULTS_Q3_FY24.pdf?v=1707214510"
+            }
+          },
+          "textarea_Hr4eay": {
+            "type": "textarea",
+            "settings": {
+              "title": "FINANCIAL RESULTS Q2 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/FINANCIAL_RESULTS_Q2.pdf?v=1698904276"
+            }
+          },
+          "textarea_CipzNJ": {
+            "type": "textarea",
+            "settings": {
+              "title": "FINANCIAL RESULTS Q1 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/FINANCIAL_RESULTS_Q1_FY24.pdf?v=1690954159"
+            }
+          },
+          "textarea_9EfpLe": {
+            "type": "textarea",
+            "settings": {
+              "title": "FINANCIAL RESULTS Q4 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/FINANCIAL_RESULTS_Q4_FY23.pdf?v=1688640055"
+            }
+          },
+          "textarea_QrAxq6": {
+            "type": "textarea",
+            "settings": {
+              "title": "FINANCIAL RESULTS Q3 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Financial_Results_Q3_FY23.pdf?v=1674803811"
+            }
+          },
+          "textarea_e8ryGK": {
+            "type": "textarea",
+            "settings": {
+              "title": "FINANCIAL RESULTS Q2 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Financial_Results_Q2_FY22-23.pdf?v=1668430320"
+            }
+          },
+          "textarea_nGYrG6": {
+            "type": "textarea",
+            "settings": {
+              "title": "FINANCIAL RESULTS Q1 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Outcome_of_Board_Meeting_-_Q1_FY_23.pdf?v=1660133137"
+            }
+          },
+          "textarea_aAzcDY": {
+            "type": "textarea",
+            "settings": {
+              "title": "FINANCIAL RESULTS Q4 FY22",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Financial_Results_-_Q4_-_FY_22.pdf?v=1651911790"
+            }
+          },
+          "textarea_piz7pY": {
+            "type": "textarea",
+            "settings": {
+              "title": "FINANCIAL-RESULTS Q3 FY22",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/FINANCIAL-RESULTS_Q3_FY22.pdf?v=1744009784"
+            }
+          }
+        },
+        "block_order": [
+          "textarea_zxBzHj",
+          "textarea_FNJnxm",
+          "textarea_4eFHRT",
+          "textarea_iPVP98",
+          "textarea_WeRUyY",
+          "textarea_cV6Kgx",
+          "textarea_FcLD6j",
+          "textarea_6zRJap",
+          "textarea_CTkEpb",
+          "textarea_gNUMUW",
+          "textarea_JrJwBQ",
+          "textarea_crFUwN",
+          "textarea_Hr4eay",
+          "textarea_CipzNJ",
+          "textarea_9EfpLe",
+          "textarea_QrAxq6",
+          "textarea_e8ryGK",
+          "textarea_nGYrG6",
+          "textarea_aAzcDY",
+          "textarea_piz7pY"
+        ],
+        "settings": {}
+      },
+      "investor-presentation": {
+        "type": "investor-presentation",
+        "blocks": {
+          "textarea_R84AR7": {
+            "type": "textarea",
+            "settings": {
+              "title": "INVESTOR PRESENTATION Q2 FY26",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INVESTOR_PRESENTATION_Q2_FY26.pdf?v=1762501211"
+            }
+          },
+          "textarea_VFYtxp": {
+            "type": "textarea",
+            "settings": {
+              "title": "INVESTOR PRESENTATION Q1 FY26",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INVESTOR_PRESENTATION_Q1_FY26.pdf?v=1754040682"
+            }
+          },
+          "textarea_Rfw839": {
+            "type": "textarea",
+            "settings": {
+              "title": "INVESTOR PRESENTATION Q4 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INVESTOR_PRESENTATION_Q4_FY25.pdf?v=1746002186"
+            }
+          },
+          "textarea_8VXebV": {
+            "type": "textarea",
+            "settings": {
+              "title": "INVESTOR PRESENTATION Q3 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INVESTOR_PRESENTATION_Q3_FY_24-25.pdf?v=1737796797"
+            }
+          },
+          "textarea_H7Xarj": {
+            "type": "textarea",
+            "settings": {
+              "title": "INVESTOR PRESENTATION Q2 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INVESTOR_PRESENTATION_Q2_FY_24-25.pdf?v=1729846522"
+            }
+          },
+          "textarea_xjiyBR": {
+            "type": "textarea",
+            "settings": {
+              "title": "INVESTOR PRESENTATION Q1 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INVESTOR_PRESENTATION_Q1_FY_24-25.pdf?v=1721805493"
+            }
+          },
+          "textarea_9aEwNc": {
+            "type": "textarea",
+            "settings": {
+              "title": "INVESTOR PRESENTATION Q4 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INVESTOR_PRESENTATION_Q4_FY23-24.pdf?v=1714727179"
+            }
+          },
+          "textarea_fBpGfg": {
+            "type": "textarea",
+            "settings": {
+              "title": "INVESTOR PRESENTATION Q3 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INVESTOR_PRESENTATION_Q3_FY23-24.pdf?v=1707209520"
+            }
+          },
+          "textarea_8VeBMW": {
+            "type": "textarea",
+            "settings": {
+              "title": "INVESTOR PRESENTATION Q2 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INVESTOR_PRESENTATION_Q2_FY23-24.pdf?v=1698740176"
+            }
+          },
+          "textarea_ke3VYE": {
+            "type": "textarea",
+            "settings": {
+              "title": "INVESTOR PRESENTATION Q1 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INVESTOR_PRESENTATION_Q1_FY23-24.pdf?v=1690795144"
+            }
+          },
+          "textarea_ribGJV": {
+            "type": "textarea",
+            "settings": {
+              "title": "INVESTOR PRESENTATION Q4 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INVESTOR_PRESENTATION_Q4_FY22-23.pdf?v=1683285689"
+            }
+          },
+          "textarea_nYYhXd": {
+            "type": "textarea",
+            "settings": {
+              "title": "INVESTOR PRESENTATION Q3 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Investor_Presentation_Q3_FY23.pdf?v=1674652123"
+            }
+          },
+          "textarea_Y79Xcj": {
+            "type": "textarea",
+            "settings": {
+              "title": "INVESTOR PRESENTATION Q2 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Investor_Presentation_Q2_FY22-23.pdf?v=1667555872"
+            }
+          },
+          "textarea_8HCqdF": {
+            "type": "textarea",
+            "settings": {
+              "title": "INVESTOR PRESENTATION Q1 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/GFL_-_Investor_Presentation_-_Q1_-_FY_23.pdf?v=1660133136"
+            }
+          },
+          "textarea_Mm4iHQ": {
+            "type": "textarea",
+            "settings": {
+              "title": "INVESTOR PRESENTATION Q4 FY22",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Investor_Presentation_Q4_FY22.pdf?v=1651926860"
+            }
+          },
+          "textarea_HLGqLw": {
+            "type": "textarea",
+            "settings": {
+              "title": "INVESTOR PRESENTATION Q3 FY22",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Investor_Presentation_Q3-FY22.pdf?v=1645782778"
+            }
+          }
+        },
+        "block_order": [
+          "textarea_R84AR7",
+          "textarea_VFYtxp",
+          "textarea_Rfw839",
+          "textarea_8VXebV",
+          "textarea_H7Xarj",
+          "textarea_xjiyBR",
+          "textarea_9aEwNc",
+          "textarea_fBpGfg",
+          "textarea_8VeBMW",
+          "textarea_ke3VYE",
+          "textarea_ribGJV",
+          "textarea_nYYhXd",
+          "textarea_Y79Xcj",
+          "textarea_8HCqdF",
+          "textarea_Mm4iHQ",
+          "textarea_HLGqLw"
+        ],
+        "settings": {}
+      },
+      "press-releases": {
+        "type": "press-releases",
+        "blocks": {
+          "textarea_XGfEiG": {
+            "type": "textarea",
+            "settings": {
+              "title": "PRESS RELEASE Q2 FY26",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/PRESS_RELEASE_Q2_FY26.pdf?v=1762501210"
+            }
+          },
+          "textarea_NU9CR9": {
+            "type": "textarea",
+            "settings": {
+              "title": "PRESS RELEASE Q1 FY26",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/PRESS_RELEASE_Q1_FY26.pdf?v=1754040681"
+            }
+          },
+          "textarea_8f4M73": {
+            "type": "textarea",
+            "settings": {
+              "title": "PRESS RELEASE-Go Colors opens First International Store in Dubai’s Silicon Central Mall",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/PRESS_RELEASE-Go_Colors_opens_First_International_Store_in_Dubai_s_Silicon_Central_Mall.pdf?v=1749187385"
+            }
+          },
+          "textarea_wkjcD8": {
+            "type": "textarea",
+            "settings": {
+              "title": "PRESS RELEASE Q4 FY 24-25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/PRESS_RELEASE_Q4_FY_24-25.pdf?v=1746002185"
+            }
+          },
+          "textarea_6Ew9f6": {
+            "type": "textarea",
+            "settings": {
+              "title": "PRESS RELEASE Q3 FY 24-25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/PRESS_RELEASE_Q3_FY_24-25.pdf?v=1737796796"
+            }
+          },
+          "textarea_y47YNm": {
+            "type": "textarea",
+            "settings": {
+              "title": "PRESS RELEASE Q2 FY 24-25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/PRESS_RELEASE_Q2_FY_24-25.pdf?v=1729846521"
+            }
+          },
+          "textarea_NQqRTg": {
+            "type": "textarea",
+            "settings": {
+              "title": "PRESS RELEASE Q1 FY 24-25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/PRESS_RELEASE_Q1_FY_24-25.pdf?v=1721805493"
+            }
+          },
+          "textarea_j64tQE": {
+            "type": "textarea",
+            "settings": {
+              "title": "PRESS RELEASE-FRANCHISE AGREEMENT WITH APPAREL GROUP",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/PRESS_RELEASE-FRANCHISE_AGREEMENT_WITH_APPAREL_GROUP.pdf?v=1715943841"
+            }
+          },
+          "textarea_4qgP7H": {
+            "type": "textarea",
+            "settings": {
+              "title": "PRESS RELEASE Q4 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/PRESS_RELEASE_Q4_FY23-24.pdf?v=1714727179"
+            }
+          },
+          "textarea_GKrhGW": {
+            "type": "textarea",
+            "settings": {
+              "title": "PRESS RELEASE Q3 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/PRESS_RELEASE_Q3_FY23-24.pdf?v=1707209519"
+            }
+          },
+          "textarea_Rjtg7Q": {
+            "type": "textarea",
+            "settings": {
+              "title": "PRESS RELEASE Q2 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/PRESS_RELEASE_Q2_FY23-24.pdf?v=1698740175"
+            }
+          },
+          "textarea_R6yUNG": {
+            "type": "textarea",
+            "settings": {
+              "title": "PRESS RELEASE Q1 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/PRESS_RELEASE_Q1_FY23-24.pdf?v=1690795144"
+            }
+          },
+          "textarea_UjcabE": {
+            "type": "textarea",
+            "settings": {
+              "title": "PRESS RELEASE Q4 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/PRESS_RELEASE_Q4_FY22-23.pdf?v=1683285686"
+            }
+          },
+          "textarea_GGhGtX": {
+            "type": "textarea",
+            "settings": {
+              "title": "PRESS RELEASE Q3 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Press_Release_Q3_FY22-23_552c9517-4d7f-4026-9b1b-8773c49f95a9.pdf?v=1674649653"
+            }
+          },
+          "textarea_Ky6bNJ": {
+            "type": "textarea",
+            "settings": {
+              "title": "PRESS RELEASE Q2 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Press_Release_Q2_FY22-23.pdf?v=1667555864"
+            }
+          },
+          "textarea_ekaEKD": {
+            "type": "textarea",
+            "settings": {
+              "title": "PRESS RELEASE Q1 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/GFL_-_Press_Release_-_Q1_-_FY_23.pdf?v=1660133136"
+            }
+          },
+          "textarea_ELVXMd": {
+            "type": "textarea",
+            "settings": {
+              "title": "PRESS RELEASE Q4 FY22",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Press_Release_Q4_FY22.pdf?v=1651916793"
+            }
+          },
+          "textarea_zjcwMQ": {
+            "type": "textarea",
+            "settings": {
+              "title": "Press Release Go Colors launches its 500th Store",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0293/6448/6192/files/Press_Release_Go_Colors_launches_its_500th_Store_c6e47a9d-eda2-4db7-b700-913429ca1a61.pdf?v=1649145127"
+            }
+          },
+          "textarea_eKTYtg": {
+            "type": "textarea",
+            "settings": {
+              "title": "PRESS RELEASE Q3 FY22",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Press_Release_Q3FY22.pdf?v=1645782809"
+            }
+          }
+        },
+        "block_order": [
+          "textarea_XGfEiG",
+          "textarea_NU9CR9",
+          "textarea_8f4M73",
+          "textarea_wkjcD8",
+          "textarea_6Ew9f6",
+          "textarea_y47YNm",
+          "textarea_NQqRTg",
+          "textarea_j64tQE",
+          "textarea_4qgP7H",
+          "textarea_GKrhGW",
+          "textarea_Rjtg7Q",
+          "textarea_R6yUNG",
+          "textarea_UjcabE",
+          "textarea_GGhGtX",
+          "textarea_Ky6bNJ",
+          "textarea_ekaEKD",
+          "textarea_ELVXMd",
+          "textarea_zjcwMQ",
+          "textarea_eKTYtg"
+        ],
+        "settings": {}
+      },
+      "credit-rating": {
+        "type": "credit-rating",
+        "blocks": {
+          "textarea_mgKyJm": {
+            "type": "textarea",
+            "settings": {
+              "title": "CREDIT RATING ICRA FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/CREDIT_RATING_ICRA_FY25.pdf?v=1763730570"
+            }
+          },
+          "textarea_LDWbzA": {
+            "type": "textarea",
+            "settings": {
+              "title": "CREDIT RATING CRISIL FY24-25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/CREDIT_RATING_CRISIL_FY24-25.pdf?v=1740723288"
+            }
+          },
+          "textarea_cKqXMP": {
+            "type": "textarea",
+            "settings": {
+              "title": "CREDIT RATING ICRA FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/CREDIT_RATING_-_CRISIL_-_FY24.pdf?v=1730090862"
+            }
+          },
+          "textarea_KVymic": {
+            "type": "textarea",
+            "settings": {
+              "title": "CREDIT RATING CRISIL FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/CREDIT_RATING_-_CRISIL_-_FY23.pdf?v=1698403405"
+            }
+          },
+          "textarea_wEdmJQ": {
+            "type": "textarea",
+            "settings": {
+              "title": "CREDIT RATING ICRA - JULY FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/CREDIT_RATING_-_ICRA_-_JULY_-_FY23.pdf?v=1690541371"
+            }
+          },
+          "textarea_LWMeEA": {
+            "type": "textarea",
+            "settings": {
+              "title": "CREDIT RATING CRISIL- FEBRUARY FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/CREDIT_RATING_-_CRISIL-_FEBRUARY-_FY23.pdf?v=1676610493"
+            }
+          },
+          "textarea_eph7Lc": {
+            "type": "textarea",
+            "settings": {
+              "title": "CREDIT RATING CRISIL - APRIL FY22",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0293/6448/6192/files/Credit_Rating-_CRISIL_-_April-_FY22.pdf?v=1649145487"
+            }
+          },
+          "textarea_3WNC6E": {
+            "type": "textarea",
+            "settings": {
+              "title": "CREDIT RATING - ICRA",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Credit_Rating_-_ICRA.pdf?v=1645782735"
+            }
+          },
+          "textarea_ChtAiY": {
+            "type": "textarea",
+            "settings": {
+              "title": "CREDIT RATING -CRISIL",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Credit_Rating_-CRISIL.pdf?v=1645782752"
+            }
+          }
+        },
+        "block_order": [
+          "textarea_mgKyJm",
+          "textarea_LDWbzA",
+          "textarea_cKqXMP",
+          "textarea_KVymic",
+          "textarea_wEdmJQ",
+          "textarea_LWMeEA",
+          "textarea_eph7Lc",
+          "textarea_3WNC6E",
+          "textarea_ChtAiY"
+        ],
+        "settings": {}
+      },
+      "corporate-announcements": {
+        "type": "corporate-announcements",
+        "blocks": {
+          "textarea_Xe6eae": {
+            "type": "textarea",
+            "settings": {
+              "title": "TRADING WINDOW CLOSURE Q3 FY26",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/TRADING_WINDOW_CLOSURE_Q3_FY26.pdf?v=1766552757"
+            }
+          },
+          "textarea_Qzk3DG": {
+            "type": "textarea",
+            "settings": {
+              "title": "SCRUTINIZER & E-VOTING REPORT OF POSTAL BALLOT FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/SCRUTINIZER_E-VOTING_REPORT_OF_POSTAL_BALLOT_FY25.pdf?v=1766407452"
+            }
+          },
+          "textarea_NmTGpd": {
+            "type": "textarea",
+            "settings": {
+              "title": "NEWSPAPER PUBLICATION - POSTAL BALLOT NOTICE",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/NEWSPAPER_PUBLICATION_-_POSTAL_BALLOT_NOTICE.pdf?v=1763554087"
+            }
+          },
+          "textarea_QBzFwC": {
+            "type": "textarea",
+            "settings": {
+              "title": "NEWSPAPER PUBLICATION OF FINANCIAL RESULTS Q2 FY26",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/NEWSPAPER_PUBLICATION_OF_FINANCIAL_RESULTS_Q2_FY26.pdf?v=1762845760"
+            }
+          },
+          "textarea_UFnkBf": {
+            "type": "textarea",
+            "settings": {
+              "title": "INTIMATION OF BOARD MEETING Q2 FY26",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INTIMATION_OF_BOARD_MEETING_Q2_FY26.pdf?v=1762146249"
+            }
+          },
+          "textarea_3yXTix": {
+            "type": "textarea",
+            "settings": {
+              "title": "EARNINGS CALL INVITE Q2 FY26",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/EARNINGS_CALL_INVITE_Q2_FY26.pdf?v=1762146249"
+            }
+          },
+          "textarea_pd8iUR": {
+            "type": "textarea",
+            "settings": {
+              "title": "INTEGRATED FILING - GOVERNANCE Q2 FY26",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INTEGRATED_FILING_-_GOVERNANCE_Q2_FY26.pdf?v=1760700081"
+            }
+          },
+          "textarea_W8TAiW": {
+            "type": "textarea",
+            "settings": {
+              "title": "INVESTOR GRIEVANCE REPORT Q2 FY26",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INVESTOR_GRIEVANCE_REPORT_Q2_FY26.pdf?v=1760700081"
+            }
+          },
+          "textarea_AFeec6": {
+            "type": "textarea",
+            "settings": {
+              "title": "TRADING WINDOW CLOSURE Q2 FY26",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/TRADING_WINDOW_CLOSURE_Q2_FY26.pdf?v=1760508353"
+            }
+          },
+          "textarea_bBzDRY": {
+            "type": "textarea",
+            "settings": {
+              "title": "RECONCILIATION OF SHARE CAPITAL Q2 FY26",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/RECONCILIATION_OF_SHARE_CAPITAL_Q2_FY26.pdf?v=1760508353"
+            }
+          },
+          "textarea_fk83th": {
+            "type": "textarea",
+            "settings": {
+              "title": "REGULATION 74(5) Q1 FY26",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/REGULATION_74_5_Q1_FY26_1.pdf?v=1760508353"
+            }
+          },
+          "textarea_Jpwkai": {
+            "type": "textarea",
+            "settings": {
+              "title": "SCRUTINIZER & E-VOTING REPORT OF 15TH AGM FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/SCRUTINIZER_E-VOTING_REPORT_OF_15TH_AGM_FY25.pdf?v=1757143029"
+            }
+          },
+          "textarea_HVU6fY": {
+            "type": "textarea",
+            "settings": {
+              "title": "PROCEEDINGS OF 15TH AGM",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/PROCEEDINGS_OF_15TH_AGM.pdf?v=1757053810"
+            }
+          },
+          "textarea_dxf7ee": {
+            "type": "textarea",
+            "settings": {
+              "title": "INVESTOR MEET INTIMATION 03-09-2025",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INVESTOR_MEET_INTIMATION_03-09-2025.pdf?v=1755764302"
+            }
+          },
+          "textarea_Vwgm6n": {
+            "type": "textarea",
+            "settings": {
+              "title": "PUBLICATION OF NEWSPAPER ADVERTISEMENT FOR 15TH AGM FY26",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/PUBLICATION_OF_NEWSPAPER_ADVERTISEMENT_FOR_15TH_AGM_FY26_1.pdf?v=1755092230"
+            }
+          },
+          "textarea_M7tgAe": {
+            "type": "textarea",
+            "settings": {
+              "title": "NOTICE OF 15TH AGM",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/NOTICE_OF_15TH_AGM.pdf?v=1755062970"
+            }
+          },
+          "textarea_UzFM7A": {
+            "type": "textarea",
+            "settings": {
+              "title": "INTIMATION OF BOOK CLOSURE FY26",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INTIMATION_OF_BOOK_CLOSURE_FY26.pdf?v=1755062969"
+            }
+          },
+          "textarea_ET8Lhp": {
+            "type": "textarea",
+            "settings": {
+              "title": "PUBLICATION OF NEWSPAPER ADVERTISEMENT FOR 15TH AGM FY26",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/PUBLICATION_OF_NEWSPAPER_ADVERTISEMENT_FOR_15TH_AGM_FY26.pdf?v=1754976887"
+            }
+          },
+          "textarea_mTBdbH": {
+            "type": "textarea",
+            "settings": {
+              "title": "EARNINGS CALL INVITE Q1 FY26",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/NEWSPAPER_PUBLICATION_OF_FINANCIAL_RESULTS_Q1_FY26.pdf?v=1754548504"
+            }
+          },
+          "textarea_VLCMpP": {
+            "type": "textarea",
+            "settings": {
+              "title": "INTIMATION OF BOARD MEETING Q1 FY26",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INTIMATION_OF_BOARD_MEETING_Q1_FY26.pdf?v=1753678530"
+            }
+          },
+          "textarea_zKmAYn": {
+            "type": "textarea",
+            "settings": {
+              "title": "EARNINGS CALL INVITE Q1 FY26",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/EARNINGS_CALL_INVITE_Q1_FY26.pdf?v=1753678530"
+            }
+          },
+          "textarea_AjDmfb": {
+            "type": "textarea",
+            "settings": {
+              "title": "INVESTOR GRIEVANCE REPORT Q1 FY26",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INVESTOR_GRIEVANCE_REPORT_Q1_FY26.pdf?v=1753179016"
+            }
+          },
+          "textarea_33jFhd": {
+            "type": "textarea",
+            "settings": {
+              "title": "INTEGRATED FILING - GOVERNANCE Q1 FY26",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INTEGRATED_FILING_-_GOVERNANCE_Q1_FY26.pdf?v=1752835809"
+            }
+          },
+          "textarea_t9KiBV": {
+            "type": "textarea",
+            "settings": {
+              "title": "RECONCILIATION OF SHARE CAPITAL Q1 FY26",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/RECONCILIATION_OF_SHARE_CAPITAL_Q1_FY26.pdf?v=1752496925"
+            }
+          },
+          "textarea_jAbrmD": {
+            "type": "textarea",
+            "settings": {
+              "title": "REGULATION 74(5) Q1 FY26",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/REGULATION_74_5_Q1_FY26.pdf?v=1752496925"
+            }
+          },
+          "textarea_9ne3Gx": {
+            "type": "textarea",
+            "settings": {
+              "title": "TRADING WINDOW CLOSURE Q1 FY26",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/TRADING_WINDOW_CLOSURE_Q1_FY26.pdf?v=1752496925"
+            }
+          },
+          "textarea_HTd3yq": {
+            "type": "textarea",
+            "settings": {
+              "title": "SECRETARIAL COMPLIANCE REPORT FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/SECRETARIAL_COMPLIANCE_REPORT_FY25.pdf?v=1746530436"
+            }
+          },
+          "textarea_X7BKGm": {
+            "type": "textarea",
+            "settings": {
+              "title": "NEWSPAPER PUBLICATION OF FINANCIAL RESULTS Q4 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/NEWSPAPER_PUBLICATION_OF_FINANCIAL_RESULTS_Q4_FY25.pdf?v=1746186201"
+            }
+          },
+          "textarea_cqdeBy": {
+            "type": "textarea",
+            "settings": {
+              "title": "OUTCOME OF BOARD MEETING Q4 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/OUTCOME_OF_BOARD_MEETING_Q4_FY25.pdf?v=1746002186"
+            }
+          },
+          "textarea_p3RUpN": {
+            "type": "textarea",
+            "settings": {
+              "title": "INTIMATION OF BOARD MEETING Q4 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INTIMATION_OF_BOARD_MEETING_Q4_FY25.pdf?v=1745554370"
+            }
+          },
+          "textarea_MeVraj": {
+            "type": "textarea",
+            "settings": {
+              "title": "EARNINGS CALL INVITE Q4 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/EARNINGS_CALL_INVITE_Q4_FY25.pdf?v=1745554370"
+            }
+          },
+          "textarea_Tp83wb": {
+            "type": "textarea",
+            "settings": {
+              "title": "INTEGRATED FILING - GOVERNANCE Q4 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INTEGRATED_FILING_-_GOVERNANCE_Q4_FY25.pdf?v=1745386791"
+            }
+          },
+          "textarea_BXthqF": {
+            "type": "textarea",
+            "settings": {
+              "title": "RECONCILIATION OF SHARE CAPITAL Q4 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/RECONCILIATION_OF_SHARE_CAPITAL_Q4_FY25.pdf?v=1744384260"
+            }
+          },
+          "textarea_CfNQ4F": {
+            "type": "textarea",
+            "settings": {
+              "title": "Regulation 74(5)",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Regulation_74_5.pdf?v=1744384259"
+            }
+          },
+          "textarea_Yc39VU": {
+            "type": "textarea",
+            "settings": {
+              "title": "TRADING WINDOW CLOSURE Q4 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/TRADING_WINDOW_CLOSURE_Q4_FY25.pdf?v=1743570412"
+            }
+          },
+          "textarea_T8tKFV": {
+            "type": "textarea",
+            "settings": {
+              "title": "INVESTOR MEET INTIMATION 18-02-2025",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INVESTOR_MEET_INTIMATION_18-02-2025.pdf?v=1738585102"
+            }
+          },
+          "textarea_UB6CiG": {
+            "type": "textarea",
+            "settings": {
+              "title": "INVESTOR MEET INTIMATION 03-03-2025",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INVESTOR_MEET_INTIMATION_03-03-2025.pdf?v=1738585103"
+            }
+          },
+          "textarea_G3LgRm": {
+            "type": "textarea",
+            "settings": {
+              "title": "INTEGRATED FILING - GOVERNANCE Q3 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INTEGRATED_FILING_-_GOVERNANCE_Q3_FY25.pdf?v=1738238446"
+            }
+          },
+          "textarea_nMkpkk": {
+            "type": "textarea",
+            "settings": {
+              "title": "NEWSPAPER PUBLICATION OF FINANCIAL RESULTS Q3 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/NEWSPAPER_PUBLICATION_OF_FINANCIAL_RESULTS_Q3_bf9033cf-4350-4daa-a48a-2b544c6601f3.pdf?v=1737975348"
+            }
+          },
+          "textarea_AfYGf6": {
+            "type": "textarea",
+            "settings": {
+              "title": "OUTCOME OF BOARD MEETING Q3 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/OUTCOME_OF_BOARD_MEETING_Q3_b1c92885-f9b2-470f-ad3a-eb26844501bc.pdf?v=1737796797"
+            }
+          },
+          "textarea_cN8yrX": {
+            "type": "textarea",
+            "settings": {
+              "title": "RECONCILIATION OF SHARE CAPITAL Q3 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/RECONCILIATION_OF_SHARE_CAPITAL_Q3.pdf?v=1737521083"
+            }
+          },
+          "textarea_Cfp4Db": {
+            "type": "textarea",
+            "settings": {
+              "title": "INVESTOR GRIEVANCE REPORT Q3 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INVESTOR_GRIEVANCE_REPORT_Q3_979495d3-d863-48a0-b422-3cc04a8dd8ab.pdf?v=1737470526"
+            }
+          },
+          "textarea_6MbiAp": {
+            "type": "textarea",
+            "settings": {
+              "title": "INTIMATION OF BOARD MEETING Q3 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INTIMATION_OF_BOARD_MEETING_Q3_f44dcc4b-a3cb-48b6-ad5e-89f10e1e5510.pdf?v=1737445094"
+            }
+          },
+          "textarea_yzcnMJ": {
+            "type": "textarea",
+            "settings": {
+              "title": "EARNINGS CALL INVITE Q3 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/EARNINGS_CALL_INVITE_Q3_392ab0c8-10ee-4e4c-9dfb-d08713669fbc.pdf?v=1737445093"
+            }
+          },
+          "textarea_t3D6BA": {
+            "type": "textarea",
+            "settings": {
+              "title": "REGULATION 74(5) Q3 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/REGULATION_74_5_Q3_71303105-843f-46f4-bfc6-74dd27eefa09.pdf?v=1738238756"
+            }
+          },
+          "textarea_PArpFr": {
+            "type": "textarea",
+            "settings": {
+              "title": "CORPORATE GOVERNANCE REPORT Q3 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/CORPORATE_GOVERNANCE_REPORT_Q3_c60dc1e5-0767-4a50-9453-e97b27617c90.pdf?v=1737118126"
+            }
+          },
+          "textarea_hfnKDR": {
+            "type": "textarea",
+            "settings": {
+              "title": "INVESTOR GRIEVANCE Q3 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INVESTOR_GRIEVANCE_Q3.pdf?v=1736927430"
+            }
+          },
+          "textarea_6biFAp": {
+            "type": "textarea",
+            "settings": {
+              "title": "TRADING WINDOW CLOSURE Q3 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/TRADING_WINDOW_CLOSURE_Q3_5c1668a8-26f2-4369-a0a0-5e9cf1a9dc3c.pdf?v=1735199747"
+            }
+          },
+          "textarea_FpbaTC": {
+            "type": "textarea",
+            "settings": {
+              "title": "REDRESSAL OF INVESTOR GRIEVANCES THROUGH THE SEBI COMPLAINT REDRESSAL (SCORES) PLATFORM",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Redressal_of_investor_grievances_through_the_SEBI_Complaint_Redressal.pdf?v=1731646595"
+            }
+          },
+          "textarea_J4QTxJ": {
+            "type": "textarea",
+            "settings": {
+              "title": "RELATED PARTY TRANSACTIONS Q2 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/RELATED_PARTY_TRANSACTIONS_FY24-25_Q2.pdf?v=1730180123"
+            }
+          },
+          "textarea_3KLhhA": {
+            "type": "textarea",
+            "settings": {
+              "title": "NEWSPAPER PUBLICATION OF FINANCIAL RESULTS Q2 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/NEWSPAPER_PUBLICATION_OF_FINANCIAL_RESULTS_Q2_d8c51480-4d9c-40c6-90c0-46051dec81c2.pdf?v=1730090862"
+            }
+          },
+          "textarea_tU3YWW": {
+            "type": "textarea",
+            "settings": {
+              "title": "OUTCOME OF BOARD MEETING Q2 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/OUTCOME_OF_BOARD_MEETING_Q2_af09092c-47bb-4611-87b6-0450f09e7509.pdf?v=1729846522"
+            }
+          },
+          "textarea_LwfLiP": {
+            "type": "textarea",
+            "settings": {
+              "title": "INTIMATION OF BOARD MEETING Q2 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INTIMATION_OF_BOARD_MEETING_Q2_f2cc2af3-0976-4151-9a95-dd480146ed6b.pdf?v=1729501240"
+            }
+          },
+          "textarea_XFbNfk": {
+            "type": "textarea",
+            "settings": {
+              "title": "EARNINGS CALL INVITE Q2 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/EARNINGS_CALL_INVITE_Q2_31531074-5c29-48c2-b700-ec14278b32ad.pdf?v=1729501240https://cdn.shopify.com/s/files/1/0598/8158/6848/files/EARNINGS_CALL_INVITE_Q2_31531074-5c29-48c2-b700-ec14278b32ad.pdf?v=1729501240"
+            }
+          },
+          "textarea_qAUUcw": {
+            "type": "textarea",
+            "settings": {
+              "title": "CORPORATE GOVERNANCE REPORT Q2 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/CORPORATE_GOVERNANCE_REPORT_Q2.pdf?v=1729505177"
+            }
+          },
+          "textarea_N9AtTx": {
+            "type": "textarea",
+            "settings": {
+              "title": "RECONCILIATION OF SHARECAPITAL Q2 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/RECONCILIATION_OF_SHARECAPITAL_Q2.pdf?v=1729505176"
+            }
+          },
+          "textarea_8eqfMW": {
+            "type": "textarea",
+            "settings": {
+              "title": "INVESTOR GRIEVANCE REPORT Q2 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INVESTOR_GRIEVANCE_REPORT_Q2.pdf?v=1728293412"
+            }
+          },
+          "textarea_YJ3Cjp": {
+            "type": "textarea",
+            "settings": {
+              "title": "REGULATION 74(5) Q2 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/REGULATION_74_5_Q2_7af52855-1390-411c-9383-f0e889dbab6e.pdf?v=1728293412"
+            }
+          },
+          "textarea_Dm39Ak": {
+            "type": "textarea",
+            "settings": {
+              "title": "REGULATION 30- APPOINTMENT OF SMP FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/REGULATION_30-_APPOINTMENT_OF_SMP_1.pdf?v=1727930432"
+            }
+          },
+          "textarea_7RXXME": {
+            "type": "textarea",
+            "settings": {
+              "title": "TRADING WINDOW CLOSURE Q2 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/TRADING_WINDOW_CLOSURE_Q2_47dcbb6d-39d5-493b-939e-83b2effebdf5.pdf?v=1727327204"
+            }
+          },
+          "textarea_tFAnzJ": {
+            "type": "textarea",
+            "settings": {
+              "title": "REGULATION 30- APPOINTMENT OF SMP FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/REGULATION_30-_APPOINTMENT_OF_SMP.pdf?v=1726036354"
+            }
+          },
+          "textarea_QHeRFw": {
+            "type": "textarea",
+            "settings": {
+              "title": "INVESTOR MEET INTIMATION Q2 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INVESTOR_MEET_INTIMATION_Q2.pdf?v=1725884523"
+            }
+          },
+          "textarea_YQYm4U": {
+            "type": "textarea",
+            "settings": {
+              "title": "SCRUTINIZER & E-VOTING REPORT OF 14TH AGM FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/SCRUTINIZER_E-VOTING_REPORT_OF_14TH_AGM.pdf?v=1738328130"
+            }
+          },
+          "textarea_URa7yR": {
+            "type": "textarea",
+            "settings": {
+              "title": "OUTCOME OF BOARD MEETING Q1 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/OUTCOME_OF_BOARD_MEETING_Q1_afde435b-40ef-423b-948c-ffba728a3b51.pdf?v=1721805493"
+            }
+          },
+          "textarea_eizza4": {
+            "type": "textarea",
+            "settings": {
+              "title": "EARNINGS CALL Q1 FY 25 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/EARNINGS_CALL_Q1_FY_25.pdf?v=1721220658"
+            }
+          },
+          "textarea_qcjrMC": {
+            "type": "textarea",
+            "settings": {
+              "title": "INTIMATION OF BOARD MEETING Q1 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INTIMATION_OF_BOARD_MEETING_Q1_1.pdf?v=1721220658"
+            }
+          },
+          "textarea_9YrnKc": {
+            "type": "textarea",
+            "settings": {
+              "title": "CORPORATE GOVERNANCE REPORT Q1 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/CORPORATE_GOVERNANCE_REPORT_Q1.pdf?v=1721279397"
+            }
+          },
+          "textarea_T7ydX9": {
+            "type": "textarea",
+            "settings": {
+              "title": "NEWSPAPER PUBLICATION OF ANNUAL REPORT DISPATCH FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/NEWSPAPER_PUBLICATION_OF_ANNUAL_REPORT_DISPATCH_e76c44c4-682e-4079-825c-8cc62b89fa11.pdf?v=1721198400"
+            }
+          },
+          "textarea_96W8Tf": {
+            "type": "textarea",
+            "settings": {
+              "title": "PUBLICATION OF NEWSPAPER ADVERTISEMENT FOR 14TH AGM FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/PUBLICATION_OF_NEWSPAPER_ADVERTISEMENT_FOR_14TH_AGM.pdf?v=1720786224"
+            }
+          },
+          "textarea_G94Pn4": {
+            "type": "textarea",
+            "settings": {
+              "title": "INVESTOR GRIEVANCE REPORT Q1 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INVESTOR_GRIEVANCE_REPORT_Q1_8856c8e9-0339-41b6-93ef-14bcaeac915c.pdf?v=1720091811"
+            }
+          },
+          "textarea_HdD7wr": {
+            "type": "textarea",
+            "settings": {
+              "title": "REGULATION 74(5) Q1 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/REGULATION_74_5_Q1_685d07ae-e4f7-4d93-8247-243ab1a4bc16.pdf?v=1720091811"
+            }
+          },
+          "textarea_DFJCqr": {
+            "type": "textarea",
+            "settings": {
+              "title": "INTIMATION OF BOOK CLOSURE FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INTIMATION_OF_BOOK_CLOSURE_c6540516-591e-4680-870e-542eda34f0f2.pdf?v=1719579150"
+            }
+          },
+          "textarea_DP3AKC": {
+            "type": "textarea",
+            "settings": {
+              "title": "OUTCOME OF BOARD MEETING FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/OUTCOME_OF_BOARD_MEETING-Q1.pdf?v=1719579149"
+            }
+          },
+          "textarea_AMKwRW": {
+            "type": "textarea",
+            "settings": {
+              "title": "INTIMATION OF BOARD MEETING - 28-06-2024 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INTIMATION_OF_BOARD_MEETING_Q1_856934f4-b7c5-4018-a7a9-4cf10d5880a7.pdf?v=1719579150"
+            }
+          },
+          "textarea_HNdzNz": {
+            "type": "textarea",
+            "settings": {
+              "title": "TRADING WINDOW CLOSURE Q1 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/TRADING_WINDOW_CLOSURE_Q1.pdf?v=1719579149"
+            }
+          },
+          "textarea_VzQaF7": {
+            "type": "textarea",
+            "settings": {
+              "title": "INVESTOR MEET INTIMATION Q1 FY25",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INVESTOR_MEET_INTIMATION_Q1_7a5ab3aa-9512-4a3e-86ed-ce0170428357.pdf?v=1716467860"
+            }
+          },
+          "textarea_dDtAdz": {
+            "type": "textarea",
+            "settings": {
+              "title": "REGULATION 30-FRANCHISE AGREEMENT WITH APPAREL GROUP",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/REGULATION_30-FRANCHISE_AGREEMENT_WITH_APPAREL_GROUP.pdf?v=1715943841"
+            }
+          },
+          "textarea_hwHeGD": {
+            "type": "textarea",
+            "settings": {
+              "title": "NEWSPAPER PUBLICATION OF FINANCIAL RESULTS Q4 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/NEWSPAPER_PUBLICATION_OF_FINANCIAL_RESULTS_Q4.pdf?v=1714957028"
+            }
+          },
+          "textarea_M6HjzC": {
+            "type": "textarea",
+            "settings": {
+              "title": "OUTCOME OF BOARD MEETING Q4 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/OUTCOME_OF_BOARD_MEETING-Q4.pdf?v=1714727180"
+            }
+          },
+          "textarea_Q9yA7x": {
+            "type": "textarea",
+            "settings": {
+              "title": "SECRETARIAL COMPLIANCE REPORT FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/SECRETARIAL_COMPLIANCE_REPORT_2023-24.pdf?v=1714369486"
+            }
+          },
+          "textarea_jE4yaD": {
+            "type": "textarea",
+            "settings": {
+              "title": "EARNINGS CALL INVITE Q4 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/EARNINGS_CALL_INVITE_Q4.pdf?v=1714133953"
+            }
+          },
+          "textarea_TCMbBA": {
+            "type": "textarea",
+            "settings": {
+              "title": "INTIMATION OF BOARD MEETING Q4 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INTIMATION_OF_BOARD_MEETING_Q4.pdf?v=1714133954"
+            }
+          },
+          "textarea_zCk3L6": {
+            "type": "textarea",
+            "settings": {
+              "title": "CORPORATE GOVERNANCE REPORT Q4 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/CORPORATE_GOVERNANCE_REPORT_Q4.pdf?v=1713351649"
+            }
+          },
+          "textarea_ATqkxb": {
+            "type": "textarea",
+            "settings": {
+              "title": "RECONCILIATION OF SHARECAPITAL Q4 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/RECONCILIATION_OF_SHARECAPITAL_Q4.pdf?v=1712933261"
+            }
+          },
+          "textarea_AwhkPY": {
+            "type": "textarea",
+            "settings": {
+              "title": "SHARE TRANSFER & SHARE CAPITAL AUDIT FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/SHARE_TRANSFER_SHARE_CAPITAL_AUDIT_FY_23-24.pdf?v=1712903986"
+            }
+          },
+          "textarea_Dpn97R": {
+            "type": "textarea",
+            "settings": {
+              "title": "INVESTOR GRIEVANCE REPORT Q4 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INVESTOR_GRIEVANCE_REPORT_Q4.pdf?v=1712903987"
+            }
+          },
+          "textarea_LMU3aR": {
+            "type": "textarea",
+            "settings": {
+              "title": "REGULATION 7(3) Q4 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/REG_7_3_Q4_FY_23-24.pdf?v=1712903985"
+            }
+          },
+          "textarea_e7wdVR": {
+            "type": "textarea",
+            "settings": {
+              "title": "REGULATION 74(5) Q4 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/REGULATION_74_5_Q4.pdf?v=1712903986"
+            }
+          },
+          "textarea_FzEHwb": {
+            "type": "textarea",
+            "settings": {
+              "title": "TRADING WINDOW CLOSURE Q4 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/TRADING_WINDOW_CLOSURE_Q4.pdf?v=1711537543"
+            }
+          },
+          "textarea_d3rFbz": {
+            "type": "textarea",
+            "settings": {
+              "title": "INVESTOR MEET INTIMATION Q3 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INVESTOR_MEET_INTIMATION_Q3_b3fbba63-53bd-4c28-a2ec-51864ef94b9a.pdf?v=1707717658"
+            }
+          },
+          "textarea_D38rYf": {
+            "type": "textarea",
+            "settings": {
+              "title": "INVESTOR MEET INTIMATION Q3 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INVESTOR_MEET_INTIMATION_Q3.pdf?v=1707393608"
+            }
+          },
+          "textarea_BrWm3b": {
+            "type": "textarea",
+            "settings": {
+              "title": "NEWSPAPER PUBLICATION OF FINANCIAL RESULTS Q3 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/NEWSPAPER_PUBLICATION_OF_FINANCIAL_RESULTS_Q3.pdf?v=1707307913"
+            }
+          },
+          "textarea_M73fwc": {
+            "type": "textarea",
+            "settings": {
+              "title": "OUTCOME OF BOARD MEETING Q3 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/OUTCOME_OF_BOARD_MEETING_Q3.pdf?v=1707209519"
+            }
+          },
+          "textarea_BPqyCn": {
+            "type": "textarea",
+            "settings": {
+              "title": "EARNINGS CALL INVITE Q3 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/EARNINGS_CALL_INVITE_Q3.pdf?v=1706955638"
+            }
+          },
+          "textarea_XaDdtD": {
+            "type": "textarea",
+            "settings": {
+              "title": "INTIMATION OF BOARD MEETING Q3 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INTIMATION_OF_BOARD_MEETING_Q3.pdf?v=1706950357"
+            }
+          },
+          "textarea_thDkQe": {
+            "type": "textarea",
+            "settings": {
+              "title": "CORPORATE GOVERNANCE REPORT Q3",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/CORPORATE_GOVERNANCE_REPORT_Q3.pdf?v=1704976816"
+            }
+          },
+          "textarea_4nxPFB": {
+            "type": "textarea",
+            "settings": {
+              "title": "RECONCILIATION OF SHARECAPITAL Q3",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/RECONCILIATION_OF_SHARECAPITAL_Q3.pdf?v=1704976816"
+            }
+          },
+          "textarea_KrTgXr": {
+            "type": "textarea",
+            "settings": {
+              "title": "REGULATION 74 (5) Q3",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/REGULATION_74_5_Q3.pdf?v=1704446101"
+            }
+          },
+          "textarea_gPdq9K": {
+            "type": "textarea",
+            "settings": {
+              "title": "INVESTOR GRIEVANCE REPORT Q3 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INVESTOR_GRIEVANCE_REPORT_Q3.pdf?v=1704446102"
+            }
+          },
+          "textarea_FiKUkQ": {
+            "type": "textarea",
+            "settings": {
+              "title": "TRADING WINDOW CLOSURE Q3 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/TRADING_WINDOW_CLOSURE_Q3.pdf?v=1704072815"
+            }
+          },
+          "textarea_LTWb4U": {
+            "type": "textarea",
+            "settings": {
+              "title": "NOTICE OF COMPOUNDING - LEGAL METROLOGY REG 30 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/NOTICE_OF_COMPOUNDING_-_LEGAL_METROLOGY_REG_30.pdf?v=1709096258"
+            }
+          },
+          "textarea_7PpfzG": {
+            "type": "textarea",
+            "settings": {
+              "title": "NEWSPAPER PUBLICATION OF FINANCIAL RESULTS Q2 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/NEWSPAPER_PUBLICATION_OF_FINANCIAL_RESULTS_Q2.pdf?v=1698839447"
+            }
+          },
+          "textarea_JmEHbe": {
+            "type": "textarea",
+            "settings": {
+              "title": "OUTCOME OF BOARD MEETING Q2 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/OUTCOME_OF_BOARD_MEETING_Q2.pdf?v=1698740176"
+            }
+          },
+          "textarea_rbjdHE": {
+            "type": "textarea",
+            "settings": {
+              "title": "EARNINGS CALL INVITE Q2 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/EARNINGS_CALL_INVITE_Q2.pdf?v=1698130608"
+            }
+          },
+          "textarea_9BYCCj": {
+            "type": "textarea",
+            "settings": {
+              "title": "INTIMATION OF BOARD MEETING Q2 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INTIMATION_OF_BOARD_MEETING_Q2.pdf?v=1698130606"
+            }
+          },
+          "textarea_aJPtwQ": {
+            "type": "textarea",
+            "settings": {
+              "title": "CORPORATE GOVERNANCE REPORT Q2 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/CORPORATE_GOVERNANCE_REPORT.pdf?v=1697015637"
+            }
+          },
+          "textarea_BqidCD": {
+            "type": "textarea",
+            "settings": {
+              "title": "RECONCILIATION OF SHARECAPITAL Q2 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/RECONCILIATION_OF_SHARECAPITAL.pdf?v=1697015637"
+            }
+          },
+          "textarea_bXMcCi": {
+            "type": "textarea",
+            "settings": {
+              "title": "REGULATION 74(5) Q2 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/REGULATION_74_5_Q2.pdf?v=1697015636"
+            }
+          },
+          "textarea_QxN4Jd": {
+            "type": "textarea",
+            "settings": {
+              "title": "INVESTOR GRIEVANCE REPORT FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INVESTOR_GRIEVANCE_REPORT.pdf?v=1697015636"
+            }
+          },
+          "textarea_DbCtxw": {
+            "type": "textarea",
+            "settings": {
+              "title": "TRADING WINDOW CLOSURE Q2 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/TRADING_WINDOW_CLOSURE_Q2.pdf?v=1695901490"
+            }
+          },
+          "textarea_UFDFBx": {
+            "type": "textarea",
+            "settings": {
+              "title": "SCRUTINIZER & E-VOTING REPORT OF 13TH AGM",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/SCRUTINIZER_E-VOTING_REPORT_OF_13TH_AGM.pdf?v=1693919071"
+            }
+          },
+          "textarea_tJD8am": {
+            "type": "textarea",
+            "settings": {
+              "title": "PROCEEDINGS OF 13TH AGM",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/PROCEEDINGS_OF_13TH_AGM.pdf?v=1693919071"
+            }
+          },
+          "textarea_bthbnt": {
+            "type": "textarea",
+            "settings": {
+              "title": "NEWSPAPER PUBLICATION OF ANNUAL REPORT DISPATCH",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/NEWSPAPER_PUBLICATION_OF_ANNUAL_REPORT_DISPATCH.pdf?v=1692173303"
+            }
+          },
+          "textarea_BL8znc": {
+            "type": "textarea",
+            "settings": {
+              "title": "NOTICE OF 13TH AGM",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/NOTICE_OF_13TH_AGM.pdf?v=1697172670"
+            }
+          },
+          "textarea_T3NDb4": {
+            "type": "textarea",
+            "settings": {
+              "title": "PUBLICATION OF NEWSPAPER ADVERTISEMENT FOR 13TH AGM",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/PUBLICATION_OF_NEWSPAPER_ADVERTISEMENT_FOR_13TH_AGM.pdf?v=1691753819"
+            }
+          },
+          "textarea_eabhtJ": {
+            "type": "textarea",
+            "settings": {
+              "title": "INVESTOR MEET INTIMATION Q2 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INVGESTOR_MEET_INTIMATION_Q2.pdf?v=1691669700"
+            }
+          },
+          "textarea_qbJCdC": {
+            "type": "textarea",
+            "settings": {
+              "title": "AUTHORIZED KMP TO DETERMINE MATERIALITY EVENT FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/AUTHORIZED_KMP_TO_DETERMINE_MATERIALITY_EVENT.pdf?v=1691669696"
+            }
+          },
+          "textarea_yWPW9R": {
+            "type": "textarea",
+            "settings": {
+              "title": "FULL UTILIZATION OF IPO PROCEEDS",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/FULL_UTILIZATION_OF_IPO_PROCEEDS.pdf?v=1691389710"
+            }
+          },
+          "textarea_EKPCEm": {
+            "type": "textarea",
+            "settings": {
+              "title": "MONITORING AGENCY REPORT Q1",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/MONITORING_AGENCY_REPORT_Q1.pdf?v=1690967876"
+            }
+          },
+          "textarea_B3wkKG": {
+            "type": "textarea",
+            "settings": {
+              "title": "NEWAPAPER PUBLICATION OF FINANCIAL RESULTS Q1 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/NEWAPAPER_PUBLICATION_OF_FINANCIAL_RESULTS_Q1.pdf?v=1690967878"
+            }
+          },
+          "textarea_JGC8Hr": {
+            "type": "textarea",
+            "settings": {
+              "title": "OUTCOME OF INVESTOR MEET Q1 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/OUTCOME_OF_INVESTOR_MEET_Q1.pdf?v=1690866666"
+            }
+          },
+          "textarea_EmwU8x": {
+            "type": "textarea",
+            "settings": {
+              "title": "STATEMENT OF DEVIATION Q1",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/STATEMENT_OF_DEVIATION_Q1.pdf?v=1690800815"
+            }
+          },
+          "textarea_4mmzMP": {
+            "type": "textarea",
+            "settings": {
+              "title": "INTIMATION OF BOOK CLOSURE FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INTIMATION_OF_BOOK_CLOSURE.pdf?v=1690800815"
+            }
+          },
+          "textarea_pLHTND": {
+            "type": "textarea",
+            "settings": {
+              "title": "OUTCOME OF BOARD MEETING Q1 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/OUTCOME_OF_BOARD_MEETING_Q1.pdf?v=1690800815"
+            }
+          },
+          "textarea_y4zdcg": {
+            "type": "textarea",
+            "settings": {
+              "title": "INTIMATION OF ICRA - FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INTIMATION_OF_ICRA_-_CREDIT_RATING.pdf?v=1690541372"
+            }
+          },
+          "textarea_jQtG4E": {
+            "type": "textarea",
+            "settings": {
+              "title": "EARNINGS CALL INVITE Q1 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/EARNINGS_CALL_INVITE_Q1.pdf?v=1690267372"
+            }
+          },
+          "textarea_EgADpV": {
+            "type": "textarea",
+            "settings": {
+              "title": "INTIMATION OF BOARD MEETING Q1 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INTIMATION_OF_BOARD_MEETING_Q1.pdf?v=1690267371"
+            }
+          },
+          "textarea_nJqrzQ": {
+            "type": "textarea",
+            "settings": {
+              "title": "CORPORATE GOVERNANCE REPORT Q1 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/CORPORATE_GOVENANCE_REPORT_Q1.pdf?v=1689853799"
+            }
+          },
+          "textarea_egA8GJ": {
+            "type": "textarea",
+            "settings": {
+              "title": "RECONCILIATION OF SHARECAPITAL Q1 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/RECONCILIATION_OF_SHARECAPITAL_Q1.pdf?v=1689853798"
+            }
+          },
+          "textarea_D6EQgw": {
+            "type": "textarea",
+            "settings": {
+              "title": "INVESTOR GRIEVANCE REPORT Q1 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INVESTOR_GRIEVANCE_REPORT_Q1.pdf?v=1689083907"
+            }
+          },
+          "textarea_ghwWnH": {
+            "type": "textarea",
+            "settings": {
+              "title": "REGULATION 74(5) Q1 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/REGULATION_74_5_Q1.pdf?v=1689083907"
+            }
+          },
+          "textarea_mbj3Ex": {
+            "type": "textarea",
+            "settings": {
+              "title": "TRADING WINDOW CLOSURE Q1 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/TWCsigned_Q1_FY2023-24.pdf?v=1688193130"
+            }
+          },
+          "textarea_63wNGE": {
+            "type": "textarea",
+            "settings": {
+              "title": "INVESTOR MEET INTIMATION Q1 FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INVESTOR_MEET_INTIMATION_Q1_1.pdf?v=1689938985"
+            }
+          },
+          "textarea_fgg8Hm": {
+            "type": "textarea",
+            "settings": {
+              "title": "INTIMATION OF DIRECTOR RESIGNATION FY24",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Intimation_to_SE_GV_resignation.pdf?v=1686647013"
+            }
+          },
+          "textarea_zWazW3": {
+            "type": "textarea",
+            "settings": {
+              "title": "SECRETARIAL COMPLIANCE REPORT FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/SECRETARIAL_COMPLIANCE_REPORT_2022-23.pdf?v=1684919054"
+            }
+          },
+          "textarea_GdxRXM": {
+            "type": "textarea",
+            "settings": {
+              "title": "MONITORING AGENCY REPORT Q4 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/MONITORING_AGENCY_REPORT_Q4_FY23.pdf?v=1683719361"
+            }
+          },
+          "textarea_H6TTjT": {
+            "type": "textarea",
+            "settings": {
+              "title": "NEWSPAPER PUBLICATION OF FINANCIAL RESULTS Q4 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/NEWSPAPER_PUBLICATION_OF_FINANCIAL_RESULTS_Q4_FY23.pdf?v=1683371215"
+            }
+          },
+          "textarea_z8B6V9": {
+            "type": "textarea",
+            "settings": {
+              "title": "OUTCOME OF BOARD MEETING Q4 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/OUTCOME_OF_BOARD_MEETING_Q4_FY22-23.pdf?v=1683285689"
+            }
+          },
+          "textarea_yJnLyr": {
+            "type": "textarea",
+            "settings": {
+              "title": "INTIMATION OF BOARD MEETING Q4 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INTIMATION_OF_BOARD_MEETING_Q4_FY22-23.pdf?v=1683094706"
+            }
+          },
+          "textarea_abhFTf": {
+            "type": "textarea",
+            "settings": {
+              "title": "RELATED PARTY TRANSACTION  Q4 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/RELATED_PARTY_TRANSACTION_-_H2-_FY23.pdf?v=1683285686"
+            }
+          },
+          "textarea_MBeh9C": {
+            "type": "textarea",
+            "settings": {
+              "title": "STATEMENT OF DEVIATION Q4 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/STATEMENT_OF_DEVIATION_Q4_FY22-23.pdf?v=1683285686"
+            }
+          },
+          "textarea_GePMWa": {
+            "type": "textarea",
+            "settings": {
+              "title": "EARNINGS CALL INVITE Q4 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/EARNINGS_CALL_INVITE_Q4_FY_22-23.pdf?v=1683119729"
+            }
+          },
+          "textarea_4qhX7m": {
+            "type": "textarea",
+            "settings": {
+              "title": "CORPORATE GOVERNANCE REPORT Q4 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/CORPORATE_GOVERNANCE_REPORT_Q4_FY_22-23.pdf?v=1682514561"
+            }
+          },
+          "textarea_byHdJX": {
+            "type": "textarea",
+            "settings": {
+              "title": "RECONCILIATION OF SHARECAPITAL Q4 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/RECONCILIATION_SHARECAPITAL_Q4_FY22-23.pdf?v=1682315773"
+            }
+          },
+          "textarea_f4FjkX": {
+            "type": "textarea",
+            "settings": {
+              "title": "SHARE TRANSFER & SHARE CAPITAL AUDIT FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/SHARE_TRANSFER_SHARE_CAPITAL_AUDIT_FY22-23.pdf?v=1682315773"
+            }
+          },
+          "textarea_aDT76V": {
+            "type": "textarea",
+            "settings": {
+              "title": "REGULATION 74(5) Q4 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/REGULATION_74_5_Q4_FY_22-23.pdf?v=1681273685"
+            }
+          },
+          "textarea_iTzFWa": {
+            "type": "textarea",
+            "settings": {
+              "title": "INVESTOR GRIEVANCE REPORT Q4 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INVESTOR_GRIEVANCE_REPORT_Q4_FY22-23.pdf?v=1681273685"
+            }
+          },
+          "textarea_pYgAmr": {
+            "type": "textarea",
+            "settings": {
+              "title": "REGULATION 7 (3) Q4 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Reg_7_3_Q4_FY_22-23.pdf?v=1686827383"
+            }
+          },
+          "textarea_q93zmK": {
+            "type": "textarea",
+            "settings": {
+              "title": "TRADING WINDOW CLOSURE Q4 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/TRADING_WINDOW_CLOSURE_Q4_FY22-23.pdf?v=1680754621"
+            }
+          },
+          "textarea_8wjXE9": {
+            "type": "textarea",
+            "settings": {
+              "title": "MONITORING AGENCY REPORT Q3 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Monitoring_Agency_Report_Q3_FY23.pdf?v=1675399344"
+            }
+          },
+          "textarea_9rr3hN": {
+            "type": "textarea",
+            "settings": {
+              "title": "NEWSPAPER PUBLICATION OF FINANCIAL RESULTS Q3 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Newspaper_Publication_of_Financial_Results_Q3_FY23.pdf?v=1674884609"
+            }
+          },
+          "textarea_MXNemm": {
+            "type": "textarea",
+            "settings": {
+              "title": "INVESTOR PRESENTATION Q3 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Investor_Presentation_Q3_FY22-23.pdf?v=1674649427"
+            }
+          },
+          "textarea_rrd9gP": {
+            "type": "textarea",
+            "settings": {
+              "title": "STATEMENT OF DEVIATION Q3 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Statement_of_Deviation_Q3_FY22-23.pdf?v=1674649423"
+            }
+          },
+          "textarea_XzhUFb": {
+            "type": "textarea",
+            "settings": {
+              "title": "OUTCOME OF BOARD MEETING Q3 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Outcome_of_Board_Meeting_Q3_FY22-23.pdf?v=1674649423"
+            }
+          },
+          "textarea_cmdRDU": {
+            "type": "textarea",
+            "settings": {
+              "title": "RECONCILIATION OF SHARECAPITAL Q3 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/RECONCILIATION_OF_SHARECAPITAL_Q3_FY22-23.pdf?v=1674551344"
+            }
+          },
+          "textarea_79rUVe": {
+            "type": "textarea",
+            "settings": {
+              "title": "CORPORATE GOVERNANCE REPORT Q3 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Corporate_Governance_Q3_FY_22-23.pdf?v=1674551342"
+            }
+          },
+          "textarea_QtXJyM": {
+            "type": "textarea",
+            "settings": {
+              "title": "SDD- CC  19-01-2023",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/SDD-_CC_-19-01-23.pdf?v=1674551078"
+            }
+          },
+          "textarea_JjD74J": {
+            "type": "textarea",
+            "settings": {
+              "title": "EARNINGS CALL INVITE Q3 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Earnings_Call_Invite_Q3_FY_22-23.pdf?v=1674551078"
+            }
+          },
+          "textarea_etFVJt": {
+            "type": "textarea",
+            "settings": {
+              "title": "INTIMATION OF BOARD MEETING Q3 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Intimation_of_Board_Meeting_Q3_FY_22-23.pdf?v=1674551078"
+            }
+          },
+          "textarea_GfJPEy": {
+            "type": "textarea",
+            "settings": {
+              "title": "INVESTOR GRIEVANCE REPORT Q3 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Investor_Grievance_Report_Q3_FY22-23.pdf?v=1674551484"
+            }
+          },
+          "textarea_L8HMVg": {
+            "type": "textarea",
+            "settings": {
+              "title": "REGULATION 74(5) Q3 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Regulation_74_5_Q3_FY-22-23.pdf?v=1673968153"
+            }
+          },
+          "textarea_GkYijQ": {
+            "type": "textarea",
+            "settings": {
+              "title": "TRADING WINDOW CLOSURE Q3 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Trading_Window_Closure_Q3_FY22-23.pdf?v=1672727980"
+            }
+          },
+          "textarea_n3w7yE": {
+            "type": "textarea",
+            "settings": {
+              "title": "SDD-CC  18-11-2022",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/SDD-CC-18-11-22.pdf?v=1672727981"
+            }
+          },
+          "textarea_XtFfBA": {
+            "type": "textarea",
+            "settings": {
+              "title": "INVESTOR MEET INTIMATION 17-11-2022",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Investor_Meet_Intimation_-_17-11-2022_-_SE_filing.pdf?v=1668676183"
+            }
+          },
+          "textarea_EAGbUP": {
+            "type": "textarea",
+            "settings": {
+              "title": "RELATED PARTY TRANSACTION Q2 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/RELATED_PARTY_TRANSACTION_-_H1_-_FY23.pdf?v=1668594731"
+            }
+          },
+          "textarea_XxyBgM": {
+            "type": "textarea",
+            "settings": {
+              "title": "INVESTOR MEET INTIMATION 15-11-2022",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Investor_Meet_Intimation_-_15-11-2022_-_SE_filing.pdf?v=1668510999"
+            }
+          },
+          "textarea_ggzrnY": {
+            "type": "textarea",
+            "settings": {
+              "title": "INVESTOR MEET INTIMATION 14-11-2022",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INVESTOR_MEET_INTIMATION_-_14TH_NOVEMBER_2022.pdf?v=1668511018"
+            }
+          },
+          "textarea_FVwdRT": {
+            "type": "textarea",
+            "settings": {
+              "title": "MONITORING AGENCY REPORT Q2 FY22",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Monitoring_Agency_Report_Q2_FY22-23.pdf?v=1668058947"
+            }
+          },
+          "textarea_VAQFeD": {
+            "type": "textarea",
+            "settings": {
+              "title": "NEWSPAPER AD INTIMATION Q2 FY22",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Newspaper_Ad_Intimation_Q2_FY22-23.pdf?v=1667799025"
+            }
+          },
+          "textarea_GJj6xM": {
+            "type": "textarea",
+            "settings": {
+              "title": "STATEMENT OF DEVIATION Q2 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Statement_of_Deviation_Q2_FY22-23.pdf?v=1667799024"
+            }
+          },
+          "textarea_J9hWRp": {
+            "type": "textarea",
+            "settings": {
+              "title": "OUTCOME OF BOARD MEETING Q2 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Outcome_of_Board_Meeting_Q2_FY22-23.pdf?v=1667555876"
+            }
+          },
+          "textarea_a8ccBG": {
+            "type": "textarea",
+            "settings": {
+              "title": "INVESTOR MEET INTIMATION Q2 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Investor_Meet_Intimation_Q2-_FY22-23.pdf?v=1686811624"
+            }
+          },
+          "textarea_z34KzY": {
+            "type": "textarea",
+            "settings": {
+              "title": "INTIMATION OF BOARD MEETING Q2 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Intimation_of_Board_Meeting_-_Q2_-_FY_22-23.pdf?v=1667892474"
+            }
+          },
+          "textarea_phWpyL": {
+            "type": "textarea",
+            "settings": {
+              "title": "CORPORATE GOVERNANCE Q2 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Corporate_Governance_Q2_FY22-23.html.pdf?v=1667036148"
+            }
+          },
+          "textarea_JaCXyr": {
+            "type": "textarea",
+            "settings": {
+              "title": "RECONCILIATION OF SHARECAPITAL Q2 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Reconciliation_of_Sharecapital_Q2_-_FY22-23.pdf?v=1666075959"
+            }
+          },
+          "textarea_EMKJUb": {
+            "type": "textarea",
+            "settings": {
+              "title": "INVESTOR GRIEVANCE REPORT Q2 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Investor_Grievance_Report_Q2_-_FY22-23.pdf?v=1666075958"
+            }
+          },
+          "textarea_rVkGQw": {
+            "type": "textarea",
+            "settings": {
+              "title": "REGULATION 74(5) Q2 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Regulation_74_5_Q2_FY-22-23_210ee714-b30c-486d-a3a1-9431ff9b08cb.pdf?v=1672727984"
+            }
+          },
+          "textarea_pLejUk": {
+            "type": "textarea",
+            "settings": {
+              "title": "TRADING WINDOW CLOSURE Q2 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Closure_of_Trading_Window_-_Q2-_FY_22-23.pdf?v=1666075957"
+            }
+          },
+          "textarea_XGBb3b": {
+            "type": "textarea",
+            "settings": {
+              "title": "VOTING RESULT AND SCRUTINISER REPORT",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Voting_Result_and_Scrutinizer_Report_-_SE_filing.pdf?v=1663070561"
+            }
+          },
+          "textarea_968WnK": {
+            "type": "textarea",
+            "settings": {
+              "title": "GFIL - AGM Proceedings",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/GFIL_-_AGM_Proceedings.pdf?v=1663063343"
+            }
+          },
+          "textarea_wH4rq8": {
+            "type": "textarea",
+            "settings": {
+              "title": "INVESTOR MEET INTIMATION 07-09-2022",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Intimation_of_Schedule_Analysts_-_07-09-2022.pdf?v=1662615392"
+            }
+          },
+          "textarea_iqWLDz": {
+            "type": "textarea",
+            "settings": {
+              "title": "INVESTOR MEET INTIMATION 29-08-2022",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Intimation_of_Schedule_Analysts_-_29-08-2022.pdf?v=1662615397"
+            }
+          },
+          "textarea_6WwyfL": {
+            "type": "textarea",
+            "settings": {
+              "title": "INVESTOR MEET INTIMATION 23-08-2022",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Intimation_of_Schedule_Analysts_-_23-08-2022.pdf?v=1662615397"
+            }
+          },
+          "textarea_axYDdU": {
+            "type": "textarea",
+            "settings": {
+              "title": "Newspaper Ad Post AR Dispatch",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Newspaper_Ad_post_AR_Dispatch.pdf?v=1672727989"
+            }
+          },
+          "textarea_G7UCBC": {
+            "type": "textarea",
+            "settings": {
+              "title": "NOTICE OF 12TH AGM",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/NOTICE_OF_12TH_AGM.pdf?v=1697177773"
+            }
+          },
+          "textarea_kPLpk7": {
+            "type": "textarea",
+            "settings": {
+              "title": "Intimation of Book Closure",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/7._Intimation_of_Book_Closure.pdf?v=1660742130"
+            }
+          },
+          "textarea_k9cM8q": {
+            "type": "textarea",
+            "settings": {
+              "title": "Newspaper Publication Relating to AGM",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/6._Newspaper_Publication_Relating_to_AGM.pdf?v=1660742130"
+            }
+          },
+          "textarea_QaAHBe": {
+            "type": "textarea",
+            "settings": {
+              "title": "INVESTOR MEET INTIMATION 12-08-2022",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/5._Intimation_of_Schedule_of_Analysts.pdf?v=1660742130"
+            }
+          },
+          "textarea_miPH9M": {
+            "type": "textarea",
+            "settings": {
+              "title": "Newspaper Publication of Financial Results Q3 FY22",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/4._Newspaper_Publication_of_Financial_Results_Q3_FY22.pdf?v=1660742130"
+            }
+          },
+          "textarea_TrKcRn": {
+            "type": "textarea",
+            "settings": {
+              "title": "MONITORING AGENCY REPORT Q1 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/3._Monitoring_Agency_Report_Q1_FY22.pdf?v=1660742130"
+            }
+          },
+          "textarea_8MqN8F": {
+            "type": "textarea",
+            "settings": {
+              "title": "AUDIO RECORDING OF EARNINGS CALL Q1 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/2._Audio_Recording_of_Earnings_Call_Q1_FY22-23.pdf?v=1660742130"
+            }
+          },
+          "textarea_FbExFB": {
+            "type": "textarea",
+            "settings": {
+              "title": "Amendment of MOA AOA",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Amendment_of_MOA_AOA.pdf?v=1672727980"
+            }
+          },
+          "textarea_RBAC3N": {
+            "type": "textarea",
+            "settings": {
+              "title": "STATEMENT OF DEVIATION  Q1 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Statement_of_Deviation_-_Q1_FY_23.pdf?v=1660133136"
+            }
+          },
+          "textarea_8DPLq3": {
+            "type": "textarea",
+            "settings": {
+              "title": "GFL - INVESTOR PRESENTATION Q1 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/GFL_-_Investor_Presentation_-_Q1_-_FY_23.pdf?v=1660133136"
+            }
+          },
+          "textarea_wqjnhm": {
+            "type": "textarea",
+            "settings": {
+              "title": "GFL - PRESS RELEASE Q1 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/GFL_-_Press_Release_-_Q1_-_FY_23.pdf?v=1660133136"
+            }
+          },
+          "textarea_MacJEY": {
+            "type": "textarea",
+            "settings": {
+              "title": "OUTCOME OF BOARD MEETING Q1 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Outcome_of_Board_Meeting_-_Q1_FY_23.pdf?v=1660133137"
+            }
+          },
+          "textarea_LYnhYw": {
+            "type": "textarea",
+            "settings": {
+              "title": "SDD-CC 09-08-2022",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/SDD-CC-09-08-22.pdf?v=1672727981"
+            }
+          },
+          "textarea_TgBHPf": {
+            "type": "textarea",
+            "settings": {
+              "title": "INTIMATION OF BOARD MEETING Q1 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Intimation_of_Board_Meeting_-_Q1_-_FY_23.pdf?v=1659599464"
+            }
+          },
+          "textarea_hAzwpU": {
+            "type": "textarea",
+            "settings": {
+              "title": "RECONCILIATION OF SHARECAPITAL Q1 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Reconciliation_of_sharecapital_Q1_-_FY_22-23.pdf?v=1659599464"
+            }
+          },
+          "textarea_EHtYYB": {
+            "type": "textarea",
+            "settings": {
+              "title": "REGULATION 74(5) Q1 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Regulation_74_5_Q1_-_FY_22-23.pdf?v=1659599464"
+            }
+          },
+          "textarea_GTNCAc": {
+            "type": "textarea",
+            "settings": {
+              "title": "CORPORATE GOVERNANCE Q1 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Corporate_Governance_Revised_Q1_-_FY_22-23.pdf?v=1659600316"
+            }
+          },
+          "textarea_4pPahU": {
+            "type": "textarea",
+            "settings": {
+              "title": "INVESTOR GRIEVANCE REPORT Q1 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Investor_Grievance_Report_Q1_22-23.pdf?v=1657891555"
+            }
+          },
+          "textarea_Kj9DnY": {
+            "type": "textarea",
+            "settings": {
+              "title": "TRADING WINDOW CLOSURE Q1 FY23",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/GFIL_-_Trading_Window_Closure_notice_Q1_22-23.pdf?v=1656566771"
+            }
+          },
+          "textarea_AtG8YX": {
+            "type": "textarea",
+            "settings": {
+              "title": "INTIMATION - CASH FLOW STATEMENT",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/SE_Intimation_-_Cash_Flow_Statement.pdf?v=1654236961"
+            }
+          },
+          "textarea_cwmprx": {
+            "type": "textarea",
+            "settings": {
+              "title": "Annual Compliance Report 2021-2022",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Annual_Compliance_Report_2021-2022.pdf?v=1657891554"
+            }
+          },
+          "textarea_McUqfw": {
+            "type": "textarea",
+            "settings": {
+              "title": "INVESTOR MEET INTIMATON 26-05-2022",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Investor_Meet_26-05-22.pdf?v=1672727980"
+            }
+          },
+          "textarea_J8pdEU": {
+            "type": "textarea",
+            "settings": {
+              "title": "RELATED PARTY TRANSACTIONS Q4 FY22",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Related_Party_Transactions_-_H2_-_FY22.pdf?v=1652353550"
+            }
+          },
+          "textarea_REFL3G": {
+            "type": "textarea",
+            "settings": {
+              "title": "STATEMENT OF DEVIATION Q4 FY22",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Statement_of_deviation_Q4_FY22.pdf?v=1652353663"
+            }
+          },
+          "textarea_BTAPU9": {
+            "type": "textarea",
+            "settings": {
+              "title": "MONITORING AGENCY REPORT Q4 FY22",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Monitoring_Agency_Report_Q4_FY22.pdf?v=1652350265"
+            }
+          },
+          "textarea_qLFdzL": {
+            "type": "textarea",
+            "settings": {
+              "title": "INVESTOR MEET INTIMATION  09-05-2022",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Investor_Meet_09-05-22.pdf?v=1672727984"
+            }
+          },
+          "textarea_N8BH7g": {
+            "type": "textarea",
+            "settings": {
+              "title": "NEWSPAPER PUBLICATION OF FINANCIAL RESULTS Q4 FY22",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Newspaper_Ad_Intimation_Q4_FY22.pdf?v=1657891555"
+            }
+          },
+          "textarea_rxw4Qy": {
+            "type": "textarea",
+            "settings": {
+              "title": "OUTCOME OF BOARD MEETING Q4 FY22",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Outcome_of_Board_Meeting_Q4_FY_22.pdf?v=1651911767"
+            }
+          },
+          "textarea_YgafhV": {
+            "type": "textarea",
+            "settings": {
+              "title": "INTIMATION OF RESCHEDULING OF BOARD MEETING Q4 FY22",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Intimation_of_rescheduling_of_Board_Meeting_Q4.pdf?v=1651573741"
+            }
+          },
+          "textarea_3Nzn9T": {
+            "type": "textarea",
+            "settings": {
+              "title": "INTIMATION OF BOARD MEETING Q4 FY22",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Intimation_of_Board_Meeting_-_Q4-FY_21-22.pdf?v=1651205735"
+            }
+          },
+          "textarea_qQ4ad6": {
+            "type": "textarea",
+            "settings": {
+              "title": "CORPORATE GOVERNANCE REPORT Q4 FY22",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Corporate_Governance_Report_-_Q4_-_FY_21-22.pdf?v=1650448730"
+            }
+          },
+          "textarea_dzMPtK": {
+            "type": "textarea",
+            "settings": {
+              "title": "INVESTOR GRIEVANCE REPORT Q4 FY22",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Investor_Grievance_Report_Q4_FY22.pdf?v=1675668361"
+            }
+          },
+          "textarea_FTBFdx": {
+            "type": "textarea",
+            "settings": {
+              "title": "INTIMATION TO SE - ICRA",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Intimation_to_SE_-_ICRA.pdf?v=1649832494"
+            }
+          },
+          "textarea_j3JbMF": {
+            "type": "textarea",
+            "settings": {
+              "title": "PRESS RELEASE - OPENING OF 500TH STORE",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0293/6448/6192/files/Press_Release_-_Opening_of_500th_Store.pdf?v=1649831185"
+            }
+          },
+          "textarea_w98MFA": {
+            "type": "textarea",
+            "settings": {
+              "title": "INVESTOR MEET INTIMATION 12-04-2022",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Investor_Meet_Intimation_-_Investec_India.pdf?v=1649832134"
+            }
+          },
+          "textarea_PeyrjA": {
+            "type": "textarea",
+            "settings": {
+              "title": "INTIMATION TO SE - CRISIL RATING FY22",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0293/6448/6192/files/Intimation_to_SE_-_CRISIL_Rating.pdf?v=1649219730"
+            }
+          },
+          "textarea_bJFhk4": {
+            "type": "textarea",
+            "settings": {
+              "title": "TRADING WINDOW CLOSURE Q4 FY22",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0293/6448/6192/files/Trading_Window_closure_Q4.pdf?v=1649219730"
+            }
+          },
+          "textarea_AHacTq": {
+            "type": "textarea",
+            "settings": {
+              "title": "COMMUNICATION TO SHAREHOLDERS",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Communication_to_Shareholders_0d2eab48-360d-478f-86c2-4d1394f66a5c.pdf?v=1731655874"
+            }
+          },
+          "textarea_PpJDDj": {
+            "type": "textarea",
+            "settings": {
+              "title": "INVESTOR MEET INTIMATION  24-03-2022",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Investor_Meet_Intimation_-_24032022.pdf?v=1648131523"
+            }
+          },
+          "textarea_NBGhqw": {
+            "type": "textarea",
+            "settings": {
+              "title": "INVESTOR MEET INTIMATION  14-03-2022",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Intimation_of_Investor_Meet_-15032022.pdf?v=1648129709"
+            }
+          },
+          "textarea_g6BiLU": {
+            "type": "textarea",
+            "settings": {
+              "title": "INVESTOR MEET INTIMATION  24-02-2022",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Intimation_of_Investor_Meet-24022022.pdf?v=1648130305"
+            }
+          },
+          "textarea_D736mf": {
+            "type": "textarea",
+            "settings": {
+              "title": "MONITORING AGENCY REPORT",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Monitoring_Agency_Report_Go_Fashion_India_Limited_Q3FY22.pdf?v=1647324871"
+            }
+          },
+          "textarea_JePeYh": {
+            "type": "textarea",
+            "settings": {
+              "title": "STATEMENT OF UTILISATION",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Statement_of_utilisation_Company_Certification_Dec_21.pdf?v=1647324871"
+            }
+          },
+          "textarea_VEdecg": {
+            "type": "textarea",
+            "settings": {
+              "title": "INTIMATION-OF-BOARD-MEETING Q3 FY22",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Intimation-of-Board-Meeting-Q3-FY22.pdf?v=1645782897"
+            }
+          },
+          "textarea_48VmjX": {
+            "type": "textarea",
+            "settings": {
+              "title": "CLOSURE-OF-TRADING-WINDOW Q3 FY22",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Closure-of-Trading-Window-Q3-FY22.Pdf?v=1645782864"
+            }
+          },
+          "textarea_cKdHdF": {
+            "type": "textarea",
+            "settings": {
+              "title": "CORPORATE GOVERNANCE REPORT Q3 FY22",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Corporate_Governance.pdf?v=1648469464"
+            }
+          },
+          "textarea_Ai9hTx": {
+            "type": "textarea",
+            "settings": {
+              "title": "NEWSPAPER PUBLICATION OF FINANCIAL RESULTS Q3 FY22",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/Newspaper_Publication_of_Financial_Results_Q3_FY-_21-22.pdf?v=1648131058"
+            }
+          }
+        },
+        "block_order": [
+          "textarea_Xe6eae",
+          "textarea_Qzk3DG",
+          "textarea_NmTGpd",
+          "textarea_QBzFwC",
+          "textarea_UFnkBf",
+          "textarea_3yXTix",
+          "textarea_pd8iUR",
+          "textarea_W8TAiW",
+          "textarea_AFeec6",
+          "textarea_bBzDRY",
+          "textarea_fk83th",
+          "textarea_Jpwkai",
+          "textarea_HVU6fY",
+          "textarea_dxf7ee",
+          "textarea_Vwgm6n",
+          "textarea_M7tgAe",
+          "textarea_UzFM7A",
+          "textarea_ET8Lhp",
+          "textarea_mTBdbH",
+          "textarea_VLCMpP",
+          "textarea_zKmAYn",
+          "textarea_AjDmfb",
+          "textarea_33jFhd",
+          "textarea_t9KiBV",
+          "textarea_jAbrmD",
+          "textarea_9ne3Gx",
+          "textarea_HTd3yq",
+          "textarea_X7BKGm",
+          "textarea_cqdeBy",
+          "textarea_p3RUpN",
+          "textarea_MeVraj",
+          "textarea_Tp83wb",
+          "textarea_BXthqF",
+          "textarea_CfNQ4F",
+          "textarea_Yc39VU",
+          "textarea_T8tKFV",
+          "textarea_UB6CiG",
+          "textarea_G3LgRm",
+          "textarea_nMkpkk",
+          "textarea_AfYGf6",
+          "textarea_cN8yrX",
+          "textarea_Cfp4Db",
+          "textarea_6MbiAp",
+          "textarea_yzcnMJ",
+          "textarea_t3D6BA",
+          "textarea_PArpFr",
+          "textarea_hfnKDR",
+          "textarea_6biFAp",
+          "textarea_FpbaTC",
+          "textarea_J4QTxJ",
+          "textarea_3KLhhA",
+          "textarea_tU3YWW",
+          "textarea_LwfLiP",
+          "textarea_XFbNfk",
+          "textarea_qAUUcw",
+          "textarea_N9AtTx",
+          "textarea_8eqfMW",
+          "textarea_YJ3Cjp",
+          "textarea_Dm39Ak",
+          "textarea_7RXXME",
+          "textarea_tFAnzJ",
+          "textarea_QHeRFw",
+          "textarea_YQYm4U",
+          "textarea_URa7yR",
+          "textarea_eizza4",
+          "textarea_qcjrMC",
+          "textarea_9YrnKc",
+          "textarea_T7ydX9",
+          "textarea_96W8Tf",
+          "textarea_G94Pn4",
+          "textarea_HdD7wr",
+          "textarea_DFJCqr",
+          "textarea_DP3AKC",
+          "textarea_AMKwRW",
+          "textarea_HNdzNz",
+          "textarea_VzQaF7",
+          "textarea_dDtAdz",
+          "textarea_hwHeGD",
+          "textarea_M6HjzC",
+          "textarea_Q9yA7x",
+          "textarea_jE4yaD",
+          "textarea_TCMbBA",
+          "textarea_zCk3L6",
+          "textarea_ATqkxb",
+          "textarea_AwhkPY",
+          "textarea_Dpn97R",
+          "textarea_LMU3aR",
+          "textarea_e7wdVR",
+          "textarea_FzEHwb",
+          "textarea_d3rFbz",
+          "textarea_D38rYf",
+          "textarea_BrWm3b",
+          "textarea_M73fwc",
+          "textarea_BPqyCn",
+          "textarea_XaDdtD",
+          "textarea_thDkQe",
+          "textarea_4nxPFB",
+          "textarea_KrTgXr",
+          "textarea_gPdq9K",
+          "textarea_FiKUkQ",
+          "textarea_LTWb4U",
+          "textarea_7PpfzG",
+          "textarea_JmEHbe",
+          "textarea_rbjdHE",
+          "textarea_9BYCCj",
+          "textarea_aJPtwQ",
+          "textarea_BqidCD",
+          "textarea_bXMcCi",
+          "textarea_QxN4Jd",
+          "textarea_DbCtxw",
+          "textarea_UFDFBx",
+          "textarea_tJD8am",
+          "textarea_bthbnt",
+          "textarea_BL8znc",
+          "textarea_T3NDb4",
+          "textarea_eabhtJ",
+          "textarea_qbJCdC",
+          "textarea_yWPW9R",
+          "textarea_EKPCEm",
+          "textarea_B3wkKG",
+          "textarea_JGC8Hr",
+          "textarea_EmwU8x",
+          "textarea_4mmzMP",
+          "textarea_pLHTND",
+          "textarea_y4zdcg",
+          "textarea_jQtG4E",
+          "textarea_EgADpV",
+          "textarea_nJqrzQ",
+          "textarea_egA8GJ",
+          "textarea_D6EQgw",
+          "textarea_ghwWnH",
+          "textarea_mbj3Ex",
+          "textarea_63wNGE",
+          "textarea_fgg8Hm",
+          "textarea_zWazW3",
+          "textarea_GdxRXM",
+          "textarea_H6TTjT",
+          "textarea_z8B6V9",
+          "textarea_yJnLyr",
+          "textarea_abhFTf",
+          "textarea_MBeh9C",
+          "textarea_GePMWa",
+          "textarea_4qhX7m",
+          "textarea_byHdJX",
+          "textarea_f4FjkX",
+          "textarea_aDT76V",
+          "textarea_iTzFWa",
+          "textarea_pYgAmr",
+          "textarea_q93zmK",
+          "textarea_8wjXE9",
+          "textarea_9rr3hN",
+          "textarea_MXNemm",
+          "textarea_rrd9gP",
+          "textarea_XzhUFb",
+          "textarea_cmdRDU",
+          "textarea_79rUVe",
+          "textarea_QtXJyM",
+          "textarea_JjD74J",
+          "textarea_etFVJt",
+          "textarea_GfJPEy",
+          "textarea_L8HMVg",
+          "textarea_GkYijQ",
+          "textarea_n3w7yE",
+          "textarea_XtFfBA",
+          "textarea_EAGbUP",
+          "textarea_XxyBgM",
+          "textarea_ggzrnY",
+          "textarea_FVwdRT",
+          "textarea_VAQFeD",
+          "textarea_GJj6xM",
+          "textarea_J9hWRp",
+          "textarea_a8ccBG",
+          "textarea_z34KzY",
+          "textarea_phWpyL",
+          "textarea_JaCXyr",
+          "textarea_EMKJUb",
+          "textarea_rVkGQw",
+          "textarea_pLejUk",
+          "textarea_XGBb3b",
+          "textarea_968WnK",
+          "textarea_wH4rq8",
+          "textarea_iqWLDz",
+          "textarea_6WwyfL",
+          "textarea_axYDdU",
+          "textarea_G7UCBC",
+          "textarea_kPLpk7",
+          "textarea_k9cM8q",
+          "textarea_QaAHBe",
+          "textarea_miPH9M",
+          "textarea_TrKcRn",
+          "textarea_8MqN8F",
+          "textarea_FbExFB",
+          "textarea_RBAC3N",
+          "textarea_8DPLq3",
+          "textarea_wqjnhm",
+          "textarea_MacJEY",
+          "textarea_LYnhYw",
+          "textarea_TgBHPf",
+          "textarea_hAzwpU",
+          "textarea_EHtYYB",
+          "textarea_GTNCAc",
+          "textarea_4pPahU",
+          "textarea_Kj9DnY",
+          "textarea_AtG8YX",
+          "textarea_cwmprx",
+          "textarea_McUqfw",
+          "textarea_J8pdEU",
+          "textarea_REFL3G",
+          "textarea_BTAPU9",
+          "textarea_qLFdzL",
+          "textarea_N8BH7g",
+          "textarea_rxw4Qy",
+          "textarea_YgafhV",
+          "textarea_3Nzn9T",
+          "textarea_qQ4ad6",
+          "textarea_dzMPtK",
+          "textarea_FTBFdx",
+          "textarea_j3JbMF",
+          "textarea_w98MFA",
+          "textarea_PeyrjA",
+          "textarea_bJFhk4",
+          "textarea_AHacTq",
+          "textarea_PpJDDj",
+          "textarea_NBGhqw",
+          "textarea_g6BiLU",
+          "textarea_D736mf",
+          "textarea_JePeYh",
+          "textarea_VEdecg",
+          "textarea_48VmjX",
+          "textarea_cKdHdF",
+          "textarea_Ai9hTx"
+        ],
+        "settings": {}
+      },
+      "policies": {
+        "type": "policies",
+        "blocks": {
+          "textarea_frwUJm": {
+            "type": "textarea",
+            "settings": {
+              "title": "ANTI-BRIBERY POLICY",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/ANTI-BRIBERY_ANTI-CORRUPTION_POLICY.pdf?v=1733556140"
+            }
+          },
+          "textarea_QFqtwY": {
+            "type": "textarea",
+            "settings": {
+              "title": "ARCHIVAL POLICY",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/ARCHIVAL_POLICY_915eb0ac-e06a-4769-b38a-f1dc56fc6d0b.pdf?v=1657891554"
+            }
+          },
+          "textarea_B8d3Hp": {
+            "type": "textarea",
+            "disabled": true,
+            "settings": {
+              "title": "AUDIT COMMITTEE POLICY",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/AUDIT_COMMITTEE_POLICY_2cf91f65-e2a3-445e-90cf-e781d3b1faf1.pdf?v=1733556140"
+            }
+          },
+          "textarea_YcynGX": {
+            "type": "textarea",
+            "settings": {
+              "title": "Employee Code of Conduct",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/EMPLOYEE_CODE_OF_CONDUCT_1.pdf?v=1738566101"
+            }
+          },
+          "textarea_fmRDpC": {
+            "type": "textarea",
+            "settings": {
+              "title": "CORPORATE SOCIAL RESPONSIBILITY POLICY",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/CORPORATE_SOCIAL_RESPONSIBILITY_POLICY_022afe7c-4138-4be3-bcbe-7f793c731186.pdf?v=1733556140"
+            }
+          },
+          "textarea_gtJMkN": {
+            "type": "textarea",
+            "settings": {
+              "title": "DIVIDEND DISTRIBUTION POLICY",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/DIVIDEND_DISTRIBUTION_POLICY_71b1c0c0-c8d3-460b-bf44-6219fd8c7797.pdf?v=1738566100"
+            }
+          },
+          "textarea_CVxCFL": {
+            "type": "textarea",
+            "settings": {
+              "title": "GRIEVANCE REDRESSAL POLICY",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/GRIEVANCE_REDRESSAL_POLICY_8effe8c5-0c3e-49a3-ad6f-52816a72ec01.pdf?v=1733556140"
+            }
+          },
+          "textarea_XkhLyz": {
+            "type": "textarea",
+            "settings": {
+              "title": "HEALTH AND SAFETY POLICY",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/EMPLOYEE_HEALTH_AND_SAFETY_POLICY.pdf?v=1733556140"
+            }
+          },
+          "textarea_g89QEf": {
+            "type": "textarea",
+            "settings": {
+              "title": "INSIDER TRADING POLICY",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/INSIDER_TRADING_POLICY_6637b578-0ff8-4a72-a7d9-1e30258c6119.pdf?v=1738566100"
+            }
+          },
+          "textarea_8YCq46": {
+            "type": "textarea",
+            "settings": {
+              "title": "RELATED PARTY TRANSACTIONS POLICY",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/RELATED_PARTY_TRANSACTION_POLICY_c965eb59-f225-41b0-b6ba-94b353620e45.pdf?v=1738566101"
+            }
+          },
+          "textarea_n4mAJa": {
+            "type": "textarea",
+            "settings": {
+              "title": "RISK MANAGEMENT POLICY",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/RISK_MANAGEMENT_POLICY_c690b527-eb31-4eee-b5f8-7ca3f0b64377.pdf?v=1738566100"
+            }
+          },
+          "textarea_GAJ79F": {
+            "type": "textarea",
+            "settings": {
+              "title": "STAKEHOLDER ENGAGEMENT POLICY",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/STAKEHOLDER_ENGAGEMENT_POLICY_e451b55e-7260-48b8-97ee-adc642f2d8ab.pdf?v=1733556140"
+            }
+          },
+          "textarea_7nqGyG": {
+            "type": "textarea",
+            "settings": {
+              "title": "SUPPLIER CODE OF CONDUCT",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/SUPPLIER_CODE_OF_CONDUCT_b78156ca-2068-4277-a102-ba94d1e07af1.pdf?v=1733556140"
+            }
+          },
+          "textarea_kfNbp9": {
+            "type": "textarea",
+            "settings": {
+              "title": "SUSTAINABILITY POLICY",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/SUSTAINABILITY_POLICY_f9f44d52-de44-41e0-904f-b187ce9d0521.pdf?v=1733556140"
+            }
+          },
+          "textarea_taYP8m": {
+            "type": "textarea",
+            "settings": {
+              "title": "POLICY FOR DETERMINATION OF MATERIALITY OF EVENTS AND INFORMATION",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/POLICY_FOR_DETERMINATION_OF_MATERIALITY_OF_EVENTS_AND_INFORMATION_1.pdf?v=1738566100"
+            }
+          },
+          "textarea_xaQRDD": {
+            "type": "textarea",
+            "settings": {
+              "title": "POLICY ON MATERIAL SUBSIDIARIES",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/POLICY_ON_MATERIAL_SUBSIDIARIES_912d004a-7004-4a65-8c6a-5919b72efd5f.pdf?v=1733556140"
+            }
+          },
+          "textarea_6GtgNR": {
+            "type": "textarea",
+            "settings": {
+              "title": "POLICY ON NOMINATION REMUNERATION AND BOARD DIVERSITY",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/POLICY_ON_NOMINATION_REMUNERATION_AND_BOARD_DIVERSITY_5bc59aa1-fd9c-4b75-992d-cd1c82d94c73.pdf?v=1738566100"
+            }
+          },
+          "textarea_CrdYp4": {
+            "type": "textarea",
+            "settings": {
+              "title": "MATERIALITY POLICY",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/MATERIALITY_POLICY_394643b6-4e93-474d-a598-fd1ccadc3f8c.pdf?v=1733556140"
+            }
+          },
+          "textarea_Y8yacT": {
+            "type": "textarea",
+            "settings": {
+              "title": "VIGIL MECHANISM POLICY",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/VIGIL_MECHANISM_WHISTLE_BLOWER_POLICY.pdf?v=1733556140"
+            }
+          }
+        },
+        "block_order": [
+          "textarea_frwUJm",
+          "textarea_QFqtwY",
+          "textarea_B8d3Hp",
+          "textarea_YcynGX",
+          "textarea_fmRDpC",
+          "textarea_gtJMkN",
+          "textarea_CVxCFL",
+          "textarea_XkhLyz",
+          "textarea_g89QEf",
+          "textarea_8YCq46",
+          "textarea_n4mAJa",
+          "textarea_GAJ79F",
+          "textarea_7nqGyG",
+          "textarea_kfNbp9",
+          "textarea_taYP8m",
+          "textarea_xaQRDD",
+          "textarea_6GtgNR",
+          "textarea_CrdYp4",
+          "textarea_Y8yacT"
+        ],
+        "settings": {}
+      },
+      "image-banner": {
+        "type": "image-banner",
+        "settings": {
+          "image": "shopify://shop_images/Investor_Relations_Banner_1200x300_pix-01.jpg",
+          "image_overlay_opacity": 0,
+          "image_height": "medium",
+          "desktop_content_position": "middle-center",
+          "show_text_box": true,
+          "desktop_content_alignment": "center",
+          "color_scheme": "",
+          "image_behavior": "none",
+          "mobile_content_alignment": "center",
+          "stack_images_on_mobile": true,
+          "show_text_below": true
+        }
+      },
+      "moa-aoa-director-profile": {
+        "type": "moa-aoa-director-profile",
+        "blocks": {
+          "textarea_jqfAQL": {
+            "type": "textarea",
+            "settings": {
+              "title": "MOA & AOA",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/MOA_AOA.pdf?v=1737087317"
+            }
+          },
+          "textarea_MNwTMM": {
+            "type": "textarea",
+            "settings": {
+              "title": "PROFILE OF BOARD OF DIRECTORS",
+              "tab_url": "https://cdn.shopify.com/s/files/1/0598/8158/6848/files/PROFILE_OF_BOARD_OF_DIRECTORS.pdf?v=1762772428"
+            }
+          }
+        },
+        "block_order": [
+          "textarea_jqfAQL",
+          "textarea_MNwTMM"
+        ],
+        "settings": {}
+      },
+      "directors-page-section": {
+        "type": "directors-page-section",
+        "settings": {
+          "heading": ""
+        }
+      }
+    },
+    "content_for_index": [],
+    "color_schemes": {
+      "scheme-1": {
+        "settings": {
+          "background": "#ffffff",
+          "background_gradient": "",
+          "text": "#1a1a1a",
+          "button": "#121212",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#121212",
+          "shadow": "#121212"
+        }
+      },
+      "scheme-2": {
+        "settings": {
+          "background": "#f6f6f6",
+          "background_gradient": "",
+          "text": "#121212",
+          "button": "#121212",
+          "button_label": "#f3f3f3",
+          "secondary_button_label": "#121212",
+          "shadow": "#121212"
+        }
+      },
+      "scheme-3": {
+        "settings": {
+          "background": "#242833",
+          "background_gradient": "",
+          "text": "#ffffff",
+          "button": "#ffffff",
+          "button_label": "#000000",
+          "secondary_button_label": "#ffffff",
+          "shadow": "#121212"
+        }
+      },
+      "scheme-4": {
+        "settings": {
+          "background": "#121212",
+          "background_gradient": "",
+          "text": "#ffffff",
+          "button": "#ffffff",
+          "button_label": "#121212",
+          "secondary_button_label": "#ffffff",
+          "shadow": "#121212"
+        }
+      },
+      "scheme-5": {
+        "settings": {
+          "background": "#334fb4",
+          "background_gradient": "",
+          "text": "#ffffff",
+          "button": "#ffffff",
+          "button_label": "#334fb4",
+          "secondary_button_label": "#ffffff",
+          "shadow": "#121212"
+        }
+      },
+      "scheme-5408358e-157e-44b6-9ddd-bca43bf88cc3": {
+        "settings": {
+          "background": "#1b1b1b",
+          "background_gradient": "",
+          "text": "#1a1a1a",
+          "button": "#121212",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#121212",
+          "shadow": "#121212"
+        }
+      },
+      "scheme-68bb2140-5e70-4667-8683-d16e4e813b39": {
+        "settings": {
+          "background": "#1b1b1b",
+          "background_gradient": "",
+          "text": "#ffffff",
+          "button": "#ded5ea",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#121212",
+          "shadow": "#121212"
+        }
+      },
+      "scheme-81375e22-33c4-4b4a-b932-d099f6909f17": {
+        "settings": {
+          "background": "#ffffff",
+          "background_gradient": "",
+          "text": "#ffffff",
+          "button": "#0b0b0b",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#121212",
+          "shadow": "#121212"
+        }
+      }
+    }
+  },
+  "presets": {
+    "Default": {
+      "logo_width": 90,
+      "color_schemes": {
+        "scheme-1": {
+          "settings": {
+            "background": "#FFFFFF",
+            "background_gradient": "",
+            "text": "#121212",
+            "button": "#121212",
+            "button_label": "#FFFFFF",
+            "secondary_button_label": "#121212",
+            "shadow": "#121212"
+          }
+        },
+        "scheme-2": {
+          "settings": {
+            "background": "#F3F3F3",
+            "background_gradient": "",
+            "text": "#121212",
+            "button": "#121212",
+            "button_label": "#F3F3F3",
+            "secondary_button_label": "#121212",
+            "shadow": "#121212"
+          }
+        },
+        "scheme-3": {
+          "settings": {
+            "background": "#242833",
+            "background_gradient": "",
+            "text": "#FFFFFF",
+            "button": "#FFFFFF",
+            "button_label": "#000000",
+            "secondary_button_label": "#FFFFFF",
+            "shadow": "#121212"
+          }
+        },
+        "scheme-4": {
+          "settings": {
+            "background": "#121212",
+            "background_gradient": "",
+            "text": "#FFFFFF",
+            "button": "#FFFFFF",
+            "button_label": "#121212",
+            "secondary_button_label": "#FFFFFF",
+            "shadow": "#121212"
+          }
+        },
+        "scheme-5": {
+          "settings": {
+            "background": "#334FB4",
+            "background_gradient": "",
+            "text": "#FFFFFF",
+            "button": "#FFFFFF",
+            "button_label": "#334FB4",
+            "secondary_button_label": "#FFFFFF",
+            "shadow": "#121212"
+          }
+        }
+      },
+      "type_header_font": "assistant_n4",
+      "heading_scale": 100,
+      "type_body_font": "assistant_n4",
+      "body_scale": 100,
+      "page_width": 1200,
+      "spacing_sections": 0,
+      "spacing_grid_horizontal": 8,
+      "spacing_grid_vertical": 8,
+      "animations_reveal_on_scroll": true,
+      "animations_hover_elements": "none",
+      "buttons_border_thickness": 1,
+      "buttons_border_opacity": 100,
+      "buttons_radius": 0,
+      "buttons_shadow_opacity": 0,
+      "buttons_shadow_horizontal_offset": 0,
+      "buttons_shadow_vertical_offset": 4,
+      "buttons_shadow_blur": 5,
+      "variant_pills_border_thickness": 1,
+      "variant_pills_border_opacity": 55,
+      "variant_pills_radius": 40,
+      "variant_pills_shadow_opacity": 0,
+      "variant_pills_shadow_horizontal_offset": 0,
+      "variant_pills_shadow_vertical_offset": 4,
+      "variant_pills_shadow_blur": 5,
+      "inputs_border_thickness": 1,
+      "inputs_border_opacity": 55,
+      "inputs_radius": 0,
+      "inputs_shadow_opacity": 0,
+      "inputs_shadow_horizontal_offset": 0,
+      "inputs_shadow_vertical_offset": 4,
+      "inputs_shadow_blur": 5,
+      "card_style": "standard",
+      "card_image_padding": 0,
+      "card_text_alignment": "left",
+      "card_color_scheme": "scheme-2",
+      "card_border_thickness": 0,
+      "card_border_opacity": 10,
+      "card_corner_radius": 0,
+      "card_shadow_opacity": 0,
+      "card_shadow_horizontal_offset": 0,
+      "card_shadow_vertical_offset": 4,
+      "card_shadow_blur": 5,
+      "collection_card_style": "standard",
+      "collection_card_image_padding": 0,
+      "collection_card_text_alignment": "left",
+      "collection_card_color_scheme": "scheme-2",
+      "collection_card_border_thickness": 0,
+      "collection_card_border_opacity": 10,
+      "collection_card_corner_radius": 0,
+      "collection_card_shadow_opacity": 0,
+      "collection_card_shadow_horizontal_offset": 0,
+      "collection_card_shadow_vertical_offset": 4,
+      "collection_card_shadow_blur": 5,
+      "blog_card_style": "standard",
+      "blog_card_image_padding": 0,
+      "blog_card_text_alignment": "left",
+      "blog_card_color_scheme": "scheme-2",
+      "blog_card_border_thickness": 0,
+      "blog_card_border_opacity": 10,
+      "blog_card_corner_radius": 0,
+      "blog_card_shadow_opacity": 0,
+      "blog_card_shadow_horizontal_offset": 0,
+      "blog_card_shadow_vertical_offset": 4,
+      "blog_card_shadow_blur": 5,
+      "text_boxes_border_thickness": 0,
+      "text_boxes_border_opacity": 10,
+      "text_boxes_radius": 0,
+      "text_boxes_shadow_opacity": 0,
+      "text_boxes_shadow_horizontal_offset": 0,
+      "text_boxes_shadow_vertical_offset": 4,
+      "text_boxes_shadow_blur": 5,
+      "media_border_thickness": 1,
+      "media_border_opacity": 5,
+      "media_radius": 0,
+      "media_shadow_opacity": 0,
+      "media_shadow_horizontal_offset": 0,
+      "media_shadow_vertical_offset": 4,
+      "media_shadow_blur": 5,
+      "popup_border_thickness": 1,
+      "popup_border_opacity": 10,
+      "popup_corner_radius": 0,
+      "popup_shadow_opacity": 5,
+      "popup_shadow_horizontal_offset": 0,
+      "popup_shadow_vertical_offset": 4,
+      "popup_shadow_blur": 5,
+      "drawer_border_thickness": 1,
+      "drawer_border_opacity": 10,
+      "drawer_shadow_opacity": 0,
+      "drawer_shadow_horizontal_offset": 0,
+      "drawer_shadow_vertical_offset": 4,
+      "drawer_shadow_blur": 5,
+      "badge_position": "bottom left",
+      "badge_corner_radius": 40,
+      "sale_badge_color_scheme": "scheme-4",
+      "sold_out_badge_color_scheme": "scheme-3",
+      "brand_headline": "",
+      "brand_description": "<p></p>",
+      "brand_image_width": 100,
+      "social_twitter_link": "",
+      "social_facebook_link": "",
+      "social_pinterest_link": "",
+      "social_instagram_link": "",
+      "social_tiktok_link": "",
+      "social_tumblr_link": "",
+      "social_snapchat_link": "",
+      "social_youtube_link": "",
+      "social_vimeo_link": "",
+      "predictive_search_enabled": true,
+      "predictive_search_show_vendor": false,
+      "predictive_search_show_price": false,
+      "currency_code_enabled": true,
+      "cart_type": "notification",
+      "show_vendor": false,
+      "show_cart_note": false,
+      "cart_drawer_collection": "",
+      "cart_color_scheme": "scheme-1",
+      "sections": {
+        "main-password-header": {
+          "type": "main-password-header",
+          "settings": {
+            "color_scheme": "scheme-1"
+          }
+        },
+        "main-password-footer": {
+          "type": "main-password-footer",
+          "settings": {
+            "color_scheme": "scheme-1"
+          }
+        }
+      }
+    }
+  }
+}

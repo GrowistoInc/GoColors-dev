@@ -1,0 +1,83 @@
+<script> 
+  window.merchantInfo  = {
+   ...window.merchantInfo,
+    mid: "19g6im7d1hki6",
+    environment: "production",
+    type: "merchantInfo",
+  }
+
+  function getCustomerId() {
+    {% if customer %}
+    return {{ customer.id | json }};
+    {% else %}
+    return null
+    {% endif %}
+  }
+  
+  function getThemeId() {
+    {% if theme %}
+    return {{ theme.id | json }};
+    {% else %}
+    return null
+    {% endif %}
+  }
+  
+  let token = null;
+
+  function updateDOM(isKwikpassLogin = true) {
+    token = getValueFromCookiesOrLocalStorage(XGokwikCoreToken(window.merchantInfo.environment));
+    const isLogout = sessionStorage.getItem('isLogout');
+    const phoneNumber = getValueFromCookiesOrLocalStorage('notify_phone_number');
+    
+    if ((!token && !isLogout) || (token && !phoneNumber)) {
+       openIframe('kp_sso_token')
+    }
+    
+    // shopify logout
+    const logoutLink = document.querySelectorAll('a[href*="/account/logout"]');
+    logoutLink.forEach((element) => {
+        element.addEventListener("click", (event) => {
+          event.preventDefault()
+          handleLogout()
+        })
+    });
+    
+    const logoutElement =  document.getElementById('logout-button-desktop')
+    
+    if(logoutElement) logoutElement.addEventListener('click', handleLogout);  
+  }
+
+   let isElementsWithAccountClickable = true;
+
+    const elementsWithAccount = document.querySelectorAll('a[href="/account"]');
+    elementsWithAccount.forEach((element) => {
+        element.addEventListener('click', async (e) => {
+          e.preventDefault();
+        const customerId = getCustomerId()
+          token = getValueFromCookiesOrLocalStorage(XGokwikCoreToken(window.merchantInfo.environment));
+          if(token && customerId!=null){
+            window.location.href = "/account"
+          }else{
+            handleKpAndShopifyLogin("/account")
+          }
+        });
+    });
+
+
+  /* This code is reusable to all merchants except breakpoint */
+  
+  // Add a click event listener to the document
+ 
+  document.addEventListener('DOMContentLoaded', function() {
+    updateDOM();
+  });
+  
+  window.addEventListener('update-dom', function() {
+    updateDOM();
+  });
+</script>
+
+<script defer src="https://pdp.gokwik.co/kwikpass/kwikpass-core-functions-min.js" ></script>
+<script defer src="https://pdp.gokwik.co/kwikpass/plugin/build/kp-merchant-v2.js"></script>
+
+

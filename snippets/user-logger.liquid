@@ -1,0 +1,165 @@
+<script type="module">
+
+   window.FMS_LOGGER_PRESENT = true; 
+  // 1. Import V5 (or V4 depending on your setup)
+  import { 
+    trackPageVisit,
+    trackComponentClick, 
+    trackAddToCart,
+    trackCheckoutClick
+  } from 'https://staging.truesize.ai/Common/external/v4/userlogger.js';
+
+  // 2. Base Configuration
+  const baseConfig = {
+    domain: "{{ shop.domain }}",
+    currency: "{{ shop.currency }}",
+    customer_email: "{{ customer.email | default: '' }}"
+  };
+
+  // 3. STORE PRODUCT INFO GLOBALLY
+  // We need this so the global ATC listener knows the Product ID
+  window._userLoggerProduct = null;
+
+  {% if product %}
+    
+       {% assign aisizing_enable = product.metafields.custom.aisizing_enable.value | default: true %}
+    window._userLoggerProduct = {
+      product_name: "{{ product.title | escape }}",
+      product_id: "{{ product.id }}",
+      product_type: "{{ product.type }}",
+      aisizing_enable: "{{ aisizing_enable }}"
+    };
+
+    const fullProductConfig = {
+      ...baseConfig,
+      ...window._userLoggerProduct,
+      available_sizes: [
+        {% for variant in product.variants %}
+          "{{ variant.option1 }}"{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ]
+    };
+
+    // 1. Visit Log
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => trackPageVisit(fullProductConfig));
+    } else {
+      trackPageVisit(fullProductConfig);
+    }
+
+    // 2. FMS Click Logic
+    watchForShadowButton();
+  {% endif %}
+
+  // ==================================================
+  // GLOBAL LISTENERS
+  // ==================================================
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initGlobalListeners);
+  } else {
+    initGlobalListeners();
+  }
+
+  function initGlobalListeners() {
+    
+    // 1. Checkout Click
+    document.body.addEventListener('click', function(e) {
+      const checkoutBtn = e.target.closest('a[href*="/checkout"], button[name="checkout"], .cart__checkout-button, .gokwik-checkout .button');
+      
+      const currentConfig = { ...baseConfig, ...(window._userLoggerProduct || {}) };
+
+      if (checkoutBtn) trackCheckoutClick(e, currentConfig);
+    });
+
+    // 2. Add To Cart Click
+    const atcBtn = document.getElementById('AddToCart') || document.querySelector('[name="add"]');
+    
+    if (atcBtn) {
+      atcBtn.addEventListener('click', function(e) {
+        const form = atcBtn.closest('form');
+        if (!form) return;
+        
+        const formData = new FormData(form);
+
+        // =========================================================
+        // FIX: GET SIZE FROM INPUT WITH NEWLINE NAME
+        // =========================================================
+        let capturedSize = "";
+
+        // Method A: Iterate FormData keys to find the weird name "SIZE-1\n"
+        for (const [key, value] of formData.entries()) {
+            // Check if key starts with SIZE (ignores the \n at the end)
+            if (key.trim().startsWith("SIZE")) {
+                capturedSize = value;
+                break;
+            }
+        }
+
+        // Method B: DOM Fallback (if Method A failed)
+        // Select input where name contains "SIZE" and is checked
+        if (!capturedSize) {
+             const sizeInput = form.querySelector('input[type="radio"][name*="SIZE"]:checked') || 
+                               form.querySelector('.check_input:checked');
+             
+             if (sizeInput) {
+                 capturedSize = sizeInput.value;
+             }
+        }
+        // =========================================================
+
+        const atcData = {
+          variant_id: formData.get('id'),
+          quantity: formData.get('quantity') || 1,
+          selected_size: capturedSize || 'Unknown' 
+        };
+
+        // --- EXTRACT DATA FROM SHADOW DOM ---
+        const host = document.querySelector('find-my-size');
+        if (host) {
+            atcData.recommended_size = host.lastRecommendedSize;
+            atcData.selected_fit_preference = host.selectedFitPreference;
+           
+            
+            if (typeof host.getAllFitSizes === 'function') {
+                atcData.recommended_fit_sizes = host.getAllFitSizes();
+            }
+
+            if (host.shadowRoot && !atcData.recommended_size) {
+                const label = host.shadowRoot.getElementById('size-label');
+                if (label) atcData.recommended_size = label.innerText;
+            }
+        }
+        
+        // Use Global Product Info (for Product ID) + Base Info
+        const currentConfig = { 
+            ...baseConfig, 
+            ...(window._userLoggerProduct || {}) 
+        };
+
+        trackAddToCart(currentConfig, atcData);
+      });
+    }
+  }
+
+  // Helper for FMS Button
+  function watchForShadowButton() {
+    const observer = new MutationObserver(() => {
+        const host = document.querySelector("find-my-size");
+        if (!host || !host.shadowRoot) return;
+
+        const fmsBtn = host.shadowRoot.querySelector("#find-my-size-default");
+        if (!fmsBtn) return;
+
+        fmsBtn.addEventListener("click", () => {
+             // Use Global Product Info
+            const currentConfig = { ...baseConfig, ...(window._userLoggerProduct || {}) };
+            trackComponentClick(currentConfig);
+        });
+
+        observer.disconnect();
+    });
+
+    observer.observe(document.body, { childList: true, subtree: true });
+  }
+
+</script>

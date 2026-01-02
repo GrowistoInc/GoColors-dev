@@ -1,0 +1,190 @@
+<script type="text/template" id="wizzy-search-results-product" wizzy-override>
+    <li
+      class="
+        wizzy-result-product wizzy-product-[[id]]
+        [[#groupId]]has-variations wizzy-group-product-[[groupId]][[/groupId]]
+      "
+      title="[[& name ]]"
+      data-id="[[id]]"
+      data-groupId="[[#groupId]][[groupId]][[/groupId]][[#singleVarientGroupId]][[singleVarientGroupId]][[/singleVarientGroupId]]"
+    >
+  <a href="[[&url]]">
+      <span class="wizzy-product-variation-loader-bg"></span>
+      <span class="wizzy-product-variation-loader"></span>
+
+      <div  class="wizzy-result-product-item">
+        <div class="result-product-item-outer-image">
+          <div class="result-product-item-image">
+            <img src="[[ mainImage ]]" class="product-item-image" loading="lazy">
+          </div>
+          <!-- ending of result-product-item-image -->
+          <div class="result-product-item-image hover-image">
+            [[#hoverImage]]
+            <img src="[[ hoverImage ]]" class="product-item-image">
+            [[/hoverImage]] [[^hoverImage]]
+            <img src="[[ mainImage ]]" class="product-item-image" loading="lazy">
+            [[/hoverImage]]
+          </div>
+          <!-- ending of result-product-item-image -->
+          <div class="actions-secondary">
+            [[#displayQuickView]]
+            <div class="wizzy-product-quick-view">
+              <button class="wizzy-quick-view-button" data-resource="[[quickViewResource]]">
+                <span class="wizzy-quick-view-icon">
+
+                </span>
+
+              </button>
+            </div>
+            [[/displayQuickView]] [[#soldOut]]
+            <div class="wizzy-result-product-soldOut">
+              <span class="wizzy-soldout-label">Sold Out </span>
+            </div>
+            [[/soldOut]] [[#price]] [[#discountPercentage]]
+              [[/discountPercentage]] [[/price]]
+              [[#haveTag]]
+                <div class="wizzy-result-product-tag " data-tag=[[#tagValue]][[tagValue]][[/tagValue]]>
+                        <span class="wizzy-tag-label" data-value=[[#tagValue]][[tagValue]][[/tagValue]]>[[#tagValue]][[tagValue]][[/tagValue]]</span>
+                </div>
+            [[/haveTag]]
+          </div>
+        </div>
+        <div class="result-product-item-info">
+          <div class="product-item-swatch-group_new">
+            [[#colorSwatch]]
+            <a href="[[&url]]" class="wz-custom-swatch-wrapper">
+              <div class="wz-custom-color" style="background-image : url([[swatchUrl]]); height: 20px; width : 20px; border-radius: 50px; border: 1px solid grey; background-position: center;"></div>
+            </a>
+            [[/colorSwatch]]
+              <div class="product-item-swatch-group_count_new">
+            [[#swatchCount]]
+              <a href="[[&url]]" class="wz-custom-color_count" style="height: 20px; width : 20px;">+[[swatchCount]]</a>
+            [[/swatchCount]]
+          </div>
+       </div>
+          <a href="[[&url]]" class="product-item-title">[[& name ]]</a>
+
+          [[#subTitle]]
+          <p class="product-item-sub-title">[[&subTitle]]</p>
+          [[/subTitle]]
+          
+         
+
+          [[#swatches]]
+          <div
+            class="
+              product-item-swatch-group
+              [[#isPrimary]]swatch-group-primary[[/isPrimary]] swatch-group-[[key]]
+            "
+            data-swatchKey="[[key]]"
+          >
+            [[#values]]
+            <div
+              data-variationId="[[variationId]]"
+              title="[[#value]][[value]][[/value]]"
+              class="
+                product-item-swatch-item
+                [[#isSelected]]swatch-selected[[/isSelected]]
+                [[#inStock]]swatch-in-stock[[/inStock]]
+              "
+            >
+              [[#isSwatch]]
+              <span
+                class="
+                  wizzy-facet-item-swatch-wrapper [[#isVisualSwatch]]facet-visual-swatch[[/isVisualSwatch]]
+                  [[^isVisualSwatch]]facet-text-swatch[[/isVisualSwatch]]
+                "
+              >
+                <span
+                  class="
+                    wizzy-facet-item-swatch [[#isVisualSwatch]]facet-visual-swatch[[/isVisualSwatch]]
+                    [[^isVisualSwatch]]facet-text-swatch[[/isVisualSwatch]]
+                  "
+                  style="
+                    [[#isVisualSwatch]][[#isURLSwatch]]background-image:url([[swatchValue]]);[[/isURLSwatch]]
+                    [[^isURLSwatch]]background-color:[[swatchValue]];[[/isURLSwatch]][[/isVisualSwatch]]
+                  "
+                >
+                  [[^swatchValue]] [[#value]]
+                  <span class="wizzy-facet-swatch-individual-value">[[value]]</span>
+                  [[/value]] [[/swatchValue]] [[^isVisualSwatch]]
+                  <span class="wizzy-facet-swatch-value">[[swatchValue]]</span>
+                  [[/isVisualSwatch]]
+                </span>
+              </span>
+              [[/isSwatch]]
+            </div>
+            [[/values]]
+          </div>
+          <!-- ending of product-item-swatch-group -->
+          [[/swatches]]
+          <div class="wizzy-product-item-price-reviews-wrapper">
+            <div class="wizzy-product-item-reviews">
+              [[#avgRatings]]
+              <span class="product-item-reviews-avgRatings">[[avgRatings]]</span
+              ><span
+                class="product-item-review-wrapper"
+                >&#x2605;</span
+              >[[#totalReviews]]<span
+                class="product-item-reviews-totalReviews"
+                >([[totalReviews]])</span
+              >[[/ totalReviews]] [[/avgRatings]]
+              [[#numberOfReviews]]
+                  [[#reviewData]] [[ & reviewData]] [[/reviewData]] 
+                  <span class="jdgm-prev-badge__text-wizzy">[[#jdgmReviewData]] [[jdgmReviewData]] [[/jdgmReviewData]] | ([[numberOfReviews]])</span>
+              [[/numberOfReviews]]
+            </div>
+            <div class="wizzy-product-item-price [[#hasSwatches]]with-swatches[[/hasSwatches]]">
+              [[#priceWithCurrency]]&nbsp;[[ sellingPrice ]][[/priceWithCurrency]] [[#price]] [[#discountPercentage]]
+              <span class="product-item-original-price"> [[#priceWithCurrency]][[ price ]][[/priceWithCurrency]] </span>
+              [[/discountPercentage]] [[/price]] [[#discountPercentage]]
+              <br>
+              <div class="product-item-discount">[[discountPercentage]]% off</div>
+              [[/discountPercentage]]
+            </div>           
+            {% comment %}
+            <div class="wizzy-product-actions">
+              <div class="product_item-actions actions">
+                <div class="actions-primary">
+                  [[#displayAddToCart]]
+                  <div class="wizzy-product-add-to-cart">
+                    <form method="post" action="/cart/add">
+                      <input type="hidden" name="id" value="[[id]]">
+                      <input min="1" type="hidden" id="quantity" name="quantity" value="1">
+                      <input type="submit" value="Add to Cart" class="wizzy-tocart-button btn button">
+                    </form>
+                  </div>
+                  [[/displayAddToCart]]
+                </div>
+                  <div class="actions-secondary">
+                      [[#displayQuickView]]
+                          <div class="wizzy-product-quick-view">
+                              <button class="wizzy-quick-view-button" data-resource=[[quickViewResource]]>
+                                <span class="wizzy-quick-view-icon">
+                                  <svg class="wizzy-quick-view-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1a1a1aBF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                            <circle cx="12" cy="12" r="3"/>
+                                  </svg>
+                                </span>
+
+                                   <span class="wizzy-quick-view-label">Quick view</span>
+
+
+                            </button>
+                          </div>
+                      [[/displayQuickView]]
+                  </div>
+              </div>
+            </div>
+            {% endcomment %}
+            <!-- ending of wizzy-product-actions -->
+          </div>
+          <!-- ending of wizzy-product-item-price-reviews-wrapper -->
+        </div>
+        <!-- ending of result-product-item-info -->
+      </div>
+      <!-- ending of wizzy-result-product-item -->
+   </a>
+    </li>
+    <!-- ending of wizzy-result-product -->
+</script>

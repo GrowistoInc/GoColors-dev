@@ -1,0 +1,337 @@
+<style>
+  #shopify-section-{{ section.id }} {
+    padding-block: {{ section.settings.padding_top_mob }}px {{ section.settings.padding_bottom_mob }}px;
+  }
+  .homepage-featured-tab-block {
+    position: relative;
+    padding: 6rem 5rem 4rem;
+    overflow: hidden;
+  }
+  {% if section.settings.section_font_color %}
+  .homepage-featured-tab-block *{
+    color:{{section.settings.section_font_color}};
+  }
+  .card-information>.price{ color:{{section.settings.section_font_color}};
+  }
+  {% endif %}
+  .homepage-featured-tab-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+  .homepage-featured-tab-bg img {
+    width: 100%;
+    height: 100%;
+  }
+  .homepage-featured-tabs-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    padding: 0 1rem;
+    padding-inline: 3rem;
+  }
+  .homepage-featured-tabs-wrapper ul.homepage-featured-tabs-filter {
+    display: flex;
+    list-style: none;
+    padding: 0.5rem 1rem;
+    {% if section.settings.tab_show_border_color %}
+      border: 1px solid {{section.settings.active_color}};
+    {% endif %}
+    border-radius: 10px;
+    {% if section.settings.tab_background_color %}
+      background: {{section.settings.tab_background_color}};
+    {% endif %}
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 15px;
+    margin-bottom: 0px;
+  }
+  
+  .homepage-featured-tab-overlay {
+    max-width: 1440px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    top: 30px;
+  }
+  .homepage-featured-tab-block .swiper-button-next.collection-slider-banner-next,
+  .homepage-featured-tab-block .swiper-button-prev.collection-slider-banner-prev {
+    top: 40%;
+    background-color: #fff;
+    border-radius: 25px;
+    z-index: 1;
+    width: 30px;
+    height: 30px;
+    display: block;
+  }
+  .homepage-featured-tab-block .swiper-button-prev.collection-slider-banner-prev {
+    padding: 3px 3px 3px 5px;
+  }
+  .homepage-featured-tab-block .swiper-button-next.collection-slider-banner-next {
+    padding: 3px 3px 3px 7px;
+  }
+  {% if section.settings.show_dot_same_as_active_color %}
+    .homepage-featured-tab-overlay .swiper-pagination-bullet-active{
+      background: {{section.settings.active_color}} !important;
+    }
+  {% endif %}
+  .homepage-featured-tab-block .card-wrapper,
+  .homepage-featured-tab-block .card-wrapper{
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .homepage-featured-tab-block .card-wrapper{
+    opacity: 0;
+    transform: scale(.97) translateY(3%);
+    transform-origin: center;
+    animation-delay: inherit;
+  }
+  .homepage-featured-tab-block .card-wrapper{
+    animation-duration: .65s;
+    animation-timing-function: cubic-bezier(0,0,.3,1);
+    animation-delay: inherit;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+    animation-name: product_card_animation_tab;
+  }
+  @keyframes product_card_animation_tab {
+    0% {
+      opacity: .1;
+      transform: scale(.8) translateY(3%);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+  @media screen and (min-width: 1200px) {
+    #shopify-section-{{ section.id }} {
+      padding-block: {{ section.settings.padding_top }}px {{ section.settings.padding_bottom }}px;
+    }
+    .homepage-featured-tabs-wrapper ul.homepage-featured-tabs-filter {
+      padding: 1rem;
+    }
+    .homepage-featured-tabs-wrapper ul.homepage-featured-tabs-filter li.homepage-featured-tabs-btn {
+      padding: 0.5rem 3rem;
+    }
+    .homepage-featured-tabs-wrapper {
+      justify-content: flex-end;
+    }
+    .homepage-featured-tab-block{
+      padding: 6rem 1rem 4rem 3rem;
+    }
+  }
+</style>
+
+  <div
+    class="homepage-featured-tab-block"
+  >
+    {%- if section.settings.banner_mobile != blank or section.settings.banner_desktop != blank -%}
+
+    <picture class="homepage-featured-tab-bg">
+      {% if section.settings.banner_mobile %}
+        <source
+          media="(max-width: 767px)"
+          srcset="{{ section.settings.banner_mobile | image_url: width: 425 }}"
+          width="720"
+          height="1420"
+        >
+      {% endif %}
+      {% if section.settings.banner_desktop %}
+        <source
+          media="(min-width: 768px)"
+          srcset="{{ section.settings.banner_desktop | image_url: width: 1600 }}"
+          width="2880"
+          height="1534"
+        >
+        <img
+          src="{{ section.settings.banner_desktop | image_url: width: 1600 }}"
+          alt="{{ section.settings.tab_title | escape }}"
+          srcset="
+            {{ section.settings.banner_desktop | image_url: width: 352 }} 352w,
+            {{ section.settings.banner_desktop | image_url: width: 832 }} 832w,
+            {{ section.settings.banner_desktop | image_url: width: 1200 }} 1200w
+          "
+          sizes="100vw"
+          width="2880"
+          height="1534"
+          loading="lazy"
+          class="featured-product-slider-image desktop"
+          title="{{ section.settings.tab_title | escape }}"
+        >
+      {% endif %}
+    </picture>
+    {%- endif -%}
+    <div class="homepage-featured-tab-overlay">
+      <div class="swiper collection-banner-overlay-slider">
+        <div class="swiper-wrapper">
+          {% for product in section.settings.collection.products limit: section.settings.products_to_show %}
+            <div class="swiper-slide">
+              {% render 'card-product',
+                card_product: product,
+                grid_combo_offer: false,
+                media_aspect_ratio: 'portrait',
+                show_secondary_image: false,
+                show_vendor: false,
+                quick_add: 'none',
+                section_id: section.id
+              %}
+            </div>
+          {% endfor %}
+        </div>
+        <div class="swiper-pagination small-hide"></div>
+      </div>
+    </div>
+    <div class="swiper-button-next collection-slider-banner-next medium-hide large-up-hide">&nbsp;</div>
+    <div class="swiper-button-prev collection-slider-banner-prev medium-hide large-up-hide">&nbsp;</div>
+  </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+     const swipers = new Swiper('.collection-banner-overlay-slider', {
+        slidesPerView: 5,
+        spaceBetween: 20,
+        centeredSlides: true,
+        navigation: {
+            nextEl: '.collection-slider-banner-next',
+            prevEl: '.collection-slider-banner-prev',
+        },
+        pagination: {
+            el: '.collection-banner-overlay-slider .swiper-pagination',
+            clickable: true
+        },
+        breakpoints: {
+            320: { slidesPerView: 1 },
+            768: { slidesPerView: 3 },
+            1024: { slidesPerView: 5 }
+        }
+    });
+
+  });
+</script>
+
+{% schema %}
+{
+  "name": "collectionwithbgbanner",
+  "class": "homepage-featured-tabs-section",
+  "settings": [
+    {
+      "type":"color_background",
+      "id":"section_font_color",
+      "default":"#fff",
+      "label": "section Font color",
+    },
+    {
+      "type":"color_background",
+      "id":"active_color",
+      "default":"#df2e84",
+      "label": "Active color",
+    },
+    {
+        "type": "image_picker",
+        "id": "banner_desktop",
+        "label": "Desktop Banner"
+      },
+      {
+        "type": "image_picker",
+        "id": "banner_mobile",
+        "label": "Mobile Banner (Optional)"
+      },
+      {
+        "type": "collection",
+        "id": "collection",
+        "label": "Collection"
+      },
+    {
+      "type":"checkbox",
+      "id":"tab_show_border_color",
+      "default":false,
+      "label": "Tab Show border",
+    },
+    {
+      "type":"checkbox",
+      "id":"show_dot_same_as_active_color",
+      "default":false,
+      "label": "Show Dot Active color",
+    },
+    {
+      "type":"color_background",
+      "id":"tab_background_color",
+      "label": "Tab Background color",
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Top (Desktop)",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Bottom (Desktop)",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mob",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Top (Mobile)",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mob",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Bottom (Mobile)",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 2,
+      "max": 50,
+      "step": 1,
+      "default": 5,
+      "label": "Maximum Products to Show"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collectionstab",
+      "name": "Tab Item",
+      "settings": [
+       
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "collection-with-background-banner",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,166 @@
+<style>
+  .director {
+    width: 33.333%;
+    margin-bottom:2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+  .directors-all {
+    display: flex;
+    flex-wrap: wrap;
+}
+  .directors .para-new {
+    height: 50vh;
+    overflow-y: scroll;
+}
+  .directors {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    right: 50%;
+    bottom: 50%;
+    z-index: 4;
+    width: 50%;
+    height: fit-content;
+    display: flex;
+    align-items: flex-start;
+    margin: 0 auto;
+    gap: 10px;
+    background: #fff;
+    transform: translate(-50%, -50%);
+    padding: 2rem;
+    border-radius: 10px;
+}
+  .show-popup {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: #0005;
+    z-index: 9;
+}
+  .para-new p {
+    font-size: 14px;
+    line-height: normal;
+    letter-spacing: 0;
+}
+  .director .para-new {
+    width: 60%;
+}
+  p.popup-toggle-close {
+    position: fixed;
+    right: 0px;
+    top: -40px;
+    background: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50pc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: #000;
+    cursor: pointer;
+    filter: drop-shadow(2px 4px 6px #0004);
+}
+
+  p.popup-toggle {
+    color: #00baf2;
+    margin:0;
+    cursor:pointer;
+}
+  @media screen and (max-width:768px){
+    .directors{
+      width: 80%;
+      flex-direction: column;
+    }
+    .director {
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+  }
+</style>
+
+<h3>Board of Directors</h3>
+<h4>{{ section.settings.heading }}</h4>
+<div class="directors-all">
+  {%- for block in section.blocks -%}
+  <div class="director directors-{{ forloop.index }}">
+    <img src="{{ block.settings.desktop__image | img_url:'' }}">
+    <div class="para-new">
+    {{ block.settings.para | truncate: 190 }}
+    </div>
+     <p class="popup-toggle" data-index="{{ forloop.index }}">Continue reading</p>
+  </div>
+    <div class="show-popup popup-directors-{{ forloop.index }}" style="display:none;">
+    <div class="directors">
+    <img src="{{ block.settings.desktop__image | img_url:'' }}">
+    <div class="para-new">
+    {{ block.settings.para }}
+    </div>
+    <p class="popup-toggle-close" data-index="{{ forloop.index }}">X</p>
+  </div>
+    </div>
+    {%- endfor -%}
+</div>
+<script>
+  $(document).ready(function () {
+    $(".popup-toggle").on("click", function () {
+      var index = $(this).data("index");
+      var $popup = $(".popup-directors-" + index);
+      var isVisible = $popup.is(":visible");
+
+      // Hide all popups
+      $(".directors-all .show-popup").each(function () {
+        if ($(this).hasClass("popup-directors-" + index) === false) {
+          $(this).hide();
+        }
+      });
+
+      // Toggle selected popup
+      if (!isVisible) {
+        $popup.show();
+        
+      }
+    });
+    $(".popup-toggle-close").on("click", function () {
+    var index = $(this).data("index");
+    $(".popup-directors-" + index).hide();
+  });
+  });
+</script>
+
+{% schema %}
+  {
+    "name": "Directors",
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "main heading"
+        }
+    ],
+    "blocks":[
+          {
+      "type": "image",
+      "name": "Image Block",
+      "settings": [
+        {
+        "type": "image_picker",
+        "id": "desktop__image",
+        "label": "Director Image"
+        },
+        {
+        "type": "richtext",
+        "id": "para",
+        "label": "paragraph"
+        }
+      ],
+     }
+    ],
+  }
+{% endschema %}

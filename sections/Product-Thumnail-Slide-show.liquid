@@ -1,0 +1,344 @@
+<style>
+  .custom_new_arrivals {background: {{ section.settings.sec-bg-color }};}.heading{display:flex;gap:10px;}.custom_new_arrivals h2 {margin: 0;}.featured_prd_div {display: flex;gap: 0;flex-direction: column;align-items: flex-start;overflow-y: hidden;gap: calc(2px + (100vw - 320px) * .45);min-height: 600px;position: relative;}.custom_new_arrivals img {width: 100%;height: 100%;}.featured_prd_div p {margin: 0;line-height: normal}.prd_list ul {padding: 0;margin: 0;}.leftPart {display: flex;width: 100%;position: relative;}.other_img {display: flex;flex-direction: column;}
+  .other_img .other_img_create img.active,.prd_list .swiper-slide img {opacity: 0;transform: scale(.97) translateY(3%);transform-origin: center;animation-delay: inherit;border-radius: 10px;border: 0px solid #a6a6a6;object-fit: contain;cursor: pointer;}
+  .other_img .other_img_create img.active.card_animation,.prd_list .swiper-slide img.card_animation {animation-duration: 1.3s;animation-timing-function: cubic-bezier(0, 0, .3, 1);animation-delay: inherit;animation-direction: normal;animation-fill-mode: forwards;animation-name: product_card_animation;opacity: .7;transform: scale(.97) translateY(3%);}.other_img_create {display: grid;grid-template-columns: repeat(1, 1fr);gap: 10px;}.main_img {width: 50%;display: flex;flex-direction: row;}img.main_tab_img {position: absolute ;}.product-info-card {width: 100%;position: relative;}.top_prd_data {display: flex;background: #df2e84;padding: 13px 20px;gap: 35px;color: #fff;font-size: 12px;border-radius: 22px 22px 0 0;}.top_prd_data p {display: flex;flex-direction: column;gap: 2px;line-height: normal;}.btm_prd_data {background: #fff;border-radius: 0 0 22px 22px;display: flex;align-items: center;justify-content: space-between;padding: 15px 20px;color: #df2e84;}span.btn_link a {font-size: 12px;border: 1px solid #df2e84;padding: 12.25px 20px;border-radius: 5px;font-weight: 600;color: #df2e84;line-height: normal;}span.btn_link a:last-child {background-color: #df2e84;color: #fff;padding: 10px;display: inline-flex;align-items: center;justify-content: center;}span.btn_link {display: flex;align-items: center;gap: 5px;}span.btn_link a:last-child path {fill: #fff;stroke: #fff;}span.price {font-weight: 600;}.top_prd_data>span:first-child {display: flex;background: #fff;justify-content: center;align-items: center;border-radius: 36.5px;padding: 3px 17px;height: fit-content;color: #df2e84;}.modal{width: 100%;height: 100vh;position: fixed;top: 0;z-index: 6;display: flex;background-color: #000000b3;}.modalOpener {width: 34.16%;height: 58.8vh;margin: auto;position: relative;background: #f0f0f0;padding: 20px;border-radius: 16px;}span.close-btn {position: absolute;top: 20px;right: 20px;z-index: 3;width: 30px;height: 30px;border-radius: 50%;display: flex;align-items: center;justify-content: center;border: none;background: #fff;box-shadow: 0 0 8px #16151521;cursor: pointer;}.swiperThumb img.pop_img {width: 90%;height: 90%;object-fit: contain;border: 2px solid #ffff;border-radius: 16px;}.main-thumb img.pop_img {width: 100%;object-fit: contain;height: 100%;}.swiper.main-thumb {height: 80%;margin-bottom: 2rem;}.swiper.swiperThumb {height:18%;}.pop-in {animation: popIn .6s ease;}.pop-out {animation: popOut .3s ease forwards;}.swiper-slide.swiper-slide-thumb-active img.pop_img {border: 2px solid #000;}  .prd_list li.swiper-slide.swiper-slide-active img {border: 0px solid #000;
+}@media screen and (max-width:1200px) {.custom_new_arrivals { padding-block: {{ section.settings.padding_top_mob | append: 'px' }} {{ section.settings.padding_bottom_mob | append: 'px' }};}.other_img p {font-size: 12px;line-height: 12px;width: max-content;}.main_img {left: 57%;position: absolute;transform: translate(-50%);}.product-info-card::after {content: "";position: absolute;top: -10px;left: 24%;width: 0;height: 0;border-left: 10px solid transparent;border-right: 10px solid transparent;border-bottom: 11px solid #df2e84;}.prd_list ul.swiper-wrapper {margin-left: 12%;}.leftPart {margin-top: 10px;}.other_img {justify-content: flex-start;width: 16.31%;gap: 10px;}.other_img_create img.active.card_animation {aspect-ratio: 1 / 1;max-width: 54px;}.main_img img {object-fit: contain;min-height: unset;position: static;max-width: unset;min-width: unset;width: 100%;height: 100%;min-height: 363px;}.rightPart {padding-bottom: 3rem;width:100%;}img.main_tab_img.oldImg {position: absolute;left: 0;animation: fadeOutDownMob 1.3s cubic-bezier(.25, .1, .25, 1) forwards;}img.main_tab_img.active.show_annimation {animation: fadeInUpMob 1.3s cubic-bezier(.25, .1, .25, 1) forwards;}.product-info-card {margin-top: 10px;}.rightPart .swiper-pagination {	bottom: 0;}.prd_list .swiper-slide img{max-height: 97.93px;}}@media screen and (min-width:1200px) {.custom_new_arrivals { padding-block: {{ section.settings.padding_top | append: 'px' }} {{ section.settings.padding_bottom | append: 'px' }};}.shopify-section.homePagenew_arrivals .page-width {max-width: 90%;}.heading_tabs {flex-direction: row;gap: 0px}.featured_prd_div {position: relative;flex-direction: row;min-height: 500px;gap:0;}.custom_new_arrivals h2 {font-size: 54px;opacity: 0.8;}.heading h2 + h2 {color: #df2e84;opacity: 0.7;}.leftPart {width: 57.24%;gap: 20px;position: absolute;z-index: 2;}.main_img {min-height: 500px;flex-direction: column;justify-content: end;}.other_img {width: 50.8%;justify-content: center;gap: 14px;}.other_img_create {grid-template-columns: repeat(2, 1fr);grid-template-rows: repeat(2, 1fr);grid-column-gap: 12px;grid-row-gap: 14px;}.other_img img.active.card_animation {object-fit: contain;border-radius: 10px;aspect-ratio: 180 / 155;width: 90%;height: 90%;border: 0px solid #fff;}.main_img img.oldImg {animation: product_img_removeanimation 1.3s cubic-bezier(.25, .1, .25, 1) forwards;}.main_img img {object-fit: contain;width: auto;max-width: 53%;min-width: 53%;min-height: 500px;position: absolute;}.main_img img.active.show_annimation {animation: product_img_animation 1.3s cubic-bezier(.25, .1, .25, 1) forwards;}.rightPart {width: 45%;margin-left: auto;}.top_prd_data {padding: 20px;}.slider_arrow {display: flex;position: relative;margin: 0;justify-content: flex-end;gap: 20px;height: 100%;min-height: 50px;align-items: center;}.swiper-button-prev.slide-prev,.swiper-button-next.slide-next {position: initial;height: 40px;display: flex;align-items: center;justify-content: center;background-color: #fff;padding: 1rem 2rem;border-radius: 50px;}.swiper-button-prev.slide-prev::after,.swiper-button-next.slide-next::after{font-size:12px}.prd_list ul {margin: 4rem 0 1rem;}.prd_list img {border: 1px solid #000;object-fit: contain;border-radius: 10px;height: 155px;}.btm_prd_data {padding: 20px;}.product-info-card {max-width: 70%;margin-left: auto;}}@keyframes fadeInUpMob {0% {opacity: 0;transform: translateY(300px);}100% {opacity: 1;transform: translateY(0);}}@keyframes fadeOutDownMob {0% {opacity: 1;transform: scale(1) translateY(0);}100% {opacity: 0;transform: scale(.5) translateY(300px);}}@keyframes product_img_animation {0% {opacity: 0;transform: scale(.5) translateY(500px);}100% {opacity: 1;transform: scale(1) translateY(0);}}@keyframes product_img_removeanimation {0% {opacity: 1;transform: scale(1) translateY(0);}100% {opacity: 0;transform: scale(.5) translateY(500px);}}@keyframes popIn {0% {transform: scale(0);opacity: 0;}100% {transform: scale(1);opacity: 1;}}@keyframes popOut {0% {transform: scale(1);opacity: 1;}100% {transform: scale(0);opacity: 0;}}
+</style>
+<div class="{{ section.id }} custom_new_arrivals page-width">
+  <div class="heading">{{ section.settings.heading }}</div>
+  <div class="featured_prd_div">
+    <div class="leftPart">
+      <div class="other_img">
+        <p>Other Images</p>
+        {% assign active_tab_first_prd = "" %}
+        {% assign product = "" %}
+        {%- for block in section.blocks -%}
+          {%- if forloop.first -%}
+            {% assign product = block.settings.product %}
+            {% assign active_tab_first_prd = block.settings.main_img %}
+            <div class="other_img_create">
+              {%- for media in product.media limit:4 -%}
+                <img class="active card_animation"
+                  data-media-index="{{ forloop.index0 }}" 
+                  src="{{ media | img_url: '' }}" 
+                  width="170px" 
+                  height="170px">
+              {%- endfor -%}
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+      <div class="main_img ">
+        <img src="{{ active_tab_first_prd | img_url: '' }}" class="main_tab_img active show_annimation"  width="359" height="638">  
+        <img src="{{ active_tab_first_prd | img_url: '' }}" class="main_tab_img oldImg"  style='display:none' width="359" height="638">      
+      </div>
+    </div>
+    <div class="rightPart">
+       <div class="swiper prd_list">
+        <ul class="swiper-wrapper" role="list">
+          {%- for block in section.blocks -%}
+            {% assign product = block.settings.product %}
+            {% assign block_img = block.settings.main_img %}
+            {%- if block_img != blank -%}
+              {% assign slide_img = block_img %}
+            {%- else -%}
+              {% assign slide_img = product.featured_media %}
+            {%- endif -%}
+            <li class="swiper-slide" data-prdct-id="{{ product.id }}" data-url="{{ product.url }}" role="listitem">
+              {%- if slide_img != blank -%}
+                <img class="active card_animation" src="{{ slide_img | img_url: '360x' }}"  width="155" height="170"  alt="{{ slide_img.alt | escape }}"  >
+              {%- endif -%}
+            </li>
+          {%- endfor -%}
+        </ul>
+       </div>
+       <div class="product-info-card">
+          <div class="top_prd_data">
+            <span>New</span>
+            <p>
+              <span class="prd_sku_show">{{ product.selected_or_first_available_variant.sku }}</span>
+              <span class="prd_title_show">{{ product.title }}</span>
+            </p>
+          </div>
+          <div class="btm_prd_data">
+            <span class="price">{{ product.price | money_without_trailing_zeros }}</span>
+            <span class="btn_link">
+              <a href="{{ product.url }}">EXPLORE</a>
+              <a href="{{ product.url }}">{{'icon-cart-empty.svg' | inline_asset_content }}</a>
+            </span>
+          </div>
+       </div>
+       <div class="swiper-pagination new_Arrival medium-hide large-up-hide">&nbsp;</div>
+    </div>
+  </div>
+</div>
+<div class="modal hidden">
+  <div class="modalOpener">  
+    <span class="close-btn">X</span>
+    <div class="swiper main-thumb">
+      <div class="swiper-wrapper"> 
+            {%- for media in product.media limit:4 -%}
+              <div class="swiper-slide ">
+              <img class="pop_img" data-media-index="{{ forloop.index0 | plus: index_offset }}" 
+                src="{{ media | img_url: '' }}"  width="170px" 
+                height="170px">
+                </div>
+            {%- endfor -%}
+        
+        </div>
+    </div>
+    <div thumbsSlider="" class="swiper swiperThumb">
+      <div class="swiper-wrapper"> 
+            {%- for media in product.media  limit:4 -%}
+            <div class="swiper-slide ">
+              <img class="pop_img" data-media-index="{{ forloop.index0 | plus: index_offset }}" 
+                src="{{ media | img_url: '' }}"  width="170px" 
+                height="170px">
+                </div>
+            {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</div> 
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    let swiperThumb = null;
+    let swiperMain = null;
+    document.querySelectorAll('.prd_list').forEach((el) => {
+      const swiperInstance = new Swiper(el, {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        speed: 1300,
+        slideToClickedSlide: true,
+        allowTouchMove: true,
+        loop: true,
+        pagination: {
+          el: ".new_Arrival",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: el.querySelector('.slide-next'),
+          prevEl: el.querySelector('.slide-prev')
+        },
+        breakpoints: {
+          0: { slidesPerView: 3.4, spaceBetween: 10 },
+          767: { slidesPerView: 3.4, spaceBetween: 12 }
+        },
+        on: {
+          init: function () {
+            // Load first product details immediately
+            showProduct_deatils(this);
+          },
+          slideChangeTransitionStart: function () {
+            showProduct_deatils(this);
+          }
+        }
+      });
+
+      // Sync slide click → active product
+      el.querySelectorAll('.swiper-slide:not(.swiper-slide-duplicate)').forEach((slide, realIndex) => {
+        slide.addEventListener('click', function () {
+          swiperInstance.slideToLoop(realIndex);
+        });
+      });
+    });
+
+    function showProduct_deatils(swiper) {
+      const shopUrl = "{{ shop.url }}";  
+      let $activeSlide = swiper.slides[swiper.activeIndex];
+      if (!$activeSlide) return;
+
+      let productUrl = $activeSlide.getAttribute('data-url');
+      let firstImg = $activeSlide.querySelector('img')?.src || '';
+
+      if (!productUrl) return;
+
+      $.ajax({
+        url: `${shopUrl}/${productUrl}.js`,
+        method: 'GET',
+        dataType: 'json',
+        success: function (data) {
+          const variant = data.variants[0];
+          const sku = variant.sku;
+          const price = variant.price;
+          const otherImages = data.media.slice(0, 4);
+
+          // Update left-side other images
+          const $otherImgContainer = $('.other_img_create');
+          $otherImgContainer.empty();
+          otherImages.forEach((mediaItem, index) => {
+            $otherImgContainer.append(
+              `<img class='active card_animation' src="${mediaItem.src}" data-media-index="${index}">`
+            );
+          });
+
+          // Update product info
+          $('.prd_sku_show').text(sku);
+          $('.prd_title_show').text(data.title);
+          $('.price').text((price / 100).toLocaleString('en-IN', {
+            style: 'currency',
+            currency: 'INR',
+            minimumFractionDigits: 0
+          }));
+          $('.btn_link a').attr('href', `/products/${data.handle}`);
+
+          // Update main image
+          const mainBigImg = $('.main_img');
+          mainBigImg.html(`
+            <img class="main_tab_img active show_annimation" src="${firstImg}">
+            <img class="main_tab_img oldImg" src="${firstImg}">
+          `);
+
+          // Rebuild modal swipers
+          buildModalSwipers(otherImages);
+          OtherLeftImg();
+        }
+      });
+    }
+
+    function buildModalSwipers(images) {
+      const $thumbWrapper = $('.modalOpener .swiperThumb .swiper-wrapper');
+      const $mainWrapper = $('.modalOpener .main-thumb .swiper-wrapper');
+      $thumbWrapper.empty();
+      $mainWrapper.empty();
+
+      images.forEach((mediaItem, index) => {
+        $thumbWrapper.append(`<div class="swiper-slide"><img class="pop_img" src="${mediaItem.src}" data-media-index="${index}"></div>`);
+        $mainWrapper.append(`<div class="swiper-slide"><img class="pop_img" src="${mediaItem.src}" data-media-index="${index}"></div>`);
+      });
+
+      // Re-init swipers after rebuilding
+      if (swiperThumb) swiperThumb.destroy(true, true);
+      if (swiperMain) swiperMain.destroy(true, true);
+
+      swiperThumb = new Swiper(".swiperThumb", {
+        spaceBetween: 10,
+        slidesPerView: 4,
+        freeMode: true,
+        watchSlidesProgress: true,
+      });
+
+      swiperMain = new Swiper(".main-thumb", {
+        spaceBetween: 10,
+        thumbs: { swiper: swiperThumb },
+      });
+    }
+
+    function OtherLeftImg() {
+      const photoGrid = document.querySelector('.other_img_create');
+      const modalBg = document.querySelector('.modal');
+      const modal = document.querySelector('.modalOpener');
+      if (!photoGrid) return;
+
+      photoGrid.querySelectorAll('img').forEach((img, index) => {
+        img.addEventListener('click', () => {
+          modal.classList.remove('pop-out');
+          modal.classList.add('pop-in');
+          modalBg.classList.remove('hidden');
+          document.body.style.overflow = 'hidden';
+          if (swiperMain) swiperMain.slideToLoop(index, 500);
+        });
+      });
+    }
+
+    // Close modal
+    const modalBg = document.querySelector('.modal');
+    if (modalBg) {
+      modalBg.addEventListener('click', function (event) {
+        if (event.target.classList.contains('close-btn')) {
+          closeGridModal();
+        }
+      });
+    }
+    function closeGridModal() {
+      const modal = document.querySelector('.modalOpener');
+      const modalBg = document.querySelector('.modal');
+      modal.classList.remove('pop-in');
+      modal.classList.add('pop-out');
+      modalBg.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+  });
+</script>
+{% schema %}
+  {
+    "name": "ProductThumnailSlide_show",
+    "class": "homePagenew_arrivals",
+    "settings": [
+      {
+        "type": "richtext",
+        "id": "heading",
+        "label": "Heading"
+      },
+      {
+      "type": "color",
+      "id": "sec-bg-color",
+      "label": "Background color"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding top",
+        "default": 50
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding bottom",
+        "default": 50
+      }, 
+      {
+        "type": "range",
+        "id": "padding_top_mob",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding top Mobile",
+        "default": 30
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom_mob",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding bottom Mobile",
+        "default": 30
+      }
+    ],
+    "blocks": [
+     {
+      "type": "Imagetab",
+      "name": "Tab Item",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Add Product"
+        },
+        {
+          "type":"image_picker",
+          "id":"main_img",
+          "label": "Main Image"
+        }
+      ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Product Thumnail Slide-show"
+      }
+    ]
+  }
+{% endschema %}

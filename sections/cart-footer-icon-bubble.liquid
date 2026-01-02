@@ -1,0 +1,11 @@
+{% if cart == empty %}
+  <img class="footermob-img" src="//gocolors.com/cdn/shop/files/Group_20905.svg?v=1733307518" width="100%" height="550" alt="Go Colors India">
+{% else %}
+{{- 'footer-cart.svg' | inline_asset_content -}}   {% endif %}
+
+{%- if cart != empty -%}
+  <div class="cart-count-bubble foot-count-bbl">{%- if cart.item_count < 100 -%}
+    <span aria-hidden="true" id="update-count">{{ cart.item_count }}</span>{%- endif -%}
+    <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+  </div>
+{%- endif -%}
