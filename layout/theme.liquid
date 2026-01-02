@@ -326,7 +326,7 @@ gtag('config', 'G-T27E9FT0X7');
   {% comment %} Add to cart event {% endcomment %}
     <script>
       document.addEventListener('click', function(e) {
-        const btn = e.target.closest('.add-to-cart-button');
+        const btn = e.target.closest('.addtocartbtnDiv');
         if (!btn) return;
 
         // Wait for Shopify to add item to cart
@@ -381,7 +381,63 @@ gtag('config', 'G-T27E9FT0X7');
       });
     </script>
 
+    {% comment %} Remove from cart {% endcomment %}
+      <script>
+        document.addEventListener('click', function(e) {
 
+          // Detect REMOVE from cart buttons / icons
+          const removeBtn = e.target.closest(
+            '.cart-items__remove'
+          );
+
+          if (!removeBtn) return;
+
+          // Get line item key (Shopify passes it in attribute)
+          const lineKey = removeBtn.getAttribute('data-line-key')
+            || removeBtn.getAttribute('data-line')
+            || null;
+
+          if (!lineKey) return;
+
+          // Fetch cart BEFORE removal to get item details
+          fetch('/cart.js')
+            .then(res => res.json())
+            .then(cart => {
+              const item = cart.items.find(i => i.key === lineKey);
+              if (!item) return;
+
+              const removedItem = {
+                item_id: item.product_id.toString(),
+                item_name: item.title,
+                item_brand: item.vendor || "",
+                item_category: item.product_type || "",
+                item_variant: item.variant_title || "",
+                price: item.price / 100,
+                quantity: item.quantity,
+                affiliation: "Online Store"
+              };
+
+              // Detect Incognito Mode
+              detectIncognito().then((result) => {
+                let incognito_windowValue = result.isPrivate ? 1 : 0;
+
+                gtag('event', 'remove_from_cart', {
+                  incognito_window: incognito_windowValue,
+                  currency: Shopify.currency.active,
+                  value: (item.price * item.quantity) / 100,
+                  items: [removedItem]
+                });
+
+                console.log("GA4 begin_checkout event fired:", {
+                  incognito_window: incognito_windowValue,
+                  items: removedItem
+                });
+              });
+
+              console.log("GA4 remove_from_cart fired:", removedItem);
+            });
+        });
+      </script>
 
 
 
