@@ -407,7 +407,7 @@ gtag('config', 'G-T27E9FT0X7');
               if (!item) return;
 
               const removedItem = {
-                 item_id: lastItem.product_id.toString(),
+                item_id: lastItem.product_id.toString(),
                 item_name: lastItem.title,
                 item_brand: lastItem.vendor || "",
                 item_category: lastItem.product_type || "",
@@ -450,6 +450,163 @@ gtag('config', 'G-T27E9FT0X7');
       </script>
 
 
+      <script>
+// ---------------------------
+// Store predictive search term
+// ---------------------------
+document.addEventListener("DOMContentLoaded", function () {
+  const searchInput = document.querySelector('input[name="q"], .predictive-search-form__header-inner input');
+
+  if (searchInput) {
+    // When user presses Enter
+    searchInput.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        sessionStorage.setItem("predictive_search_term", searchInput.value.trim());
+      }
+    });
+
+    // When user clicks predictive search results
+    document.addEventListener("click", function (e) {
+      const resultItem = e.target.closest("[data-predictive-search-result]");
+      if (resultItem && searchInput.value.trim()) {
+        sessionStorage.setItem("predictive_search_term", searchInput.value.trim());
+      }
+    });
+  }
+
+  // ---------------------------
+  // Fire GA4 event on next page
+  // ---------------------------
+  const storedSearchTerm = sessionStorage.getItem("predictive_search_term");
+
+  if (storedSearchTerm) {
+    sessionStorage.removeItem("predictive_search_term");
+
+    // Fire GA Search event
+    gtag('event', 'search', {
+      search_term: storedSearchTerm
+    });
+
+    console.log("GA4 predictive search event fired:", storedSearchTerm);
+
+    // Incognito mode detection
+    detectIncognito().then((result) => {
+      let incognito_windowValue = result.isPrivate ? 1 : 0;
+
+      gtag('event', 'search', {
+        search_term: storedSearchTerm,
+        incognito_window: incognito_windowValue
+      });
+
+      console.log("GA4 search event + incognito:", {
+        search_term: storedSearchTerm,
+        incognito_window: incognito_windowValue
+      });
+    });
+  }
+
+  // ---------------------------
+  // Normal Search Page Event
+  // ---------------------------
+  const urlParams = new URLSearchParams(window.location.search);
+  const directSearchTerm = urlParams.get('q') || urlParams.get('_ss');
+
+  if (window.location.pathname.includes('/search') && directSearchTerm) {
+    gtag('event', 'search', {
+      search_term: directSearchTerm
+    });
+
+    console.log("GA4 search event fired:", directSearchTerm);
+
+    detectIncognito().then((result) => {
+      let incognito_windowValue = result.isPrivate ? 1 : 0;
+
+      gtag('event', 'search', {
+        search_term: directSearchTerm,
+        incognito_window: incognito_windowValue
+      });
+
+      console.log("GA4 search event + incognito:", {
+        search_term: directSearchTerm,
+        incognito_window: incognito_windowValue
+      });
+    });
+  }
+
+});
+</script>
+
+{% comment %} View Cart event for Cart Page + Cart Drawer {% endcomment %}
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  function fireViewCartEvent(cart, source) {
+
+      const items = cart.items.map((item, index) => ({
+        item_id: lastItem.product_id.toString(),
+                item_name: lastItem.title,
+                item_brand: lastItem.vendor || "",
+                item_category: lastItem.product_type || "",
+                item_category2: lastItem.collections?.[0]?.title || '',
+                item_category3: lastItem.collections?.[1]?.title || '',
+                item_category4: lastItem.collections?.[2]?.title || '',
+                item_category5: lastItem.collections?.[3]?.title || '',
+                item_list_id: 'cart',
+                item_list_name: 'Cart',
+                item_variant: lastItem.variant_title || "",
+                price: lastItem.price / 100,
+                quantity: lastItem.quantity,
+                location_id: 'online_store',
+                index: index + 1,
+                affiliation: "Online Store",
+                discount: parseFloat(
+                            cartLine.cost?.totalDiscountAmount?.amount || 0
+                          )  
+       
+      }));
+
+    // Detect Incognito Mode
+    detectIncognito().then((result) => {
+      let incognito_windowValue = result.isPrivate ? 1 : 0;
+
+      gtag("event", "view_cart", {
+        incognito_window: incognito_windowValue,
+        cart_source: source, 
+        currency: Shopify.currency.active,
+        value: cart.total_price / 100,
+        items: items
+      });
+
+      console.log("GA4 view_cart event fired:", {
+        source: source,
+        incognito_window: incognito_windowValue,
+        items: items
+      });
+    });
+  }
+
+  if (window.location.pathname === "/cart") {
+    fetch("/cart.js")
+      .then(res => res.json())
+      .then(cart => fireViewCartEvent(cart, "cart_page"));
+  }
+
+  document.addEventListener("click", function (e) {
+    const openCartDrawerBtn = e.target.closest(
+      ".cart-drawer, .header-cart, .open-cart, button[data-cart-drawer], a[href='#cart'], .cart-toggle"
+    );
+
+    if (!openCartDrawerBtn) return;
+
+    setTimeout(() => {
+      fetch("/cart.js")
+        .then(res => res.json())
+        .then(cart => fireViewCartEvent(cart, "drawer"));
+    }, 300);
+  });
+
+});
+</script>
 
 
 
