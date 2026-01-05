@@ -302,84 +302,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <script>
 
 
-document.addEventListener("DOMContentLoaded", function () {
-  const isCartPage = window.location.pathname === '/cart' || window.location.pathname.includes('/cart');
-  if (!isCartPage) {
-    //console.log('⛔ Not on cart page');
-    return;
-  }
+document.addEventListener('DOMContentLoaded', function () {
+  const logo = document.querySelector('.top-logos');
 
- // console.log("🛒 Cart page detected");
-
-  fetch('/cart.js')
-    .then(res => res.json())
-    .then(cart => {
-      if (!cart?.items?.length) {
-        console.log("🛒 Cart is empty");
-        return;
-      }
-
-      const cartDOMItems = document.querySelectorAll('.cart-item');
-      const items = [];
-
-      cart.items.forEach((item, index) => {
-        const variantId = item.sku?.toString() || 'NA';
-        const cartRow = cartDOMItems[index];
-
-        let specifications = [];
-        let selectedSize = 'NA';
-
-        if (cartRow) {
-          const options = cartRow.querySelectorAll('.cart-item__options .cart-item__option-name');
-
-          options.forEach((labelEl) => {
-            const label = labelEl?.innerText?.trim();
-            const value = labelEl?.nextElementSibling?.innerText?.trim();
-
-            if (label && value) {
-              if (label.toLowerCase() === 'size') {
-                selectedSize = value;
-              } else {
-                specifications.push(`${label}: ${value}`);
-              }
-            }
-          });
-        }
-
-        const specFinal = specifications.length ? specifications.join(', ') : 'NA';
-
-        items.push({
-          item_id: variantId,
-          item_name: item.product_title || 'NA',
-          item_brand: 'Powerlook',
-          item_category: 'Shirts', // assuming fixed or you can make dynamic via breadcrumbs
-          item_category2: 'NA', // Not present on cart
-          item_category3: specFinal,
-          item_category4: selectedSize,
-          item_category5: 'Men',
-          price: item.final_price / 100,
-          quantity: item.quantity,
-          discount: 0
-        });
-      });
-
-      const itemListName = sessionStorage.getItem('item_list_name') || 'home_default';
-      const itemListId = sessionStorage.getItem('item_list_id') || 'default';
-
-      const payload = {
-        page_type: 'cart',
-        item_list_name: itemListName,
-        item_list_id: itemListId,
+  if (logo) {
+    logo.addEventListener('click', function () {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'logo_click',
+        page_location: window.location.href,
+        page_title: document.title,
+        page_type: '{{ template }}',
         userID: '{{ customer.id }}',
-        user_type: '{{ customer.tags | join: "," | default: "guest" }}',
-        items: items
-      };
-
-      gtag('event', 'view_cart', payload);
-      console.log('✅ GA4 view_cart event fired:', payload);
-    })
-    .catch(err => console.error('❌ Failed to fetch cart data:', err)
-  );
+        user_type: '{{ customer.tags | join: "," }}'
+      });
+    //  console.log("GA4 Event Sent: logo_click");
+    });
+  }
+// LOGO CLICK EVENT
 }); 
  
 
