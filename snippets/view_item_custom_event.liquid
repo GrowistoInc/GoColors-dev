@@ -1,0 +1,57 @@
+<script>
+function sendViewItemListGA4() {
+  const productCards = document.querySelectorAll('.product-card');
+
+  const items = [];
+
+  productCards.forEach((card, index) => {
+    const titleElement = card.querySelector('.product-card__title a');
+    const priceElement = card.querySelector('.f-price-item--sale') || card.querySelector('.f-price-item--regular');
+    const quickView = card.closest('.f-column.card')?.querySelector('quick-view-modal');
+
+    const productId = quickView?.getAttribute('data-variant-sku') || `sku-${index}`;
+    const productName = titleElement?.innerText?.trim() || 'NA';
+
+    const itemCategory = quickView?.getAttribute('data-collection-title') || 'NA';
+    const itemCategoryId = quickView?.getAttribute('data-collection-id') || 'NA';
+
+    const swatchElement = card.querySelector('.swatch-color[title]');
+    const itemSize = swatchElement?.getAttribute('title')?.split('-')?.pop()?.trim() || 'NA';
+
+    const price = parseFloat(priceElement?.innerText.replace(/[^0-9.]/g, '')) || 0;
+
+    items.push({
+      item_id: productId,
+      item_name: productName,
+      item_brand: 'Powerlook',
+      item_category: itemCategory,
+      item_category2: itemCategoryId,
+      item_category3: 'NA',
+      item_category4: itemSize,
+      item_category5: 'Men',
+      price: price,
+      discount: 0
+    });
+  });
+
+  if (items.length) {
+    gtag('event', 'view_item_list', {
+      item_list_name: 'All Products',
+      item_list_id: 'all_products',
+      page_type: '{{ template | handleize }}',
+      items: items,
+      userID: '{{ customer.id }}',
+      user_type: '{{ customer.tags | join: "," | default: "guest" }}'
+    });
+  //  console.log('✅ GA4 view_item_list sent:', items);
+  } else {
+  //  console.warn('⚠️ No product items found to send.');
+  }
+}
+ 
+window.addEventListener('load', () => {
+  setTimeout(sendViewItemListGA4, 2000);  
+}); 
+// VIEW ITEM LIST 
+
+</script>
