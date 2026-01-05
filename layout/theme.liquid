@@ -282,25 +282,10 @@
       /></noscript> {% endcomment %}
 {% comment %} <!-- End Meta Pixel Code --> {% endcomment %}
 
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-P5X888BF');</script> 
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-T27E9FT0X7"></script>
+{% comment %}{% endcomment %}
+ 
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-T27E9FT0X7');
-</script>
-
-{% comment %}{% endcomment %} <script>
-
 
 document.addEventListener('DOMContentLoaded', function () {
   const logo = document.querySelector('.top-logos');
@@ -331,10 +316,8 @@ document.addEventListener('DOMContentLoaded', function () {
   </head>
   <body class="gradient{% if settings.animations_hover_elements != 'none'  -%} animate--hover-{{ settings.animations_hover_elements }}{% endif  -%} {{ page.handle }} ">
   
-    <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P5X888BF"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+   
+
    
    
     {%- if request.page_type == 'index' -%}
