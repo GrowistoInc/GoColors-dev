@@ -1,12 +1,12 @@
 <script>
 function sendViewItemListGA4() {
-  const productCards = document.querySelectorAll('.product-card');
+  const productCards = document.querySelectorAll('.product-card-wrappe');
 
   const items = [];
 
   productCards.forEach((card, index) => {
-    const titleElement = card.querySelector('.product-card__title a');
-    const priceElement = card.querySelector('.f-price-item--sale') || card.querySelector('.f-price-item--regular');
+    const titleElement = card.querySelector('.similar-product-title a');
+    const priceElement = card.querySelector('.f-price-item--sale') || card.querySelector('.price-item--regular');
     const quickView = card.closest('.f-column.card')?.querySelector('quick-view-modal');
 
     const productId = quickView?.getAttribute('data-variant-sku') || `sku-${index}`;
