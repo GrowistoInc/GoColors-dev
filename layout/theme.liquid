@@ -376,7 +376,7 @@ document.addEventListener("DOMContentLoaded", function () {
       };
 
       gtag('event', 'view_cart', payload);
-    //  console.log('✅ GA4 view_cart event fired:', payload);
+      console.log('✅ GA4 view_cart event fired:', payload);
     })
     .catch(err => console.error('❌ Failed to fetch cart data:', err)
   );
