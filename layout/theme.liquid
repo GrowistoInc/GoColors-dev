@@ -408,12 +408,12 @@ document.addEventListener('DOMContentLoaded', function () {
             "quantity": variantDetails.quantity,
             "discount": {{cart.total_discount}},
             "price": variantDetails.price
-            }],
-            page_type: '{{ template | handleize }}',
-            userID: '{{ customer.id }}',
-            user_type: '{{ customer.tags | join: "," | default: "guest" }}'
+            }]
           });
+          console.log('gtagtest2' , items);
       }
+
+      console.log('gtagtest1' , items);
     }
     document.addEventListener('click', handleAddToCartClick);
   });
