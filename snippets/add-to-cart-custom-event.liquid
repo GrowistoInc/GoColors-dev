@@ -1,35 +1,44 @@
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-  const add_to_cart = document.querySelector('.product-form');
 
-  if (add_to_cart) {
-      add_to_cart.addEventListener('click', function () {
-         fetch('/cart.js')
-            .then(res => res.json())
-            .then(cart => {
-              const lastItem = cart.items[cart.items.length - 1];
-              if (!lastItem) return;
+  const productForm = document.querySelector('form[action="/cart/add"]');
+  if (!productForm) return;
 
-              const ga4Item = {
-                item_id: lastItem.product_id.toString(),
-                item_name: lastItem.title,
-                item_brand: lastItem.vendor || "",
-                item_category: lastItem.product_type || "",
-                item_variant: lastItem.variant_title || "",
-                price: lastItem.price / 100,
-                quantity: lastItem.quantity,
-                affiliation: "Online Store"
-              };
-              window.dataLayer = window.dataLayer || [];
-              window.dataLayer.push({
-                event: 'add_to_cart',
-                item: ga4Item
-              });
-            
-              console.log("GA4 Event Sent: add_to_cart");
-       });
-    }
-// Add to Cart Event
-}); 
+  productForm.addEventListener('submit', function () {
 
+    // wait for cart to update
+    setTimeout(function () {
+      fetch('/cart.js')
+        .then(res => res.json())
+        .then(cart => {
+
+          if (!cart.items || !cart.items.length) return;
+
+          const lastItem = cart.items[cart.items.length - 1];
+
+          const ga4Item = {
+            item_id: lastItem.variant_id.toString(),
+            item_name: lastItem.product_title,
+            item_brand: lastItem.vendor || "",
+            item_category: lastItem.product_type || "",
+            item_variant: lastItem.variant_title || "",
+            price: lastItem.price / 100,
+            quantity: lastItem.quantity,
+            affiliation: "Online Store"
+          };
+
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({
+            event: 'add_to_cart',
+            currency: cart.currency || 'INR',
+            value: (lastItem.price / 100) * lastItem.quantity,
+            items: [ga4Item]
+          });
+
+          console.log('GA4 add_to_cart pushed', ga4Item);
+        });
+    }, 500); // critical delay
+
+  });
+});
 </script>
