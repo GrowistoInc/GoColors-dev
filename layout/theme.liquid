@@ -301,7 +301,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <script>
 
-// VIEW CART
+
 document.addEventListener("DOMContentLoaded", function () {
   const isCartPage = window.location.pathname === '/cart' || window.location.pathname.includes('/cart');
   if (!isCartPage) {
@@ -315,7 +315,7 @@ document.addEventListener("DOMContentLoaded", function () {
     .then(res => res.json())
     .then(cart => {
       if (!cart?.items?.length) {
-       // console.log("🛒 Cart is empty");
+        console.log("🛒 Cart is empty");
         return;
       }
 
@@ -381,7 +381,7 @@ document.addEventListener("DOMContentLoaded", function () {
     .catch(err => console.error('❌ Failed to fetch cart data:', err)
   );
 }); 
-// VIEW CART 
+ 
 
 </script>
 
