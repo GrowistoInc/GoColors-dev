@@ -406,7 +406,7 @@ document.addEventListener('DOMContentLoaded', function () {
             "item_list_name": 'Cart',
             "location_id": 'online_store',
             "quantity": variantDetails.quantity,
-            "discount": 0,
+            "discount": {{cart.total_discount}},
             "price": variantDetails.price
             }],
             page_type: '{{ template | handleize }}',
