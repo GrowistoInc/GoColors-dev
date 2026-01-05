@@ -543,7 +543,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function fireViewCartEvent(cart, source) {
 
       const items = cart.items.map((item, index) => ({
-        item_id: lastItem.product_id.toString(),
+                item_id: lastItem.product_id.toString(),
                 item_name: lastItem.title,
                 item_brand: lastItem.vendor || "",
                 item_category: lastItem.product_type || "",
@@ -608,6 +608,42 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
+{% comment %} Whishlist event {% endcomment %}
+   <script>
+    document.addEventListener('click', function(e) {
+      const wishlistBtn = e.target.closest(
+        '.wishlist-button, .wishlist-btn, .wishlist-heart, [data-wishlist]'
+      );
+
+      if (!wishlistBtn) return;
+
+      // Extract product info using Liquid variables injected in data attributes
+      const productId = wishlistBtn.getAttribute('data-product-id');
+      const productName = wishlistBtn.getAttribute('data-product-name');
+      const productBrand = wishlistBtn.getAttribute('data-product-brand');
+      const productCategory = wishlistBtn.getAttribute('data-product-category');
+      const productPrice = wishlistBtn.getAttribute('data-product-price');
+
+      // Fire GA4 event
+      gtag('event', 'add_to_wishlist', {
+        currency: Shopify.currency.active,
+        value: Number(productPrice),
+        items: [
+          {
+            item_id: productId,
+            item_name: productName,
+            item_brand: productBrand,
+            item_category: productCategory,
+            price: Number(productPrice),
+            quantity: 1,
+            affiliation: "Online Store"
+          }
+        ]
+      });
+
+      console.log("GA4 add_to_wishlist fired:", productId, productName);
+    });
+  </script>
 
 
 
