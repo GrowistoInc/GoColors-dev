@@ -314,8 +314,7 @@ document.addEventListener('DOMContentLoaded', function () {
         page_title: document.title,
         page_type: '{{ template }}',
         userID: '{{ customer.id }}',
-        user_type: '{{ customer.tags | join: "," }}',
-        'debug_mode': true
+        user_type: '{{ customer.tags | join: "," }}'
       });
     console.log("GA4 Event Sent: logo_click");
     });
