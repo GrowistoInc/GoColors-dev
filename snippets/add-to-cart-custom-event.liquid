@@ -1,114 +1,19 @@
-{% comment %} ===========add to cart =============== {% endcomment %}
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    console.log("✔ Custom Add To Cart script loaded!");
-    function getSelectedVariantDetails() {
-      const variantDetails = {};
-      // Get quantity
-      const quantityInput = document.querySelector('input[name="quantity"]');
-      if (quantityInput) {
-        variantDetails.quantity = quantityInput.value;
-      }
-      // Get variant details from JSON script tag
-      const variantScript = document.querySelector('script[data-selected-variant]');
-      if (variantScript) {
-        try {
-          const variantData = JSON.parse(variantScript.textContent);
-        // console.log('variantData----------------',variantData);
-          // Extract all variant details from JSON
-          variantDetails.variantId = variantData.id;
-          variantDetails.variantTitle = variantData.title;
-          // Get options (size, color, etc.)
-          if (variantData.options) {
-            variantDetails.options = variantData.options;
-          }
-          // Get individual option values
-          if (variantData.option1) variantDetails.option1 = variantData.option1;
-          if (variantData.option2) variantDetails.option2 = variantData.option2;
-          if (variantData.option3) variantDetails.option3 = variantData.option3;
-          // Get price and compare at price (in cents, convert to dollars)
-          if (variantData.price) {
-            variantDetails.price = (variantData.price / 100).toFixed(2);
-          }
-          if (variantData.compare_at_price) {
-            variantDetails.compareAtPrice = (variantData.compare_at_price / 100).toFixed(2);
-          }
-          // Get featured image details
-          if (variantData.featured_image) { variantDetails.imageSrc = variantData.featured_image.src; } 
-          // Get featured media details
-          if (variantData.featured_media) {
-            if (variantData.featured_media.preview_image) {
-              variantDetails.previewImageSrc = variantData.featured_media.preview_image.src;
-            }
-          }
-  
-          // Get SKU
-          if (variantData.sku) {
-            variantDetails.sku = variantData.sku;
-          }
-  
-        } catch (error) {
-        //  console.error('Error parsing variant JSON:', error);
-        }
-      }
-      return variantDetails;
-    }
-    // Parse variant title to extract color and size
-        let color = 'N/A';
-        let size = 'N/A';
-        let variantDetails = getSelectedVariantDetails(); // call the function here
-        if(variantDetails){
-          if (variantDetails.variantTitle && variantDetails.variantTitle !== 'N/A') {
-            const variantParts = variantDetails.variantTitle.split('/').map(part => part.trim());
-            if (variantParts.length >= 2) {
-              color = variantParts[0]; // First part is color
-              size = variantParts[1];  // Second part is size
-            } else if (variantParts.length === 1) {
-              // If only one part, assume it's the size
-              size = variantParts[0];
-            }
-          }
-        }
-        // Parse variant title to extract color/size
-      function parseVariantColorSize(variantDetails) {
-        let color = 'N/A', size = 'N/A';
-        if (variantDetails && variantDetails.variantTitle && variantDetails.variantTitle !== 'N/A') {
-          const parts = variantDetails.variantTitle.split('/').map(p => p.trim());
-          if (parts.length >= 2) { color = parts[0]; size = parts[1]; }
-          else if (parts.length === 1) size = parts[0];
-        }
-        return { color, size };
-      }
-    // Function to handle add to cart button clicks
-    function handleAddToCartClick(event) {
-      const button = event.target.closest('.product-form');
-      if (button) {
-        const variantDetails = getSelectedVariantDetails();
-        const { color, size } = parseVariantColorSize(variantDetails);
-  
-        gtag('event', 'add_to_cart', {
-          items: [{
-            "item_id": variantDetails.sku,
-            "item_name": "{{ product.title }}",
-            "item_brand": "{{ product.vendore }}",
-            "item_category": "{% for collection in product.collections limit:5 %}{{ collection.title }}{% unless forloop.last %}, {% endunless %}{% endfor %}",
-            "item_variant": variantDetails.variantTitle,
-            "item_list_id ": 'cart',
-            "item_list_name": 'Cart',
-            "location_id": 'online_store',
-            "quantity": variantDetails.quantity,
-            "discount": {{cart.total_discount}},
-            "price": variantDetails.price
-            }]
-          });
-           console.log('gtagtest0' , variantDetails);
-      }
+document.addEventListener('DOMContentLoaded', function () {
+  const add_to_cart = document.querySelector('.product-form');
 
-      console.log('gtagtest1' , variantDetails);
-    }
-    document.addEventListener('click', handleAddToCartClick);
-    console.log('gtagtest2' , items);
-  });
- 
-
-</script> 
+  if (add_to_cart) {
+    add_to_cart.addEventListener('click', function () {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'add_to_cart',
+        page_location: window.location.href,
+        page_title: document.title,
+        page_type: '{{ template }}',
+        userID: '{{ customer.id }}',
+        user_type: '{{ customer.tags | join: "," }}'
+      });
+    console.log("GA4 Event Sent: add_to_cart");
+    });
+  }
+// Add to Cart Event
+}); 
