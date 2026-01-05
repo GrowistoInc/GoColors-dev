@@ -390,7 +390,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     // Function to handle add to cart button clicks
     function handleAddToCartClick(event) {
-      const button = event.target.closest('.product-form');
+      const button = event.target.closest('.product-form__submit');
       if (button) {
         const variantDetails = getSelectedVariantDetails();
         const { color, size } = parseVariantColorSize(variantDetails);
