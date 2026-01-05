@@ -7,16 +7,16 @@ function sendViewItemListGA4() {
   productCards.forEach((card, index) => {
     const titleElement = card.querySelector('.similar-product-title a');
     const priceElement = card.querySelector('.f-price-item--sale') || card.querySelector('.price-item--regular');
-    const quickView = card.closest('.f-column.card')?.querySelector('quick-view-modal');
+    {% comment %} const quickView = card.closest('.f-column.card')?.querySelector('quick-view-modal'); {% endcomment %}
 
-    const productId = quickView?.getAttribute('data-variant-sku') || `sku-${index}`;
+    {% comment %} const productId = quickView?.getAttribute('data-variant-sku') || `sku-${index}`; {% endcomment %}
     const productName = titleElement?.innerText?.trim() || 'NA';
 
-    const itemCategory = quickView?.getAttribute('data-collection-title') || 'NA';
-    const itemCategoryId = quickView?.getAttribute('data-collection-id') || 'NA';
+    {% comment %} const itemCategory = quickView?.getAttribute('data-collection-title') || 'NA';
+    const itemCategoryId = quickView?.getAttribute('data-collection-id') || 'NA'; {% endcomment %}
 
-    const swatchElement = card.querySelector('.swatch-color[title]');
-    const itemSize = swatchElement?.getAttribute('title')?.split('-')?.pop()?.trim() || 'NA';
+    {% comment %} const swatchElement = card.querySelector('.swatch-color[title]');
+    const itemSize = swatchElement?.getAttribute('title')?.split('-')?.pop()?.trim() || 'NA'; {% endcomment %}
 
     const price = parseFloat(priceElement?.innerText.replace(/[^0-9.]/g, '')) || 0;
 
