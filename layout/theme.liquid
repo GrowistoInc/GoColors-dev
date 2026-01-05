@@ -397,21 +397,18 @@ document.addEventListener('DOMContentLoaded', function () {
   
         gtag('event', 'add_to_cart', {
           items: [{
-            "Product ID": variantDetails.sku,
-            "Product Name": "{{ product.title }}",
-            "Category Names": "{% for collection in product.collections limit:5 %}{{ collection.title }}{% unless forloop.last %}, {% endunless %}{% endfor %}",
-            "Category IDs": "{% for collection in product.collections limit:5 %}{{ collection.id }}{% unless forloop.last %}, {% endunless %}{% endfor %}",
-            "Variant ID": variantDetails.variantId,
-            "Variant Title": variantDetails.variantTitle,
-            "Colour": color,
-            "Quantity": variantDetails.quantity,
-            "Retail Price": variantDetails.compareAtPrice,
-            "Discount": 0,
-            "Price": variantDetails.price,
-            "Currency": "{{ shop.currency }}",
-            "Size": size,
-            "Image": [variantDetails.imageSrc || "{{ product.featured_image | image_url }}"]
-          }],
+            "item_id": variantDetails.sku,
+            "item_name": "{{ product.title }}",
+            "item_brand": "{{ product.vendore }}",
+            "item_category": "{% for collection in product.collections limit:5 %}{{ collection.title }}{% unless forloop.last %}, {% endunless %}{% endfor %}",
+            "item_variant": variantDetails.variantTitle,
+            "item_list_id ": 'cart',
+            "item_list_name": 'Cart',
+            "location_id": 'online_store',
+            "quantity": variantDetails.quantity,
+            "discount": 0,
+            "price": variantDetails.price
+            }],
             page_type: '{{ template | handleize }}',
             userID: '{{ customer.id }}',
             user_type: '{{ customer.tags | join: "," | default: "guest" }}'
