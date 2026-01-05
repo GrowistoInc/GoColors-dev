@@ -1,4 +1,4 @@
-{% comment %} ===========add to cart =============== 
+{% comment %} ===========add to cart =============== {% endcomment %}
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     function getSelectedVariantDetails() {
@@ -13,7 +13,7 @@
       if (variantScript) {
         try {
           const variantData = JSON.parse(variantScript.textContent);
-        //  console.log('variantData----------------',variantData);
+         console.log('variantData----------------',variantData);
           // Extract all variant details from JSON
           variantDetails.variantId = variantData.id;
           variantDetails.variantTitle = variantData.title;
@@ -111,5 +111,3 @@
  
 
 </script> 
-
-{% endcomment %}
