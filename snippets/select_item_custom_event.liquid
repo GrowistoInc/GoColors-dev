@@ -26,6 +26,12 @@ document.addEventListener("click", function (e) {
     quantity: 1
   };
 
+  // Detect Incognito
+  if (typeof detectIncognito !== "function") {
+    console.warn("detectIncognito not available");
+    return;
+  }
+
   detectIncognito().then(function (result) {
 
     window.dataLayer = window.dataLayer || [];
@@ -39,7 +45,7 @@ document.addEventListener("click", function (e) {
       }
     });
 
-    console.log("✅ select_item pushed", item);
+    console.log("✅ GA4 select_item pushed to dataLayer", item);
   });
 
 });
