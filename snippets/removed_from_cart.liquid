@@ -15,10 +15,15 @@
     return originalFetch.apply(this, arguments).then(async response => {
 
       try {
-        if (
-          typeof url === 'string' &&
-          (url.includes('/cart') || url.includes('/cart/update'))
-        ) {
+       if (
+            typeof url === 'string' &&
+            (
+                url.includes('/cart/change') ||
+                url.includes('/cart/update')
+            ) &&
+            !url.includes('/cart/add')
+            ) {
+
 
           if (!previousCart) return response;
 
