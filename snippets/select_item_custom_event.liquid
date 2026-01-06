@@ -1,0 +1,46 @@
+{% comment %} GA4 select_item → dataLayer {% endcomment %}
+<script>
+document.addEventListener("click", function (e) {
+
+  const productCard = e.target.closest(".product-grid__item");
+  if (!productCard) return;
+
+  const item = {
+    item_id: productCard.dataset.productId || "",
+    item_name: productCard.dataset.productName || "",
+    affiliation: "{{ shop.name }}",
+    coupon: "",
+    discount: 0,
+    index: Number(productCard.dataset.index || 0),
+    item_brand: productCard.dataset.productBrand || "",
+    item_category: productCard.dataset.productCategory || "",
+    item_category2: productCard.dataset.productCategory2 || "",
+    item_category3: productCard.dataset.productCategory3 || "",
+    item_category4: productCard.dataset.productCategory4 || "",
+    item_category5: productCard.dataset.productCategory5 || "",
+    item_list_id: productCard.dataset.listId || "",
+    item_list_name: productCard.dataset.listName || "",
+    item_variant: productCard.dataset.productVariant || "",
+    location_id: window.location.href,
+    price: Number(productCard.dataset.productPrice || 0),
+    quantity: 1
+  };
+
+  detectIncognito().then(function (result) {
+
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "select_item",
+      incognito_window: result.isPrivate ? 1 : 0,
+      ecommerce: {
+        item_list_id: item.item_list_id,
+        item_list_name: item.item_list_name,
+        items: [item]
+      }
+    });
+
+    console.log("✅ select_item pushed", item);
+  });
+
+});
+</script>
