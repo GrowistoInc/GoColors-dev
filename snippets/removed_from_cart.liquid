@@ -3,37 +3,57 @@
   const originalFetch = window.fetch;
   let previousCart = null;
 
-  // Always keep latest cart snapshot
-  async function updatePreviousCart() {
-    try {
-      const res = await fetch('/cart.js');
-      previousCart = await res.json();
-    } catch (e) {}
+  async function getCart() {
+    const res = await fetch('/cart.js');
+    return await res.json();
   }
 
-  updatePreviousCart();
+  // Initialize cart snapshot
+  getCart().then(cart => previousCart = cart);
 
-  window.fetch = function () {
+  window.fetch = function (url, options = {}) {
     return originalFetch.apply(this, arguments).then(async response => {
 
       try {
-        const url = arguments[0];
-
         if (
           typeof url === 'string' &&
           (url.includes('/cart/change') || url.includes('/cart/update'))
         ) {
 
-          const requestBody = arguments[1]?.body;
-          if (!requestBody || !previousCart) return response;
+          if (!previousCart) return response;
 
-          const params = new URLSearchParams(requestBody);
-          const removedVariantId = params.get('id');
-          const newQty = Number(params.get('quantity'));
+          let removedVariantId = null;
+          let newQty = null;
 
-          // Find item BEFORE removal
+          /* ---------- HANDLE BODY TYPES ---------- */
+
+          if (options.body instanceof FormData) {
+            removedVariantId = options.body.get('id');
+            newQty = Number(options.body.get('quantity'));
+          }
+
+          else if (typeof options.body === 'string') {
+            const params = new URLSearchParams(options.body);
+            removedVariantId = params.get('id');
+            newQty = Number(params.get('quantity'));
+          }
+
+          else if (options.headers?.['Content-Type']?.includes('application/json')) {
+            const body = JSON.parse(options.body);
+            if (body.id) {
+              removedVariantId = body.id;
+              newQty = Number(body.quantity);
+            }
+            if (body.updates) {
+              removedVariantId = Object.keys(body.updates)[0];
+              newQty = body.updates[removedVariantId];
+            }
+          }
+
+          if (!removedVariantId) return response;
+
           const previousItem = previousCart.items.find(
-            item => item.variant_id.toString() === removedVariantId
+            i => i.variant_id.toString() === removedVariantId.toString()
           );
 
           if (!previousItem) return response;
@@ -62,11 +82,14 @@
             items: [ga4Item]
           });
 
-          console.log('🟥 GA4 remove_from_cart (exact)', ga4Item);
+          console.log('✅ remove_from_cart (exact)', ga4Item);
 
-          // Update snapshot AFTER removal
-          setTimeout(updatePreviousCart, 300);
+          // Update cart snapshot AFTER removal
+          setTimeout(async () => {
+            previousCart = await getCart();
+          }, 300);
         }
+
       } catch (e) {
         console.error('remove_from_cart error', e);
       }
