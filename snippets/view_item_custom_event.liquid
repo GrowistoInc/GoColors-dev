@@ -2,31 +2,37 @@
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
-  const storedItem = sessionStorage.getItem('ga4_view_item');
-  if (!storedItem) return;
-
-  const item = JSON.parse(storedItem);
-
-  item.item_id = "{{ product.id }}";
-  item.item_name = "{{ product.title | escape }}";
-  item.item_variant = "{{ product.selected_or_first_available_variant.title | escape }}";
-  item.price = {{ product.selected_or_first_available_variant.price | divided_by: 100.0 }};
-  item.location_id = window.location.href;
-
   window.dataLayer = window.dataLayer || [];
+
   dataLayer.push({
     event: "view_item",
     ecommerce: {
       currency: "{{ cart.currency.iso_code | default: shop.currency }}",
-      value: item.price,
-      items: [item]
+      value: {{ product.selected_or_first_available_variant.price | divided_by: 100.0 }},
+      items: [{
+        item_id: "{{ product.id }}",
+        item_name: "{{ product.title | escape }}",
+        affiliation: "{{ shop.name | escape }}",
+        coupon: "",
+        discount: 0,
+        index: 0,
+        item_brand: "{{ product.vendor | escape }}",
+        item_category: "{{ product.type | escape }}",
+        item_category2: "{% if product.collections.first %}{{ product.collections.first.title | escape }}{% else %}NA{% endif %}",
+        item_category3: "NA",
+        item_category4: "NA",
+        item_category5: "NA",
+        item_list_id: "product_page",
+        item_list_name: "Product Detail Page",
+        item_variant: "{{ product.selected_or_first_available_variant.title | escape }}",
+        location_id: "{{ product.handle }}",
+        price: {{ product.selected_or_first_available_variant.price | divided_by: 100.0 }},
+        quantity: 1
+      }]
     }
   });
 
-  console.log("✅ view_item pushed", item);
-
-  // Cleanup
-  sessionStorage.removeItem('ga4_view_item');
+  console.log("✅ view_item pushed to dataLayer", window.dataLayer);
 
 });
 </script>
