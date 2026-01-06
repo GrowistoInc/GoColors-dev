@@ -5,6 +5,7 @@ document.addEventListener("click", function (e) {
   const productCard = e.target.closest(".card-wrapper");
   if (!productCard) return;
 
+  console.log('productCard' , productCard);
   const item = {
     item_id: productCard.dataset.productId || "",
     item_name: productCard.dataset.productName || "",
