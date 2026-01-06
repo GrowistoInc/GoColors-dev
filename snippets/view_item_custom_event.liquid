@@ -1,13 +1,10 @@
-{% comment %} GA4 view_item_list via dataLayer with incognito detection {% endcomment %}
+{% if collection %}
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
-  {% if collection %}
+  window.dataLayer = window.dataLayer || [];
 
-  const listId = "{{ collection.id }}";
-  const listName = "{{ collection.title | escape }}";
-
-  const items = [
+  var items = [
     {% for product in collection.products %}
     {
       item_id: "{{ product.id }}",
@@ -26,40 +23,22 @@ document.addEventListener("DOMContentLoaded", function () {
       item_list_name: "{{ collection.title | escape }}",
       item_variant: "{{ product.selected_or_first_available_variant.title | escape }}",
       location_id: "online_store",
-      price: {{ product.price | money_without_currency | replace: ',', '' }},
+      price: {{ product.price | divided_by: 100.0 }},
       quantity: 1
     }{% unless forloop.last %},{% endunless %}
     {% endfor %}
   ];
 
-  function pushViewItemList(incognitoValue) {
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
-      event: "view_item_list",
-      incognito_window: incognitoValue,
-      currency: "{{ cart.currency.iso_code | default: 'INR' }}",
-      item_list_id: listId,
-      item_list_name: listName,
-      items: items
-    });
+  dataLayer.push({
+    event: "view_item_list",
+    currency: "{{ cart.currency.iso_code | default: 'INR' }}",
+    item_list_id: "{{ collection.id }}",
+    item_list_name: "{{ collection.title | escape }}",
+    items: items
+  });
 
-    console.log("✅ view_item_list pushed to dataLayer", {
-      incognito_window: incognitoValue,
-      items: items
-    });
-  }
-
-  // ---- Incognito detection (safe fallback) ----
-  if (typeof detectIncognito === "function") {
-    detectIncognito().then(result => {
-      pushViewItemList(result.isPrivate ? 1 : 0);
-    });
-  } else {
-    // fallback if library not loaded
-    pushViewItemList(0);
-  }
-
-  {% endif %}
+  console.log("✅ view_item_list fired", items);
 
 });
 </script>
+{% endif %}
