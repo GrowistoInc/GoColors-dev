@@ -1,59 +1,50 @@
 <script>
 (function () {
 
-  function sendViewItemListGA4() {
+  let fired = false;
 
-    const productCards = document.querySelectorAll('.product-card-wrappe');
-    if (!productCards.length) return;
+  function fireViewItemList() {
+
+    if (fired) return;
+
+    // ⬇️ CHANGE THIS SELECTOR IF NEEDED
+    const cards = document.querySelectorAll('[data-product-id]');
+    if (!cards.length) return;
+
+    fired = true;
 
     const items = [];
 
-    productCards.forEach((card, index) => {
+    cards.forEach((card, index) => {
 
-      const titleEl = card.querySelector('.similar-product-title a');
-      const priceEl =
-        card.querySelector('.f-price-item--sale') ||
-        card.querySelector('.price-item--regular');
-
-      const productName = titleEl?.innerText?.trim() || 'NA';
-
-      // Try to get variant / product info from data attributes if available
-      const productId =
-        card.getAttribute('data-variant-id') ||
-        card.getAttribute('data-product-id') ||
-        `product_${index + 1}`;
-
-      const itemVariant =
-        card.getAttribute('data-variant-title') || '';
-
-      const itemCategory =
-        card.getAttribute('data-collection-title') || 'NA';
-
-      const itemCategory2 =
-        card.getAttribute('data-collection-id') || 'NA';
-
-      const itemSize =
-        card.getAttribute('data-size') || 'NA';
+      const productId = card.getAttribute('data-product-id');
+      const productName =
+        card.getAttribute('data-product-title') ||
+        card.querySelector('a')?.innerText?.trim() ||
+        'NA';
 
       const price =
-        parseFloat(priceEl?.innerText.replace(/[^0-9.]/g, '')) || 0;
+        parseFloat(
+          card.getAttribute('data-price') ||
+          card.querySelector('[class*="price"]')?.innerText.replace(/[^0-9.]/g, '')
+        ) || 0;
 
       items.push({
-        item_id: productId.toString(),
+        item_id: productId,
         item_name: productName,
         affiliation: "Online Store",
         coupon: "",
         discount: 0,
         index: index + 1,
         item_brand: "Powerlook",
-        item_category: itemCategory,
-        item_category2: itemCategory2,
+        item_category: card.getAttribute('data-collection') || "NA",
+        item_category2: "NA",
         item_category3: "NA",
-        item_category4: itemSize,
+        item_category4: "NA",
         item_category5: "Men",
         item_list_id: "all_products",
         item_list_name: "All Products",
-        item_variant: itemVariant,
+        item_variant: "",
         location_id: "online_store",
         price: price,
         quantity: 1
@@ -64,19 +55,18 @@
     window.dataLayer.push({
       event: "view_item_list",
       currency: "INR",
-      items: items,
-      page_type: "{{ template | handleize }}",
-      userID: "{{ customer.id }}",
-      user_type: "{{ customer.tags | join: ',' | default: 'guest' }}"
+      items: items
     });
 
-    console.log("✅ GA4 view_item_list pushed to dataLayer", items);
+    console.log("✅ GA4 view_item_list fired", items);
   }
 
-  // Delay ensures products are rendered (important for Shopify)
-  window.addEventListener('load', function () {
-    setTimeout(sendViewItemListGA4, 1500);
-  });
+  // Watch DOM for product cards
+  const observer = new MutationObserver(fireViewItemList);
+  observer.observe(document.body, { childList: true, subtree: true });
+
+  // Fallback
+  window.addEventListener('load', fireViewItemList);
 
 })();
 </script>
