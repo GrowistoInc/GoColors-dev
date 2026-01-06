@@ -1,72 +1,65 @@
+{% comment %} GA4 view_item_list via dataLayer with incognito detection {% endcomment %}
 <script>
-(function () {
+document.addEventListener("DOMContentLoaded", function () {
 
-  let fired = false;
+  {% if collection %}
 
-  function fireViewItemList() {
+  const listId = "{{ collection.id }}";
+  const listName = "{{ collection.title | escape }}";
 
-    if (fired) return;
+  const items = [
+    {% for product in collection.products %}
+    {
+      item_id: "{{ product.id }}",
+      item_name: "{{ product.title | escape }}",
+      affiliation: "Online Store",
+      coupon: "",
+      discount: 0,
+      index: {{ forloop.index }},
+      item_brand: "{{ product.vendor | escape }}",
+      item_category: "{{ collection.title | escape }}",
+      item_category2: "{{ collection.handle }}",
+      item_category3: "NA",
+      item_category4: "NA",
+      item_category5: "NA",
+      item_list_id: "{{ collection.id }}",
+      item_list_name: "{{ collection.title | escape }}",
+      item_variant: "{{ product.selected_or_first_available_variant.title | escape }}",
+      location_id: "online_store",
+      price: {{ product.price | money_without_currency | replace: ',', '' }},
+      quantity: 1
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ];
 
-    // ⬇️ CHANGE THIS SELECTOR IF NEEDED
-    const cards = document.querySelectorAll('[data-product-id]');
-    if (!cards.length) return;
-
-    fired = true;
-
-    const items = [];
-
-    cards.forEach((card, index) => {
-
-      const productId = card.getAttribute('data-product-id');
-      const productName =
-        card.getAttribute('data-product-title') ||
-        card.querySelector('a')?.innerText?.trim() ||
-        'NA';
-
-      const price =
-        parseFloat(
-          card.getAttribute('data-price') ||
-          card.querySelector('[class*="price"]')?.innerText.replace(/[^0-9.]/g, '')
-        ) || 0;
-
-      items.push({
-        item_id: productId,
-        item_name: productName,
-        affiliation: "Online Store",
-        coupon: "",
-        discount: 0,
-        index: index + 1,
-        item_brand: "Powerlook",
-        item_category: card.getAttribute('data-collection') || "NA",
-        item_category2: "NA",
-        item_category3: "NA",
-        item_category4: "NA",
-        item_category5: "Men",
-        item_list_id: "all_products",
-        item_list_name: "All Products",
-        item_variant: "",
-        location_id: "online_store",
-        price: price,
-        quantity: 1
-      });
-    });
-
+  function pushViewItemList(incognitoValue) {
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
       event: "view_item_list",
-      currency: "INR",
+      incognito_window: incognitoValue,
+      currency: "{{ cart.currency.iso_code | default: 'INR' }}",
+      item_list_id: listId,
+      item_list_name: listName,
       items: items
     });
 
-    console.log("✅ GA4 view_item_list fired", items);
+    console.log("✅ view_item_list pushed to dataLayer", {
+      incognito_window: incognitoValue,
+      items: items
+    });
   }
 
-  // Watch DOM for product cards
-  const observer = new MutationObserver(fireViewItemList);
-  observer.observe(document.body, { childList: true, subtree: true });
+  // ---- Incognito detection (safe fallback) ----
+  if (typeof detectIncognito === "function") {
+    detectIncognito().then(result => {
+      pushViewItemList(result.isPrivate ? 1 : 0);
+    });
+  } else {
+    // fallback if library not loaded
+    pushViewItemList(0);
+  }
 
-  // Fallback
-  window.addEventListener('load', fireViewItemList);
+  {% endif %}
 
-})();
+});
 </script>
