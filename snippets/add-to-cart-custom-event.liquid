@@ -20,9 +20,13 @@
             item_name: lastItem.product_title,
             item_brand: lastItem.vendor || "",
             coupon: cart.cart_level_discount_applications?.[0]?.title || "",
-            
-            item_category: lastItem.product_type || "",
-            
+            {% for collection in lastItem.collections limit:5 %}
+            item_category: {{ collection.title }}[0] ,
+            item_category: {{ collection.title }}[1] ,
+            item_category: {{ collection.title }}[2] ,
+            item_category: {{ collection.title }}[3] ,
+            item_category: {{ collection.title }}[4] ,
+            {% endfor %}
             item_variant: lastItem.variant_title || "",
             location_id: "online_store",
             price: lastItem.price / 100,
