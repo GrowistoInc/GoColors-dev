@@ -3,10 +3,10 @@
   const originalFetch = window.fetch;
 
   window.fetch = function () {
-    return originalFetch.apply(this, arguments).then(async (response) => {
+    return originalFetch.apply(this, arguments).then(async response => {
 
       try {
-        if (typeof arguments[0] === 'string' && arguments[0].includes('/cart/add')) {
+        if (arguments[0].includes('/cart/add')) {
 
           const cartRes = await fetch('/cart.js');
           const cart = await cartRes.json();
@@ -15,44 +15,33 @@
 
           const lastItem = cart.items[cart.items.length - 1];
 
-          const discount =
-            (lastItem.original_price - lastItem.final_price) / 100 || 0;
-
           const ga4Item = {
-            item_id: String(lastItem.variant_id),
+            item_id: lastItem.variant_id.toString(),
             item_name: lastItem.product_title,
-            affiliation: "Online Store",
-            coupon: (cart.discount_codes || []).map(d => d.code).join(',') || undefined,
-            discount: discount,
-            index: cart.items.length,
-            item_brand: lastItem.vendor || undefined,
-            item_category: lastItem.product_type || undefined,
+            item_brand: lastItem.vendor || "",
+            item_category: lastItem.product_type || "",
             item_category2: lastItem.collection[0] || undefined,
             item_category3: lastItem.collection[1],
             item_category4: lastItem.collection[2],
             item_category5: lastItem.collection[3],
-            item_list_id: "product_page",
-            item_list_name: "Product Page",
-            item_variant: lastItem.variant_title || undefined,
-            location_id: window.location.pathname,
-            price: lastItem.final_price / 100,
-            quantity: lastItem.quantity
+            item_variant: lastItem.variant_title || "",
+            price: lastItem.price / 100,
+            quantity: lastItem.quantity,
+            affiliation: "Online Store"
           };
 
           window.dataLayer = window.dataLayer || [];
           window.dataLayer.push({
-            event: "add_to_cart",
-            ecommerce: {
-              currency: cart.currency || "INR",
-              value: (lastItem.final_price / 100) * lastItem.quantity,
-              items: [ga4Item]
-            }
+            event: 'add_to_cart',
+            currency: cart.currency || 'INR',
+            value: (lastItem.price / 100) * lastItem.quantity,
+            items: [ga4Item]
           });
 
-          console.log("✅ GA4 add_to_cart fired", ga4Item);
+          console.log('✅ GA4 add_to_cart fired', ga4Item);
         }
       } catch (e) {
-        console.error("❌ GA4 add_to_cart error", e);
+        console.error('GA4 add_to_cart error', e);
       }
 
       return response;
