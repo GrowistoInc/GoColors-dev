@@ -265,7 +265,7 @@
     {% render 'sr-checkout' %}
     {%- render 'gokwik' -%}
     {% comment %} <!-- Meta Pixel Code --> {% endcomment %}
-      {% comment %}{% endcomment %} <script>
+      {% comment %} <script>
       !function(f,b,e,v,n,t,s)
       {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
       n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -279,7 +279,7 @@
       </script>
       <noscript><img height="1" width="1" style="display:none"
       src="https://www.facebook.com/tr?id=1862132777755828&ev=PageView&noscript=1"
-      /></noscript> 
+      /></noscript> {% endcomment %}
 {% comment %} <!-- End Meta Pixel Code --> {% endcomment %}
 
 
@@ -307,6 +307,23 @@ document.addEventListener('DOMContentLoaded', function () {
 // LOGO CLICK EVENT
 }); 
 </script>
+<script>
+window.dataLayer = window.dataLayer || [];
+
+dataLayer.push({
+  event: "fb_view_content",
+  fb_event_name: "ViewContent",
+  content_ids: ["{{ product.id }}"],
+  content_name: "{{ product.title | escape }}",
+  content_type: "product",
+  value: {{ product.price | divided_by: 100.0 }},
+  currency: "{{ shop.currency }}"
+});
+
+console.log("✅ FB ViewContent pushed");
+</script>
+
+
 
 {% render 'add-to-cart-custom-event' %}
 {% render 'removed_from_cart_custom_event' %}
