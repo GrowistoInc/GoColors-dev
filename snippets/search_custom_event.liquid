@@ -1,22 +1,43 @@
 <script>
-document.addEventListener('DOMContentLoaded', function () {
+(function () {
 
-  console.log('🔍 Search tracking script loaded');
+  let lastSearchTerm = null;
 
-  const urlParams = new URLSearchParams(window.location.search);
-  const searchTerm = urlParams.get('q') || urlParams.get('_ss');
+  function fireSearchEvent(term) {
+    if (!term || term === lastSearchTerm) return;
 
-  console.log('Search term:', searchTerm);
-
-  if (window.location.pathname.includes('/search') && searchTerm) {
+    lastSearchTerm = term;
 
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
       event: 'search',
-      search_term: searchTerm
+      search_term: term
     });
 
-    console.log('✅ GA4 search event pushed to dataLayer', searchTerm);
+    console.log('✅ GA4 search fired', term);
   }
-});
+
+  // 1️⃣ URL based search
+  const params = new URLSearchParams(window.location.search);
+  const urlSearch =
+    params.get('q') ||
+    params.get('_ss') ||
+    params.get('query');
+
+  if (window.location.pathname.includes('/search') && urlSearch) {
+    fireSearchEvent(urlSearch);
+  }
+
+  // 2️⃣ AJAX / predictive search
+  document.addEventListener('submit', function (e) {
+    const form = e.target.closest('form[action*="/search"]');
+    if (!form) return;
+
+    const input = form.querySelector('input[name="q"], input[name="query"]');
+    if (!input) return;
+
+    fireSearchEvent(input.value.trim());
+  });
+
+})();
 </script>
