@@ -20,6 +20,7 @@
             item_name: lastItem.product_title,
             item_brand: lastItem.vendor || "",
             coupon: cart.cart_level_discount_applications?.[0]?.title || "",
+            discount: item.total_discount ? item.total_discount / 100 : 0,
             item_category: lastItem.product_type || "",
             
             item_variant: lastItem.variant_title || "",
