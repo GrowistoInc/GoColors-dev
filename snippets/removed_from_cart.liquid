@@ -1,79 +1,68 @@
 <script>
-// REMOVED FROM CART
-document.addEventListener("DOMContentLoaded", function () {
-  const isCartPage = window.location.pathname.includes('/cart');
-  if (!isCartPage) return;
- 
-  const removeButtons = document.querySelectorAll('[href*="quantity=0"]');
+(function () {
+  const originalFetch = window.fetch;
 
-  removeButtons.forEach((btn) => {
-    btn.addEventListener("click", function (e) {
-      e.preventDefault();
+  window.fetch = function () {
+    return originalFetch.apply(this, arguments).then(async response => {
 
-      const row = btn.closest('.cart-item');
-      if (!row) return;
- 
-      const urlParams = new URLSearchParams(btn.href.split('?')[1]);
-      const idParam = urlParams.get('id'); // format: VARIANT_ID:HASH
-      const variantId = idParam?.split(':')[0];
+      try {
+        const url = arguments[0];
 
-      if (!variantId) return;
- 
-      let specifications = [];
-      let selectedSize = 'NA';
+        // Detect remove/change cart actions
+        if (
+          typeof url === 'string' &&
+          (url.includes('/cart/change') || url.includes('/cart/update'))
+        ) {
 
-      const options = row.querySelectorAll('.cart-item__options .cart-item__option-name');
-      options.forEach((labelEl) => {
-        const label = labelEl?.innerText?.trim();
-        const value = labelEl?.nextElementSibling?.innerText?.trim();
-        if (label && value) {
-          if (label.toLowerCase() === 'size') {
-            selectedSize = value;
-          } else {
-            specifications.push(`${label}: ${value}`);
+          const requestBody = arguments[1]?.body;
+          let removedVariantId = null;
+          let removedQty = 1;
+
+          if (requestBody) {
+            const params = new URLSearchParams(requestBody);
+            removedVariantId = params.get('id');
+            removedQty = params.get('quantity') === '0' ? 1 : 1;
           }
+
+          const cartRes = await fetch('/cart.js');
+          const cart = await cartRes.json();
+
+          if (!cart || !cart.items) return response;
+
+          const removedItem = cart.items.find(
+            item => item.variant_id.toString() === removedVariantId
+          );
+
+          const itemData = removedItem || {};
+
+          const ga4Item = {
+            item_id: removedVariantId,
+            item_name: itemData.product_title || "",
+            item_brand: itemData.vendor || "",
+            item_category: itemData.product_type || "",
+            item_variant: itemData.variant_title || "",
+            price: itemData.price ? itemData.price / 100 : 0,
+            quantity: removedQty,
+            affiliation: "Online Store"
+          };
+
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({
+            event: 'remove_from_cart',
+            currency: cart.currency || 'INR',
+            value: ga4Item.price * ga4Item.quantity,
+            items: [ga4Item]
+          });
+
+          console.log('🟥 GA4 remove_from_cart fired', ga4Item);
         }
-      });
+      } catch (e) {
+        console.error('remove_from_cart error', e);
+      }
 
-      const specFinal = specifications.length ? specifications.join(', ') : 'NA';
- 
-      const meta = JSON.parse(sessionStorage.getItem(`product_meta_${variantId}`)) || {};
-
-      const itemListName = sessionStorage.getItem('item_list_name') || 'home_default';
-      const itemListId = sessionStorage.getItem('item_list_id') || 'default';
-
-      const payload = {
-        page_type: 'cart',
-        item_list_name: itemListName,
-        item_list_id: itemListId,
-        userID: '{{ customer.id }}',
-        user_type: '{{ customer.tags | join: "," | default: "guest" }}',
-        items: [{
-          item_id: variantId,
-          item_name: row.querySelector('.cart-item__title')?.innerText.trim() || 'NA',
-          item_brand: meta.item_brand || 'Powerlook',
-          item_category: meta.item_category || 'Shirts',
-          item_category2: meta.item_category2 || 'NA',
-          item_category3: specFinal,
-          item_category4: selectedSize,
-          item_category5: meta.item_category5 || 'Men',
-          price: parseFloat(
-            row.querySelector('.price')?.innerText.replace(/[^\d.]/g, '')
-          ) || 0,
-          quantity: parseInt(
-            row.querySelector('input.quantity__input')?.value
-          ) || 1,
-          discount: 0
-        }]
-      };
-
-      gtag('event', 'remove_from_cart', payload);
-     // console.log('🗑️ GA4 remove_from_cart event fired:', payload);
- 
-      window.location.href = btn.href;
+      return response;
     });
-  });
-});  
-// REMOVED FROM CART
-
+  };
+})
+();
 </script>
