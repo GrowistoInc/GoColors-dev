@@ -14,7 +14,7 @@
           if (!cart.items || !cart.items.length) return response;
 
           const lastItem = cart.items[cart.items.length - 1];
-          console.log('lastItem')
+          console.log('lastItem');
           const ga4Item = {
             item_id: lastItem.variant_id.toString(),
             item_name: lastItem.product_title,
