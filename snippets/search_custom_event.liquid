@@ -3,20 +3,19 @@
 
   let lastSearchTerm = null;
 
-  document.addEventListener('keydown', function (e) {
+  document.addEventListener('submit', function (e) {
 
-    // Only ENTER key
-    if (e.key !== 'Enter') return;
+    const form = e.target;
 
-    const input = e.target;
+    // Only search forms
+    if (!form || !form.action || !form.action.includes('/search')) return;
 
-    // Ensure it's a search input
-    if (
-      !input ||
-      input.tagName !== 'INPUT' ||
-      !input.name ||
-      !['q', 'query', '_ss'].includes(input.name)
-    ) return;
+    const input =
+      form.querySelector('input[name="q"]') ||
+      form.querySelector('input[name="query"]') ||
+      form.querySelector('input[name="_ss"]');
+
+    if (!input) return;
 
     const searchTerm = input.value.trim();
     if (!searchTerm || searchTerm === lastSearchTerm) return;
@@ -29,9 +28,9 @@
       search_term: searchTerm
     });
 
-    console.log('✅ GA4 search fired (ENTER)', searchTerm);
+    console.log('✅ GA4 search fired (ENTER submit)', searchTerm);
 
   });
 
-});
+})();
 </script>
