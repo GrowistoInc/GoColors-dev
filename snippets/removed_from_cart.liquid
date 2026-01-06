@@ -1,68 +1,68 @@
 <script>
-(function () {
-  const originalFetch = window.fetch;
+    (function () {
+    const originalFetch = window.fetch;
 
-  window.fetch = function () {
-    return originalFetch.apply(this, arguments).then(async response => {
+        window.fetch = function () {
+            return originalFetch.apply(this, arguments).then(async response => {
 
-      try {
-        const url = arguments[0];
+            try {
+                const url = arguments[0];
 
-        // Detect remove/change cart actions
-        if (
-          typeof url === 'string' &&
-          (url.includes('/cart/change') || url.includes('/cart/update'))
-        ) {
+                // Detect remove/change cart actions
+                if (
+                typeof url === 'string' &&
+                (url.includes('/cart/change') || url.includes('/cart/update'))
+                ) {
 
-          const requestBody = arguments[1]?.body;
-          let removedVariantId = null;
-          let removedQty = 1;
+                const requestBody = arguments[1]?.body;
+                let removedVariantId = null;
+                let removedQty = 1;
 
-          if (requestBody) {
-            const params = new URLSearchParams(requestBody);
-            removedVariantId = params.get('id');
-            removedQty = params.get('quantity') === '0' ? 1 : 1;
-          }
+                if (requestBody) {
+                    const params = new URLSearchParams(requestBody);
+                    removedVariantId = params.get('id');
+                    removedQty = params.get('quantity') === '0' ? 1 : 1;
+                }
 
-          const cartRes = await fetch('/cart.js');
-          const cart = await cartRes.json();
+                const cartRes = await fetch('/cart.js');
+                const cart = await cartRes.json();
 
-          if (!cart || !cart.items) return response;
+                if (!cart || !cart.items) return response;
 
-          const removedItem = cart.items.find(
-            item => item.variant_id.toString() === removedVariantId
-          );
+                const removedItem = cart.items.find(
+                    item => item.variant_id.toString() === removedVariantId
+                );
 
-          const itemData = removedItem || {};
+                const itemData = removedItem || {};
 
-          const ga4Item = {
-            item_id: removedVariantId,
-            item_name: itemData.product_title || "",
-            item_brand: itemData.vendor || "",
-            item_category: itemData.product_type || "",
-            item_variant: itemData.variant_title || "",
-            price: itemData.price ? itemData.price / 100 : 0,
-            quantity: removedQty,
-            affiliation: "Online Store"
-          };
+                const ga4Item = {
+                    item_id: removedVariantId,
+                    item_name: itemData.product_title || "",
+                    item_brand: itemData.vendor || "",
+                    item_category: itemData.product_type || "",
+                    item_variant: itemData.variant_title || "",
+                    price: itemData.price ? itemData.price / 100 : 0,
+                    quantity: removedQty,
+                    affiliation: "Online Store"
+                };
 
-          window.dataLayer = window.dataLayer || [];
-          window.dataLayer.push({
-            event: 'remove_from_cart',
-            currency: cart.currency || 'INR',
-            value: ga4Item.price * ga4Item.quantity,
-            items: [ga4Item]
-          });
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    event: 'remove_from_cart',
+                    currency: cart.currency || 'INR',
+                    value: ga4Item.price * ga4Item.quantity,
+                    items: [ga4Item]
+                });
 
-          console.log('🟥 GA4 remove_from_cart fired', ga4Item);
-        }
-      } catch (e) {
-        console.error('remove_from_cart error', e);
-      }
+                console.log('🟥 GA4 remove_from_cart fired', ga4Item);
+                }
+            } catch (e) {
+                console.error('remove_from_cart error', e);
+            }
 
-      return response;
-    });
-  };
-})
-();
+            return response;
+            });
+        };
+        })
+    ();
 </script>
