@@ -19,12 +19,9 @@
             item_id: lastItem.variant_id.toString(),
             item_name: lastItem.product_title,
             item_brand: lastItem.vendor || "",
-            coupon: cart.cart_level_discount_applications?.[0]?.title || "",
-            
-            item_category: lastItem.product_type || "",
-            
+            coupon: cart.cart_level_discount_applications?.[0]?.title || "",            
+            item_category: lastItem.product_type || "",            
             item_variant: lastItem.variant_title || "",
-
             location_id: "online_store",
             price: lastItem.price / 100,
             quantity: lastItem.quantity,
