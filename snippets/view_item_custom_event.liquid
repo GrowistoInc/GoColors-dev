@@ -4,50 +4,35 @@ document.addEventListener("DOMContentLoaded", function () {
 
   window.dataLayer = window.dataLayer || [];
 
-  var incognito_window = 0; // default
+  dataLayer.push({
+    event: "view_item",
+    ecommerce: {
+      currency: "{{ cart.currency.iso_code | default: shop.currency }}",
+      value: {{ product.selected_or_first_available_variant.price | divided_by: 100.0 }},
+      items: [{
+        item_id: "{{ product.id }}",
+        item_name: "{{ product.title | escape }}",
+        affiliation: "{{ shop.name | escape }}",
+        coupon: "",
+        discount: 0,
+        index: 0,
+        item_brand: "{{ product.vendor | escape }}",
+        item_category: "{{ product.type | escape }}",
+        item_category2: "{% if product.collections.first %}{{ product.collections.first.title | escape }}{% else %}NA{% endif %}",
+        item_category3: "NA",
+        item_category4: "NA",
+        item_category5: "NA",
+        item_list_id: "product_page",
+        item_list_name: "Product Detail Page",
+        item_variant: "{{ product.selected_or_first_available_variant.title | escape }}",
+        location_id: "{{ product.handle }}",
+        price: {{ product.selected_or_first_available_variant.price | divided_by: 100.0 }},
+        quantity: 1
+      }]
+    }
+  });
 
-  function pushViewItem() {
-    dataLayer.push({
-      event: "view_item",
-      ecommerce: {
-        currency: "{{ cart.currency.iso_code | default: shop.currency }}",
-        value: {{ product.selected_or_first_available_variant.price | divided_by: 100.0 }},
-        items: [{
-          item_id: "{{ product.id }}",
-          item_name: "{{ product.title | escape }}",
-          affiliation: "{{ shop.name | escape }}",
-          coupon: "",
-          discount: 0,
-          index: 0,
-          item_brand: "{{ product.vendor | escape }}",
-          item_category: "{{ product.type | escape }}",
-          item_category2: "{% if product.collections.first %}{{ product.collections.first.title | escape }}{% else %}NA{% endif %}",
-          item_category3: "NA",
-          item_category4: "NA",
-          item_category5: "NA",
-          item_list_id: "product_page",
-          item_list_name: "Product Detail Page",
-          item_variant: "{{ product.selected_or_first_available_variant.title | escape }}",
-          location_id: "{{ product.handle }}",
-          price: {{ product.selected_or_first_available_variant.price | divided_by: 100.0 }},
-          quantity: 1
-        }]
-      },
-      incognito_window: incognito_window
-    });
-
-    console.log("✅ view_item pushed to dataLayer", dataLayer);
-  }
-
-  // Optional incognito detection (SAFE)
-  if (typeof detectIncognito === "function") {
-    detectIncognito().then(function (result) {
-      incognito_window = result.isPrivate ? 1 : 0;
-      pushViewItem();
-    });
-  } else {
-    pushViewItem();
-  }
+  console.log("✅ view_item pushed to dataLayer", window.dataLayer);
 
 });
 </script>
