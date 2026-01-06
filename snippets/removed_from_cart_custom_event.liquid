@@ -46,17 +46,15 @@
        ------------------------- */
 
     const ga4Item = {
-      item_id: lastItem.variant_id.toString(),
-            item_name: lastItem.product_title,
-            item_brand: lastItem.vendor || "",
-            coupon: cart.cart_level_discount_applications?.[0]?.title || "",            
-            item_category: lastItem.product_type || "",            
-            item_variant: lastItem.variant_title || "",
-            location_id: "online_store",
-            price: lastItem.price / 100,
-            quantity: lastItem.quantity,
-            affiliation: "Online Store",
-            discount:lastItem.total_discount
+      item_id: item.variant_id.toString(),
+      item_name: item.product_title,
+      item_brand: item.vendor || "",
+      item_category: item.product_type || "",
+      coupon: cart.cart_level_discount_applications?.[0]?.title || "",  
+      item_variant: item.variant_title || "",
+      price: item.price / 100,
+      quantity: item.quantity,
+      affiliation: "Online Store"
     };
 
     window.dataLayer = window.dataLayer || [];
