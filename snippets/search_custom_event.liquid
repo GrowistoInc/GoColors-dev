@@ -16,13 +16,11 @@ document.addEventListener('DOMContentLoaded', function () {
       window.dataLayer.push({
         event: 'search',
         search_term: directSearchTerm,
-        incognito_window: incognito_windowValue
+       
       });
 
-      console.log('✅ GA4 search event pushed to dataLayer', {
-        search_term: directSearchTerm,
-        incognito_window: incognito_windowValue
-      });
+      console.log('✅ GA4 search event pushed to dataLayer', 
+
     });
   }
 
