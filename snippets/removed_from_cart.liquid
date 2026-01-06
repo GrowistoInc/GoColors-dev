@@ -1,103 +1,78 @@
 <script>
 (function () {
-  const originalFetch = window.fetch;
-  let previousCart = null;
 
-  async function getCart() {
+  let cartSnapshot = null;
+
+  async function fetchCart() {
     const res = await fetch('/cart.js');
     return await res.json();
   }
 
-  // Initialize cart snapshot
-  getCart().then(cart => previousCart = cart);
+  // Keep cart snapshot updated
+  fetchCart().then(cart => cartSnapshot = cart);
 
-  window.fetch = function (url, options = {}) {
-    return originalFetch.apply(this, arguments).then(async response => {
+  document.addEventListener('click', async function (e) {
+    const removeBtn = e.target.closest('.cart-remove-button');
+    if (!removeBtn) return;
 
-      try {
-       if (
-            typeof url === 'string' &&
-            (
-                url.includes('/cart/update')
-            ) {
+    if (!cartSnapshot || !cartSnapshot.items) return;
 
+    /* -------------------------
+       GET VARIANT ID
+       ------------------------- */
 
-          if (!previousCart) return response;
+    const variantId =
+      removeBtn.dataset.variantId ||
+      removeBtn.getAttribute('data-variant-id') ||
+      removeBtn.value;
 
-          let removedVariantId = null;
-          let newQty = null;
+    if (!variantId) {
+      console.warn('Remove button clicked but variant_id not found');
+      return;
+    }
 
-          /* ---------- HANDLE BODY TYPES ---------- */
+    /* -------------------------
+       FIND ITEM IN CART
+       ------------------------- */
 
-          if (options.body instanceof FormData) {
-            removedVariantId = options.body.get('id');
-            newQty = Number(options.body.get('quantity'));
-          }
+    const item = cartSnapshot.items.find(
+      i => i.variant_id.toString() === variantId.toString()
+    );
 
-          else if (typeof options.body === 'string') {
-            const params = new URLSearchParams(options.body);
-            removedVariantId = params.get('id');
-            newQty = Number(params.get('quantity'));
-          }
+    if (!item) return;
 
-          else if (options.headers?.['Content-Type']?.includes('application/json')) {
-            const body = JSON.parse(options.body);
-            if (body.id) {
-              removedVariantId = body.id;
-              newQty = Number(body.quantity);
-            }
-            if (body.updates) {
-              removedVariantId = Object.keys(body.updates)[0];
-              newQty = body.updates[removedVariantId];
-            }
-          }
+    /* -------------------------
+       GA4 ITEM
+       ------------------------- */
 
-          if (!removedVariantId) return response;
+    const ga4Item = {
+      item_id: item.variant_id.toString(),
+      item_name: item.product_title,
+      item_brand: item.vendor || "",
+      item_category: item.product_type || "",
+      item_variant: item.variant_title || "",
+      price: item.price / 100,
+      quantity: item.quantity,
+      affiliation: "Online Store"
+    };
 
-          const previousItem = previousCart.items.find(
-            i => i.variant_id.toString() === removedVariantId.toString()
-          );
-
-          if (!previousItem) return response;
-
-          const removedQty =
-            newQty === 0
-              ? previousItem.quantity
-              : Math.max(previousItem.quantity - newQty, 1);
-
-          const ga4Item = {
-            item_id: previousItem.variant_id.toString(),
-            item_name: previousItem.product_title,
-            item_brand: previousItem.vendor || "",
-            item_category: previousItem.product_type || "",
-            item_variant: previousItem.variant_title || "",
-            price: previousItem.price / 100,
-            quantity: removedQty,
-            affiliation: "Online Store"
-          };
-
-          window.dataLayer = window.dataLayer || [];
-          window.dataLayer.push({
-            event: 'remove_from_cart',
-            currency: previousCart.currency || 'INR',
-            value: ga4Item.price * ga4Item.quantity,
-            items: [ga4Item]
-          });
-
-          console.log('✅ remove_from_cart (exact)', ga4Item);
-
-          // Update cart snapshot AFTER removal
-          setTimeout(async () => {
-            previousCart = await getCart();
-          }, 300);
-        }
-
-      } catch (e) {
-        console.error('remove_from_cart error', e);
-      }
-
-      return response;
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'remove_from_cart',
+      currency: cartSnapshot.currency || 'INR',
+      value: ga4Item.price * ga4Item.quantity,
+      items: [ga4Item]
     });
-  };
+
+    console.log('✅ remove_from_cart (click-based exact)', ga4Item);
+
+    /* -------------------------
+       UPDATE CART SNAPSHOT AFTER REMOVE
+       ------------------------- */
+    setTimeout(async () => {
+      cartSnapshot = await fetchCart();
+    }, 500);
+  });
+
 })();
 </script>
