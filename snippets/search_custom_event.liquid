@@ -1,26 +1,29 @@
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-
-  // ---------------------------
+ <script>
+ // ---------------------------
   // Normal Search Page Event
   // ---------------------------
   const urlParams = new URLSearchParams(window.location.search);
   const directSearchTerm = urlParams.get('q') || urlParams.get('_ss');
 
   if (window.location.pathname.includes('/search') && directSearchTerm) {
+    gtag('event', 'search', {
+      search_term: directSearchTerm
+    });
+
+    console.log("GA4 search event fired:", directSearchTerm);
 
     detectIncognito().then((result) => {
-      const incognito_windowValue = result.isPrivate ? 1 : 0;
+      let incognito_windowValue = result.isPrivate ? 1 : 0;
 
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: 'search',
+      gtag('event', 'search', {
         search_term: directSearchTerm,
-       
+        incognito_window: incognito_windowValue
       });
 
-      console.log('✅ GA4 search event pushed to dataLayer', 
-
+      console.log("GA4 search event + incognito:", {
+        search_term: directSearchTerm,
+        incognito_window: incognito_windowValue
+      });
     });
   }
 
