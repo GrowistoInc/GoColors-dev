@@ -1,37 +1,46 @@
-{% comment %} GA4 select_item → dataLayer {% endcomment %}
 <script>
 document.addEventListener("click", function (e) {
 
-  const productCard = e.target.closest(".card__content");
+  const productCard = e.target.closest(".card-wrapper");
   if (!productCard) return;
 
-  console.log('productCard' , productCard);
+  const productLink = productCard.querySelector('a[href*="/products/"]');
+  if (!productLink) return;
+
+  const productName =
+    productCard.querySelector(".similar-product-title a")?.innerText.trim() ||
+    productCard.querySelector(".card__heading a")?.innerText.trim() ||
+    "NA";
+
+  const priceText =
+    productCard.querySelector(".price-item--sale")?.innerText ||
+    productCard.querySelector(".price-item--regular")?.innerText ||
+    "";
+
+  const price = Number(priceText.replace(/[^0-9.]/g, ""));
+
+  const productUrl = productLink.getAttribute("href");
+
   const item = {
-    item_id: productCard.dataset.productId || "",
-    item_name: productCard.dataset.productName || "",
+    item_id: productUrl.split("/products/")[1], // fallback
+    item_name: productName,
     affiliation: "{{ shop.name }}",
     coupon: "",
     discount: 0,
-    index: Number(productCard.dataset.index || 0),
-    item_brand: productCard.dataset.productBrand || "",
-    item_category: productCard.dataset.productCategory || "",
-    item_category2: productCard.dataset.productCategory2 || "",
-    item_category3: productCard.dataset.productCategory3 || "",
-    item_category4: productCard.dataset.productCategory4 || "",
-    item_category5: productCard.dataset.productCategory5 || "",
-    item_list_id: productCard.dataset.listId || "",
-    item_list_name: productCard.dataset.listName || "",
-    item_variant: productCard.dataset.productVariant || "",
+    index: 0,
+    item_brand: "{{ shop.name }}",
+    item_category: "{{ collection.title | default: 'NA' }}",
+    item_category2: "",
+    item_category3: "",
+    item_category4: "",
+    item_category5: "",
+    item_list_id: "collection_page",
+    item_list_name: "{{ collection.title | default: 'Collection' }}",
+    item_variant: "",
     location_id: window.location.href,
-    price: Number(productCard.dataset.productPrice || 0),
+    price: price,
     quantity: 1
   };
-
-  // Detect Incognito
-  if (typeof detectIncognito !== "function") {
-    console.warn("detectIncognito not available");
-    return;
-  }
 
   detectIncognito().then(function (result) {
 
@@ -46,7 +55,7 @@ document.addEventListener("click", function (e) {
       }
     });
 
-    console.log("✅ GA4 select_item pushed to dataLayer", item);
+    console.log("✅ select_item fired", item);
   });
 
 });
