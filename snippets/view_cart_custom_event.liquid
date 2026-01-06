@@ -1,0 +1,77 @@
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  // Ensure cart page only
+  if (!window.location.pathname.includes('/cart')) return;
+
+  fetch('/cart.js')
+    .then(res => res.json())
+    .then(cart => {
+
+      if (!cart || !cart.items || !cart.items.length) return;
+
+      const cartDOMItems = document.querySelectorAll('.cart-item');
+      const items = [];
+
+      cart.items.forEach((item, index) => {
+
+        const cartRow = cartDOMItems[index];
+
+        let specifications = [];
+        let selectedSize = 'NA';
+
+        if (cartRow) {
+          const options = cartRow.querySelectorAll(
+            '.cart-item__options .cart-item__option-name'
+          );
+
+          options.forEach(labelEl => {
+            const label = labelEl?.innerText?.trim();
+            const value = labelEl?.nextElementSibling?.innerText?.trim();
+
+            if (!label || !value) return;
+
+            if (label.toLowerCase() === 'size') {
+              selectedSize = value;
+            } else {
+              specifications.push(`${label}: ${value}`);
+            }
+          });
+        }
+
+        items.push({
+          item_id: item.variant_id.toString(),
+          item_name: item.product_title,
+          affiliation: "Online Store",
+          coupon: cart.cart_level_discount_applications?.[0]?.title || "",
+          discount: item.total_discount ? item.total_discount / 100 : 0,
+          index: index + 1,
+          item_brand: item.vendor || "NA",
+          item_category: item.product_type || "NA",
+          item_category2: "NA",
+          item_category3: specifications.join(', ') || "NA",
+          item_category4: selectedSize,
+          item_category5: "Men",
+          item_list_id: sessionStorage.getItem('item_list_id') || "cart",
+          item_list_name: sessionStorage.getItem('item_list_name') || "Cart",
+          item_variant: item.variant_title || "",
+          location_id: "online_store",
+          price: item.final_price / 100,
+          quantity: item.quantity
+        });
+      });
+
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "view_cart",
+        currency: cart.currency || "INR",
+        value: cart.total_price / 100,
+        items: items
+      });
+
+      console.log("✅ GA4 view_cart pushed to dataLayer", items);
+    })
+    .catch(err => console.error("❌ Cart fetch failed", err));
+
+});
+</script>
