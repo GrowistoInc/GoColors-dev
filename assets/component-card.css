@@ -637,3 +637,7 @@ span.price-item.price-item--sale.price-item--last {
 .card__content .price .price-item{
   margin: 0 0.5rem 0 0;
 }
+
+.card-wrapper {
+    cursor: pointer !important;
+}
