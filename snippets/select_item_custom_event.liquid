@@ -42,6 +42,8 @@ document.addEventListener("click", function (e) {
     }
   });
 
+  const itemIndex = Number(productCard.dataset.index) || 0;
+
 
   const item = {
     item_id: productUrl.split("/products/")[1],
@@ -54,6 +56,7 @@ document.addEventListener("click", function (e) {
     item_list_name: "{{ collection.title | default: 'Collection' }}",
     location_id: window.location.href,
     item_variant: variantTitle,
+    index: itemIndex,
     ...itemCategories 
   };
 
