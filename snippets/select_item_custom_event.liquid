@@ -1,25 +1,4 @@
-{% assign collectionsName = blank %}
-            {% for collection in product.collections %}
-              {% if product.collections.size > 1 %}
-                {% if forloop.index == 1  %}
-                  {% assign collectionsName = collectionsName | append : collection.title %}
-                  {% else %}
-                  {% assign collectionsName = collectionsName | append : ', ' | append : collection.title  %}
-                {% endif %}
-              {% else %}
-                  {% assign collectionsName = product.collections[0].title %}
-              {% endif %}
-{% endfor %}
-  <script>
-     window.collectionsName = {
-    value: "{{ collection.title | escape }}"
-  };
-    {% comment %} window.collectionsName = {
-      value:'{{ collectionsName }}' } {% endcomment %}
-
-  </script>
-
-  <script>
+<script>
 document.addEventListener("click", function (e) {
 
   const productCard = e.target.closest(".card-wrapper");
@@ -41,19 +20,27 @@ document.addEventListener("click", function (e) {
   const price = Number(priceText.replace(/[^0-9.]/g, ""));
   const productUrl = productLink.getAttribute("href");
 
-  /* ✅ FIX HERE */
-  const collectionsArr = window.collectionsName?.value
-    ? window.collectionsName.value.split(',').map(v => v.trim())
-    : [];
+  /* ✅ COLLECTIONS — PRODUCT SPECIFIC */
+  const collectionsValue = productCard.dataset.collections || "";
 
+  const collectionsArr = collectionsValue
+    .split(',')
+    .map(v => v.trim())
+    .filter(Boolean);
+
+  /* ✅ GA4 CATEGORY MAPPING */
   const itemCategories = {};
+
   collectionsArr.forEach((value, index) => {
-    itemCategories[`item_category${index + 1}`] = value;
+    if (index === 0) {
+      itemCategories.item_category = value;
+    } else if (index < 5) {
+      itemCategories[`item_category${index + 1}`] = value;
+    }
   });
 
-  console.log('collections value =>', window.collectionsName?.value);
-  console.log('collectionsArr =>', collectionsArr);
-  console.log('itemCategories =>', itemCategories);
+  console.log("collectionsArr =>", collectionsArr);
+  console.log("itemCategories =>", itemCategories);
 
   const item = {
     item_id: productUrl.split("/products/")[1],
@@ -64,8 +51,9 @@ document.addEventListener("click", function (e) {
     quantity: 1,
     item_list_id: "collection_page",
     item_list_name: "{{ collection.title | default: 'Collection' }}",
-    ...itemCategories ,
-    location_id: window.location.href 
+    location_id: window.location.href,
+
+    ...itemCategories // ✅ MUST be last
   };
 
   window.dataLayer = window.dataLayer || [];
@@ -78,5 +66,4 @@ document.addEventListener("click", function (e) {
 
   console.log("✅ select_item fired", item);
 });
-
 </script>
