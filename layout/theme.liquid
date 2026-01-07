@@ -327,7 +327,7 @@ console.log("✅ FB ViewContent pushed");
   {% assign collectionsName = blank %}
             {% for collection in product.collections %}
               {% if product.collections.size > 1 %}
-                {% if forloop.index == 1 or forloop.last %}
+                {% if forloop.index == 1  %}
                   {% assign collectionsName = collectionsName | append : collection.title %}
                   {% else %}
                   {% assign collectionsName = collectionsName | append : ', ' | append : collection.title  %}
