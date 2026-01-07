@@ -329,13 +329,11 @@ console.log("✅ FB ViewContent pushed");
               {% if product.collections.size > 1 %}
                 {% assign collectionsName = collectionsName | append : collection.title %}
                  {% unless forloop.last %}
-                  , 
-                  {% endunless %}
-                {% comment %} {% if forloop.index == 1 or forloop.last %}
-                  {% assign collectionsName = collectionsName | append : collection.title %}
+                 {% assign collectionsName = collectionsName | append : ', ' | append : collection.title  %} 
                   {% else %}
-                  {% assign collectionsName = collectionsName | append : ', ' | append : collection.title  %}
-                {% endif %} {% endcomment %}
+                   {% assign collectionsName = collectionsName | append : collection.title %}
+                  {% endunless %}
+               
               {% else %}
                   {% assign collectionsName = product.collections[0].title %}
               {% endif %}
