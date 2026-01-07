@@ -36,7 +36,7 @@
     );
 
     if (!item) return;
-    console.log('item' , item);
+    console.log('item' , item.total_discount);
 
     const ga4Item = {
       item_id: item.variant_id.toString(),
@@ -46,7 +46,6 @@
       item_variant: item.variant_title || "",
       price: item.price / 100,
       quantity: item.quantity,
-      discount: item.total_discount,
       affiliation: "Online Store"
     };
 
