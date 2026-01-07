@@ -48,6 +48,10 @@ document.addEventListener("click", function (e) {
     itemCategories[`item_category${index + 1}`] = value;
   });
 
+  console.log('collections value =>', window.collectionsName?.value);
+  console.log('collectionsArr =>', collectionsArr);
+  console.log('itemCategories =>', itemCategories);
+
   const item = {
     item_id: productUrl.split("/products/")[1],
     item_name: productName,
