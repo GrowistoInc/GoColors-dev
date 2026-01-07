@@ -1,16 +1,4 @@
-{% assign collectionsName = blank %}
-            {% for collection in product.collections %}
-              {% if product.collections.size > 1 %}
 
-                {% if forloop.index == 1 or forloop.last %}
-                  {% assign collectionsName = collectionsName | append : collection.title %}
-                  {% else %}
-                  {% assign collectionsName = collectionsName | append : ', ' | append : collection.title  %}
-                {% endif %}
-              {% else %}
-                  {% assign collectionsName = product.collections[0].title %}
-              {% endif %}
-{% endfor %}
 
 <script>
 (function () {
