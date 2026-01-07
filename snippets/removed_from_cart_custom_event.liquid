@@ -113,7 +113,8 @@
       item_variant: item.variant_title || "Default Title",
       price: item.final_price / 100,
       quantity: item.quantity,
-      discount : item.total_discount,       
+      discount : item.total_discount, 
+      coupon :  item[discounts].title,   
       affiliation: "Online Store"
     };
 
