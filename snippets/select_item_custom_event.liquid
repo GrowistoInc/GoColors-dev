@@ -1,21 +1,3 @@
-{% assign collectionsName = blank %}
-            {% for collection in product.collections %}
-              {% if product.collections.size > 1 %}
-                {% if forloop.index == 1  %}
-                  {% assign collectionsName = collectionsName | append : collection.title %}
-                  {% else %}
-                  {% assign collectionsName = collectionsName | append : ', ' | append : collection.title  %}
-                {% endif %}
-              {% else %}
-                  {% assign collectionsName = product.collections[0].title %}
-              {% endif %}
-{% endfor %}
-  <script>
-    window.collectionsName = {
-      value:'{{ collectionsName }}' }
-
-  </script>
-<script>
 document.addEventListener("click", function (e) {
 
   const productCard = e.target.closest(".card-wrapper");
@@ -35,50 +17,40 @@ document.addEventListener("click", function (e) {
     "";
 
   const price = Number(priceText.replace(/[^0-9.]/g, ""));
-
   const productUrl = productLink.getAttribute("href");
+
+  /* ✅ FIX HERE */
+  const collectionsArr = window.collectionsName?.value
+    ? window.collectionsName.value.split(',').map(v => v.trim())
+    : [];
+
   const itemCategories = {};
-
-          collectionsArr.forEach((value, index) => {
-            itemCategories[`item_category${index + 1}`] = value;
-          });
-  const item = {
-    item_id: productUrl.split("/products/")[1], // fallback
-    item_name: productName,
-    affiliation: "{{ shop.name }}",
-    coupon: "",
-    discount: 0,
-    index: 0,
-    item_brand: "{{ shop.name }}",
-    ...itemCategories,
-    item_category: "{{ collection.title  }}",
-    item_category2: "",
-    item_category3: "",
-    item_category4: "",
-    item_category5: "",
-    item_list_id: "collection_page",
-    item_list_name: "{{ collection.title | default: 'Collection' }}",
-    item_variant: "",
-    location_id: window.location.href,
-    price: price,
-    quantity: 1
-  };
-
-  detectIncognito().then(function (result) {
-
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
-      event: "select_item",
-      incognito_window: result.isPrivate ? 1 : 0,
-      ecommerce: {
-        item_list_id: item.item_list_id,
-        item_list_name: item.item_list_name,
-        items: [item]
-      }
-    });
-
-    console.log("✅ select_item fired", item);
+  collectionsArr.forEach((value, index) => {
+    itemCategories[`item_category${index + 1}`] = value;
   });
 
+  const item = {
+    item_id: productUrl.split("/products/")[1],
+    item_name: productName,
+    affiliation: "{{ shop.name }}",
+    item_brand: "{{ shop.name }}",
+    price: price,
+    quantity: 1,
+    item_list_id: "collection_page",
+    item_list_name: "{{ collection.title | default: 'Collection' }}",
+    location_id: window.location.href,
+
+    /* ✅ dynamic categories */
+    ...itemCategories
+  };
+
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: "select_item",
+    ecommerce: {
+      items: [item]
+    }
+  });
+
+  console.log("✅ select_item fired", item);
 });
-</script>
