@@ -12,6 +12,11 @@ document.addEventListener("click", function (e) {
     productCard.querySelector(".card__heading a")?.innerText.trim() ||
     "NA";
 
+    const variantTitle =
+      productCard.querySelector('[data-variant-title]')?.innerText?.trim() ||
+      productCard.querySelector('.variant-title')?.innerText?.trim() ||
+      'Default Title';
+
   const priceText =
     productCard.querySelector(".price-item--sale")?.innerText ||
     productCard.querySelector(".price-item--regular")?.innerText ||
