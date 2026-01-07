@@ -11,8 +11,11 @@
               {% endif %}
 {% endfor %}
   <script>
-    window.collectionsName = {
-      value:'{{ collectionsName }}' }
+     window.collectionsName = {
+    value: "{{ collection.title | escape }}"
+  };
+    {% comment %} window.collectionsName = {
+      value:'{{ collectionsName }}' } {% endcomment %}
 
   </script>
 
