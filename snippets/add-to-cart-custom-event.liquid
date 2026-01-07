@@ -16,6 +16,9 @@
           if (!cart.items || !cart.items.length) return response;
 
           const lastItem = cart.items[cart.items.length - 1];
+
+          console.log('lastItem' , lastItem);
+
           const collectionsArr = window.collectionsName.value.split(',').map(item => item.trim());
           const itemCategories = {};
 
