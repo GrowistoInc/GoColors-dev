@@ -1,4 +1,4 @@
-<script>
+{% comment %} <script>
 (function () {
 
   let cartSnapshot = null;
@@ -65,6 +65,69 @@
     setTimeout(async () => {
       cartSnapshot = await fetchCart();
     }, 500);
+  });
+
+})();
+</script> {% endcomment %}
+
+
+
+<script>
+(function () {
+
+  async function fetchCart() {
+    const res = await fetch('/cart.js');
+    return await res.json();
+  }
+
+  document.addEventListener('click', async function (e) {
+
+    /* 🔹 UNIVERSAL REMOVE BUTTON DETECTION */
+    const removeBtn = e.target.closest(
+      '[data-variant-id], button[name="remove"], .cart-remove-button, a[href*="quantity=0"]'
+    );
+    if (!removeBtn) return;
+
+    const variantId =
+      removeBtn.dataset.variantId ||
+      removeBtn.value ||
+      removeBtn.getAttribute('data-variant-id');
+
+    if (!variantId) return;
+
+    /* 🔹 GET LATEST CART (BEFORE REMOVE) */
+    const cart = await fetchCart();
+    if (!cart?.items?.length) return;
+
+    const item = cart.items.find(
+      i => i.variant_id.toString() === variantId.toString()
+    );
+
+    if (!item) return;
+
+    /* 🔹 GA4 ITEM */
+    const ga4Item = {
+      item_id: item.variant_id.toString(),
+      item_name: item.product_title,
+      item_brand: item.vendor || "",
+      item_category: item.product_type || "",
+      item_variant: item.variant_title || "Default Title",
+      price: item.final_price / 100,
+      quantity: item.quantity,
+      affiliation: "Online Store"
+    };
+
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'remove_from_cart',
+      currency: cart.currency || 'INR',
+      value: (item.final_price / 100) * item.quantity,
+      ecommerce: {
+        items: [ga4Item]
+      }
+    });
+
+    console.log('✅ remove_from_cart fired', ga4Item);
   });
 
 })();
