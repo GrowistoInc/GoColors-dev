@@ -2,6 +2,7 @@
 {% for collection in product.collections %}
   {{ collection.title }} 5555555
   {% if product.collections.size > 1 %}
+    {{ collection.title }} 6666666
     {% if forloop.index == 1 or forloop.last %}
     {% assign collectionsName = collectionsName | append : collection.title %}
      {% else %}
