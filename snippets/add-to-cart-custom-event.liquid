@@ -1,5 +1,6 @@
 {% assign collectionsName = blank %}
 {% for collection in product.collections %}
+  {{ collection.title }} 5555555
   {% if product.collections.size > 1 %}
     {% if forloop.index == 1 or forloop.last %}
     {% assign collectionsName = collectionsName | append : collection.title %}
