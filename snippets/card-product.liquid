@@ -82,7 +82,7 @@
            {%- if card_product.tags contains 'pfs:label-MostlySane' -%}<span class="product-tag MostlySaneTag">MostlySane</span> {%- endif -%}
             <div class="media media--transparent media--hover-effect">
               {% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
-              <a# href="{{ card_product.url }}">
+              <a href="#{{ card_product.url }}">
               <img
                 srcset="
                   {%- if card_product.featured_media.width >= 165 -%}{{ card_product.featured_media | image_url: width: 165 }} 165w,{%- endif -%}
