@@ -13,9 +13,7 @@ document.addEventListener("click", function (e) {
     "NA";
 
     const variantTitle =
-      productCard.querySelector('[data-variant-title]')?.innerText?.trim() ||
-      productCard.querySelector('.variant-title')?.innerText?.trim() ||
-      'Default Title';
+       productCard.dataset.variantTitle || 'Default Title';
 
   const priceText =
     productCard.querySelector(".price-item--sale")?.innerText ||
