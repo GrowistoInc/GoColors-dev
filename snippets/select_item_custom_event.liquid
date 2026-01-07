@@ -55,7 +55,7 @@ document.addEventListener("click", function (e) {
     item_list_id: "collection_page",
     item_list_name: "{{ collection.title | default: 'Collection' }}",
     location_id: window.location.href,
-    
+    item_variant: variantTitle,
     ...itemCategories 
   };
 
