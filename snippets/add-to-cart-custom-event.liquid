@@ -6,7 +6,9 @@
     return originalFetch.apply(this, arguments).then(async response => {
 
       try {
+
         if (arguments[0].includes('/cart/add')) {
+
 
           const cartRes = await fetch('/cart.js');
           const cart = await cartRes.json();
