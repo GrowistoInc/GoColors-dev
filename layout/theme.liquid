@@ -338,7 +338,8 @@ console.log("✅ FB ViewContent pushed");
               {% endif %}
 {% endfor %}
   <script>
-    window.collectionsName = { {{ collectionsName }} }
+    window.collectionsName = {
+      value:'{{ collectionsName }}' }
 
   </script>
 {% endif %}
