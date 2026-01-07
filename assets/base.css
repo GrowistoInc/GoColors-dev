@@ -3778,3 +3778,7 @@ span.mst-drawer-title-text {
   font-size: 12px;color: #fff;font-weight: 600;
 }
 span.product-tag.mostlySane {left: auto; right: 0;}
+
+.card-wrapper {
+    cursor: pointer;
+}
