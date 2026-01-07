@@ -1,3 +1,20 @@
+{% assign collectionsName = blank %}
+            {% for collection in product.collections %}
+              {% if product.collections.size > 1 %}
+                {% if forloop.index == 1  %}
+                  {% assign collectionsName = collectionsName | append : collection.title %}
+                  {% else %}
+                  {% assign collectionsName = collectionsName | append : ', ' | append : collection.title  %}
+                {% endif %}
+              {% else %}
+                  {% assign collectionsName = product.collections[0].title %}
+              {% endif %}
+{% endfor %}
+  <script>
+    window.collectionsName = {
+      value:'{{ collectionsName }}' }
+
+  </script>
 <script>
 document.addEventListener("click", function (e) {
 
@@ -20,7 +37,11 @@ document.addEventListener("click", function (e) {
   const price = Number(priceText.replace(/[^0-9.]/g, ""));
 
   const productUrl = productLink.getAttribute("href");
+  const itemCategories = {};
 
+          collectionsArr.forEach((value, index) => {
+            itemCategories[`item_category${index + 1}`] = value;
+          });
   const item = {
     item_id: productUrl.split("/products/")[1], // fallback
     item_name: productName,
@@ -29,6 +50,7 @@ document.addEventListener("click", function (e) {
     discount: 0,
     index: 0,
     item_brand: "{{ shop.name }}",
+    ...itemCategories,
     item_category: "{{ collection.title  }}",
     item_category2: "",
     item_category3: "",
