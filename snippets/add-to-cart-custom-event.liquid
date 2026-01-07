@@ -1,3 +1,5 @@
+
+
 <script>
 (function () {
   const originalFetch = window.fetch;
@@ -17,6 +19,9 @@
 
           const lastItem = cart.items[cart.items.length - 1];
           console.log('lastItem', lastItem);
+          console.log({{ product.collections }});
+
+
           const ga4Item = {
             item_id: lastItem.variant_id.toString(),
             item_name: lastItem.product_title,
@@ -50,3 +55,4 @@
   };
 })();
 </script>
+
