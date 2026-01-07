@@ -327,12 +327,15 @@ console.log("✅ FB ViewContent pushed");
   {% assign collectionsName = blank %}
             {% for collection in product.collections %}
               {% if product.collections.size > 1 %}
-
-                {% if forloop.last %}
+                {% assign collectionsName = collectionsName | append : collection.title %}
+                 {% unless forloop.last %}
+                  , 
+                  {% endunless %}
+                {% comment %} {% if forloop.index == 1 or forloop.last %}
                   {% assign collectionsName = collectionsName | append : collection.title %}
                   {% else %}
                   {% assign collectionsName = collectionsName | append : ', ' | append : collection.title  %}
-                {% endif %}
+                {% endif %} {% endcomment %}
               {% else %}
                   {% assign collectionsName = product.collections[0].title %}
               {% endif %}
