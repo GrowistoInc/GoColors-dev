@@ -1,4 +1,20 @@
+{% assign collectionsName = blank %}
+            {% for collection in product.collections %}
+              {% if product.collections.size > 1 %}
+                {% if forloop.index == 1  %}
+                  {% assign collectionsName = collectionsName | append : collection.title %}
+                  {% else %}
+                  {% assign collectionsName = collectionsName | append : ', ' | append : collection.title  %}
+                {% endif %}
+              {% else %}
+                  {% assign collectionsName = product.collections[0].title %}
+              {% endif %}
+{% endfor %}
+  <script>
+    window.collectionsName = {
+      value:'{{ collectionsName }}' }
 
+  </script>
 
   <script>
 document.addEventListener("click", function (e) {
