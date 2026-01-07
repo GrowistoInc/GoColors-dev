@@ -38,8 +38,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
           });
         }
-         const storedCategories =
-          JSON.parse(sessionStorage.getItem(`collections_${item.variant_id}`)) || {};
 
         items.push({
           item_id: item.variant_id.toString(),
@@ -49,7 +47,11 @@ document.addEventListener("DOMContentLoaded", function () {
           discount: item.total_discount ? item.total_discount / 100 : 0,
           index: index + 1,
           item_brand: item.vendor || "NA",
-          ...storedCategories,
+          item_category: item.product_type || "NA",
+          item_category2: "NA",
+          item_category3: specifications.join(', ') || "NA",
+          item_category4: selectedSize,
+          item_category5: "Men",
           item_list_id: sessionStorage.getItem('item_list_id') || "cart",
           item_list_name: sessionStorage.getItem('item_list_name') || "Cart",
           item_variant: item.variant_title || "",

@@ -22,14 +22,7 @@
           collectionsArr.forEach((value, index) => {
             itemCategories[`item_category${index + 1}`] = value;
           });
-
-          sessionStorage.setItem(
-            `collections_${item.variant_id}`,
-            JSON.stringify(itemCategories)
-          );  
-
-
-
+          
           const ga4Item = {
             item_id: lastItem.variant_id.toString(),
             item_name: lastItem.product_title,
