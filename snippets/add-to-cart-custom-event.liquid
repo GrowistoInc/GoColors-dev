@@ -1,5 +1,3 @@
-
-
 <script>
 (function () {
   const originalFetch = window.fetch;
@@ -18,20 +16,12 @@
           if (!cart.items || !cart.items.length) return response;
 
           const lastItem = cart.items[cart.items.length - 1];
-          console.log('lastItem', lastItem);
-
-          
-          console.log('collections' , window.collectionsName.value );
           const collectionsArr = window.collectionsName.value.split(',').map(item => item.trim());
           const itemCategories = {};
 
-            collectionsArr.forEach((value, index) => {
-              itemCategories[`item_category${index + 1}`] = value;
-            });
-
-            console.log(itemCategories);
-
-
+          collectionsArr.forEach((value, index) => {
+            itemCategories[`item_category${index + 1}`] = value;
+          });
           const ga4Item = {
             item_id: lastItem.variant_id.toString(),
             item_name: lastItem.product_title,
