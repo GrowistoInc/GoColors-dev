@@ -57,10 +57,8 @@ document.addEventListener("click", function (e) {
     quantity: 1,
     item_list_id: "collection_page",
     item_list_name: "{{ collection.title | default: 'Collection' }}",
-    location_id: window.location.href,
-
-    /* ✅ dynamic categories */
-    ...itemCategories
+    ...itemCategories ,
+    location_id: window.location.href 
   };
 
   window.dataLayer = window.dataLayer || [];
