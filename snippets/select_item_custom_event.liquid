@@ -50,8 +50,8 @@ document.addEventListener("click", function (e) {
     item_list_id: "collection_page",
     item_list_name: "{{ collection.title | default: 'Collection' }}",
     location_id: window.location.href,
-
-    ...itemCategories // ✅ MUST be last
+    item_variant: all_products['productUrl.split("/products/")[1]'].selected_or_first_available_variant.title,
+    ...itemCategories 
   };
 
   window.dataLayer = window.dataLayer || [];
