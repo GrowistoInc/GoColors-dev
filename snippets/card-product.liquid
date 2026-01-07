@@ -40,7 +40,7 @@
       assign ratio = 1
     endif
   -%}
-  <div class="card-wrapper product-card-wrapper underline-links-hover"  data-variant-title="{{ card_product.selected_or_first_available_variant.title | escape }}"  data-collections="{{ card_product.collections | map: 'title' | join: ', ' }}">
+  <div class="card-wrapper product-card-wrapper underline-links-hover" data-index="{{ forloop.index }} data-variant-title="{{ card_product.selected_or_first_available_variant.title | escape }}"  data-collections="{{ card_product.collections | map: 'title' | join: ', ' }}">
     <div
       class="
         card card--{{ settings.card_style }}
