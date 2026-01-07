@@ -1,10 +1,10 @@
 {% assign collectionsName = blank %}
-{% for product in product.collections %}
+{% for collection in product.collections %}
   {% if product.collections.size > 1 %}
     {% if forloop.index == 1 or forloop.last %}
-    {% assign collectionsName = collectionsName | append : product.collections.title %}
+    {% assign collectionsName = collectionsName | append : collection.title %}
      {% else %}
-        {% assign collectionsName = collectionsName | append : ', ' | append : product.collections.title  %}
+        {% assign collectionsName = collectionsName | append : ', ' | append : collection.title  %}
         {% endif %}
     {% else %}
       {% assign collectionsName = product.collections[0].title %}
