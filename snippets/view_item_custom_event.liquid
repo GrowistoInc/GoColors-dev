@@ -2,6 +2,13 @@
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
+     const collectionsArr = window.collectionsName.value.split(',').map(item => item.trim());
+          const itemCategories = {};
+
+          collectionsArr.forEach((value, index) => {
+            itemCategories[`item_category${index + 1}`] = value;
+          });
+
   window.dataLayer = window.dataLayer || [];
 
   dataLayer.push({
@@ -17,11 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
         discount: 0,
         index: 0,
         item_brand: "{{ product.vendor | escape }}",
-        item_category: "{{ product.type | escape }}",
-        item_category2: "{% if product.collections.first %}{{ product.collections.first.title | escape }}{% else %}NA{% endif %}",
-        item_category3: "NA",
-        item_category4: "NA",
-        item_category5: "NA",
+       ...itemCategories,
         item_list_id: "product_page",
         item_list_name: "Product Detail Page",
         item_variant: "{{ product.selected_or_first_available_variant.title | escape }}",
