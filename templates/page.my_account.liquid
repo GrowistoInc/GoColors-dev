@@ -290,10 +290,10 @@ row-gap: 40px;
             <p>DATE OF BIRTH</p>:
             <p id="dob">
                 {% if customer %}
-                {{ customer.DateOfBirth | strftime('%B') }}{% endif %}
+                {{ customer.DateOfBirth | strftime }}{% endif %}
 <!--         {{ customer }} -->
               {% if customer %}
-                {{ customer.DateOfBirth |strftime('%B')  }}{% endif %}
+                {{ customer.DateOfBirth | strftime }}{% endif %}
             </p>
         </div>
       </div>
@@ -443,4 +443,16 @@ window.onload = function() {
       
 });
 </script>
-{% include "easy_rewards_my_accont_script" %}
+{% include "easy_rewards_my_accont_script" %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{{ customer.DateOfBirth | strftime('%B') }}"
+  to: "{{ customer.DateOfBirth | strftime }}"
+  position: 6258..6295
+- from: "{{ customer.DateOfBirth |strftime('%B')  }}"
+  to: "{{ customer.DateOfBirth | strftime }}"
+  position: 6387..6424
+{%- endcomment -%}

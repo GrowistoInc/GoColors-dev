@@ -1,7 +1,7 @@
 {% render 'moengage_variable' %}
 
 {% for transaction in transactions %}
-  {% assign payment_type = {{ transaction.gateway_display_name }} %}
+  {% assign payment_type = nil %}
 {% endfor %}
 {% assign line_item_qty = '' %}
 {% assign line_item_sku = '' %}
@@ -1702,4 +1702,13 @@ $(document).ready(function(){
 
     });
 
-</script>
+</script>{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% assign payment_type = {{ transaction.gateway_display_name }} %}"
+  to: "{% assign payment_type = nil %}"
+  position: 74..105
+{%- endcomment -%}

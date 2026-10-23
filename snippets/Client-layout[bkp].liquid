@@ -46,5 +46,15 @@
       <div><a class="iwishRemoveBtn" href="{{removeWishLink}}" title="Remove from wishlist">Remove</a></div>
     </div>
   </div>
-  {{ /form }}
+  {{ form }}
 </li>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{{ /form }}"
+  to: "{{ form }}"
+  position: 1856..1866
+{% endcomment %}
